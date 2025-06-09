@@ -1514,7 +1514,7 @@ export default function Landing() {
 
       {/* Desktop Why ChicksX Section */}
       <section className="hidden md:block w-full py-16 bg-gray-50">
-        <div className="w-full" style={{marginLeft: '120px', marginRight: '120px'}}>
+        <div className="w-full px-32">
           <div className="flex items-start gap-8">
             {/* Title */}
             <div className="flex-shrink-0">
