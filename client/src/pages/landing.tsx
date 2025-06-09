@@ -1365,70 +1365,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Desktop Why ChicksX Section */}
-      <section className="hidden md:block w-full py-16 bg-gray-50">
-        <div className="w-full" style={{marginLeft: '120px', marginRight: '120px'}}>
-          <div className="grid grid-cols-2 gap-8 items-start">
-            {/* Left Column - Title */}
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-0">Why ChicksX?</h2>
-            </div>
-            
-            {/* Right Column - Description */}
-            <div>
-              <p className="text-gray-600 leading-relaxed">
-                We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our top priority is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously updating and perfecting our security measures and protocols, we ensure to provide the safest platform possible.
-              </p>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
-            {/* Global Crypto Trading */}
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Global Crypto Trading Made Simple</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Trade crypto and fiat currencies from anywhere, anytime. We support all digital currencies with the lowest fees.
-              </p>
-              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium">
-                Learn more
-              </Button>
-            </div>
-            
-            {/* Trade 200+ Currencies */}
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Trade 200+ Currencies at Lowest Rates</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                From BTC to ETH, USDT, SOL, plus fiat currencies like USD and CAD - we offer competitive rates on every trade.
-              </p>
-              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium">
-                Learn more
-              </Button>
-            </div>
-            
-            {/* Pay and Withdraw */}
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Pay and Withdraw Your Way</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                We give you the option of selecting the digital currency to sell, and your preferred cashout or payout method.
-              </p>
-              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium">
-                Learn more
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mobile Why ChicksX Section */}
-      <section className="md:hidden bg-gray-50 px-4 pt-24 pb-8">
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ChicksX?</h2>
-        </div>
-        <div className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto text-center">
-          We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our focus is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously updating and perfecting our security protocols, we ensure to provide the safest platform possible.
-        </div>
-      </section>
-
       {/* Crypto Cards Section */}
       <section className="w-full py-6 sm:py-8 relative">
         {/* Desktop Layout */}
@@ -1576,7 +1512,69 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Desktop Why ChicksX Section */}
+      <section className="hidden md:block w-full py-16 bg-gray-50">
+        <div className="w-full" style={{marginLeft: '120px', marginRight: '120px'}}>
+          <div className="grid grid-cols-2 gap-8 items-start">
+            {/* Left Column - Title */}
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-0">Why ChicksX?</h2>
+            </div>
+            
+            {/* Right Column - Description */}
+            <div>
+              <p className="text-gray-600 leading-relaxed">
+                We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our top priority is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously updating and perfecting our security measures and protocols, we ensure to provide the safest platform possible.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
+            {/* Global Crypto Trading */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Global Crypto Trading Made Simple</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Trade crypto and fiat currencies from anywhere, anytime. We support all digital currencies with the lowest fees.
+              </p>
+              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium">
+                Learn more
+              </Button>
+            </div>
+            
+            {/* Trade 200+ Currencies */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Trade 200+ Currencies at Lowest Rates</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                From BTC to ETH, USDT, SOL, plus fiat currencies like USD and CAD - we offer competitive rates on every trade.
+              </p>
+              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium">
+                Learn more
+              </Button>
+            </div>
+            
+            {/* Pay and Withdraw */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Pay and Withdraw Your Way</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                We give you the option of selecting the digital currency to sell, and your preferred cashout or payout method.
+              </p>
+              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium">
+                Learn more
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Mobile Why ChicksX Section */}
+      <section className="md:hidden bg-gray-50 px-4 pt-24 pb-8">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ChicksX?</h2>
+        </div>
+        <div className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto text-center">
+          We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our focus is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously updating and perfecting our security protocols, we ensure to provide the safest platform possible.
+        </div>
+      </section>
 
       {/* Security Section */}
       <section className="w-full py-16 bg-gradient-to-r from-purple-900 to-blue-800">
