@@ -1527,36 +1527,36 @@ export default function Landing() {
         <div className="w-full px-6 lg:px-12 xl:px-16">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="text-white">
-            <div className="flex items-center space-x-4 mb-6">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                <Shield className="w-8 h-8 text-white" />
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <h2 className="text-4xl font-bold">Security</h2>
               </div>
-              <h2 className="text-4xl font-bold">Security</h2>
+              <p className="text-white/90 mb-8 text-lg leading-relaxed">
+                Our top priority is to provide our customers with a secure exchange platform where all your personal information and data is encrypted, secure, and protected. We are dedicated to user protection with multi-step protocols and industry-leading security measures. Your data is 100% secure via end-to-end encryption, ensuring that only you have access to your personal information.
+              </p>
+              <Button className="bg-white/20 text-white hover:bg-white/30 px-8 py-3 rounded-lg font-medium border border-white/30">
+                Learn more
+              </Button>
             </div>
-            <p className="text-white/90 mb-8 text-lg leading-relaxed">
-              Our top priority is to provide our customers with a secure exchange platform where all your personal information and data is encrypted, secure, and protected. We are dedicated to user protection with multi-step protocols and industry-leading security measures. Your data is 100% secure via end-to-end encryption, ensuring that only you have access to your personal information.
-            </p>
-            <Button className="bg-white/20 text-white hover:bg-white/30 px-8 py-3 rounded-lg font-medium border border-white/30">
-              Learn more
-            </Button>
-          </div>
-          <div className="flex justify-center">
-            <div className="relative">
-              {/* Security illustration placeholder - you can replace with actual image */}
-              <div className="w-80 h-60 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 to-blue-400/30 rounded-2xl"></div>
-                <div className="absolute top-4 right-4 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🔒</span>
-                </div>
-                <div className="absolute bottom-4 left-4 w-20 h-20 bg-white/90 rounded-xl flex items-center justify-center">
-                  <Shield className="w-10 h-10 text-purple-600" />
-                </div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-white/95 rounded-full flex items-center justify-center">
-                  <span className="text-3xl">😊</span>
+            <div className="flex justify-center">
+              <div className="relative">
+                {/* Security illustration placeholder - you can replace with actual image */}
+                <div className="w-80 h-60 relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 to-blue-400/30 rounded-2xl"></div>
+                  <div className="absolute top-4 right-4 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">🔒</span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 w-20 h-20 bg-white/90 rounded-xl flex items-center justify-center">
+                    <Shield className="w-10 h-10 text-purple-600" />
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-white/95 rounded-full flex items-center justify-center">
+                    <span className="text-3xl">😊</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </section>
