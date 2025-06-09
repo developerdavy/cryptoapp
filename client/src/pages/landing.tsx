@@ -1170,7 +1170,7 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="px-4 py-8 md:px-6 md:py-16 relative">
         {/* Mobile Layout */}
-        <div className="md:hidden">
+        <div className="md:hidden pb-20">
           <div className="text-white space-y-6 text-left mb-8">
             <h1 className="text-4xl font-bold leading-tight">
               The Lowest Fee<br />
@@ -1210,11 +1210,11 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Crypto Cards Section - Mobile with white background continuation */}
-          <div className="bg-white px-4 pt-8 pb-8 -mx-4 rounded-t-3xl">
+          {/* Crypto Cards positioned at bottom overlapping onto next section */}
+          <div className="absolute bottom-0 left-0 right-0 px-4 transform translate-y-1/2 z-10">
             <div className="overflow-x-auto scrollbar-hide">
-              <div className="flex gap-4 pb-4" style={{minWidth: 'max-content'}}>
-                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0 border border-gray-100">
+              <div className="flex gap-3 pb-4" style={{minWidth: 'max-content'}}>
+                <div className="bg-white rounded-2xl p-4 shadow-lg w-44 flex-shrink-0">
                   <div className="flex items-center mb-3">
                     <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
                       <span className="text-white font-bold text-sm">₿</span>
@@ -1223,15 +1223,15 @@ export default function Landing() {
                       <div className="font-semibold text-sm">Bitcoin</div>
                     </div>
                   </div>
-                  <div className="text-2xl font-bold mb-1">$107,784.20</div>
-                  <div className="text-green-500 text-sm mb-3">↗ 1.65%</div>
-                  <div className="h-8 mb-3">
-                    <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
+                  <div className="text-xl font-bold mb-1">$107,945.78</div>
+                  <div className="text-green-500 text-sm mb-3">↗ 1.59%</div>
+                  <div className="h-6 mb-3">
+                    <svg className="w-full h-full" viewBox="0 0 100 20" preserveAspectRatio="none">
                       <polyline
                         fill="none"
                         stroke="#f97316"
-                        strokeWidth="2"
-                        points="0,20 20,15 40,18 60,12 80,10 100,8"
+                        strokeWidth="1.5"
+                        points="0,15 20,12 40,14 60,10 80,8 100,6"
                       />
                     </svg>
                   </div>
@@ -1244,7 +1244,7 @@ export default function Landing() {
                   </Button>
                 </div>
 
-                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0 border border-gray-100">
+                <div className="bg-white rounded-2xl p-4 shadow-lg w-44 flex-shrink-0">
                   <div className="flex items-center mb-3">
                     <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
                       <span className="text-white font-bold text-sm">Ξ</span>
@@ -1253,15 +1253,15 @@ export default function Landing() {
                       <div className="font-semibold text-sm">Ethereum</div>
                     </div>
                   </div>
-                  <div className="text-2xl font-bold mb-1">$2,537.59</div>
-                  <div className="text-green-500 text-sm mb-3">↗ 0.87%</div>
-                  <div className="h-8 mb-3">
-                    <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
+                  <div className="text-xl font-bold mb-1">$2,551.80</div>
+                  <div className="text-green-500 text-sm mb-3">↗ 0.90%</div>
+                  <div className="h-6 mb-3">
+                    <svg className="w-full h-full" viewBox="0 0 100 20" preserveAspectRatio="none">
                       <polyline
                         fill="none"
                         stroke="#3b82f6"
-                        strokeWidth="2"
-                        points="0,15 20,18 40,16 60,14 80,12 100,10"
+                        strokeWidth="1.5"
+                        points="0,12 20,14 40,11 60,9 80,7 100,5"
                       />
                     </svg>
                   </div>
@@ -1274,7 +1274,7 @@ export default function Landing() {
                   </Button>
                 </div>
 
-                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0 border border-gray-100">
+                <div className="bg-white rounded-2xl p-4 shadow-lg w-44 flex-shrink-0">
                   <div className="flex items-center mb-3">
                     <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-3">
                       <span className="text-white font-bold text-sm">S</span>
@@ -1283,15 +1283,15 @@ export default function Landing() {
                       <div className="font-semibold text-sm">Solana</div>
                     </div>
                   </div>
-                  <div className="text-2xl font-bold mb-1">$132.09</div>
+                  <div className="text-xl font-bold mb-1">$132.09</div>
                   <div className="text-green-500 text-sm mb-3">↗ 2.20%</div>
-                  <div className="h-8 mb-3">
-                    <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
+                  <div className="h-6 mb-3">
+                    <svg className="w-full h-full" viewBox="0 0 100 20" preserveAspectRatio="none">
                       <polyline
                         fill="none"
                         stroke="#6b7280"
-                        strokeWidth="2"
-                        points="0,22 20,20 40,16 60,18 80,14 100,12"
+                        strokeWidth="1.5"
+                        points="0,16 20,14 40,11 60,13 80,9 100,7"
                       />
                     </svg>
                   </div>
@@ -1362,9 +1362,12 @@ export default function Landing() {
       </section>
 
       {/* Mobile Why ChicksX Section */}
-      <section className="md:hidden bg-white px-4 py-8">
-        <div className="text-center">
+      <section className="md:hidden bg-gray-50 px-4 pt-24 pb-8">
+        <div className="text-center mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ChicksX?</h2>
+        </div>
+        <div className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto text-center">
+          We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our focus is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously updating and perfecting our security protocols, we ensure to provide the safest platform possible.
         </div>
       </section>
 
