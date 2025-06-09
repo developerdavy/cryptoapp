@@ -1459,8 +1459,8 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="px-6 py-16 bg-white border-t">
+      {/* Enhanced Footer */}
+      <footer className="px-6 py-16 bg-gray-50 border-t" id="enhanced-footer">
         <div className="max-w-7xl mx-auto">
           {/* Main Footer Content */}
           <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 gap-8 mb-12">
@@ -1522,7 +1522,7 @@ export default function Landing() {
           </div>
           
           {/* Newsletter Signup */}
-          <div className="bg-gray-50 rounded-lg p-8 mb-12">
+          <div className="bg-white rounded-lg p-8 mb-12 shadow-sm border">
             <div className="max-w-2xl mx-auto text-center">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Stay Updated</h3>
               <p className="text-gray-600 mb-6">Get the latest crypto news, market updates, and trading insights delivered to your inbox.</p>
