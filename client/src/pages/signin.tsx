@@ -17,37 +17,37 @@ export default function SignIn() {
         </div>
 
         {/* Sign In Form */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div className="text-center">
-            <h2 className="text-white text-2xl font-semibold mb-8">Sign In</h2>
+            <h2 className="text-white text-2xl font-semibold mb-6">Sign In</h2>
           </div>
 
-          <form className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-white text-sm font-medium">
+          <form className="space-y-3">
+            <div className="space-y-1">
+              <Label htmlFor="email" className="text-white text-sm font-medium block">
                 Email Address
               </Label>
               <Input
                 id="email"
                 type="email"
                 placeholder="enter email address"
-                className="w-full px-4 py-3 bg-white rounded-md border-0 text-gray-900 placeholder:text-gray-500"
+                className="w-full px-4 py-2.5 bg-white rounded-lg border-0 text-gray-900 placeholder:text-gray-500 text-sm"
               />
             </div>
             
-            <div className="space-y-2">
-              <Label htmlFor="password" className="text-white text-sm font-medium">
+            <div className="space-y-1">
+              <Label htmlFor="password" className="text-white text-sm font-medium block">
                 Password
               </Label>
               <Input
                 id="password"
                 type="password"
                 placeholder="enter password"
-                className="w-full px-4 py-3 bg-white rounded-md border-0 text-gray-900 placeholder:text-gray-500"
+                className="w-full px-4 py-2.5 bg-white rounded-lg border-0 text-gray-900 placeholder:text-gray-500 text-sm"
               />
             </div>
             
-            <div className="text-center text-sm">
+            <div className="text-center text-sm pt-2">
               <a href="#" className="text-purple-200 hover:text-white">
                 Forgot your password?
               </a>
@@ -64,12 +64,14 @@ export default function SignIn() {
               </button>
             </div>
             
-            <Button
-              type="submit"
-              className="w-full bg-purple-500 hover:bg-purple-600 text-white font-medium py-3 px-4 rounded-md transition-colors mt-6"
-            >
-              Sign In
-            </Button>
+            <div className="pt-3">
+              <Button
+                type="submit"
+                className="w-full bg-purple-400 hover:bg-purple-500 text-white font-medium py-3 px-4 rounded-lg transition-colors"
+              >
+                Sign In
+              </Button>
+            </div>
           </form>
           
           <div className="relative my-6">
