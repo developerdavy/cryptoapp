@@ -168,13 +168,13 @@ export default function Landing() {
                     <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">₿</span>
+                          <span className="text-white text-xs font-bold">B</span>
                         </div>
                         <span className="text-sm font-medium">BTC</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">Ξ</span>
+                          <span className="text-white text-xs font-bold">E</span>
                         </div>
                         <span className="text-sm font-medium">ETH</span>
                       </div>
@@ -425,13 +425,13 @@ export default function Landing() {
                     <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">₿</span>
+                          <span className="text-white text-xs font-bold">B</span>
                         </div>
                         <span className="text-sm font-medium">BTC</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">Ξ</span>
+                          <span className="text-white text-xs font-bold">E</span>
                         </div>
                         <span className="text-sm font-medium">ETH</span>
                       </div>
@@ -892,13 +892,13 @@ export default function Landing() {
                       <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">₿</span>
+                            <span className="text-white text-xs font-bold">B</span>
                           </div>
                           <span className="text-sm font-medium">BTC</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">Ξ</span>
+                            <span className="text-white text-xs font-bold">E</span>
                           </div>
                           <span className="text-sm font-medium">ETH</span>
                         </div>
@@ -1276,13 +1276,13 @@ export default function Landing() {
                       <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">₿</span>
+                            <span className="text-white text-xs font-bold">B</span>
                           </div>
                           <span className="text-sm font-medium">BTC</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">Ξ</span>
+                            <span className="text-white text-xs font-bold">E</span>
                           </div>
                           <span className="text-sm font-medium">ETH</span>
                         </div>
@@ -1523,7 +1523,7 @@ export default function Landing() {
               <CardContent className="p-4">
                 <div className="flex items-center space-x-2 mb-3">
                   <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                    <span className="text-orange-500 text-lg font-bold">₿</span>
+                    <span className="text-orange-500 text-lg font-bold">B</span>
                   </div>
                   <div className="text-sm font-semibold text-gray-800">Bitcoin</div>
                 </div>
@@ -1554,7 +1554,7 @@ export default function Landing() {
               <CardContent className="p-4">
                 <div className="flex items-center space-x-2 mb-3">
                   <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-blue-500 text-lg font-bold">Ξ</span>
+                    <span className="text-blue-500 text-lg font-bold">E</span>
                   </div>
                   <div className="text-sm font-semibold text-gray-800">Ethereum</div>
                 </div>
