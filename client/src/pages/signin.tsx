@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLocation } from "wouter";
 import { useToast } from "@/hooks/use-toast";
-import Navbar from "@/components/navbar";
+import { Menu, X } from "lucide-react";
+import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showBuyCryptoDropdown, setShowBuyCryptoDropdown] = useState(false);
+  const [showSellCryptoDropdown, setShowSellCryptoDropdown] = useState(false);
+  const [showSwapDropdown, setShowSwapDropdown] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [, setLocation] = useLocation();
   const { toast } = useToast();
 
@@ -34,9 +40,151 @@ export default function SignIn() {
     setLocation("/signup");
   };
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowBuyCryptoDropdown(false);
+        setShowSellCryptoDropdown(false);
+        setShowSwapDropdown(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
     <div className="min-h-screen">
-      <Navbar />
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50" ref={dropdownRef}>
+        <div className="w-full px-2 sm:px-4 lg:px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-4 sm:space-x-12">
+            <img src={chicksxLogo} alt="ChicksX" className="h-8 sm:h-10" />
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <div className="relative">
+                <Button 
+                  variant="ghost" 
+                  className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showBuyCryptoDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
+                  onClick={() => {
+                    setShowBuyCryptoDropdown(!showBuyCryptoDropdown);
+                    setShowSellCryptoDropdown(false);
+                    setShowSwapDropdown(false);
+                  }}
+                >
+                  Buy Crypto
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </Button>
+              </div>
+              <div className="relative">
+                <Button 
+                  variant="ghost" 
+                  className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showSellCryptoDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
+                  onClick={() => {
+                    setShowSellCryptoDropdown(!showSellCryptoDropdown);
+                    setShowBuyCryptoDropdown(false);
+                    setShowSwapDropdown(false);
+                  }}
+                >
+                  Sell Crypto
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </Button>
+              </div>
+              <div className="relative">
+                <Button 
+                  variant="ghost" 
+                  className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showSwapDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
+                  onClick={() => {
+                    setShowSwapDropdown(!showSwapDropdown);
+                    setShowBuyCryptoDropdown(false);
+                    setShowSellCryptoDropdown(false);
+                  }}
+                >
+                  Swap
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </Button>
+              </div>
+            </nav>
+          </div>
+          
+          {/* Desktop Sign In Button */}
+          <Button 
+            onClick={() => setLocation("/signup")}
+            className="hidden sm:flex bg-indigo-700 hover:bg-indigo-600 text-white px-4 sm:px-6 py-2 rounded-lg font-medium items-center space-x-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <span className="hidden lg:inline">Sign Up</span>
+          </Button>
+          
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            className="md:hidden p-2"
+            onClick={() => setShowMobileMenu(!showMobileMenu)}
+          >
+            {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
+        </div>
+        
+        {/* Mobile Navigation Menu */}
+        {showMobileMenu && (
+          <div className="md:hidden bg-white border-t border-gray-200">
+            <div className="px-4 py-2 space-y-1">
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-700 hover:text-gray-900"
+                onClick={() => {
+                  setShowBuyCryptoDropdown(!showBuyCryptoDropdown);
+                  setShowSellCryptoDropdown(false);
+                  setShowSwapDropdown(false);
+                }}
+              >
+                Buy Crypto
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-700 hover:text-gray-900"
+                onClick={() => {
+                  setShowSellCryptoDropdown(!showSellCryptoDropdown);
+                  setShowBuyCryptoDropdown(false);
+                  setShowSwapDropdown(false);
+                }}
+              >
+                Sell Crypto
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-700 hover:text-gray-900"
+                onClick={() => {
+                  setShowSwapDropdown(!showSwapDropdown);
+                  setShowBuyCryptoDropdown(false);
+                  setShowSellCryptoDropdown(false);
+                }}
+              >
+                Swap
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-700 hover:text-gray-900"
+                onClick={() => setLocation("/signup")}
+              >
+                Sign Up
+              </Button>
+            </div>
+          </div>
+        )}
+      </header>
       <div className="flex flex-col lg:flex-row">
         {/* Left Side - Sign In Form */}
         <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center px-0 py-8 sm:px-8 lg:p-12 min-h-screen">
