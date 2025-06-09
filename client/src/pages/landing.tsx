@@ -1168,7 +1168,7 @@ export default function Landing() {
       </header>
 
       {/* Hero Section */}
-      <section className="px-4 py-8 md:px-6 md:py-16 relative">
+      <section className="px-4 py-8 md:py-16 relative" style={{marginLeft: '120px', marginRight: '120px'}}>
         {/* Mobile Layout */}
         <div className="md:hidden pb-20">
           <div className="text-white space-y-6 text-left mb-8">
@@ -1310,7 +1310,7 @@ export default function Landing() {
 
         {/* Desktop Layout */}
         <div className="hidden md:block">
-          <div className="w-full mx-auto" style={{marginLeft: '120px', marginRight: '120px'}}>
+          <div className="w-full mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="text-white space-y-6 lg:space-y-8 text-left ml-4">
                 <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
