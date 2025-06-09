@@ -87,7 +87,7 @@ export default function Markets() {
         </div>
 
         {/* Search and Filters */}
-        <div className="flex items-center space-x-4 mb-6">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-6">
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input 
@@ -97,14 +97,16 @@ export default function Markets() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <Button variant="outline" className="border-border/50">
-            <Star className="h-4 w-4 mr-2" />
-            Favorites
-          </Button>
-          <Button variant="outline" className="border-border/50">
-            <BarChart3 className="h-4 w-4 mr-2" />
-            Analytics
-          </Button>
+          <div className="flex space-x-2">
+            <Button variant="outline" className="border-border/50 flex-1 sm:flex-none">
+              <Star className="h-4 w-4 mr-2" />
+              <span className="hidden sm:inline">Favorites</span>
+            </Button>
+            <Button variant="outline" className="border-border/50 flex-1 sm:flex-none">
+              <BarChart3 className="h-4 w-4 mr-2" />
+              <span className="hidden sm:inline">Analytics</span>
+            </Button>
+          </div>
         </div>
 
         {/* Market Overview Cards */}

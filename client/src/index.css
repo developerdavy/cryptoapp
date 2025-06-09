@@ -2,13 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom scrollbar hiding utility */
+/* Mobile-first responsive design */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+}
+
+/* Mobile-optimized scrollbar hiding utility */
 .scrollbar-hide {
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
+  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
+}
+
+/* Mobile touch improvements */
+@layer utilities {
+  .touch-pan-x {
+    touch-action: pan-x;
+  }
+  
+  .touch-pan-y {
+    touch-action: pan-y;
+  }
+  
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Prevent zoom on form inputs in iOS */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+  
+  /* Mobile-friendly button sizes */
+  @media (max-width: 640px) {
+    .mobile-button {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
 }
 
 :root {

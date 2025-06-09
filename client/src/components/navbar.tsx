@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">

@@ -82,15 +82,15 @@ export default function TradingPanel() {
 
   return (
     <Card className="glass-effect border-border/50">
-      <CardHeader>
-        <CardTitle className="text-lg flex items-center justify-between">
-          Quick Trade
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-auto">
-            <TabsList className="bg-card/50 p-1">
-              <TabsTrigger value="buy" className="data-[state=active]:bg-green-500/20 data-[state=active]:text-green-400">
+      <CardHeader className="pb-4">
+        <CardTitle className="text-base sm:text-lg flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
+          <span>Quick Trade</span>
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full sm:w-auto">
+            <TabsList className="bg-card/50 p-1 w-full sm:w-auto">
+              <TabsTrigger value="buy" className="data-[state=active]:bg-green-500/20 data-[state=active]:text-green-400 flex-1 sm:flex-none">
                 Buy
               </TabsTrigger>
-              <TabsTrigger value="sell" className="data-[state=active]:bg-red-500/20 data-[state=active]:text-red-400">
+              <TabsTrigger value="sell" className="data-[state=active]:bg-red-500/20 data-[state=active]:text-red-400 flex-1 sm:flex-none">
                 Sell
               </TabsTrigger>
             </TabsList>
