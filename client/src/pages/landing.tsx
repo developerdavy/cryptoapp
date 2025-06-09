@@ -4,6 +4,8 @@ import { Star, Shield, Headphones, Menu, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/hooks/useAuth";
+import { FaDiscord, FaTwitter, FaFacebookF } from "react-icons/fa";
+import { RiTwitterXFill } from "react-icons/ri";
 import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
 import mobileAppImage from "@assets/fd7028f1b02c88789f6f (1)_1749112747335.png";
 
@@ -1661,16 +1663,16 @@ export default function Landing() {
               <h4 className="font-semibold text-gray-900 mb-4">Social</h4>
               <div className="flex space-x-3 mb-4">
                 <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">D</span>
+                  <FaDiscord className="text-white text-sm" />
                 </div>
                 <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">T</span>
+                  <FaTwitter className="text-white text-sm" />
                 </div>
                 <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">X</span>
+                  <RiTwitterXFill className="text-white text-sm" />
                 </div>
                 <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">F</span>
+                  <FaFacebookF className="text-white text-sm" />
                 </div>
               </div>
               <div>
