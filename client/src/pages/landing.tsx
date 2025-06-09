@@ -124,7 +124,7 @@ export default function Landing() {
         {/* Buy Crypto Dropdown */}
         {showBuyCryptoDropdown && (
           <div className="bg-white border-t border-gray-200 shadow-lg">
-            <div className="max-w-7xl mx-auto px-6 py-8">
+            <div className="w-full px-6 py-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Buy Crypto</h3>
               
               <div className="grid grid-cols-2 gap-8">
