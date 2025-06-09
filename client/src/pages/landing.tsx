@@ -1363,9 +1363,6 @@ export default function Landing() {
 
       {/* Background section for cards to overlap */}
       <section className="md:hidden bg-gray-50 pt-24 pb-8">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ChicksX?</h2>
-        </div>
       </section>
 
       {/* Crypto Cards Section */}
