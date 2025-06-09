@@ -130,7 +130,7 @@ export class DatabaseStorage implements IStorage {
         marketCap: "0",
       })
       .onConflictDoUpdate({
-        target: marketData.cryptocurrency,
+        target: [marketData.cryptocurrency],
         set: {
           price: price.toString(),
           priceChange24h: priceChange24h.toString(),
@@ -244,4 +244,4 @@ class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();

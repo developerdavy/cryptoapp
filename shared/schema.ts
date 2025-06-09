@@ -64,7 +64,7 @@ export const transactions = pgTable("transactions", {
 // Market data table for cryptocurrency prices
 export const marketData = pgTable("market_data", {
   id: serial("id").primaryKey(),
-  cryptocurrency: varchar("cryptocurrency").notNull(),
+  cryptocurrency: varchar("cryptocurrency").notNull().unique(),
   price: decimal("price", { precision: 20, scale: 10 }).notNull(),
   priceChange24h: decimal("price_change_24h", { precision: 10, scale: 4 }).notNull().default("0"),
   volume24h: decimal("volume_24h", { precision: 20, scale: 2 }).notNull().default("0"),
