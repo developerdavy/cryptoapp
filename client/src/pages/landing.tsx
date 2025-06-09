@@ -1460,58 +1460,116 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="px-6 py-12 bg-white border-t">
+      <footer className="px-6 py-16 bg-white border-t">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-5 gap-8">
-            <div>
-              <img src={chicksxLogo} alt="ChicksX" className="h-8 mb-4" />
-              <p className="text-gray-600 text-sm">
-                @chicksx.com 2024
+          {/* Main Footer Content */}
+          <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 gap-8 mb-12">
+            <div className="lg:col-span-2">
+              <img src={chicksxLogo} alt="ChicksX" className="h-8 mb-6" />
+              <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                Your trusted cryptocurrency exchange platform. Trade with confidence using our secure, fast, and reliable trading infrastructure.
               </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">ChicksX</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>About</li>
-                <li>Blog</li>
-                <li>Careers</li>
-                <li>Help ▼</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>Help</li>
-                <li>Contact us</li>
-                <li>Service</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-                <li>Cookie Policy</li>
-                <li>Use ▼</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Social</h4>
-              <div className="flex space-x-2">
-                <div className="w-8 h-8 bg-blue-600 rounded-full"></div>
-                <div className="w-8 h-8 bg-blue-400 rounded-full"></div>
-                <div className="w-8 h-8 bg-blue-800 rounded-full"></div>
-                <div className="w-8 h-8 bg-blue-700 rounded-full"></div>
+              <div className="space-y-2">
+                <div className="text-sm text-gray-600">📧 support@chicksx.com</div>
+                <div className="text-sm text-gray-600">📞 1-800-CHICKSX</div>
+                <div className="text-sm text-gray-600">🕒 24/7 Customer Support</div>
               </div>
-              <div className="mt-2">
-                <div className="text-sm font-semibold">Trustpilot Reviews</div>
-                <div className="flex text-green-500">
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4 text-gray-900">Company</h4>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li><Link href="/about" className="hover:text-purple-600 transition-colors">About Us</Link></li>
+                <li><Link href="/blog" className="hover:text-purple-600 transition-colors">Blog</Link></li>
+                <li><Link href="/careers" className="hover:text-purple-600 transition-colors">Careers</Link></li>
+                <li><Link href="/press" className="hover:text-purple-600 transition-colors">Press Kit</Link></li>
+                <li><Link href="/investors" className="hover:text-purple-600 transition-colors">Investors</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4 text-gray-900">Products</h4>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li><Link href="/trade" className="hover:text-purple-600 transition-colors">Spot Trading</Link></li>
+                <li><Link href="/markets" className="hover:text-purple-600 transition-colors">Markets</Link></li>
+                <li><Link href="/wallet" className="hover:text-purple-600 transition-colors">Wallet</Link></li>
+                <li><Link href="/api" className="hover:text-purple-600 transition-colors">API</Link></li>
+                <li><Link href="/mobile" className="hover:text-purple-600 transition-colors">Mobile App</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4 text-gray-900">Support</h4>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li><Link href="/help" className="hover:text-purple-600 transition-colors">Help Center</Link></li>
+                <li><Link href="/contact" className="hover:text-purple-600 transition-colors">Contact Us</Link></li>
+                <li><Link href="/status" className="hover:text-purple-600 transition-colors">System Status</Link></li>
+                <li><Link href="/fees" className="hover:text-purple-600 transition-colors">Fee Schedule</Link></li>
+                <li><Link href="/security" className="hover:text-purple-600 transition-colors">Security</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4 text-gray-900">Legal</h4>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li><Link href="/privacy" className="hover:text-purple-600 transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-purple-600 transition-colors">Terms of Service</Link></li>
+                <li><Link href="/cookies" className="hover:text-purple-600 transition-colors">Cookie Policy</Link></li>
+                <li><Link href="/compliance" className="hover:text-purple-600 transition-colors">Compliance</Link></li>
+                <li><Link href="/disclosures" className="hover:text-purple-600 transition-colors">Risk Disclosures</Link></li>
+              </ul>
+            </div>
+          </div>
+          
+          {/* Newsletter Signup */}
+          <div className="bg-gray-50 rounded-lg p-8 mb-12">
+            <div className="max-w-2xl mx-auto text-center">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Stay Updated</h3>
+              <p className="text-gray-600 mb-6">Get the latest crypto news, market updates, and trading insights delivered to your inbox.</p>
+              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                />
+                <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded-lg">
+                  Subscribe
+                </Button>
+              </div>
+            </div>
+          </div>
+          
+          {/* Social Links and Trust Indicators */}
+          <div className="flex flex-col lg:flex-row items-center justify-between pt-8 border-t border-gray-200">
+            <div className="flex items-center space-x-6 mb-6 lg:mb-0">
+              <div>
+                <h4 className="font-semibold mb-2 text-gray-900">Follow Us</h4>
+                <div className="flex space-x-3">
+                  <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm">f</div>
+                  <div className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center text-white text-sm">t</div>
+                  <div className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center text-white text-sm">in</div>
+                  <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-white text-sm">gh</div>
+                </div>
+              </div>
+              
+              <div>
+                <div className="text-sm font-semibold text-gray-900">Trustpilot Reviews</div>
+                <div className="flex text-green-500 mt-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current" />
                   ))}
                 </div>
-                <div className="text-xs text-gray-600">★★★★✩ 4.4/5</div>
+                <div className="text-xs text-gray-600 mt-1">Excellent • 4.4/5 • 12,543 reviews</div>
               </div>
+            </div>
+            
+            <div className="text-center lg:text-right">
+              <p className="text-gray-600 text-sm mb-2">
+                © 2024 ChicksX. All rights reserved.
+              </p>
+              <p className="text-xs text-gray-500">
+                ChicksX is a registered trademark. Cryptocurrency trading involves risk.
+              </p>
             </div>
           </div>
         </div>
