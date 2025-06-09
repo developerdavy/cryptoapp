@@ -1198,19 +1198,19 @@ export default function Landing() {
             {/* Bitcoin Card */}
             <Card className="bg-white shadow-lg">
               <CardContent className="p-2 sm:p-3 md:p-4">
-                <div className="flex items-center space-x-1 sm:space-x-2 mb-2 sm:mb-3">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                    <span className="text-orange-500 text-sm sm:text-lg font-bold">B</span>
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                    <span className="text-orange-500 text-xs sm:text-lg font-bold">B</span>
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-800">Bitcoin</div>
                 </div>
-                <div className="mb-1 sm:mb-2">
-                  <div className="font-bold text-sm sm:text-lg text-gray-800">$105,571.15</div>
-                  <div className="text-green-500 text-xs sm:text-sm flex items-center">
+                <div className="mb-1">
+                  <div className="font-bold text-xs sm:text-lg text-gray-800">$105,571.15</div>
+                  <div className="text-green-500 text-xs flex items-center">
                     ▲ 0.06%
                   </div>
                 </div>
-                <div className="h-10 mb-3">
+                <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <svg className="w-full h-full" viewBox="0 0 100 30">
                     <path
                       d="M0,15 L20,12 L40,18 L60,8 L80,14 L100,10"
@@ -1220,7 +1220,7 @@ export default function Landing() {
                     />
                   </svg>
                 </div>
-                <Link href="#" className="text-purple-600 text-xs hover:underline flex items-center">
+                <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
@@ -1229,19 +1229,19 @@ export default function Landing() {
             {/* Ethereum Card */}
             <Card className="bg-white shadow-lg">
               <CardContent className="p-2 sm:p-3 md:p-4">
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-blue-500 text-lg font-bold">E</span>
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-500 text-xs sm:text-lg font-bold">E</span>
                   </div>
-                  <div className="text-sm font-semibold text-gray-800">Ethereum</div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-800">Ethereum</div>
                 </div>
-                <div className="mb-2">
-                  <div className="font-bold text-lg text-gray-800">$2,488.31</div>
-                  <div className="text-red-500 text-sm flex items-center">
+                <div className="mb-1">
+                  <div className="font-bold text-xs sm:text-lg text-gray-800">$2,488.31</div>
+                  <div className="text-red-500 text-xs flex items-center">
                     ▼ 1.08%
                   </div>
                 </div>
-                <div className="h-10 mb-3">
+                <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <svg className="w-full h-full" viewBox="0 0 100 30">
                     <path
                       d="M0,10 L20,15 L40,8 L60,18 L80,12 L100,20"
@@ -1251,7 +1251,7 @@ export default function Landing() {
                     />
                   </svg>
                 </div>
-                <Link href="#" className="text-purple-600 text-xs hover:underline flex items-center">
+                <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
@@ -1259,20 +1259,20 @@ export default function Landing() {
 
             {/* Solana Card */}
             <Card className="bg-white shadow-lg">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                    <span className="text-purple-500 text-lg font-bold">◎</span>
+              <CardContent className="p-2 sm:p-3 md:p-4">
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                    <span className="text-purple-500 text-xs sm:text-lg font-bold">◎</span>
                   </div>
-                  <div className="text-sm font-semibold text-gray-800">Solana</div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-800">Solana</div>
                 </div>
-                <div className="mb-2">
-                  <div className="font-bold text-lg text-gray-800">$150.39</div>
-                  <div className="text-green-500 text-sm flex items-center">
+                <div className="mb-1">
+                  <div className="font-bold text-xs sm:text-lg text-gray-800">$150.39</div>
+                  <div className="text-green-500 text-xs flex items-center">
                     ▲ 0.66%
                   </div>
                 </div>
-                <div className="h-10 mb-3">
+                <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <svg className="w-full h-full" viewBox="0 0 100 30">
                     <path
                       d="M0,20 L20,15 L40,22 L60,10 L80,16 L100,8"
@@ -1282,7 +1282,7 @@ export default function Landing() {
                     />
                   </svg>
                 </div>
-                <Link href="#" className="text-purple-600 text-xs hover:underline flex items-center">
+                <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
@@ -1290,20 +1290,20 @@ export default function Landing() {
 
             {/* Cardano Card */}
             <Card className="bg-white shadow-lg">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-blue-600 text-lg font-bold">₳</span>
+              <CardContent className="p-2 sm:p-3 md:p-4">
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-600 text-xs sm:text-lg font-bold">₳</span>
                   </div>
-                  <div className="text-sm font-semibold text-gray-800">Cardano</div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-800">Cardano</div>
                 </div>
-                <div className="mb-2">
-                  <div className="font-bold text-lg text-gray-800">$0.66</div>
-                  <div className="text-green-500 text-sm flex items-center">
+                <div className="mb-1">
+                  <div className="font-bold text-xs sm:text-lg text-gray-800">$0.66</div>
+                  <div className="text-green-500 text-xs flex items-center">
                     ▲ 0.00%
                   </div>
                 </div>
-                <div className="h-10 mb-3">
+                <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <svg className="w-full h-full" viewBox="0 0 100 30">
                     <path
                       d="M0,18 L20,12 L40,20 L60,14 L80,18 L100,16"
@@ -1313,7 +1313,7 @@ export default function Landing() {
                     />
                   </svg>
                 </div>
-                <Link href="#" className="text-purple-600 text-xs hover:underline flex items-center">
+                <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
@@ -1321,14 +1321,14 @@ export default function Landing() {
 
             {/* View More Card */}
             <Card className="bg-purple-100 shadow-lg">
-              <CardContent className="p-4 flex flex-col justify-center items-center text-center h-full">
-                <div className="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center mb-3">
-                  <span className="text-purple-600 text-lg font-bold">✕</span>
+              <CardContent className="p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center text-center h-full">
+                <div className="w-5 h-5 sm:w-8 sm:h-8 bg-purple-200 rounded-full flex items-center justify-center mb-1 sm:mb-2">
+                  <span className="text-purple-600 text-xs sm:text-lg font-bold">✕</span>
                 </div>
-                <div className="text-purple-700 font-semibold text-sm mb-3">
+                <div className="text-purple-700 font-semibold text-xs sm:text-sm mb-1 sm:mb-2">
                   View more than<br />300<br />cryptocurrencies<br />here
                 </div>
-                <Link href="#" className="text-purple-600 text-xs hover:underline flex items-center">
+                <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
