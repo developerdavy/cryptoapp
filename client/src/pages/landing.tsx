@@ -1597,8 +1597,8 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-16 border-t border-gray-200" style={{marginLeft: '120px', marginRight: '120px'}}>
-        <div className="max-w-6xl mx-auto">
+      <footer className="bg-white py-16 border-t border-gray-200 w-full">
+        <div className="max-w-6xl mx-auto" style={{marginLeft: '120px', marginRight: '120px'}}>
           <div className="grid grid-cols-5 gap-16">
             {/* Logo and Email */}
             <div className="col-span-1">
