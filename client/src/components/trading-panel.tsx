@@ -46,7 +46,7 @@ export default function TradingPanel() {
           variant: "destructive",
         });
         setTimeout(() => {
-          window.location.href = "/api/login";
+          window.location.href = "/signin";
         }, 500);
         return;
       }

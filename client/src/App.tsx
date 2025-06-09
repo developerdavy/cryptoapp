@@ -11,11 +11,15 @@ import Trade from "@/pages/trade";
 import Wallet from "@/pages/wallet";
 import Markets from "@/pages/markets";
 import History from "@/pages/history";
+import SignIn from "@/pages/signin";
+import SignUp from "@/pages/signup";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Landing} />
+      <Route path="/signin" component={SignIn} />
+      <Route path="/signup" component={SignUp} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/trade" component={Trade} />
       <Route path="/buy/:crypto" component={Trade} />
