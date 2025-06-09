@@ -1518,55 +1518,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Why ChicksX Section */}
-      <section className="px-6 py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-center text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why ChicksX?</h2>
-            <p className="text-gray-600 text-lg leading-relaxed max-w-4xl">
-              We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our top priority is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously validating and perfecting our security measures and protocols, we ensure to provide the safest platform possible.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-white shadow-lg h-full">
-              <CardContent className="p-8 flex flex-col h-full">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Global Crypto Trading Made Simple</h3>
-                <p className="text-gray-600 mb-6 text-sm leading-relaxed flex-grow">
-                  Trade crypto and fiat currencies from anywhere, anytime. We support all digital currencies with the lowest fees.
-                </p>
-                <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium w-full">
-                  Learn more
-                </Button>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-white shadow-lg h-full">
-              <CardContent className="p-8 flex flex-col h-full">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Trade 200+ Currencies at Lowest Rates</h3>
-                <p className="text-gray-600 mb-6 text-sm leading-relaxed flex-grow">
-                  From BTC to ETH, USDT, SOL plus fiat currencies like USD and CAD - we offer competitive rates on every trade.
-                </p>
-                <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium w-full">
-                  Learn more
-                </Button>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-white shadow-lg h-full">
-              <CardContent className="p-8 flex flex-col h-full">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Pay and Withdraw Your Way</h3>
-                <p className="text-gray-600 mb-6 text-sm leading-relaxed flex-grow">
-                  We give you the option of selecting the digital currency to sell, and your preferred cashout or payout method.
-                </p>
-                <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium w-full">
-                  Learn more
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+
 
       {/* Security Section */}
       <section className="px-6 py-16 bg-gradient-to-r from-purple-900 to-blue-800">
