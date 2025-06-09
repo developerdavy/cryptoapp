@@ -1170,8 +1170,8 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="px-4 py-8 md:px-6 md:py-16 relative">
         {/* Mobile Layout */}
-        <div className="md:hidden pb-32">
-          <div className="text-white space-y-6 text-left">
+        <div className="md:hidden">
+          <div className="text-white space-y-6 text-left mb-8">
             <h1 className="text-4xl font-bold leading-tight">
               The Lowest Fee<br />
               Crypto Exchange
@@ -1210,11 +1210,11 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Crypto Cards Positioned at Bottom - Mobile */}
-          <div className="absolute bottom-0 left-0 right-0 px-4 transform translate-y-1/2">
+          {/* Crypto Cards Section - Mobile with white background continuation */}
+          <div className="bg-white px-4 pt-8 pb-8 -mx-4 rounded-t-3xl">
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex gap-4 pb-4" style={{minWidth: 'max-content'}}>
-                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
+                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0 border border-gray-100">
                   <div className="flex items-center mb-3">
                     <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
                       <span className="text-white font-bold text-sm">₿</span>
@@ -1244,7 +1244,7 @@ export default function Landing() {
                   </Button>
                 </div>
 
-                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
+                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0 border border-gray-100">
                   <div className="flex items-center mb-3">
                     <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
                       <span className="text-white font-bold text-sm">Ξ</span>
@@ -1274,7 +1274,7 @@ export default function Landing() {
                   </Button>
                 </div>
 
-                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
+                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0 border border-gray-100">
                   <div className="flex items-center mb-3">
                     <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-3">
                       <span className="text-white font-bold text-sm">S</span>
@@ -1361,8 +1361,11 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Background section for cards to overlap */}
-      <section className="md:hidden bg-gray-50 pt-24 pb-8">
+      {/* Mobile Why ChicksX Section */}
+      <section className="md:hidden bg-white px-4 py-8">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ChicksX?</h2>
+        </div>
       </section>
 
       {/* Crypto Cards Section */}
