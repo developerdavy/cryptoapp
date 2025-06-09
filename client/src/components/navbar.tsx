@@ -114,8 +114,8 @@ export default function Navbar() {
             {/* Mobile Menu */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden text-foreground hover:bg-accent/20 border border-border/50">
-                  <Menu className="h-5 w-5 text-foreground" />
+                <Button variant="outline" size="icon" className="md:hidden bg-white text-gray-900 border-gray-300 hover:bg-gray-50">
+                  <Menu className="h-5 w-5 text-gray-900" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="glass-effect border-border/50">
