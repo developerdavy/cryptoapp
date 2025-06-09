@@ -1310,52 +1310,54 @@ export default function Landing() {
 
         {/* Desktop Layout */}
         <div className="hidden md:block">
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            <div className="text-white space-y-6 sm:space-y-8 text-center lg:text-left">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                The Lowest Fee<br />
-                Crypto Exchange
-              </h1>
-              <p className="text-lg sm:text-xl text-purple-200">
-                Buy, sell, exchange bitcoin, crypto or fiat instantly in any major city around the globe.
-              </p>
-              <Button 
-                onClick={() => setLocation("/trade")}
-                className="bg-white text-purple-900 hover:bg-purple-100 px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-semibold"
-              >
-                Exchange Now
-              </Button>
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
-                <div className="flex items-center space-x-2">
-                  <Shield className="w-5 h-5 sm:w-6 sm:h-6" />
-                  <div className="text-center sm:text-left">
-                    <div className="font-semibold text-sm sm:text-base">Fintrac & Fincen registered</div>
-                    <Link href="#" className="text-purple-200 text-xs sm:text-sm hover:underline">
-                      Learn more →
-                    </Link>
+          <div className="w-full mx-auto px-6 lg:px-12 xl:px-16">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              <div className="text-white space-y-6 lg:space-y-8 text-left ml-4">
+                <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                  The Lowest Fee<br />
+                  Crypto Exchange
+                </h1>
+                <p className="text-lg lg:text-xl text-purple-200">
+                  Buy, sell, exchange bitcoin, crypto or fiat instantly in any major city around the globe.
+                </p>
+                <Button 
+                  onClick={() => setLocation("/trade")}
+                  className="bg-white text-purple-900 hover:bg-purple-100 px-8 py-3 text-lg font-semibold"
+                >
+                  Exchange Now
+                </Button>
+                <div className="flex flex-col space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <Shield className="w-6 h-6" />
+                    <div>
+                      <div className="font-semibold">Fintrac & Fincen registered</div>
+                      <Link href="#" className="text-purple-200 text-sm hover:underline">
+                        Learn more →
+                      </Link>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="flex text-yellow-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
-                    ))}
-                  </div>
-                  <div className="text-center sm:text-left">
-                    <div className="font-semibold text-sm sm:text-base">★★★★✩ 4.4/5</div>
-                    <Link href="#" className="text-purple-200 text-xs sm:text-sm hover:underline">
-                      Customers review on trustpilot.com →
-                    </Link>
+                  <div className="flex items-center space-x-3">
+                    <div className="flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                    <div>
+                      <div className="font-semibold">★★★★✩ 4.4/5</div>
+                      <Link href="#" className="text-purple-200 text-sm hover:underline">
+                        Customers review on trustpilot.com →
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="relative order-first lg:order-last">
-              <img 
-                src={mobileAppImage} 
-                alt="ChicksX Mobile App" 
-                className="w-full max-w-xs sm:max-w-md mx-auto"
-              />
+              <div className="relative flex justify-center lg:justify-end">
+                <img 
+                  src={mobileAppImage} 
+                  alt="ChicksX Mobile App" 
+                  className="w-full max-w-sm lg:max-w-md xl:max-w-lg"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1372,10 +1374,10 @@ export default function Landing() {
       </section>
 
       {/* Crypto Cards Section */}
-      <section className="px-2 sm:px-4 lg:px-6 py-6 sm:py-8 relative">
+      <section className="w-full py-6 sm:py-8 relative">
         {/* Desktop Layout */}
-        <div className="hidden md:block w-full mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4 mx-4 sm:mx-8 lg:mx-12">
+        <div className="hidden md:block w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-6 lg:px-12 xl:px-16">
             {/* Bitcoin Card */}
             <Card className="bg-white shadow-lg">
               <CardContent className="p-2 sm:p-3 md:p-4">
@@ -1521,9 +1523,10 @@ export default function Landing() {
 
 
       {/* Security Section */}
-      <section className="px-6 py-16 bg-gradient-to-r from-purple-900 to-blue-800">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-          <div className="text-white">
+      <section className="w-full py-16 bg-gradient-to-r from-purple-900 to-blue-800">
+        <div className="w-full px-6 lg:px-12 xl:px-16">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="text-white">
             <div className="flex items-center space-x-4 mb-6">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
                 <Shield className="w-8 h-8 text-white" />
@@ -1554,12 +1557,13 @@ export default function Landing() {
               </div>
             </div>
           </div>
+          </div>
         </div>
       </section>
 
       {/* 24/7 Support Section */}
-      <section className="px-6 py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="w-full py-16 bg-gray-50">
+        <div className="w-full px-6 lg:px-12 xl:px-16">
           <div className="flex items-start" style={{gap: '60px'}}>
             <div className="flex-shrink-0">
               <div className="w-16 h-16 bg-purple-700 rounded-full flex items-center justify-center">
