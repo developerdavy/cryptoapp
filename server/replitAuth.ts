@@ -1,8 +1,8 @@
 import * as client from "openid-client";
 import { Strategy, type VerifyFunction } from "openid-client/passport";
-const FacebookStrategy = require("passport-facebook").Strategy;
-const TwitterStrategy = require("passport-twitter").Strategy;
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+import { Strategy as FacebookStrategy } from "passport-facebook";
+import { Strategy as TwitterStrategy } from "passport-twitter";
+import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 
 import passport from "passport";
 import session from "express-session";
