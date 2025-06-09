@@ -346,60 +346,15 @@ export default function Landing() {
                       <CryptoBadge symbol="GRT" name="The Graph" color="bg-cyan-700" icon="G" action="trade" />
                       <CryptoBadge symbol="1INCH" name="1inch" color="bg-emerald-700" icon="1" action="trade" />
                       <CryptoBadge symbol="CAKE" name="PancakeSwap" color="bg-rose-600" icon="C" action="trade" />
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-lime-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">E</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">ENJ</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">AAVE</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-violet-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">C</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">COMP</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">M</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">MKR</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-fuchsia-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">S</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">SNX</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-stone-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">Y</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">YFI</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-zinc-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">B</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">BAT</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-neutral-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">Z</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">ZRX</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-pink-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">K</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">KNC</span>
-                      </div>
+                      <CryptoBadge symbol="ENJ" name="Enjin Coin" color="bg-lime-600" icon="E" action="trade" />
+                      <CryptoBadge symbol="AAVE" name="Aave" color="bg-amber-600" icon="A" action="trade" />
+                      <CryptoBadge symbol="COMP" name="Compound" color="bg-violet-700" icon="C" action="trade" />
+                      <CryptoBadge symbol="MKR" name="Maker" color="bg-sky-600" icon="M" action="trade" />
+                      <CryptoBadge symbol="SNX" name="Synthetix" color="bg-fuchsia-600" icon="S" action="trade" />
+                      <CryptoBadge symbol="YFI" name="yearn.finance" color="bg-stone-600" icon="Y" action="trade" />
+                      <CryptoBadge symbol="BAT" name="Basic Attention Token" color="bg-zinc-600" icon="B" action="trade" />
+                      <CryptoBadge symbol="ZRX" name="0x" color="bg-neutral-600" icon="Z" action="trade" />
+                      <CryptoBadge symbol="KNC" name="Kyber Network" color="bg-pink-700" icon="K" action="trade" />
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">R</span>
