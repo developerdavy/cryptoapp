@@ -300,25 +300,45 @@ export default function Landing() {
       </section>
 
       {/* Why ChicksX Section */}
-      <section className="px-6 py-16 bg-white">
+      <section className="px-6 py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Why ChicksX?</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">Why ChicksX?</h2>
+            <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">
               We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our top priority is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously validating and perfecting our security measures and protocols, we ensure to provide the safest platform possible.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="text-center">
-                <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-                <p className="text-gray-600 mb-6">{feature.description}</p>
-                <Button className="bg-purple-700 hover:bg-purple-600 text-white">
-                  Learn more
-                </Button>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-3 gap-12">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-6 text-gray-900">Global Crypto Trading Made Simple</h3>
+              <p className="text-gray-600 mb-8 text-base leading-relaxed">
+                Trade crypto and fiat currencies from anywhere, anytime. All triggers on digital currencies with the lowest fees.
+              </p>
+              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-8 py-3 rounded-lg font-medium">
+                Learn more
+              </Button>
+            </div>
+            
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-6 text-gray-900">Buy and Sell 200+ Crypto and Fiat Currencies at...</h3>
+              <p className="text-gray-600 mb-8 text-base leading-relaxed">
+                From Bitcoin to ethereum the Phantom, USDT and Solana plus major fiat currencies including USD and CAD.
+              </p>
+              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-8 py-3 rounded-lg font-medium">
+                Learn more
+              </Button>
+            </div>
+            
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-6 text-gray-900">Pay and Withdraw Your Way</h3>
+              <p className="text-gray-600 mb-8 text-base leading-relaxed">
+                We give you the option of selecting the digital currency to sell and your preferred method of deposit method.
+              </p>
+              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-8 py-3 rounded-lg font-medium">
+                Learn more
+              </Button>
+            </div>
           </div>
         </div>
       </section>
