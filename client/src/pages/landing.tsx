@@ -1194,19 +1194,19 @@ export default function Landing() {
       {/* Crypto Cards Section */}
       <section className="px-2 sm:px-4 lg:px-6 py-6 sm:py-8 relative">
         <div className="w-full mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
             {/* Bitcoin Card */}
             <Card className="bg-white shadow-lg">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                    <span className="text-orange-500 text-lg font-bold">B</span>
+              <CardContent className="p-2 sm:p-3 md:p-4">
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-2 sm:mb-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                    <span className="text-orange-500 text-sm sm:text-lg font-bold">B</span>
                   </div>
-                  <div className="text-sm font-semibold text-gray-800">Bitcoin</div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-800">Bitcoin</div>
                 </div>
-                <div className="mb-2">
-                  <div className="font-bold text-lg text-gray-800">$105,571.15</div>
-                  <div className="text-green-500 text-sm flex items-center">
+                <div className="mb-1 sm:mb-2">
+                  <div className="font-bold text-sm sm:text-lg text-gray-800">$105,571.15</div>
+                  <div className="text-green-500 text-xs sm:text-sm flex items-center">
                     ▲ 0.06%
                   </div>
                 </div>
@@ -1228,7 +1228,7 @@ export default function Landing() {
 
             {/* Ethereum Card */}
             <Card className="bg-white shadow-lg">
-              <CardContent className="p-4">
+              <CardContent className="p-2 sm:p-3 md:p-4">
                 <div className="flex items-center space-x-2 mb-3">
                   <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                     <span className="text-blue-500 text-lg font-bold">E</span>
