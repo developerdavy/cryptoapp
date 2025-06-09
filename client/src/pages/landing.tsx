@@ -164,8 +164,8 @@ export default function Landing() {
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a cryptocurrency to purchase</p>
                   
-                  <div className="overflow-x-auto">
-                    <div className="flex gap-3 pb-2" style={{minWidth: 'max-content'}}>
+                  <div className="overflow-x-auto scrollbar-hide">
+                    <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">₿</span>
@@ -421,8 +421,8 @@ export default function Landing() {
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a cryptocurrency to sell</p>
                   
-                  <div className="overflow-x-auto">
-                    <div className="flex gap-3 pb-2" style={{minWidth: 'max-content'}}>
+                  <div className="overflow-x-auto scrollbar-hide">
+                    <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">₿</span>
