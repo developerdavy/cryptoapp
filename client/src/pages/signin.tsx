@@ -60,7 +60,12 @@ export default function SignIn() {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50" ref={dropdownRef}>
         <div className="w-full px-2 sm:px-4 lg:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4 sm:space-x-12">
-            <img src={chicksxLogo} alt="ChicksX" className="h-8 sm:h-10" />
+            <img 
+              src={chicksxLogo} 
+              alt="ChicksX" 
+              className="h-8 sm:h-10 cursor-pointer hover:opacity-80 transition-opacity" 
+              onClick={() => setLocation("/")}
+            />
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
