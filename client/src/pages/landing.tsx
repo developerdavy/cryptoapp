@@ -8,6 +8,7 @@ import mobileAppImage from "@assets/fd7028f1b02c88789f6f (1)_1749112747335.png";
 
 export default function Landing() {
   const [showBuyCryptoDropdown, setShowBuyCryptoDropdown] = useState(false);
+  const [showSellCryptoDropdown, setShowSellCryptoDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
@@ -15,6 +16,7 @@ export default function Landing() {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setShowBuyCryptoDropdown(false);
+        setShowSellCryptoDropdown(false);
       }
     }
 
@@ -87,7 +89,10 @@ export default function Landing() {
                 <Button 
                   variant="ghost" 
                   className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showBuyCryptoDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
-                  onClick={() => setShowBuyCryptoDropdown(!showBuyCryptoDropdown)}
+                  onClick={() => {
+                    setShowBuyCryptoDropdown(!showBuyCryptoDropdown);
+                    setShowSellCryptoDropdown(false);
+                  }}
                 >
                   Buy Crypto
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,8 +100,15 @@ export default function Landing() {
                   </svg>
                 </Button>
               </div>
-              <div className="relative group">
-                <Button variant="ghost" className="text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2">
+              <div className="relative">
+                <Button 
+                  variant="ghost" 
+                  className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showSellCryptoDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
+                  onClick={() => {
+                    setShowSellCryptoDropdown(!showSellCryptoDropdown);
+                    setShowBuyCryptoDropdown(false);
+                  }}
+                >
                   Sell Crypto
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -229,6 +241,122 @@ export default function Landing() {
                         <span className="text-white text-xs font-bold">S</span>
                       </div>
                       <span className="text-sm font-medium">SEPA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Sell Crypto Dropdown */}
+        {showSellCryptoDropdown && (
+          <div className="bg-white border-t border-gray-200 shadow-lg">
+            <div className="w-full px-6 py-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Sell Crypto</h3>
+              
+              <div className="grid grid-cols-2 gap-8">
+                {/* Cryptocurrency Selection */}
+                <div>
+                  <div className="mb-4">
+                    <input 
+                      type="text" 
+                      placeholder="Select a cryptocurrency to sell"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">Select a cryptocurrency to sell</p>
+                  
+                  <div className="flex flex-wrap gap-3">
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">₿</span>
+                      </div>
+                      <span className="text-sm font-medium">BTC</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">Ξ</span>
+                      </div>
+                      <span className="text-sm font-medium">ETH</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">X</span>
+                      </div>
+                      <span className="text-sm font-medium">XMR</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">L</span>
+                      </div>
+                      <span className="text-sm font-medium">LTC</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">T</span>
+                      </div>
+                      <span className="text-sm font-medium">USDT(ERC20)</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">W</span>
+                      </div>
+                      <span className="text-sm font-medium">WOO</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Payment Method Selection */}
+                <div>
+                  <div className="mb-4">
+                    <input 
+                      type="text" 
+                      placeholder="Search a payment method to proceed"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">Select a payment method to proceed</p>
+                  
+                  <div className="flex flex-wrap gap-3">
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-orange-500 rounded flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">I</span>
+                      </div>
+                      <span className="text-sm font-medium">Interac E-Transfer</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-blue-800 rounded flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">S</span>
+                      </div>
+                      <span className="text-sm font-medium">SEPA</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-purple-600 rounded flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">S</span>
+                      </div>
+                      <span className="text-sm font-medium">SWIFT Bank Transfer</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-gray-600 rounded flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">E</span>
+                      </div>
+                      <span className="text-sm font-medium">EFT</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
+                      <div className="w-6 h-6 bg-yellow-600 rounded flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">W</span>
+                      </div>
+                      <span className="text-sm font-medium">Western Union</span>
                     </div>
                   </div>
                 </div>
