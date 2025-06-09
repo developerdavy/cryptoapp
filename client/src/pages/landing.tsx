@@ -324,66 +324,16 @@ export default function Landing() {
                       <CryptoBadge symbol="XRP" name="Ripple" color="bg-blue-700" icon="X" action="trade" />
                       <CryptoBadge symbol="DOGE" name="Dogecoin" color="bg-yellow-700" icon="D" action="trade" />
                       <CryptoBadge symbol="AVAX" name="Avalanche" color="bg-teal-600" icon="A" action="trade" />
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">P</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">MATIC</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">D</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">DOT</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">L</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">LTC</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-purple-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">U</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">UNI</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">L</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">LINK</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">ATOM</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-cyan-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">ALGO</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">I</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">ICP</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">F</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">FTT</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-violet-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">APE</span>
-                      </div>
+                      <CryptoBadge symbol="MATIC" name="Polygon" color="bg-indigo-600" icon="P" action="trade" />
+                      <CryptoBadge symbol="DOT" name="Polkadot" color="bg-pink-600" icon="D" action="trade" />
+                      <CryptoBadge symbol="LTC" name="Litecoin" color="bg-gray-500" icon="L" action="trade" />
+                      <CryptoBadge symbol="UNI" name="Uniswap" color="bg-purple-700" icon="U" action="trade" />
+                      <CryptoBadge symbol="LINK" name="Chainlink" color="bg-blue-800" icon="L" action="trade" />
+                      <CryptoBadge symbol="ATOM" name="Cosmos" color="bg-orange-600" icon="A" action="trade" />
+                      <CryptoBadge symbol="ALGO" name="Algorand" color="bg-cyan-600" icon="A" action="trade" />
+                      <CryptoBadge symbol="ICP" name="Internet Computer" color="bg-red-600" icon="I" action="trade" />
+                      <CryptoBadge symbol="FTT" name="FTX Token" color="bg-emerald-600" icon="F" action="trade" />
+                      <CryptoBadge symbol="APE" name="ApeCoin" color="bg-violet-600" icon="A" action="trade" />
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">N</span>
