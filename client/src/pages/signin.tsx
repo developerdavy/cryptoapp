@@ -73,12 +73,21 @@ export default function SignIn() {
           </div>
           
           <div className="pt-4">
-            <Button
+            <button
               type="submit"
-              className="w-full bg-purple-400 hover:bg-purple-500 text-white font-medium py-2.5 px-4 rounded-md transition-colors text-sm"
+              className="btn btn-primary w-100"
+              style={{
+                backgroundColor: '#a855f7',
+                borderColor: '#a855f7',
+                fontSize: '14px',
+                borderRadius: '6px',
+                padding: '10px 16px'
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = '#9333ea'}
+              onMouseOut={(e) => e.target.style.backgroundColor = '#a855f7'}
             >
               Sign In
-            </Button>
+            </button>
           </div>
         </form>
         
