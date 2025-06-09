@@ -233,7 +233,7 @@ export default function SignUp() {
       {/* Desktop Layout */}
       <div className="hidden md:flex min-h-screen">
         {/* Left Side - Form */}
-        <div className="w-1/2 bg-gradient-to-br from-purple-600 to-purple-800 flex flex-col justify-center px-16">
+        <div className="w-1/2 bg-white flex flex-col justify-center px-16 relative">
           {/* Logo */}
           <div className="absolute top-8 left-8">
             <img 
@@ -244,101 +244,59 @@ export default function SignUp() {
             />
           </div>
 
-          <div className="max-w-md">
-            <h1 className="text-white text-3xl font-bold mb-8">Sign Up</h1>
+          <div className="max-w-md mx-auto w-full">
+            <h1 className="text-gray-900 text-4xl font-bold mb-12">Sign In</h1>
             
-            <form onSubmit={handleSignUp} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-white text-sm mb-2">First Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
-                    placeholder="Enter first name"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-white text-sm mb-2">Last Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
-                    placeholder="Enter last name"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    required
-                  />
-                </div>
-              </div>
-
+            <form className="space-y-6">
               <div>
-                <label className="block text-white text-sm mb-2">Email Address</label>
+                <label className="block text-gray-700 text-sm font-medium mb-2">Email Address</label>
                 <input
                   type="email"
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="Enter email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
                 />
               </div>
 
               <div>
-                <label className="block text-white text-sm mb-2">Password</label>
+                <label className="block text-gray-700 text-sm font-medium mb-2">Password</label>
                 <input
                   type="password"
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="Enter password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
                 />
               </div>
 
-              <div>
-                <label className="block text-white text-sm mb-2">Confirm Password</label>
-                <input
-                  type="password"
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
-                  placeholder="Confirm password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className="text-sm">
-                <span className="text-white/70">Already have an account? </span>
-                <button
-                  type="button"
-                  onClick={handleSignIn}
-                  className="text-white hover:text-white/80 underline"
-                >
-                  Sign In
+              <div className="flex justify-between items-center text-sm">
+                <button type="button" className="text-gray-600 hover:text-gray-800">
+                  Forgot your password?
                 </button>
+                <div>
+                  <span className="text-gray-600">Don't have an account? </span>
+                  <button type="button" className="text-purple-600 hover:text-purple-700 font-medium">
+                    Sign Up
+                  </button>
+                </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-purple-700 hover:bg-purple-600 text-white py-3 px-6 rounded-lg font-medium transition-colors"
+                className="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 px-6 rounded-lg font-medium transition-colors"
               >
-                Create Account
+                Sign In
               </button>
             </form>
 
-            <div className="relative my-6">
+            <div className="relative my-8">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-white/30" />
+                <div className="w-full border-t border-gray-200" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-transparent text-white/70">or</span>
+                <span className="px-4 bg-white text-gray-500">or</span>
               </div>
             </div>
 
             {/* Social Login Buttons */}
-            <div className="flex justify-center space-x-4 mb-6">
+            <div className="flex justify-center space-x-4 mb-8">
               <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
                 <SiFacebook className="w-5 h-5 text-white" />
               </button>
@@ -350,80 +308,95 @@ export default function SignUp() {
               </button>
             </div>
 
-            {/* ChicksX Group */}
-            <div className="text-center">
-              <p className="text-white/70 text-sm mb-3">ChicksX Group</p>
-              <div className="flex justify-center space-x-2 mb-3">
-                <div className="w-8 h-8 bg-yellow-500 rounded flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">M</span>
+            <div className="border-t border-gray-200 pt-6">
+              <p className="text-center text-gray-600 text-sm mb-4">ChicksX Group</p>
+              <div className="flex justify-center space-x-3 mb-4">
+                <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">M</span>
                 </div>
-                <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">JK</span>
+                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">JK</span>
                 </div>
-                <div className="w-8 h-8 bg-yellow-400 rounded flex items-center justify-center">
-                  <span className="text-black text-sm font-bold">S</span>
+                <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">S</span>
                 </div>
-                <div className="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">A</span>
+                <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">A</span>
                 </div>
-                <div className="w-8 h-8 bg-yellow-500 rounded flex items-center justify-center">
-                  <span className="text-red-600 text-sm font-bold">M</span>
+                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">M</span>
                 </div>
               </div>
-              <p className="text-white/60 text-sm">One account to access all of ChicksX services</p>
+              <p className="text-center text-gray-500 text-xs">One account to access all of ChicksX services</p>
             </div>
           </div>
         </div>
 
         {/* Right Side - Illustration */}
-        <div className="w-1/2 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 relative overflow-hidden">
+        <div className="w-1/2 bg-gradient-to-br from-blue-500 via-purple-600 to-blue-700 relative overflow-hidden">
           {/* Stars */}
-          <div className="absolute top-16 right-20 text-white text-xl">✦</div>
-          <div className="absolute top-32 right-32 text-white text-lg">✦</div>
-          <div className="absolute top-24 left-16 text-white text-sm">✦</div>
-          <div className="absolute bottom-32 left-24 text-white text-lg">✦</div>
+          <div className="absolute top-8 right-16 text-white text-2xl">✦</div>
+          <div className="absolute top-20 right-32 text-white text-lg">✦</div>
+          <div className="absolute top-32 left-16 text-white text-lg">✦</div>
+          <div className="absolute top-40 right-20 text-white text-sm">✦</div>
+          <div className="absolute bottom-40 left-20 text-white text-lg">✦</div>
           
-          {/* Floating Elements */}
-          <div className="absolute top-20 right-16 w-24 h-24 bg-purple-500/30 rounded-full"></div>
-          <div className="absolute top-40 left-20 w-16 h-16 bg-blue-400/40 rounded-full"></div>
+          {/* Top Floating Elements */}
+          <div className="absolute top-8 right-8 w-20 h-20 bg-pink-500 rounded-full opacity-80"></div>
+          <div className="absolute top-32 left-20 w-16 h-16 bg-purple-400 rounded-full opacity-60"></div>
           
-          {/* Main Illustration Area */}
-          <div className="absolute bottom-0 left-0 right-0 h-3/4">
-            {/* Platform/Ground */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-700/50 to-transparent"></div>
-            
-            {/* Central Character Area */}
-            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
-              {/* Robot/Character placeholder */}
-              <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mb-4">
-                <div className="w-3 h-3 bg-black rounded-full mr-2"></div>
-                <div className="w-3 h-3 bg-black rounded-full"></div>
+          {/* Background Geometric Shapes */}
+          <div className="absolute top-24 right-24 w-32 h-24 bg-blue-400/30 rounded-lg transform rotate-12"></div>
+          <div className="absolute bottom-1/3 left-8 w-24 h-24 bg-purple-400/40 rounded-lg transform -rotate-12"></div>
+          
+          {/* Large Central Circle */}
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-600/20 rounded-full"></div>
+          
+          {/* Platform/Ground Area */}
+          <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-purple-700/40 to-transparent"></div>
+          
+          {/* Robot Character */}
+          <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2">
+            {/* Robot Body */}
+            <div className="w-16 h-20 bg-yellow-400 rounded-lg flex flex-col items-center justify-center relative">
+              {/* Robot Eyes */}
+              <div className="flex space-x-2 mb-2">
+                <div className="w-2 h-2 bg-black rounded-full"></div>
+                <div className="w-2 h-2 bg-black rounded-full"></div>
               </div>
-              
-              {/* ChicksX Flag */}
-              <div className="absolute -top-8 -left-8 bg-white p-2 rounded shadow-lg text-xs font-bold text-purple-600">
-                CHICKSX
-              </div>
+              {/* Robot Mouth */}
+              <div className="w-4 h-1 bg-black rounded"></div>
             </div>
             
-            {/* Crypto Icons */}
-            <div className="absolute bottom-24 right-20 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
-              ₿
+            {/* ChicksX Flag */}
+            <div className="absolute -top-8 -left-6 bg-white px-2 py-1 rounded shadow-lg text-xs font-bold text-purple-600 transform -rotate-12">
+              CHICKSX
             </div>
-            <div className="absolute bottom-32 left-20 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-              Ł
-            </div>
-            <div className="absolute bottom-28 right-40 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
-              M
-            </div>
-            <div className="absolute bottom-36 left-32 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-              $
-            </div>
-            
-            {/* Geometric Shapes */}
-            <div className="absolute bottom-40 right-32 w-16 h-16 bg-white/20 rounded-lg transform rotate-12"></div>
-            <div className="absolute bottom-48 left-16 w-12 h-12 bg-blue-400/30 rounded-full"></div>
           </div>
+          
+          {/* Dome Structure */}
+          <div className="absolute bottom-20 right-20 w-32 h-24 bg-white/10 rounded-t-full border-2 border-white/20"></div>
+          
+          {/* Crypto Currency Icons */}
+          <div className="absolute bottom-16 right-16 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+            ₿
+          </div>
+          <div className="absolute bottom-24 left-16 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
+            Ł
+          </div>
+          <div className="absolute bottom-12 right-32 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
+            M
+          </div>
+          <div className="absolute bottom-32 left-32 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
+            $
+          </div>
+          <div className="absolute bottom-28 right-40 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
+            X
+          </div>
+          
+          {/* Additional Floating Elements */}
+          <div className="absolute bottom-40 right-24 w-12 h-8 bg-blue-400/30 rounded transform rotate-45"></div>
+          <div className="absolute bottom-36 left-24 w-8 h-8 bg-green-400/30 rounded-full"></div>
         </div>
       </div>
     </div>
