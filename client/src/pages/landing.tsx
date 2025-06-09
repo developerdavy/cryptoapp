@@ -1365,6 +1365,55 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Desktop Why ChicksX Section */}
+      <section className="hidden md:block w-full py-16 bg-white">
+        <div className="w-full" style={{marginLeft: '120px', marginRight: '120px'}}>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why ChicksX?</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Join millions of traders who trust ChicksX for secure, fast, and reliable cryptocurrency trading
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Low Fees */}
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Lowest Fees</h3>
+              <p className="text-gray-600">
+                Trade with industry-leading low fees. More money in your pocket means better returns on your investments.
+              </p>
+            </div>
+            
+            {/* Security */}
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Bank-Level Security</h3>
+              <p className="text-gray-600">
+                Your assets are protected with military-grade encryption and multi-factor authentication for complete peace of mind.
+              </p>
+            </div>
+            
+            {/* Support */}
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Headphones className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">24/7 Support</h3>
+              <p className="text-gray-600">
+                Get help whenever you need it. Our expert support team is available around the clock to assist you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mobile Why ChicksX Section */}
       <section className="md:hidden bg-gray-50 px-4 pt-24 pb-8">
         <div className="text-center mb-6">
