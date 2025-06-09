@@ -1,5 +1,8 @@
 import * as client from "openid-client";
 import { Strategy, type VerifyFunction } from "openid-client/passport";
+const FacebookStrategy = require("passport-facebook").Strategy;
+const TwitterStrategy = require("passport-twitter").Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 import passport from "passport";
 import session from "express-session";
@@ -72,57 +75,112 @@ export async function setupAuth(app: Express) {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  const config = await getOidcConfig();
-
-  const verify: VerifyFunction = async (
-    tokens: client.TokenEndpointResponse & client.TokenEndpointResponseHelpers,
-    verified: passport.AuthenticateCallback
-  ) => {
-    const user = {};
-    updateUserSession(user, tokens);
-    await upsertUser(tokens.claims());
-    verified(null, user);
-  };
-
-  for (const domain of process.env
-    .REPLIT_DOMAINS!.split(",")) {
-    const strategy = new Strategy(
-      {
-        name: `replitauth:${domain}`,
-        config,
-        scope: "openid email profile offline_access",
-        callbackURL: `https://${domain}/api/callback`,
-      },
-      verify,
-    );
-    passport.use(strategy);
+  // Facebook Strategy
+  if (process.env.FACEBOOK_APP_ID && process.env.FACEBOOK_APP_SECRET) {
+    passport.use(new FacebookStrategy({
+      clientID: process.env.FACEBOOK_APP_ID,
+      clientSecret: process.env.FACEBOOK_APP_SECRET,
+      callbackURL: "/auth/facebook/callback",
+      profileFields: ['id', 'emails', 'name', 'picture']
+    }, async (accessToken, refreshToken, profile, done) => {
+      try {
+        const user = await storage.upsertUser({
+          id: `facebook_${profile.id}`,
+          email: profile.emails?.[0]?.value || null,
+          firstName: profile.name?.givenName || null,
+          lastName: profile.name?.familyName || null,
+          profileImageUrl: profile.photos?.[0]?.value || null,
+        });
+        return done(null, user);
+      } catch (error) {
+        return done(error, null);
+      }
+    }));
   }
 
-  passport.serializeUser((user: Express.User, cb) => cb(null, user));
-  passport.deserializeUser((user: Express.User, cb) => cb(null, user));
+  // Google Strategy
+  if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
+    passport.use(new GoogleStrategy({
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "/auth/google/callback"
+    }, async (accessToken, refreshToken, profile, done) => {
+      try {
+        const user = await storage.upsertUser({
+          id: `google_${profile.id}`,
+          email: profile.emails?.[0]?.value || null,
+          firstName: profile.name?.givenName || null,
+          lastName: profile.name?.familyName || null,
+          profileImageUrl: profile.photos?.[0]?.value || null,
+        });
+        return done(null, user);
+      } catch (error) {
+        return done(error, null);
+      }
+    }));
+  }
 
-  app.get("/api/login", (req, res, next) => {
-    passport.authenticate(`replitauth:${req.hostname}`, {
-      prompt: "login consent",
-      scope: ["openid", "email", "profile", "offline_access"],
-    })(req, res, next);
+  // Twitter Strategy
+  if (process.env.TWITTER_CONSUMER_KEY && process.env.TWITTER_CONSUMER_SECRET) {
+    passport.use(new TwitterStrategy({
+      consumerKey: process.env.TWITTER_CONSUMER_KEY,
+      consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+      callbackURL: "/auth/twitter/callback",
+      includeEmail: true
+    }, async (token, tokenSecret, profile, done) => {
+      try {
+        const user = await storage.upsertUser({
+          id: `twitter_${profile.id}`,
+          email: profile.emails?.[0]?.value || null,
+          firstName: profile.displayName?.split(' ')[0] || null,
+          lastName: profile.displayName?.split(' ').slice(1).join(' ') || null,
+          profileImageUrl: profile.photos?.[0]?.value || null,
+        });
+        return done(null, user);
+      } catch (error) {
+        return done(error, null);
+      }
+    }));
+  }
+
+  passport.serializeUser((user: any, cb) => cb(null, user.id));
+  passport.deserializeUser(async (id: string, cb) => {
+    try {
+      const user = await storage.getUser(id);
+      cb(null, user);
+    } catch (error) {
+      cb(error, null);
+    }
   });
 
-  app.get("/api/callback", (req, res, next) => {
-    passport.authenticate(`replitauth:${req.hostname}`, {
-      successReturnToOrRedirect: "/",
-      failureRedirect: "/api/login",
-    })(req, res, next);
-  });
+  // Social Auth Routes
+  app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
+  app.get('/auth/facebook/callback', 
+    passport.authenticate('facebook', { failureRedirect: '/signin' }),
+    (req, res) => {
+      res.redirect('/dashboard');
+    }
+  );
+
+  app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+  app.get('/auth/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/signin' }),
+    (req, res) => {
+      res.redirect('/dashboard');
+    }
+  );
+
+  app.get('/auth/twitter', passport.authenticate('twitter'));
+  app.get('/auth/twitter/callback', 
+    passport.authenticate('twitter', { failureRedirect: '/signin' }),
+    (req, res) => {
+      res.redirect('/dashboard');
+    }
+  );
 
   app.get("/api/logout", (req, res) => {
     req.logout(() => {
-      res.redirect(
-        client.buildEndSessionUrl(config, {
-          client_id: process.env.REPL_ID!,
-          post_logout_redirect_uri: `${req.protocol}://${req.hostname}`,
-        }).href
-      );
+      res.redirect("/");
     });
   });
 }

@@ -116,13 +116,22 @@ export default function SignIn() {
           {/* Social Login Options */}
           <div className="space-y-3">
             <div className="flex justify-center space-x-4">
-              <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700">
+              <button 
+                onClick={() => window.location.href = '/auth/facebook'}
+                className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
+              >
                 <span className="font-bold">f</span>
               </button>
-              <button className="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500">
+              <button 
+                onClick={() => window.location.href = '/auth/twitter'}
+                className="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors"
+              >
                 <span className="font-bold">t</span>
               </button>
-              <button className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700">
+              <button 
+                onClick={() => window.location.href = '/auth/google'}
+                className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors"
+              >
                 <span className="font-bold">G</span>
               </button>
             </div>
