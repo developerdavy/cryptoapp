@@ -423,43 +423,43 @@ export default function Landing() {
                   {swapActiveTab === 'Fiat' ? (
                     <div className="flex flex-wrap gap-3">
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇮🇳</span>
+                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">I</span>
                         </div>
                         <span className="text-sm font-medium">INR</span>
                       </div>
                       
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇺🇸</span>
+                        <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">$</span>
                         </div>
                         <span className="text-sm font-medium">USD</span>
                       </div>
                       
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇨🇦</span>
+                        <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">C</span>
                         </div>
                         <span className="text-sm font-medium">CAD</span>
                       </div>
                       
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇪🇺</span>
+                        <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">€</span>
                         </div>
                         <span className="text-sm font-medium">EUR</span>
                       </div>
                       
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇦🇺</span>
+                        <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">A</span>
                         </div>
                         <span className="text-sm font-medium">AUD</span>
                       </div>
                       
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇬🇧</span>
+                        <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">£</span>
                         </div>
                         <span className="text-sm font-medium">GBP</span>
                       </div>
@@ -504,43 +504,43 @@ export default function Landing() {
                   {swapActiveTab === 'Fiat' ? (
                     <div className="flex flex-wrap gap-3">
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇮🇳</span>
+                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">I</span>
                         </div>
                         <span className="text-sm font-medium">INR</span>
                       </div>
                       
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇺🇸</span>
+                        <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">$</span>
                         </div>
                         <span className="text-sm font-medium">USD</span>
                       </div>
                       
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇨🇦</span>
+                        <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">C</span>
                         </div>
                         <span className="text-sm font-medium">CAD</span>
                       </div>
                       
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇪🇺</span>
+                        <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">€</span>
                         </div>
                         <span className="text-sm font-medium">EUR</span>
                       </div>
                       
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇦🇺</span>
+                        <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">A</span>
                         </div>
                         <span className="text-sm font-medium">AUD</span>
                       </div>
                       
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 rounded-full overflow-hidden">
-                          <span className="text-xs font-bold">🇬🇧</span>
+                        <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">£</span>
                         </div>
                         <span className="text-sm font-medium">GBP</span>
                       </div>
