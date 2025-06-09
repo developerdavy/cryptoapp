@@ -313,36 +313,42 @@ export default function Landing() {
             </div>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900">Global Crypto Trading Made Simple</h3>
-              <p className="text-gray-600 mb-8 text-base leading-relaxed">
-                Trade crypto and fiat currencies from anywhere, anytime. All triggers on digital currencies with the lowest fees.
-              </p>
-              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-8 py-3 rounded-lg font-medium">
-                Learn more
-              </Button>
-            </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="bg-white shadow-lg h-full">
+              <CardContent className="p-8 flex flex-col h-full">
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Global Crypto Trading Made Simple</h3>
+                <p className="text-gray-600 mb-6 text-sm leading-relaxed flex-grow">
+                  Trade crypto and fiat currencies from anywhere, anytime. We support all digital currencies with the lowest fees.
+                </p>
+                <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium w-full">
+                  Learn more
+                </Button>
+              </CardContent>
+            </Card>
             
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900">Buy and Sell 200+ Crypto and Fiat Currencies at...</h3>
-              <p className="text-gray-600 mb-8 text-base leading-relaxed">
-                From Bitcoin to ethereum the Phantom, USDT and Solana plus major fiat currencies including USD and CAD.
-              </p>
-              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-8 py-3 rounded-lg font-medium">
-                Learn more
-              </Button>
-            </div>
+            <Card className="bg-white shadow-lg h-full">
+              <CardContent className="p-8 flex flex-col h-full">
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Trade 200+ Currencies at Lowest Rates</h3>
+                <p className="text-gray-600 mb-6 text-sm leading-relaxed flex-grow">
+                  From BTC to ETH, USDT, SOL plus fiat currencies like USD and CAD - we offer competitive rates on every trade.
+                </p>
+                <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium w-full">
+                  Learn more
+                </Button>
+              </CardContent>
+            </Card>
             
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900">Pay and Withdraw Your Way</h3>
-              <p className="text-gray-600 mb-8 text-base leading-relaxed">
-                We give you the option of selecting the digital currency to sell and your preferred method of deposit method.
-              </p>
-              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-8 py-3 rounded-lg font-medium">
-                Learn more
-              </Button>
-            </div>
+            <Card className="bg-white shadow-lg h-full">
+              <CardContent className="p-8 flex flex-col h-full">
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Pay and Withdraw Your Way</h3>
+                <p className="text-gray-600 mb-6 text-sm leading-relaxed flex-grow">
+                  We give you the option of selecting the digital currency to sell, and your preferred cashout or payout method.
+                </p>
+                <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium w-full">
+                  Learn more
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
