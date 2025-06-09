@@ -1168,9 +1168,9 @@ export default function Landing() {
       </header>
 
       {/* Hero Section */}
-      <section className="px-4 py-8 md:px-6 md:py-16 pb-24">
+      <section className="px-4 py-8 md:px-6 md:py-16 relative">
         {/* Mobile Layout */}
-        <div className="md:hidden">
+        <div className="md:hidden pb-32">
           <div className="text-white space-y-6 text-left">
             <h1 className="text-4xl font-bold leading-tight">
               The Lowest Fee<br />
@@ -1208,8 +1208,10 @@ export default function Landing() {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Crypto Cards for Mobile - Embedded in hero */}
+          {/* Crypto Cards Positioned at Bottom - Mobile */}
+          <div className="absolute bottom-0 left-0 right-0 px-4 transform translate-y-1/2">
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex gap-4 pb-4" style={{minWidth: 'max-content'}}>
                 <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
@@ -1221,8 +1223,8 @@ export default function Landing() {
                       <div className="font-semibold text-sm">Bitcoin</div>
                     </div>
                   </div>
-                  <div className="text-2xl font-bold mb-1">$107,870.07</div>
-                  <div className="text-green-500 text-sm mb-3">↗ 1.78%</div>
+                  <div className="text-2xl font-bold mb-1">$107,784.20</div>
+                  <div className="text-green-500 text-sm mb-3">↗ 1.65%</div>
                   <div className="h-8 mb-3">
                     <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
                       <polyline
@@ -1251,8 +1253,8 @@ export default function Landing() {
                       <div className="font-semibold text-sm">Ethereum</div>
                     </div>
                   </div>
-                  <div className="text-2xl font-bold mb-1">$2,540.75</div>
-                  <div className="text-green-500 text-sm mb-3">↗ 1.08%</div>
+                  <div className="text-2xl font-bold mb-1">$2,537.59</div>
+                  <div className="text-green-500 text-sm mb-3">↗ 0.87%</div>
                   <div className="h-8 mb-3">
                     <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
                       <polyline
@@ -1302,11 +1304,6 @@ export default function Landing() {
                   </Button>
                 </div>
               </div>
-            </div>
-
-            {/* Why ChicksX Section for Mobile */}
-            <div className="text-center text-white pt-8">
-              <h2 className="text-2xl font-bold mb-4">Why ChicksX?</h2>
             </div>
           </div>
         </div>
@@ -1361,6 +1358,13 @@ export default function Landing() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Background section for cards to overlap */}
+      <section className="md:hidden bg-gray-50 pt-24 pb-8">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ChicksX?</h2>
         </div>
       </section>
 
