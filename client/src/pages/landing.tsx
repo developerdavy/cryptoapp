@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star, Shield, Headphones } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect, useRef } from "react";
+import { useAuth } from "@/hooks/useAuth";
 import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
 import mobileAppImage from "@assets/fd7028f1b02c88789f6f (1)_1749112747335.png";
 

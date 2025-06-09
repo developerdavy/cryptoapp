@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "wouter";
+import { useAuth } from "@/hooks/useAuth";
+import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -86,6 +88,8 @@ const paymentMethods = [
 export default function Trade() {
   const params = useParams();
   const [location] = useLocation();
+  const { isAuthenticated, isLoading } = useAuth();
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("Buy");
   const [selectedCrypto, setSelectedCrypto] = useState("BTC");
   const [selectedPayment, setSelectedPayment] = useState("card");
@@ -120,6 +124,27 @@ export default function Trade() {
   const currentPayment = paymentMethods.find(p => p.id === selectedPayment) || paymentMethods[0];
   const currentCurrency = currencies.find(c => c.id === selectedCurrency) || currencies[0];
 
+  const handleCheckout = () => {
+    if (!isAuthenticated) {
+      toast({
+        title: "Authentication Required",
+        description: "Please sign in to continue with your purchase.",
+        variant: "destructive",
+      });
+      setTimeout(() => {
+        window.location.href = "/api/login";
+      }, 1000);
+      return;
+    }
+    
+    // Proceed with checkout for authenticated users
+    toast({
+      title: "Processing Transaction",
+      description: "Redirecting to secure checkout...",
+    });
+    // Add actual checkout logic here
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -142,10 +167,23 @@ export default function Trade() {
               </button>
             </nav>
           </div>
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg flex items-center">
-            <span className="mr-2">👤</span>
-            Sign In
-          </Button>
+          {!isAuthenticated ? (
+            <Button 
+              onClick={() => window.location.href = "/api/login"}
+              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg flex items-center"
+            >
+              <span className="mr-2">👤</span>
+              Sign In
+            </Button>
+          ) : (
+            <Button 
+              onClick={() => window.location.href = "/api/logout"}
+              className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg flex items-center"
+            >
+              <span className="mr-2">👤</span>
+              Sign Out
+            </Button>
+          )}
         </div>
       </header>
 
@@ -307,7 +345,10 @@ export default function Trade() {
                   </Select>
                 </div>
 
-                <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-4 text-lg font-medium rounded-xl mt-6">
+                <Button 
+                  onClick={handleCheckout}
+                  className="w-full bg-purple-600 hover:bg-purple-700 text-white py-4 text-lg font-medium rounded-xl mt-6"
+                >
                   Checkout now
                 </Button>
               </div>
