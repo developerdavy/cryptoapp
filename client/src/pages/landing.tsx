@@ -302,7 +302,7 @@ export default function Landing() {
       {/* Why ChicksX Section */}
       <section className="px-6 py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 items-start mb-12">
             <div>
               <h2 className="text-4xl font-bold text-gray-900">Why ChicksX?</h2>
             </div>
