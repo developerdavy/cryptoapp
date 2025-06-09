@@ -103,21 +103,23 @@ export default function Landing() {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50" ref={dropdownRef}>
         {/* Mobile Header */}
         <div className="md:hidden px-4 py-4 flex items-center justify-between">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-            onClick={() => setShowMobileMenu(!showMobileMenu)}
-          >
-            <div className="flex flex-col space-y-1">
-              <div className="w-5 h-0.5 bg-gray-700"></div>
-              <div className="w-5 h-0.5 bg-gray-700"></div>
-              <div className="w-5 h-0.5 bg-gray-700"></div>
+          <div className="flex items-center space-x-3">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+            >
+              <div className="flex flex-col space-y-1">
+                <div className="w-5 h-0.5 bg-gray-700"></div>
+                <div className="w-5 h-0.5 bg-gray-700"></div>
+                <div className="w-5 h-0.5 bg-gray-700"></div>
+              </div>
+            </Button>
+            
+            <div className="flex items-center">
+              <img src={chicksxLogo} alt="ChicksX" className="h-6" />
             </div>
-          </Button>
-          
-          <div className="flex items-center">
-            <img src={chicksxLogo} alt="ChicksX" className="h-6" />
           </div>
           
           <Button 
