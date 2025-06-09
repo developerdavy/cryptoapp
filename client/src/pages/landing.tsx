@@ -1596,118 +1596,102 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Enhanced Footer */}
-      <footer className="px-4 py-8 sm:px-6 sm:py-12 bg-gray-50 border-t" id="enhanced-footer">
-        <div className="max-w-7xl mx-auto">
-          {/* Main Footer Content */}
-          <div className="grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-2 sm:gap-6 lg:gap-8 mb-6 sm:mb-8 lg:mb-12">
-            <div className="col-span-4 sm:col-span-2 xl:col-span-2 mb-4 sm:mb-0">
-              <img src={chicksxLogo} alt="ChicksX" className="h-5 sm:h-8 mb-2 sm:mb-6" />
-              <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-6 leading-relaxed">
-                Your trusted cryptocurrency exchange platform. Trade with confidence using our secure, fast, and reliable trading infrastructure.
-              </p>
-              <div className="space-y-1 sm:space-y-2">
-                <div className="text-xs sm:text-sm text-gray-600">📧 support@chicksx.com</div>
-                <div className="text-xs sm:text-sm text-gray-600">📞 1-800-CHICKSX</div>
-                <div className="text-xs sm:text-sm text-gray-600">🕒 24/7 Customer Support</div>
+      {/* Footer */}
+      <footer className="bg-white py-16 border-t border-gray-200" style={{marginLeft: '120px', marginRight: '120px'}}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-5 gap-16">
+            {/* Logo and Email */}
+            <div className="col-span-1">
+              <img src={chicksxLogo} alt="ChicksX" className="h-8 mb-6" />
+              <p className="text-gray-600 text-sm">support@chicksx.com</p>
+              <div className="flex items-center mt-4">
+                <span className="text-xs bg-purple-600 text-white px-2 py-1 rounded mr-2">ENG</span>
+                <span className="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded">USD</span>
               </div>
             </div>
-            
+
+            {/* ChicksX Column */}
             <div>
-              <h4 className="font-semibold mb-2 sm:mb-4 text-sm sm:text-base text-gray-900">Company</h4>
-              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600">
-                <li><Link href="/about" className="hover:text-purple-600 transition-colors">About Us</Link></li>
-                <li><Link href="/blog" className="hover:text-purple-600 transition-colors">Blog</Link></li>
-                <li><Link href="/careers" className="hover:text-purple-600 transition-colors">Careers</Link></li>
-                <li><Link href="/press" className="hover:text-purple-600 transition-colors">Press Kit</Link></li>
-                <li><Link href="/investors" className="hover:text-purple-600 transition-colors">Investors</Link></li>
+              <h4 className="font-semibold text-gray-900 mb-4">ChicksX</h4>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li><Link href="/locations">Locations</Link></li>
+                <li><Link href="/blog">Blog</Link></li>
+                <li><Link href="/security">Security</Link></li>
+                <li>
+                  <div className="flex items-center">
+                    <span>More</span>
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </li>
               </ul>
             </div>
-            
+
+            {/* Support Column */}
             <div>
-              <h4 className="font-semibold mb-2 sm:mb-4 text-sm sm:text-base text-gray-900">Products</h4>
-              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600">
-                <li><Link href="/trade" className="hover:text-purple-600 transition-colors">Spot Trading</Link></li>
-                <li><Link href="/markets" className="hover:text-purple-600 transition-colors">Markets</Link></li>
-                <li><Link href="/wallet" className="hover:text-purple-600 transition-colors">Wallet</Link></li>
-                <li><Link href="/api" className="hover:text-purple-600 transition-colors">API</Link></li>
-                <li><Link href="/mobile" className="hover:text-purple-600 transition-colors">Mobile App</Link></li>
+              <h4 className="font-semibold text-gray-900 mb-4">Support</h4>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li><Link href="/faq">FAQ</Link></li>
+                <li><Link href="/contact">Contact Us</Link></li>
+                <li><Link href="/sitemap">Sitemap</Link></li>
               </ul>
             </div>
-            
+
+            {/* Legal Column */}
             <div>
-              <h4 className="font-semibold mb-2 sm:mb-4 text-sm sm:text-base text-gray-900">Support</h4>
-              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600">
-                <li><Link href="/help" className="hover:text-purple-600 transition-colors">Help Center</Link></li>
-                <li><Link href="/contact" className="hover:text-purple-600 transition-colors">Contact Us</Link></li>
-                <li><Link href="/status" className="hover:text-purple-600 transition-colors">System Status</Link></li>
-                <li><Link href="/fees" className="hover:text-purple-600 transition-colors">Fee Schedule</Link></li>
-                <li><Link href="/security" className="hover:text-purple-600 transition-colors">Security</Link></li>
+              <h4 className="font-semibold text-gray-900 mb-4">Legal</h4>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li><Link href="/privacy">Privacy Policy</Link></li>
+                <li><Link href="/terms">Terms of Service</Link></li>
+                <li><Link href="/cookies">Cookies Policy</Link></li>
+                <li>
+                  <div className="flex items-center">
+                    <span>More</span>
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </li>
               </ul>
             </div>
-            
+
+            {/* Social Column */}
             <div>
-              <h4 className="font-semibold mb-2 sm:mb-4 text-sm sm:text-base text-gray-900">Legal</h4>
-              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600">
-                <li><Link href="/privacy" className="hover:text-purple-600 transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="hover:text-purple-600 transition-colors">Terms of Service</Link></li>
-                <li><Link href="/cookies" className="hover:text-purple-600 transition-colors">Cookie Policy</Link></li>
-                <li><Link href="/compliance" className="hover:text-purple-600 transition-colors">Compliance</Link></li>
-                <li><Link href="/disclosures" className="hover:text-purple-600 transition-colors">Risk Disclosures</Link></li>
-              </ul>
-            </div>
-          </div>
-          
-          {/* Newsletter Signup - Hidden on Mobile */}
-          <div className="hidden sm:block bg-white rounded-lg p-6 sm:p-8 mb-6 sm:mb-12 shadow-sm border">
-            <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Stay Updated</h3>
-              <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Get the latest crypto news, market updates, and trading insights delivered to your inbox.</p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="flex-1 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
-                />
-                <Button className="bg-purple-700 hover:bg-purple-600 text-white px-4 sm:px-6 py-2 rounded-lg text-sm">
-                  Subscribe
-                </Button>
-              </div>
-            </div>
-          </div>
-          
-          {/* Social Links and Trust Indicators */}
-          <div className="flex flex-col sm:flex-row items-center justify-between pt-4 sm:pt-8 border-t border-gray-200 space-y-4 sm:space-y-0">
-            <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6">
-              <div className="text-center sm:text-left">
-                <h4 className="font-semibold mb-2 text-sm sm:text-base text-gray-900">Follow Us</h4>
-                <div className="flex space-x-2 sm:space-x-3 justify-center sm:justify-start">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs sm:text-sm">f</div>
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-400 rounded-full flex items-center justify-center text-white text-xs sm:text-sm">t</div>
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-800 rounded-full flex items-center justify-center text-white text-xs sm:text-sm">in</div>
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center text-white text-xs sm:text-sm">gh</div>
+              <h4 className="font-semibold text-gray-900 mb-4">Social</h4>
+              <div className="flex space-x-3 mb-4">
+                <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">D</span>
+                </div>
+                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">T</span>
+                </div>
+                <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">X</span>
+                </div>
+                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">F</span>
                 </div>
               </div>
-              
-              <div className="text-center sm:text-left">
-                <div className="text-xs sm:text-sm font-semibold text-gray-900">Trustpilot Reviews</div>
-                <div className="flex text-green-500 mt-1 justify-center sm:justify-start">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
-                  ))}
+              <div>
+                <p className="text-sm text-gray-600 mb-1">Trustpilot Reviews</p>
+                <div className="flex items-center">
+                  <div className="flex text-green-500">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-sm font-semibold ml-2">4.4/5</span>
                 </div>
-                <div className="text-xs text-gray-600 mt-1">Excellent • 4.4/5 • 12,543 reviews</div>
               </div>
             </div>
-            
-            <div className="text-center sm:text-right">
-              <p className="text-gray-600 text-xs sm:text-sm mb-1 sm:mb-2">
-                © 2024 ChicksX. All rights reserved.
-              </p>
-              <p className="text-xs text-gray-500">
-                ChicksX is a registered trademark. Cryptocurrency trading involves risk.
-              </p>
-            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="mt-12 pt-8 border-t border-gray-200 text-center">
+            <p className="text-sm text-gray-500">
+              Copyright © 2021, ChicksX.com. All Rights Reserved.
+            </p>
           </div>
         </div>
       </footer>
