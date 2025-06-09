@@ -41,8 +41,14 @@ export default function SignUp() {
     }
   };
 
-  const handleSignIn = () => {
-    setLocation("/signin");
+  const handleSignIn = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle signin logic here
+    toast({
+      title: "Success",
+      description: "Signed in successfully!",
+    });
+    setLocation("/dashboard");
   };
 
   return (
@@ -248,13 +254,16 @@ export default function SignUp() {
           <div className="max-w-md mx-auto w-full">
             <h1 className="text-gray-900 text-4xl font-bold mb-12">Sign In</h1>
             
-            <form className="space-y-6">
+            <form onSubmit={handleSignIn} className="space-y-6">
               <div>
                 <label className="block text-gray-700 text-sm font-medium mb-2">Email Address</label>
                 <input
                   type="email"
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="Enter email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
 
@@ -264,6 +273,9 @@ export default function SignUp() {
                   type="password"
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="Enter password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
               </div>
 
