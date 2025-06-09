@@ -18,6 +18,9 @@ function Router() {
       <Route path="/" component={Landing} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/trade" component={Trade} />
+      <Route path="/buy/:crypto" component={Trade} />
+      <Route path="/sell/:crypto" component={Trade} />
+      <Route path="/swap/:crypto" component={Trade} />
       <Route path="/wallet" component={Wallet} />
       <Route path="/markets" component={Markets} />
       <Route path="/history" component={History} />

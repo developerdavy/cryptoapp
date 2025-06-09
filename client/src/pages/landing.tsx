@@ -26,6 +26,20 @@ export default function Landing() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Helper function to create clickable crypto badge
+  const CryptoBadge = ({ symbol, name, color, icon, action = "buy" }: { symbol: string, name: string, color: string, icon: string, action?: string }) => (
+    <Link 
+      href={`/${action}/${symbol.toLowerCase()}`} 
+      className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer"
+    >
+      <div className={`w-6 h-6 ${color} rounded-full flex items-center justify-center`}>
+        <span className="text-white text-xs font-bold">{icon}</span>
+      </div>
+      <span className="text-sm font-medium text-black">{symbol}</span>
+    </Link>
+  );
+
   const cryptoCards = [
     {
       name: "Bitcoin",
