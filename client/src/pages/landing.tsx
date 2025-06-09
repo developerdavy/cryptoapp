@@ -154,7 +154,7 @@ export default function Landing() {
       </section>
 
       {/* Crypto Cards Section */}
-      <section className="px-6 py-8 relative -mt-8">
+      <section className="px-6 py-8 relative">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-5 gap-4">
             {/* Bitcoin Card */}
