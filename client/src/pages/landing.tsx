@@ -185,42 +185,12 @@ export default function Landing() {
                       <CryptoBadge symbol="USDT" name="Tether" color="bg-green-500" icon="T" action="trade" />
                       <CryptoBadge symbol="BNB" name="Binance Coin" color="bg-yellow-600" icon="B" action="trade" />
                       <CryptoBadge symbol="ADA" name="Cardano" color="bg-red-500" icon="A" action="trade" />
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">S</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">SOL</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">X</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">XRP</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">D</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">DOGE</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">AVAX</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">P</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">MATIC</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">D</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">DOT</span>
-                      </div>
+                      <CryptoBadge symbol="SOL" name="Solana" color="bg-purple-600" icon="S" action="trade" />
+                      <CryptoBadge symbol="XRP" name="Ripple" color="bg-blue-700" icon="X" action="trade" />
+                      <CryptoBadge symbol="DOGE" name="Dogecoin" color="bg-yellow-700" icon="D" action="trade" />
+                      <CryptoBadge symbol="AVAX" name="Avalanche" color="bg-teal-600" icon="A" action="trade" />
+                      <CryptoBadge symbol="MATIC" name="Polygon" color="bg-indigo-600" icon="P" action="trade" />
+                      <CryptoBadge symbol="DOT" name="Polkadot" color="bg-pink-600" icon="D" action="trade" />
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">L</span>
