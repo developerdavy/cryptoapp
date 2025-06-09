@@ -1,8 +1,8 @@
 import Navbar from "@/components/navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Eye, Coins, TrendingUp, ArrowUpDown } from "lucide-react";
-import PriceChart from "@/components/PriceChart";
-import TradingPanel from "@/components/TradingPanel";
+import PriceChart from "@/components/price-chart";
+import TradingPanel from "@/components/trading-panel";
 import PortfolioHoldings from "@/components/PortfolioHoldings";
 import RecentTransactions from "@/components/RecentTransactions";
 import { useQuery } from "@tanstack/react-query";
