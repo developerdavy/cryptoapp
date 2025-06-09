@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Shield, Headphones } from "lucide-react";
 import { Link } from "wouter";
+import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
+import mobileAppImage from "@assets/fd7028f1b02c88789f6f (1)_1749112747335.png";
 
 export default function Landing() {
   const cryptoCards = [
@@ -64,7 +66,7 @@ export default function Landing() {
       <header className="px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <img src="/attached_assets/chicksx-main-logo-hover_1749112747335.png" alt="ChicksX" className="h-8" />
+            <img src={chicksxLogo} alt="ChicksX" className="h-8" />
             <nav className="hidden md:flex space-x-6">
               <Button variant="ghost" className="text-white hover:text-purple-200">
                 Buy Crypto <span className="ml-1">▼</span>
@@ -125,7 +127,7 @@ export default function Landing() {
           </div>
           <div className="relative">
             <img 
-              src="/attached_assets/fd7028f1b02c88789f6f (1)_1749112747335.png" 
+              src={mobileAppImage} 
               alt="ChicksX Mobile App" 
               className="w-full max-w-md mx-auto"
             />
@@ -254,7 +256,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-5 gap-8">
             <div>
-              <img src="/attached_assets/chicksx-main-logo-hover_1749112747335.png" alt="ChicksX" className="h-8 mb-4" />
+              <img src={chicksxLogo} alt="ChicksX" className="h-8 mb-4" />
               <p className="text-gray-600 text-sm">
                 @chicksx.com 2024
               </p>
