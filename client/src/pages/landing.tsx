@@ -1340,15 +1340,11 @@ export default function Landing() {
       {/* Why ChicksX Section */}
       <section className="px-6 py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-start mb-12" style={{gap: '60px'}}>
-            <div className="flex-shrink-0">
-              <h2 className="text-4xl font-bold text-gray-900 whitespace-nowrap">Why ChicksX?</h2>
-            </div>
-            <div className="flex-1">
-              <p className="text-gray-600 text-lg leading-relaxed">
-                We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our top priority is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously validating and perfecting our security measures and protocols, we ensure to provide the safest platform possible.
-              </p>
-            </div>
+          <div className="flex flex-col items-center text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why ChicksX?</h2>
+            <p className="text-gray-600 text-lg leading-relaxed max-w-4xl">
+              We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our top priority is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously validating and perfecting our security measures and protocols, we ensure to provide the safest platform possible.
+            </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
