@@ -1366,49 +1366,54 @@ export default function Landing() {
       </section>
 
       {/* Desktop Why ChicksX Section */}
-      <section className="hidden md:block w-full py-16 bg-white">
+      <section className="hidden md:block w-full py-16 bg-gray-50">
         <div className="w-full" style={{marginLeft: '120px', marginRight: '120px'}}>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why ChicksX?</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Join millions of traders who trust ChicksX for secure, fast, and reliable cryptocurrency trading
-            </p>
+          <div className="grid grid-cols-2 gap-16 items-start">
+            {/* Left Column - Title */}
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-0">Why ChicksX?</h2>
+            </div>
+            
+            {/* Right Column - Description */}
+            <div>
+              <p className="text-gray-600 leading-relaxed">
+                We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our top priority is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously updating and perfecting our security measures and protocols, we ensure to provide the safest platform possible.
+              </p>
+            </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Low Fees */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Lowest Fees</h3>
-              <p className="text-gray-600">
-                Trade with industry-leading low fees. More money in your pocket means better returns on your investments.
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
+            {/* Global Crypto Trading */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Global Crypto Trading Made Simple</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Trade crypto and fiat currencies from anywhere, anytime. We support all digital currencies with the lowest fees.
               </p>
+              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium">
+                Learn more
+              </Button>
             </div>
             
-            {/* Security */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Shield className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Bank-Level Security</h3>
-              <p className="text-gray-600">
-                Your assets are protected with military-grade encryption and multi-factor authentication for complete peace of mind.
+            {/* Trade 200+ Currencies */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Trade 200+ Currencies at Lowest Rates</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                From BTC to ETH, USDT, SOL, plus fiat currencies like USD and CAD - we offer competitive rates on every trade.
               </p>
+              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium">
+                Learn more
+              </Button>
             </div>
             
-            {/* Support */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Headphones className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">24/7 Support</h3>
-              <p className="text-gray-600">
-                Get help whenever you need it. Our expert support team is available around the clock to assist you.
+            {/* Pay and Withdraw */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Pay and Withdraw Your Way</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                We give you the option of selecting the digital currency to sell, and your preferred cashout or payout method.
               </p>
+              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium">
+                Learn more
+              </Button>
             </div>
           </div>
         </div>
