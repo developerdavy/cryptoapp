@@ -206,30 +206,10 @@ export default function Landing() {
                       <CryptoBadge symbol="HBAR" name="Hedera" color="bg-orange-700" icon="H" action="trade" />
                       <CryptoBadge symbol="THETA" name="Theta" color="bg-purple-800" icon="T" action="trade" />
                       <CryptoBadge symbol="FLOW" name="Flow" color="bg-red-700" icon="F" action="trade" />
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">Ξ</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">EGLD</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-indigo-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">X</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">XTZ</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-cyan-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">G</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">GRT</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-emerald-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">1</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">1INCH</span>
-                      </div>
+                      <CryptoBadge symbol="EGLD" name="MultiversX" color="bg-teal-700" icon="E" action="trade" />
+                      <CryptoBadge symbol="XTZ" name="Tezos" color="bg-indigo-700" icon="X" action="trade" />
+                      <CryptoBadge symbol="GRT" name="The Graph" color="bg-cyan-700" icon="G" action="trade" />
+                      <CryptoBadge symbol="1INCH" name="1inch" color="bg-emerald-700" icon="1" action="trade" />
                     </div>
                   </div>
                 </div>
@@ -335,60 +315,15 @@ export default function Landing() {
                   
                   <div className="overflow-x-auto scrollbar-hide w-full" style={{width: '100%'}}>
                     <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', flexWrap: 'nowrap'}}>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">₿</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">BTC</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">Ξ</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">ETH</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">T</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">USDT</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">₿</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">BNB</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">ADA</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">S</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">SOL</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">X</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">XRP</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">D</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">DOGE</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">AVAX</span>
-                      </div>
+                      <CryptoBadge symbol="BTC" name="Bitcoin" color="bg-orange-500" icon="₿" action="trade" />
+                      <CryptoBadge symbol="ETH" name="Ethereum" color="bg-blue-500" icon="Ξ" action="trade" />
+                      <CryptoBadge symbol="USDT" name="Tether" color="bg-green-500" icon="T" action="trade" />
+                      <CryptoBadge symbol="BNB" name="Binance Coin" color="bg-yellow-600" icon="B" action="trade" />
+                      <CryptoBadge symbol="ADA" name="Cardano" color="bg-red-500" icon="A" action="trade" />
+                      <CryptoBadge symbol="SOL" name="Solana" color="bg-purple-600" icon="S" action="trade" />
+                      <CryptoBadge symbol="XRP" name="Ripple" color="bg-blue-700" icon="X" action="trade" />
+                      <CryptoBadge symbol="DOGE" name="Dogecoin" color="bg-yellow-700" icon="D" action="trade" />
+                      <CryptoBadge symbol="AVAX" name="Avalanche" color="bg-teal-600" icon="A" action="trade" />
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">P</span>
