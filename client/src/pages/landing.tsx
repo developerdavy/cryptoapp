@@ -392,18 +392,30 @@ export default function Landing() {
 
       {/* 24/7 Support Section */}
       <section className="px-6 py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Headphones className="w-8 h-8 text-purple-700" />
-            <h2 className="text-3xl font-bold">24/7 Live Support</h2>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-start" style={{gap: '60px'}}>
+            <div className="flex-shrink-0">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
+                <Headphones className="w-8 h-8 text-purple-700" />
+              </div>
+            </div>
+            <div className="flex-1">
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">24/7 Live Support</h2>
+              <p className="text-gray-600 text-lg leading-relaxed mb-4">
+                To provide our customers with the best services possible, we provide 24/7 customer support. Our live chat will connect you to one of our specialists who will happily assist you with any inquiries or questions you may have.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                Feel free to connect with us at any time.
+              </p>
+              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-8 py-3 rounded font-medium">
+                Get In Touch
+              </Button>
+            </div>
           </div>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            To provide our customers with the best live support possible, we provide 24/7 customer support. Our live chat will connect you to one of our specialists who will happily assist you with any inquiries or questions you may have.
-          </p>
-          <p className="text-gray-600 mb-6">Feel free to connect with us at any time.</p>
-          <Button className="bg-purple-700 hover:bg-purple-600 text-white">
-            Get In Touch
-          </Button>
+          
+          <div className="mt-16 pt-8 border-t border-gray-200">
+            <p className="text-gray-400 text-sm">About Crypto Exchanges</p>
+          </div>
         </div>
       </section>
 
