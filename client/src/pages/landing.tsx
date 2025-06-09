@@ -302,11 +302,15 @@ export default function Landing() {
       {/* Why ChicksX Section */}
       <section className="px-6 py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">Why ChicksX?</h2>
-            <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">
-              We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our top priority is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously validating and perfecting our security measures and protocols, we ensure to provide the safest platform possible.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900">Why ChicksX?</h2>
+            </div>
+            <div>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our top priority is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously validating and perfecting our security measures and protocols, we ensure to provide the safest platform possible.
+              </p>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-12">
