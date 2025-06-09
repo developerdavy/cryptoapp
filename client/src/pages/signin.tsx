@@ -13,17 +13,19 @@ export default function SignIn() {
     <div className="min-h-screen bg-gradient-to-b from-purple-600 via-blue-600 to-purple-700 flex flex-col">
       {/* Logo */}
       <div className="pt-8 pb-6 px-6">
-        <img 
-          src={chicksxLogo} 
-          alt="ChicksX" 
-          className="h-6 cursor-pointer" 
-          onClick={() => setLocation("/")}
-        />
+        <div className="max-w-sm mx-auto">
+          <img 
+            src={chicksxLogo} 
+            alt="ChicksX" 
+            className="h-6 cursor-pointer" 
+            onClick={() => setLocation("/")}
+          />
+        </div>
       </div>
 
       {/* Sign In Form */}
       <div className="flex-1 px-6">
-        <div className="mb-6">
+        <div className="mb-6 max-w-sm mx-auto">
           <h2 className="text-white text-xl font-semibold">Sign In</h2>
         </div>
 
