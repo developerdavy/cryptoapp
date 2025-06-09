@@ -1515,14 +1515,14 @@ export default function Landing() {
       {/* Desktop Why ChicksX Section */}
       <section className="hidden md:block w-full py-16 bg-gray-50">
         <div className="w-full" style={{marginLeft: '120px', marginRight: '120px'}}>
-          <div className="grid grid-cols-2 gap-4 items-start">
-            {/* Left Column - Title */}
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-0">Why ChicksX?</h2>
+          <div className="flex items-start gap-8">
+            {/* Title */}
+            <div className="flex-shrink-0">
+              <h2 className="text-4xl font-bold text-gray-900">Why ChicksX?</h2>
             </div>
             
-            {/* Right Column - Description */}
-            <div>
+            {/* Description */}
+            <div className="flex-1">
               <p className="text-gray-600 leading-relaxed">
                 We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our top priority is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously updating and perfecting our security measures and protocols, we ensure to provide the safest platform possible.
               </p>
