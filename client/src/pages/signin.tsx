@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLocation } from "wouter";
 import { useToast } from "@/hooks/use-toast";
-import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
+import Navbar from "@/components/navbar";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -35,19 +35,16 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row">
-      {/* Left Side - Sign In Form */}
-      <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center px-0 py-8 sm:px-8 lg:p-12 min-h-screen">
-        <div className="w-full px-4 sm:px-0 sm:max-w-md mx-auto space-y-6 sm:space-y-8">
-          {/* Logo */}
-          <div className="flex items-center">
-            <img src={chicksxLogo} alt="ChicksX" className="h-6 sm:h-8" />
-          </div>
-
-          {/* Sign In Title */}
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-8">Sign In</h1>
-          </div>
+    <div className="min-h-screen">
+      <Navbar />
+      <div className="flex flex-col lg:flex-row">
+        {/* Left Side - Sign In Form */}
+        <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center px-0 py-8 sm:px-8 lg:p-12 min-h-screen">
+          <div className="w-full px-4 sm:px-0 sm:max-w-md mx-auto space-y-6 sm:space-y-8">
+            {/* Sign In Title */}
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-8">Sign In</h1>
+            </div>
 
           {/* Sign In Form */}
           <form onSubmit={handleSignIn} className="space-y-6">
@@ -193,7 +190,7 @@ export default function SignIn() {
               
               {/* Flag */}
               <div className="w-8 h-6 bg-white rounded-sm mx-auto mb-2 flex items-center justify-center">
-                <img src={chicksxLogo} alt="ChicksX" className="h-3" />
+                <span className="text-xs font-bold text-purple-600">CX</span>
               </div>
             </div>
           </div>
@@ -215,6 +212,7 @@ export default function SignIn() {
             T
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
