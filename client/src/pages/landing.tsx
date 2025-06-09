@@ -606,24 +606,188 @@ export default function Landing() {
                       </div>
                     </div>
                   ) : (
-                    <div className="flex flex-wrap gap-3">
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">₿</span>
+                    <div className="overflow-x-auto">
+                      <div className="flex gap-3 pb-2" style={{minWidth: 'max-content'}}>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">₿</span>
+                          </div>
+                          <span className="text-sm font-medium">BTC</span>
                         </div>
-                        <span className="text-sm font-medium">BTC</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">Ξ</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">Ξ</span>
+                          </div>
+                          <span className="text-sm font-medium">ETH</span>
                         </div>
-                        <span className="text-sm font-medium">ETH</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">T</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">T</span>
+                          </div>
+                          <span className="text-sm font-medium">USDT</span>
                         </div>
-                        <span className="text-sm font-medium">USDT</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">B</span>
+                          </div>
+                          <span className="text-sm font-medium">BNB</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">A</span>
+                          </div>
+                          <span className="text-sm font-medium">ADA</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">S</span>
+                          </div>
+                          <span className="text-sm font-medium">SOL</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">X</span>
+                          </div>
+                          <span className="text-sm font-medium">XRP</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">D</span>
+                          </div>
+                          <span className="text-sm font-medium">DOGE</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">A</span>
+                          </div>
+                          <span className="text-sm font-medium">AVAX</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">P</span>
+                          </div>
+                          <span className="text-sm font-medium">MATIC</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">D</span>
+                          </div>
+                          <span className="text-sm font-medium">DOT</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">L</span>
+                          </div>
+                          <span className="text-sm font-medium">LTC</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-purple-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">U</span>
+                          </div>
+                          <span className="text-sm font-medium">UNI</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">L</span>
+                          </div>
+                          <span className="text-sm font-medium">LINK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">A</span>
+                          </div>
+                          <span className="text-sm font-medium">ATOM</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-cyan-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">A</span>
+                          </div>
+                          <span className="text-sm font-medium">ALGO</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">I</span>
+                          </div>
+                          <span className="text-sm font-medium">ICP</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">F</span>
+                          </div>
+                          <span className="text-sm font-medium">FTT</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-violet-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">A</span>
+                          </div>
+                          <span className="text-sm font-medium">APE</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">N</span>
+                          </div>
+                          <span className="text-sm font-medium">NEAR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">M</span>
+                          </div>
+                          <span className="text-sm font-medium">MANA</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">S</span>
+                          </div>
+                          <span className="text-sm font-medium">SAND</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-indigo-800 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">C</span>
+                          </div>
+                          <span className="text-sm font-medium">CRO</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-orange-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">H</span>
+                          </div>
+                          <span className="text-sm font-medium">HBAR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-purple-800 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">T</span>
+                          </div>
+                          <span className="text-sm font-medium">THETA</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">F</span>
+                          </div>
+                          <span className="text-sm font-medium">FLOW</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">E</span>
+                          </div>
+                          <span className="text-sm font-medium">EGLD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-indigo-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">X</span>
+                          </div>
+                          <span className="text-sm font-medium">XTZ</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-cyan-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">G</span>
+                          </div>
+                          <span className="text-sm font-medium">GRT</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-emerald-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-sm font-medium">1INCH</span>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -826,24 +990,188 @@ export default function Landing() {
                       </div>
                     </div>
                   ) : (
-                    <div className="flex flex-wrap gap-3">
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">₿</span>
+                    <div className="overflow-x-auto">
+                      <div className="flex gap-3 pb-2" style={{minWidth: 'max-content'}}>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">₿</span>
+                          </div>
+                          <span className="text-sm font-medium">BTC</span>
                         </div>
-                        <span className="text-sm font-medium">BTC</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">Ξ</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">Ξ</span>
+                          </div>
+                          <span className="text-sm font-medium">ETH</span>
                         </div>
-                        <span className="text-sm font-medium">ETH</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">T</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">T</span>
+                          </div>
+                          <span className="text-sm font-medium">USDT</span>
                         </div>
-                        <span className="text-sm font-medium">USDT</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">B</span>
+                          </div>
+                          <span className="text-sm font-medium">BNB</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">A</span>
+                          </div>
+                          <span className="text-sm font-medium">ADA</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">S</span>
+                          </div>
+                          <span className="text-sm font-medium">SOL</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">X</span>
+                          </div>
+                          <span className="text-sm font-medium">XRP</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">D</span>
+                          </div>
+                          <span className="text-sm font-medium">DOGE</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">A</span>
+                          </div>
+                          <span className="text-sm font-medium">AVAX</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">P</span>
+                          </div>
+                          <span className="text-sm font-medium">MATIC</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">D</span>
+                          </div>
+                          <span className="text-sm font-medium">DOT</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">L</span>
+                          </div>
+                          <span className="text-sm font-medium">LTC</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-purple-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">U</span>
+                          </div>
+                          <span className="text-sm font-medium">UNI</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">L</span>
+                          </div>
+                          <span className="text-sm font-medium">LINK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">A</span>
+                          </div>
+                          <span className="text-sm font-medium">ATOM</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-cyan-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">A</span>
+                          </div>
+                          <span className="text-sm font-medium">ALGO</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">I</span>
+                          </div>
+                          <span className="text-sm font-medium">ICP</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">F</span>
+                          </div>
+                          <span className="text-sm font-medium">FTT</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-violet-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">A</span>
+                          </div>
+                          <span className="text-sm font-medium">APE</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">N</span>
+                          </div>
+                          <span className="text-sm font-medium">NEAR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">M</span>
+                          </div>
+                          <span className="text-sm font-medium">MANA</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">S</span>
+                          </div>
+                          <span className="text-sm font-medium">SAND</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-indigo-800 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">C</span>
+                          </div>
+                          <span className="text-sm font-medium">CRO</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-orange-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">H</span>
+                          </div>
+                          <span className="text-sm font-medium">HBAR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-purple-800 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">T</span>
+                          </div>
+                          <span className="text-sm font-medium">THETA</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">F</span>
+                          </div>
+                          <span className="text-sm font-medium">FLOW</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">E</span>
+                          </div>
+                          <span className="text-sm font-medium">EGLD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-indigo-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">X</span>
+                          </div>
+                          <span className="text-sm font-medium">XTZ</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-cyan-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">G</span>
+                          </div>
+                          <span className="text-sm font-medium">GRT</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className="w-6 h-6 bg-emerald-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-sm font-medium">1INCH</span>
+                        </div>
                       </div>
                     </div>
                   )}
