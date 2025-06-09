@@ -1,10 +1,14 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { setupAuth, isAuthenticated } from "./replitAuth";
 import { insertTransactionSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Setup authentication
+  await setupAuth(app);
+  
   // Demo user for development
   const demoUserId = 'demo-user';
 
@@ -75,14 +79,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   }
 
+  // Authentication routes - fallback for development
+  app.get('/api/auth/user', async (req: any, res) => {
+    try {
+      // Check if user is authenticated via Replit Auth
+      if (req.isAuthenticated && req.isAuthenticated() && req.user) {
+        const userId = req.user.claims.sub;
+        const user = await storage.getUser(userId);
+        if (user) {
+          return res.json(user);
+        }
+      }
+      
+      // Return null for unauthenticated users (this triggers the login flow on frontend)
+      res.status(401).json({ message: "Unauthorized" });
+    } catch (error) {
+      console.error("Error fetching user:", error);
+      res.status(401).json({ message: "Unauthorized" });
+    }
+  });
+
   // Initialize demo data on startup
   await initializeDemoData();
-
-  // Auth route (returns demo user)
-  app.get('/api/auth/user', async (req, res) => {
-    const user = await storage.getUser(demoUserId);
-    res.json(user);
-  });
 
   // Portfolio summary
   app.get("/api/portfolio", async (req, res) => {
