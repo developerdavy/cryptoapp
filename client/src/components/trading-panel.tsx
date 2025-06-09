@@ -21,7 +21,7 @@ export default function TradingPanel() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
-  const { data: marketData = [] } = useQuery({
+  const { data: marketData = [] } = useQuery<any[]>({
     queryKey: ["/api/market-data"],
   });
 
@@ -58,7 +58,7 @@ export default function TradingPanel() {
     },
   });
 
-  const currentPrice = marketData.find((m: any) => m.symbol === selectedAsset)?.price || "0";
+  const currentPrice = marketData?.find((m: any) => m.symbol === selectedAsset)?.price || "0";
   const fee = parseFloat(amount || "0") * parseFloat(currentPrice) * 0.001; // 0.1% fee
   const total = parseFloat(amount || "0") * parseFloat(currentPrice) + (activeTab === "buy" ? fee : -fee);
 
@@ -116,7 +116,7 @@ export default function TradingPanel() {
               </div>
             </SelectTrigger>
             <SelectContent>
-              {marketData.map((asset: any) => (
+              {marketData?.map((asset: any) => (
                 <SelectItem key={asset.symbol} value={asset.symbol}>
                   <div className="flex items-center space-x-2">
                     <div className="w-6 h-6 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full flex items-center justify-center">

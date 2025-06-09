@@ -135,7 +135,7 @@ export default function Trade() {
                 <div>
                   <label className="block text-sm font-medium text-gray-600 mb-2">Spend</label>
                   <div className="relative">
-                    <Select value="CAD" className="w-full">
+                    <Select value="CAD">
                       <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
                         <div className="flex items-center space-x-3">
                           <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">

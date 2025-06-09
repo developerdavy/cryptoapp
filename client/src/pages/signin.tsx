@@ -83,8 +83,8 @@ export default function SignIn() {
                 borderRadius: '6px',
                 padding: '10px 16px'
               }}
-              onMouseOver={(e) => e.target.style.backgroundColor = '#9333ea'}
-              onMouseOut={(e) => e.target.style.backgroundColor = '#a855f7'}
+              onMouseOver={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#9333ea'}
+              onMouseOut={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#a855f7'}
             >
               Sign In
             </button>
