@@ -14,6 +14,7 @@ export default function Landing() {
   const [swapActiveTab, setSwapActiveTab] = useState('Fiat');
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [, setLocation] = useLocation();
+  const { isAuthenticated, isLoading } = useAuth();
 
   // Helper function to create clickable crypto badge
   const CryptoBadge = ({ symbol, name, color, icon, action = "trade" }: { symbol: string, name: string, color: string, icon: string, action?: string }) => (
@@ -153,12 +154,27 @@ export default function Landing() {
               </div>
             </nav>
           </div>
-          <Button className="bg-indigo-700 hover:bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-            <span>Sign In</span>
-          </Button>
+          {!isAuthenticated ? (
+            <Button 
+              onClick={() => window.location.href = "/api/login"}
+              className="bg-indigo-700 hover:bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span>Sign In</span>
+            </Button>
+          ) : (
+            <Button 
+              onClick={() => setLocation("/dashboard")}
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
+              </svg>
+              <span>Dashboard</span>
+            </Button>
+          )}
         </div>
         
         {/* Buy Crypto Dropdown */}
