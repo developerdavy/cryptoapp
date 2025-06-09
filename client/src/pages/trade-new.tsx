@@ -16,41 +16,6 @@ const cryptoData = {
   SOL: { name: "Solana", symbol: "S", price: 89.12, change: 3.45, color: "bg-purple-600" },
   XRP: { name: "Ripple", symbol: "X", price: 0.587, change: 1.23, color: "bg-blue-700" },
   DOGE: { name: "Dogecoin", symbol: "D", price: 0.087, change: -0.56, color: "bg-yellow-700" },
-  AVAX: { name: "Avalanche", symbol: "A", price: 35.67, change: 4.12, color: "bg-teal-600" },
-  MATIC: { name: "Polygon", symbol: "P", price: 0.789, change: -1.45, color: "bg-indigo-600" },
-  DOT: { name: "Polkadot", symbol: "D", price: 5.43, change: 2.67, color: "bg-pink-600" },
-  LTC: { name: "Litecoin", symbol: "L", price: 72.34, change: 1.23, color: "bg-gray-500" },
-  UNI: { name: "Uniswap", symbol: "U", price: 6.78, change: -0.89, color: "bg-purple-700" },
-  LINK: { name: "Chainlink", symbol: "L", price: 14.56, change: 3.21, color: "bg-blue-800" },
-  ATOM: { name: "Cosmos", symbol: "A", price: 9.87, change: 1.56, color: "bg-orange-600" },
-  ALGO: { name: "Algorand", symbol: "A", price: 0.234, change: -2.13, color: "bg-cyan-600" },
-  VET: { name: "VeChain", symbol: "V", price: 0.023, change: 4.56, color: "bg-green-700" },
-  ICP: { name: "Internet Computer", symbol: "I", price: 4.67, change: -1.78, color: "bg-purple-800" },
-  FIL: { name: "Filecoin", symbol: "F", price: 5.89, change: 2.34, color: "bg-blue-600" },
-  HBAR: { name: "Hedera", symbol: "H", price: 0.067, change: 1.89, color: "bg-gray-700" },
-  ETC: { name: "Ethereum Classic", symbol: "E", price: 20.45, change: -0.67, color: "bg-green-800" },
-  XLM: { name: "Stellar", symbol: "S", price: 0.112, change: 3.45, color: "bg-blue-400" },
-  TRX: { name: "TRON", symbol: "T", price: 0.089, change: 1.23, color: "bg-red-600" },
-  EOS: { name: "EOS", symbol: "E", price: 0.678, change: -2.45, color: "bg-black" },
-  XTZ: { name: "Tezos", symbol: "X", price: 0.891, change: 1.67, color: "bg-blue-900" },
-  AAVE: { name: "Aave", symbol: "A", price: 78.9, change: 2.34, color: "bg-pink-500" },
-  MKR: { name: "Maker", symbol: "M", price: 567.8, change: -1.23, color: "bg-teal-700" },
-  COMP: { name: "Compound", symbol: "C", price: 45.67, change: 3.45, color: "bg-green-600" },
-  SNX: { name: "Synthetix", symbol: "S", price: 2.34, change: -0.89, color: "bg-indigo-700" },
-  YFI: { name: "yearn.finance", symbol: "Y", price: 6789.0, change: 4.56, color: "bg-yellow-800" },
-  CRV: { name: "Curve", symbol: "C", price: 0.456, change: 1.23, color: "bg-red-700" },
-  SUSHI: { name: "SushiSwap", symbol: "S", price: 1.23, change: -2.34, color: "bg-pink-700" },
-  ONEINCH: { name: "1inch", symbol: "1", price: 0.345, change: 2.67, color: "bg-red-800" },
-  BAL: { name: "Balancer", symbol: "B", price: 3.45, change: -1.45, color: "bg-gray-600" },
-  REN: { name: "Ren", symbol: "R", price: 0.067, change: 3.21, color: "bg-gray-800" },
-  KNC: { name: "Kyber Network", symbol: "K", price: 0.789, change: 1.56, color: "bg-green-900" },
-  ZRX: { name: "0x", symbol: "Z", price: 0.234, change: -0.78, color: "bg-black" },
-  BAT: { name: "Basic Attention Token", symbol: "B", price: 0.189, change: 2.45, color: "bg-orange-700" },
-  ENJ: { name: "Enjin Coin", symbol: "E", price: 0.123, change: 1.78, color: "bg-purple-900" },
-  MANA: { name: "Decentraland", symbol: "M", price: 0.345, change: -1.23, color: "bg-pink-800" },
-  SAND: { name: "The Sandbox", symbol: "S", price: 0.456, change: 3.45, color: "bg-yellow-700" },
-  AXS: { name: "Axie Infinity", symbol: "A", price: 5.67, change: -2.34, color: "bg-blue-800" },
-  CHZ: { name: "Chiliz", symbol: "C", price: 0.089, change: 1.78, color: "bg-rose-800" }
 };
 
 const paymentMethods = [
@@ -170,7 +135,7 @@ export default function Trade() {
                 <div>
                   <label className="block text-sm font-medium text-gray-600 mb-2">Spend</label>
                   <div className="relative">
-                    <Select value="CAD">
+                    <Select value="CAD" className="w-full">
                       <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
                         <div className="flex items-center space-x-3">
                           <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
