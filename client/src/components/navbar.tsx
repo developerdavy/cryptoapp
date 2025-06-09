@@ -36,9 +36,9 @@ export default function Navbar() {
   };
 
   return (
-    <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
-      <div className="container mx-auto px-4 py-3 sm:py-4">
-        <div className="flex items-center justify-between">
+    <header className="glass-effect sticky top-0 z-50 border-b border-border/50 w-full">
+      <div className="container mx-auto px-4 py-3 sm:py-4 max-w-7xl">
+        <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <div className="w-8 h-8 crypto-gradient rounded-xl flex items-center justify-center">
@@ -70,9 +70,9 @@ export default function Navbar() {
           </nav>
 
           {/* Right Side */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             {/* Balance Display */}
-            <div className="hidden md:flex items-center space-x-2 bg-card/50 rounded-lg px-3 py-2">
+            <div className="hidden lg:flex items-center space-x-2 bg-card/50 rounded-lg px-3 py-2">
               <Wallet className="h-4 w-4 text-green-400" />
               <span className="text-sm">$12,543.67</span>
             </div>
@@ -82,21 +82,21 @@ export default function Navbar() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center space-x-2 p-2">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src={user?.profileImageUrl || ""} alt={user?.firstName || ""} />
+                    <AvatarImage src={(user as any)?.profileImageUrl || ""} alt={(user as any)?.firstName || "User"} />
                     <AvatarFallback className="bg-gradient-to-r from-green-400 to-blue-500 text-black">
-                      {user?.firstName?.[0]}{user?.lastName?.[0]}
+                      {(user as any)?.firstName?.[0] || 'U'}{(user as any)?.lastName?.[0] || ''}
                     </AvatarFallback>
                   </Avatar>
                   <span className="hidden md:inline text-sm">
-                    {user?.firstName} {user?.lastName}
+                    {(user as any)?.firstName || 'User'} {(user as any)?.lastName || ''}
                   </span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56 glass-effect border-border/50">
                 <DropdownMenuItem className="flex items-center space-x-2">
                   <div className="flex flex-col">
-                    <span className="font-medium">{user?.firstName} {user?.lastName}</span>
-                    <span className="text-xs text-gray-400">{user?.email}</span>
+                    <span className="font-medium">{(user as any)?.firstName || 'User'} {(user as any)?.lastName || ''}</span>
+                    <span className="text-xs text-gray-400">{(user as any)?.email || 'user@example.com'}</span>
                   </div>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-border/50" />
@@ -110,7 +110,7 @@ export default function Navbar() {
             {/* Mobile Menu */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
+                <Button variant="ghost" size="icon" className="md:hidden mobile-button">
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>

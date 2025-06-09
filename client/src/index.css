@@ -137,6 +137,10 @@
     border: 1px solid hsl(var(--border));
   }
   
+  .crypto-gradient {
+    background: linear-gradient(135deg, #00ff88 0%, #ffdf00 100%);
+  }
+  
   .neon-glow {
     box-shadow: 0 0 20px hsla(var(--ring) / 0.3);
   }
