@@ -53,6 +53,14 @@ const cryptoData = {
   CHZ: { name: "Chiliz", symbol: "C", price: 0.089, change: 1.78, color: "bg-rose-800" }
 };
 
+const currencies = [
+  { id: "CAD", name: "CA Dollar", icon: "🍁", color: "bg-red-500" },
+  { id: "USD", name: "US Dollar", icon: "$", color: "bg-green-600" },
+  { id: "EUR", name: "Euro", icon: "€", color: "bg-blue-600" },
+  { id: "GBP", name: "British Pound", icon: "£", color: "bg-purple-600" },
+  { id: "JPY", name: "Japanese Yen", icon: "¥", color: "bg-orange-600" },
+];
+
 const paymentMethods = [
   { id: "card", name: "Debit/Credit", icon: "💳", color: "bg-blue-600" },
   { id: "google", name: "Google Pay", icon: "G", color: "bg-red-500" },
@@ -66,6 +74,7 @@ export default function Trade() {
   const [activeTab, setActiveTab] = useState("Buy");
   const [selectedCrypto, setSelectedCrypto] = useState("BTC");
   const [selectedPayment, setSelectedPayment] = useState("card");
+  const [selectedCurrency, setSelectedCurrency] = useState("CAD");
   const [amount, setAmount] = useState("134.72");
   const [receiveAmount, setReceiveAmount] = useState("0.003089");
 
@@ -94,6 +103,7 @@ export default function Trade() {
 
   const currentCrypto = cryptoData[selectedCrypto as keyof typeof cryptoData] || cryptoData.BTC;
   const currentPayment = paymentMethods.find(p => p.id === selectedPayment) || paymentMethods[0];
+  const currentCurrency = currencies.find(c => c.id === selectedCurrency) || currencies[0];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -170,17 +180,29 @@ export default function Trade() {
                 <div>
                   <label className="block text-sm font-medium text-gray-600 mb-2">Spend</label>
                   <div className="relative">
-                    <Select value="CAD">
+                    <Select value={selectedCurrency} onValueChange={setSelectedCurrency}>
                       <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
                         <div className="flex items-center space-x-3">
-                          <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">🍁</span>
+                          <div className={`w-8 h-8 ${currentCurrency.color} rounded-full flex items-center justify-center`}>
+                            <span className="text-white text-sm font-bold">{currentCurrency.icon}</span>
                           </div>
                           <div className="text-left">
-                            <div className="font-medium">CAD - CA Dollar</div>
+                            <div className="font-medium">{selectedCurrency} - {currentCurrency.name}</div>
                           </div>
                         </div>
                       </SelectTrigger>
+                      <SelectContent>
+                        {currencies.map((currency) => (
+                          <SelectItem key={currency.id} value={currency.id}>
+                            <div className="flex items-center space-x-3">
+                              <div className={`w-6 h-6 ${currency.color} rounded-full flex items-center justify-center`}>
+                                <span className="text-white text-xs font-bold">{currency.icon}</span>
+                              </div>
+                              <span>{currency.id} - {currency.name}</span>
+                            </div>
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
                     </Select>
                   </div>
                   <div className="mt-3">
