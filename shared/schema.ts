@@ -8,6 +8,7 @@ import {
   serial,
   decimal,
   integer,
+  unique,
 } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
