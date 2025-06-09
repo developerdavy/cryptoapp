@@ -1463,8 +1463,8 @@ export default function Landing() {
       <footer className="px-4 py-8 sm:px-6 sm:py-12 bg-gray-50 border-t" id="enhanced-footer">
         <div className="max-w-7xl mx-auto">
           {/* Main Footer Content */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            <div className="sm:col-span-2 xl:col-span-2">
+          <div className="grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-2 sm:gap-6 lg:gap-8 mb-6 sm:mb-8 lg:mb-12">
+            <div className="hidden sm:block sm:col-span-2 xl:col-span-2">
               <img src={chicksxLogo} alt="ChicksX" className="h-6 sm:h-8 mb-3 sm:mb-6" />
               <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-6 leading-relaxed">
                 Your trusted cryptocurrency exchange platform. Trade with confidence using our secure, fast, and reliable trading infrastructure.
