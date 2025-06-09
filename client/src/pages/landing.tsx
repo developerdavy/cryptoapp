@@ -168,13 +168,13 @@ export default function Landing() {
                     <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">B</span>
+                          <span className="text-white text-xs font-bold">₿</span>
                         </div>
                         <span className="text-sm font-medium">BTC</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">E</span>
+                          <span className="text-white text-xs font-bold">Ξ</span>
                         </div>
                         <span className="text-sm font-medium">ETH</span>
                       </div>
@@ -186,7 +186,7 @@ export default function Landing() {
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">B</span>
+                          <span className="text-white text-xs font-bold">₿</span>
                         </div>
                         <span className="text-sm font-medium">BNB</span>
                       </div>
@@ -324,7 +324,7 @@ export default function Landing() {
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">E</span>
+                          <span className="text-white text-xs font-bold">Ξ</span>
                         </div>
                         <span className="text-sm font-medium">EGLD</span>
                       </div>
@@ -425,13 +425,13 @@ export default function Landing() {
                     <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">B</span>
+                          <span className="text-white text-xs font-bold">₿</span>
                         </div>
                         <span className="text-sm font-medium">BTC</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">E</span>
+                          <span className="text-white text-xs font-bold">Ξ</span>
                         </div>
                         <span className="text-sm font-medium">ETH</span>
                       </div>
@@ -443,7 +443,7 @@ export default function Landing() {
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">B</span>
+                          <span className="text-white text-xs font-bold">₿</span>
                         </div>
                         <span className="text-sm font-medium">BNB</span>
                       </div>
@@ -581,7 +581,7 @@ export default function Landing() {
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">E</span>
+                          <span className="text-white text-xs font-bold">Ξ</span>
                         </div>
                         <span className="text-sm font-medium">EGLD</span>
                       </div>
@@ -642,7 +642,7 @@ export default function Landing() {
                     
                     <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
                       <div className="w-6 h-6 bg-gray-600 rounded flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">E</span>
+                        <span className="text-white text-xs font-bold">Ξ</span>
                       </div>
                       <span className="text-sm font-medium">EFT</span>
                     </div>
@@ -892,13 +892,13 @@ export default function Landing() {
                       <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">B</span>
+                            <span className="text-white text-xs font-bold">₿</span>
                           </div>
                           <span className="text-sm font-medium">BTC</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">E</span>
+                            <span className="text-white text-xs font-bold">Ξ</span>
                           </div>
                           <span className="text-sm font-medium">ETH</span>
                         </div>
@@ -910,7 +910,7 @@ export default function Landing() {
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">B</span>
+                            <span className="text-white text-xs font-bold">₿</span>
                           </div>
                           <span className="text-sm font-medium">BNB</span>
                         </div>
@@ -1048,7 +1048,7 @@ export default function Landing() {
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">E</span>
+                            <span className="text-white text-xs font-bold">Ξ</span>
                           </div>
                           <span className="text-sm font-medium">EGLD</span>
                         </div>
@@ -1276,13 +1276,13 @@ export default function Landing() {
                       <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">B</span>
+                            <span className="text-white text-xs font-bold">₿</span>
                           </div>
                           <span className="text-sm font-medium">BTC</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">E</span>
+                            <span className="text-white text-xs font-bold">Ξ</span>
                           </div>
                           <span className="text-sm font-medium">ETH</span>
                         </div>
@@ -1294,7 +1294,7 @@ export default function Landing() {
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">B</span>
+                            <span className="text-white text-xs font-bold">₿</span>
                           </div>
                           <span className="text-sm font-medium">BNB</span>
                         </div>
@@ -1432,7 +1432,7 @@ export default function Landing() {
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">E</span>
+                            <span className="text-white text-xs font-bold">Ξ</span>
                           </div>
                           <span className="text-sm font-medium">EGLD</span>
                         </div>
