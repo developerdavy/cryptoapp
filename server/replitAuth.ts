@@ -82,7 +82,7 @@ export async function setupAuth(app: Express) {
       clientSecret: process.env.FACEBOOK_APP_SECRET,
       callbackURL: "/auth/facebook/callback",
       profileFields: ['id', 'emails', 'name', 'picture']
-    }, async (accessToken, refreshToken, profile, done) => {
+    }, async (accessToken: string, refreshToken: string, profile: any, done: any) => {
       try {
         const user = await storage.upsertUser({
           id: `facebook_${profile.id}`,
@@ -104,7 +104,7 @@ export async function setupAuth(app: Express) {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "/auth/google/callback"
-    }, async (accessToken, refreshToken, profile, done) => {
+    }, async (accessToken: string, refreshToken: string, profile: any, done: any) => {
       try {
         const user = await storage.upsertUser({
           id: `google_${profile.id}`,
@@ -127,7 +127,7 @@ export async function setupAuth(app: Express) {
       consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
       callbackURL: "/auth/twitter/callback",
       includeEmail: true
-    }, async (token, tokenSecret, profile, done) => {
+    }, async (token: string, tokenSecret: string, profile: any, done: any) => {
       try {
         const user = await storage.upsertUser({
           id: `twitter_${profile.id}`,
