@@ -1529,7 +1529,7 @@ export default function Landing() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-4">
             {/* Global Crypto Trading */}
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Global Crypto Trading Made Simple</h3>
