@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Shield, Headphones } from "lucide-react";
+import { Star, Shield, Headphones, Menu, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/hooks/useAuth";
@@ -12,6 +12,7 @@ export default function Landing() {
   const [showSellCryptoDropdown, setShowSellCryptoDropdown] = useState(false);
   const [showSwapDropdown, setShowSwapDropdown] = useState(false);
   const [swapActiveTab, setSwapActiveTab] = useState('Fiat');
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [, setLocation] = useLocation();
   const { isAuthenticated, isLoading } = useAuth();
@@ -100,9 +101,11 @@ export default function Landing() {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-blue-800">
       {/* Header */}
       <header className="bg-white border-b border-gray-200" ref={dropdownRef}>
-        <div className="w-full px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-12">
-            <img src={chicksxLogo} alt="ChicksX" className="h-10" />
+        <div className="w-full px-4 sm:px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-4 sm:space-x-12">
+            <img src={chicksxLogo} alt="ChicksX" className="h-8 sm:h-10" />
+            
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <div className="relative">
                 <Button 
@@ -154,24 +157,83 @@ export default function Landing() {
               </div>
             </nav>
           </div>
+          
+          {/* Desktop Sign In Button */}
           <Button 
             onClick={() => setLocation("/signin")}
-            className="bg-indigo-700 hover:bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2"
+            className="hidden sm:flex bg-indigo-700 hover:bg-indigo-600 text-white px-4 sm:px-6 py-2 rounded-lg font-medium items-center space-x-2"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
-            <span>Sign In</span>
+            <span className="hidden lg:inline">Sign In</span>
+          </Button>
+          
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            className="md:hidden p-2"
+            onClick={() => setShowMobileMenu(!showMobileMenu)}
+          >
+            {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
+        
+        {/* Mobile Navigation Menu */}
+        {showMobileMenu && (
+          <div className="md:hidden bg-white border-t border-gray-200">
+            <div className="px-4 py-2 space-y-1">
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-700 hover:text-gray-900"
+                onClick={() => {
+                  setShowBuyCryptoDropdown(!showBuyCryptoDropdown);
+                  setShowSellCryptoDropdown(false);
+                  setShowSwapDropdown(false);
+                }}
+              >
+                Buy Crypto
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-700 hover:text-gray-900"
+                onClick={() => {
+                  setShowSellCryptoDropdown(!showSellCryptoDropdown);
+                  setShowBuyCryptoDropdown(false);
+                  setShowSwapDropdown(false);
+                }}
+              >
+                Sell Crypto
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-gray-700 hover:text-gray-900"
+                onClick={() => {
+                  setShowSwapDropdown(!showSwapDropdown);
+                  setShowBuyCryptoDropdown(false);
+                  setShowSellCryptoDropdown(false);
+                }}
+              >
+                Swap
+              </Button>
+              <Button
+                onClick={() => setLocation("/signin")}
+                className="w-full bg-indigo-700 hover:bg-indigo-600 text-white mt-2"
+              >
+                Sign In
+              </Button>
+            </div>
+          </div>
+        )}
         
         {/* Buy Crypto Dropdown */}
         {showBuyCryptoDropdown && (
           <div className="bg-white border-t border-gray-200 shadow-lg">
-            <div className="w-full px-6 py-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Buy Crypto</h3>
+            <div className="w-full px-4 sm:px-6 py-6 sm:py-8">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Buy Crypto</h3>
               
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 {/* Cryptocurrency Selection */}
                 <div>
                   <div className="mb-4">
@@ -303,10 +365,10 @@ export default function Landing() {
         {/* Sell Crypto Dropdown */}
         {showSellCryptoDropdown && (
           <div className="bg-white border-t border-gray-200 shadow-lg">
-            <div className="w-full px-6 py-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Sell Crypto</h3>
+            <div className="w-full px-4 sm:px-6 py-6 sm:py-8">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Sell Crypto</h3>
               
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 {/* Cryptocurrency Selection */}
                 <div>
                   <div className="mb-4">
@@ -1081,26 +1143,25 @@ export default function Landing() {
       </header>
 
       {/* Hero Section */}
-      <section className="px-6 py-16">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-white space-y-8">
-            <h1 className="text-5xl font-bold leading-tight">
+      <section className="px-4 sm:px-6 py-8 sm:py-16">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <div className="text-white space-y-6 sm:space-y-8 text-center lg:text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               The Lowest Fee<br />
               Crypto Exchange
             </h1>
-            <p className="text-xl text-purple-200">
-              Buy, sell, exchange bitcoin, crypto or fiat instantly in<br />
-              any major city around the globe.
+            <p className="text-lg sm:text-xl text-purple-200">
+              Buy, sell, exchange bitcoin, crypto or fiat instantly in any major city around the globe.
             </p>
-            <Button className="bg-white text-purple-900 hover:bg-purple-100 px-8 py-3 text-lg font-semibold">
+            <Button className="bg-white text-purple-900 hover:bg-purple-100 px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-semibold">
               Exchange Now
             </Button>
-            <div className="flex items-center space-x-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
               <div className="flex items-center space-x-2">
-                <Shield className="w-6 h-6" />
-                <div>
-                  <div className="font-semibold">Fintrac & Fincen registered</div>
-                  <Link href="#" className="text-purple-200 text-sm hover:underline">
+                <Shield className="w-5 h-5 sm:w-6 sm:h-6" />
+                <div className="text-center sm:text-left">
+                  <div className="font-semibold text-sm sm:text-base">Fintrac & Fincen registered</div>
+                  <Link href="#" className="text-purple-200 text-xs sm:text-sm hover:underline">
                     Learn more →
                   </Link>
                 </div>
@@ -1108,32 +1169,32 @@ export default function Landing() {
               <div className="flex items-center space-x-2">
                 <div className="flex text-yellow-400">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
+                    <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
                   ))}
                 </div>
-                <div>
-                  <div className="font-semibold">★★★★✩ 4.4/5</div>
-                  <Link href="#" className="text-purple-200 text-sm hover:underline">
+                <div className="text-center sm:text-left">
+                  <div className="font-semibold text-sm sm:text-base">★★★★✩ 4.4/5</div>
+                  <Link href="#" className="text-purple-200 text-xs sm:text-sm hover:underline">
                     Customers review on trustpilot.com →
                   </Link>
                 </div>
               </div>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative order-first lg:order-last">
             <img 
               src={mobileAppImage} 
               alt="ChicksX Mobile App" 
-              className="w-full max-w-md mx-auto"
+              className="w-full max-w-xs sm:max-w-md mx-auto"
             />
           </div>
         </div>
       </section>
 
       {/* Crypto Cards Section */}
-      <section className="px-6 py-8 relative">
+      <section className="px-4 sm:px-6 py-6 sm:py-8 relative">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
             {/* Bitcoin Card */}
             <Card className="bg-white shadow-lg">
               <CardContent className="p-4">
