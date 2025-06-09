@@ -59,6 +59,21 @@ const currencies = [
   { id: "EUR", name: "Euro", icon: "€", color: "bg-blue-600" },
   { id: "GBP", name: "British Pound", icon: "£", color: "bg-purple-600" },
   { id: "JPY", name: "Japanese Yen", icon: "¥", color: "bg-orange-600" },
+  { id: "AUD", name: "Australian Dollar", icon: "A$", color: "bg-yellow-600" },
+  { id: "CHF", name: "Swiss Franc", icon: "Fr", color: "bg-red-600" },
+  { id: "CNY", name: "Chinese Yuan", icon: "¥", color: "bg-red-700" },
+  { id: "SEK", name: "Swedish Krona", icon: "kr", color: "bg-blue-700" },
+  { id: "NOK", name: "Norwegian Krone", icon: "kr", color: "bg-indigo-600" },
+  { id: "DKK", name: "Danish Krone", icon: "kr", color: "bg-red-800" },
+  { id: "NZD", name: "New Zealand Dollar", icon: "NZ$", color: "bg-green-700" },
+  { id: "SGD", name: "Singapore Dollar", icon: "S$", color: "bg-teal-600" },
+  { id: "HKD", name: "Hong Kong Dollar", icon: "HK$", color: "bg-pink-600" },
+  { id: "KRW", name: "South Korean Won", icon: "₩", color: "bg-gray-600" },
+  { id: "INR", name: "Indian Rupee", icon: "₹", color: "bg-orange-700" },
+  { id: "MXN", name: "Mexican Peso", icon: "$", color: "bg-green-800" },
+  { id: "BRL", name: "Brazilian Real", icon: "R$", color: "bg-yellow-700" },
+  { id: "RUB", name: "Russian Ruble", icon: "₽", color: "bg-blue-800" },
+  { id: "ZAR", name: "South African Rand", icon: "R", color: "bg-green-900" },
 ];
 
 const paymentMethods = [
