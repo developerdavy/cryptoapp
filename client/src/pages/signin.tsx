@@ -37,8 +37,8 @@ export default function SignIn() {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Side - Sign In Form */}
-      <div className="w-full lg:w-1/2 bg-white flex items-center justify-center p-4 sm:p-8 lg:p-12">
-        <div className="w-full max-w-md space-y-6 sm:space-y-8">
+      <div className="w-full lg:w-1/2 bg-white flex items-center justify-center px-2 py-4 sm:p-8 lg:p-12">
+        <div className="w-full max-w-none lg:max-w-md space-y-6 sm:space-y-8">
           {/* Logo */}
           <div className="flex items-center">
             <img src={chicksxLogo} alt="ChicksX" className="h-6 sm:h-8" />
