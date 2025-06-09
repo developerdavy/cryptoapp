@@ -40,11 +40,16 @@ export default function AccessibilitySettings() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="flex items-center space-x-2">
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          className="flex items-center space-x-2"
+          aria-label={`Current theme: ${getThemeLabel()}. Click to change theme and accessibility settings.`}
+        >
           {getThemeIcon()}
           <span className="hidden md:inline">{getThemeLabel()}</span>
           {isHighContrast && (
-            <Badge variant="secondary" className="text-xs">
+            <Badge variant="secondary" className="text-xs" aria-label="High contrast mode enabled">
               HC
             </Badge>
           )}

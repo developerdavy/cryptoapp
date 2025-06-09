@@ -237,4 +237,44 @@
     transform: translateY(-2px);
     box-shadow: 0 10px 30px hsla(var(--ring) / 0.2);
   }
+  
+  /* High contrast accessibility enhancements */
+  .high-contrast-dark .glass-effect,
+  .high-contrast-light .glass-effect {
+    backdrop-filter: none;
+    background: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
+  }
+  
+  .high-contrast-dark .crypto-gradient,
+  .high-contrast-light .crypto-gradient {
+    background: hsl(var(--primary));
+  }
+  
+  .high-contrast-dark .neon-glow,
+  .high-contrast-light .neon-glow {
+    box-shadow: 0 0 0 3px hsl(var(--ring));
+  }
+  
+  /* Improved focus indicators for accessibility */
+  .high-contrast-dark button:focus-visible,
+  .high-contrast-light button:focus-visible,
+  .high-contrast-dark a:focus-visible,
+  .high-contrast-light a:focus-visible {
+    outline: 3px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+  
+  /* Enhanced text contrast */
+  .high-contrast-dark .text-gray-600,
+  .high-contrast-dark .text-gray-500,
+  .high-contrast-dark .text-gray-400 {
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .high-contrast-light .text-gray-600,
+  .high-contrast-light .text-gray-500,
+  .high-contrast-light .text-gray-400 {
+    color: hsl(var(--muted-foreground));
+  }
 }

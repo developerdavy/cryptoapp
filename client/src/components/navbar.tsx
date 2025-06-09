@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import AccessibilitySettings from "@/components/AccessibilitySettings";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -76,6 +77,9 @@ export default function Navbar() {
               <Wallet className="h-4 w-4 text-green-400" />
               <span className="text-sm">$12,543.67</span>
             </div>
+
+            {/* Accessibility Settings */}
+            <AccessibilitySettings />
 
             {/* User Menu */}
             <DropdownMenu>
