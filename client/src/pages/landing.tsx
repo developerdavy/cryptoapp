@@ -1264,8 +1264,8 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Crypto Cards Section */}
-      <section className="px-4 py-6 md:px-2 md:py-8 relative">
+      {/* Crypto Cards Section - Overlapping */}
+      <section className="relative -mt-16 px-4 md:px-2 md:py-8">
         {/* Mobile Layout - Horizontal Scrolling */}
         <div className="md:hidden">
           <div className="overflow-x-auto scrollbar-hide">
@@ -1279,9 +1279,18 @@ export default function Landing() {
                     <div className="font-semibold text-sm">Bitcoin</div>
                   </div>
                 </div>
-                <div className="text-2xl font-bold mb-1">$107,990.04</div>
-                <div className="text-green-500 text-sm mb-3">↗ 1.84%</div>
-                <div className="h-8 bg-gradient-to-r from-orange-100 to-orange-200 rounded mb-3"></div>
+                <div className="text-2xl font-bold mb-1">$107,870.07</div>
+                <div className="text-green-500 text-sm mb-3">↗ 1.78%</div>
+                <div className="h-8 mb-3">
+                  <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
+                    <polyline
+                      fill="none"
+                      stroke="#f97316"
+                      strokeWidth="2"
+                      points="0,20 20,15 40,18 60,12 80,10 100,8"
+                    />
+                  </svg>
+                </div>
                 <Button
                   variant="ghost"
                   className="text-purple-600 font-medium text-sm p-0 h-auto"
@@ -1300,9 +1309,18 @@ export default function Landing() {
                     <div className="font-semibold text-sm">Ethereum</div>
                   </div>
                 </div>
-                <div className="text-2xl font-bold mb-1">$2,543.25</div>
-                <div className="text-green-500 text-sm mb-3">↗ 1.10%</div>
-                <div className="h-8 bg-gradient-to-r from-blue-100 to-blue-200 rounded mb-3"></div>
+                <div className="text-2xl font-bold mb-1">$2,540.75</div>
+                <div className="text-green-500 text-sm mb-3">↗ 1.08%</div>
+                <div className="h-8 mb-3">
+                  <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
+                    <polyline
+                      fill="none"
+                      stroke="#3b82f6"
+                      strokeWidth="2"
+                      points="0,15 20,18 40,16 60,14 80,12 100,10"
+                    />
+                  </svg>
+                </div>
                 <Button
                   variant="ghost"
                   className="text-purple-600 font-medium text-sm p-0 h-auto"
@@ -1314,7 +1332,7 @@ export default function Landing() {
 
               <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
                 <div className="flex items-center mb-3">
-                  <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3">
+                  <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-sm">S</span>
                   </div>
                   <div>
@@ -1323,7 +1341,16 @@ export default function Landing() {
                 </div>
                 <div className="text-2xl font-bold mb-1">$132.09</div>
                 <div className="text-green-500 text-sm mb-3">↗ 2.00%</div>
-                <div className="h-8 bg-gradient-to-r from-purple-100 to-purple-200 rounded mb-3"></div>
+                <div className="h-8 mb-3">
+                  <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
+                    <polyline
+                      fill="none"
+                      stroke="#6b7280"
+                      strokeWidth="2"
+                      points="0,22 20,20 40,16 60,18 80,14 100,12"
+                    />
+                  </svg>
+                </div>
                 <Button
                   variant="ghost"
                   className="text-purple-600 font-medium text-sm p-0 h-auto"
