@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useLocation } from "wouter";
 import { SiGoogle, SiFacebook, SiX } from "react-icons/si";
 import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function SignIn() {
   const [, setLocation] = useLocation();
@@ -30,27 +29,29 @@ export default function SignIn() {
         </div>
 
         <form className="space-y-3 max-w-sm mx-auto">
-          <div className="space-y-1">
-            <Label htmlFor="email" className="text-white text-xs font-medium block">
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label text-white" style={{fontSize: '12px'}}>
               Email Address
-            </Label>
-            <Input
+            </label>
+            <input
               id="email"
               type="email"
+              className="form-control"
               placeholder="enter email address"
-              className="w-full px-3 py-2 bg-white rounded-md border-0 text-gray-900 placeholder:text-gray-500 text-xs"
+              style={{fontSize: '12px', borderRadius: '6px'}}
             />
           </div>
           
-          <div className="space-y-1">
-            <Label htmlFor="password" className="text-white text-xs font-medium block">
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label text-white" style={{fontSize: '12px'}}>
               Password
-            </Label>
-            <Input
+            </label>
+            <input
               id="password"
               type="password"
+              className="form-control"
               placeholder="enter password"
-              className="w-full px-3 py-2 bg-white rounded-md border-0 text-gray-900 placeholder:text-gray-500 text-xs"
+              style={{fontSize: '12px', borderRadius: '6px'}}
             />
           </div>
           
