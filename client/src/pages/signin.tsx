@@ -191,132 +191,118 @@ export default function SignIn() {
         )}
       </header>
       
-      {/* Mobile Purple Background */}
-      <div className="lg:hidden min-h-screen bg-gradient-to-br from-purple-900 via-blue-800 to-blue-900 flex flex-col">
-        {/* Mobile Content */}
-        <div className="flex-1 flex flex-col justify-center px-4 py-8">
+      {/* Mobile Landing Page Layout */}
+      <div className="lg:hidden min-h-screen bg-gradient-to-br from-purple-900 via-blue-800 to-blue-900">
+        {/* Main Content */}
+        <div className="px-4 py-8">
+          {/* Hero Section */}
           <div className="text-center text-white mb-8">
-            <h1 className="text-3xl font-bold mb-4">The Lowest Fee Crypto Exchange</h1>
+            <h1 className="text-4xl font-bold mb-4">The Lowest Fee Crypto Exchange</h1>
             <p className="text-lg opacity-90 mb-6">Buy, sell, exchange bitcoin, crypto or fiat instantly in any major city around the globe.</p>
             <Button 
               onClick={() => setLocation("/trade")}
-              className="bg-white text-purple-900 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium"
+              className="bg-white text-purple-900 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium mb-8"
             >
               Exchange Now
             </Button>
           </div>
-          
-          {/* Sign In Form for Mobile */}
-          <div className="bg-white rounded-2xl p-6 mx-4 shadow-xl">
-            <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">Sign In</h2>
-            <form onSubmit={handleSignIn} className="space-y-4">
+
+          {/* Features Section */}
+          <div className="space-y-4 mb-8">
+            <div className="flex items-center text-white">
+              <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mr-3">
+                <svg className="w-4 h-4 text-purple-900" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <Input
-                  type="email"
-                  placeholder="Enter email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-purple-500 text-sm"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Password
-                </label>
-                <Input
-                  type="password"
-                  placeholder="Enter password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-purple-500 text-sm"
-                  required
-                />
-              </div>
-
-              <div className="flex flex-col items-center justify-between text-xs space-y-2">
-                <button
-                  type="button"
-                  className="text-gray-600 hover:text-purple-600"
-                >
-                  Forgot your password?
-                </button>
-                <button
-                  type="button"
-                  onClick={handleSignUp}
-                  className="text-gray-600 hover:text-purple-600 text-center"
-                >
-                  Don't have an account? Sign Up
-                </button>
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 text-base font-medium rounded-lg"
-              >
-                Sign In
-              </Button>
-            </form>
-
-            {/* Divider */}
-            <div className="relative my-4">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">or</span>
+                <div className="font-semibold">Fintrac & Fincen registered</div>
+                <div className="text-sm opacity-80">Learn more →</div>
               </div>
             </div>
-
-            {/* Social Login Options */}
-            <div className="space-y-3">
-              <div className="flex justify-center space-x-3">
-                <button 
-                  onClick={() => window.location.href = '/auth/facebook'}
-                  className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
-                >
-                  <span className="font-bold text-sm">f</span>
-                </button>
-                <button 
-                  onClick={() => window.location.href = '/auth/twitter'}
-                  className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors"
-                >
-                  <span className="font-bold text-sm">t</span>
-                </button>
-                <button 
-                  onClick={() => window.location.href = '/auth/google'}
-                  className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors"
-                >
-                  <span className="font-bold text-sm">G</span>
-                </button>
+            
+            <div className="flex items-center text-white">
+              <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mr-3">
+                <svg className="w-4 h-4 text-purple-900" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
               </div>
-              
-              <div className="text-center">
-                <p className="text-xs text-gray-500 mb-2">ChicksX Group</p>
-                <div className="flex justify-center space-x-1">
-                  <button className="w-6 h-6 bg-black rounded-full flex items-center justify-center text-white text-xs">
-                    A
-                  </button>
-                  <button className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center text-white text-xs">
-                    M
-                  </button>
-                  <button className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs">
-                    G
-                  </button>
-                  <button className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center text-white text-xs">
-                    S
-                  </button>
-                  <button className="w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center text-white text-xs">
-                    NG
-                  </button>
+              <div>
+                <div className="font-semibold">★★★★★ 4.4/5</div>
+                <div className="text-sm opacity-80">Customers review on trustpilot.com →</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Crypto Cards */}
+          <div className="grid grid-cols-1 gap-4 mb-8">
+            <div className="bg-white rounded-2xl p-4 shadow-lg">
+              <div className="flex items-center mb-3">
+                <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-sm">₿</span>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">Use account to access all of ChicksX services</p>
+                <div>
+                  <div className="font-semibold">Bitcoin</div>
+                  <div className="text-2xl font-bold">$107,924.55</div>
+                  <div className="text-green-500 text-sm">↗ 1.78%</div>
+                </div>
               </div>
+              <div className="h-12 bg-gradient-to-r from-orange-100 to-orange-200 rounded mb-2"></div>
+              <Button
+                variant="ghost"
+                className="text-purple-600 font-medium text-sm"
+                onClick={() => setLocation("/trade/btc")}
+              >
+                Learn more →
+              </Button>
             </div>
+
+            <div className="bg-white rounded-2xl p-4 shadow-lg">
+              <div className="flex items-center mb-3">
+                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-sm">Ξ</span>
+                </div>
+                <div>
+                  <div className="font-semibold">Ethereum</div>
+                  <div className="text-2xl font-bold">$2,539.49</div>
+                  <div className="text-green-500 text-sm">↗ 0.05%</div>
+                </div>
+              </div>
+              <div className="h-12 bg-gradient-to-r from-blue-100 to-blue-200 rounded mb-2"></div>
+              <Button
+                variant="ghost"
+                className="text-purple-600 font-medium text-sm"
+                onClick={() => setLocation("/trade/eth")}
+              >
+                Learn more →
+              </Button>
+            </div>
+
+            <div className="bg-white rounded-2xl p-4 shadow-lg">
+              <div className="flex items-center mb-3">
+                <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-sm">S</span>
+                </div>
+                <div>
+                  <div className="font-semibold">Solana</div>
+                  <div className="text-2xl font-bold">$132.09</div>
+                  <div className="text-green-500 text-sm">↗ 2.00%</div>
+                </div>
+              </div>
+              <div className="h-12 bg-gradient-to-r from-purple-100 to-purple-200 rounded mb-2"></div>
+              <Button
+                variant="ghost"
+                className="text-purple-600 font-medium text-sm"
+                onClick={() => setLocation("/trade/sol")}
+              >
+                Learn more →
+              </Button>
+            </div>
+          </div>
+
+          {/* Why ChicksX Section */}
+          <div className="text-center text-white">
+            <h2 className="text-2xl font-bold mb-4">Why ChicksX?</h2>
           </div>
         </div>
       </div>
