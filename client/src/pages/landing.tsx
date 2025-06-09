@@ -630,6 +630,120 @@ export default function Landing() {
                           <span className="text-white text-xs font-bold">1</span>
                         </div>
                         <span className="text-sm font-medium text-black">1INCH</span>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">C</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">CAKE</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-lime-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">E</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">ENJ</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">A</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">AAVE</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-violet-700 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">C</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">COMP</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">M</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">MKR</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-fuchsia-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">S</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">SNX</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-stone-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">Y</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">YFI</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-zinc-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">B</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">BAT</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-neutral-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">Z</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">ZRX</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-pink-700 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">K</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">KNC</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">R</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">REN</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-blue-900 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">L</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">LRC</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-green-800 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">B</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">BAND</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-yellow-800 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">S</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">SUSHI</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-orange-800 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">C</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">CEL</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-teal-800 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">O</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">OMG</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-purple-900 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">Q</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">QNT</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-emerald-800 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">F</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">FTM</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-rose-800 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">C</span>
+                        </div>
+                        <span className="text-sm font-medium text-black">CHZ</span>
+                      </div>
                       </div>
                     </div>
                   </div>
