@@ -101,83 +101,102 @@ export default function Landing() {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-blue-800">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50" ref={dropdownRef}>
-        <div className="w-full px-2 sm:px-4 lg:px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-4 sm:space-x-12">
-            <img src={chicksxLogo} alt="ChicksX" className="h-8 sm:h-10" />
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <div className="relative">
-                <Button 
-                  variant="ghost" 
-                  className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showBuyCryptoDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
-                  onClick={() => {
-                    setShowBuyCryptoDropdown(!showBuyCryptoDropdown);
-                    setShowSellCryptoDropdown(false);
-                    setShowSwapDropdown(false);
-                  }}
-                >
-                  Buy Crypto
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </Button>
-              </div>
-              <div className="relative">
-                <Button 
-                  variant="ghost" 
-                  className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showSellCryptoDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
-                  onClick={() => {
-                    setShowSellCryptoDropdown(!showSellCryptoDropdown);
-                    setShowBuyCryptoDropdown(false);
-                    setShowSwapDropdown(false);
-                  }}
-                >
-                  Sell Crypto
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </Button>
-              </div>
-              <div className="relative">
-                <Button 
-                  variant="ghost" 
-                  className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showSwapDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
-                  onClick={() => {
-                    setShowSwapDropdown(!showSwapDropdown);
-                    setShowBuyCryptoDropdown(false);
-                    setShowSellCryptoDropdown(false);
-                  }}
-                >
-                  Swap
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </Button>
-              </div>
-            </nav>
-          </div>
-          
-          {/* Desktop Sign In Button */}
-          <Button 
-            onClick={() => setLocation("/signin")}
-            className="hidden sm:flex bg-indigo-700 hover:bg-indigo-600 text-white px-4 sm:px-6 py-2 rounded-lg font-medium items-center space-x-2"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-            <span className="hidden lg:inline">Sign In</span>
-          </Button>
-          
-          {/* Mobile Menu Button */}
+        {/* Mobile Header */}
+        <div className="md:hidden px-4 py-4 flex items-center justify-between">
           <Button
             variant="ghost"
             size="sm"
-            className="md:hidden p-2"
+            className="p-2"
             onClick={() => setShowMobileMenu(!showMobileMenu)}
           >
-            {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <Menu className="h-5 w-5" />
           </Button>
+          
+          <div className="flex items-center">
+            <img src={chicksxLogo} alt="ChicksX" className="h-6" />
+          </div>
+          
+          <Button 
+            onClick={() => setLocation("/signin")}
+            className="bg-indigo-700 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium text-sm"
+          >
+            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            Sign In
+          </Button>
+        </div>
+
+        {/* Desktop Header */}
+        <div className="hidden md:block w-full px-2 sm:px-4 lg:px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4 sm:space-x-12">
+              <img src={chicksxLogo} alt="ChicksX" className="h-8 sm:h-10" />
+              
+              {/* Desktop Navigation */}
+              <nav className="flex items-center space-x-8">
+                <div className="relative">
+                  <Button 
+                    variant="ghost" 
+                    className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showBuyCryptoDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
+                    onClick={() => {
+                      setShowBuyCryptoDropdown(!showBuyCryptoDropdown);
+                      setShowSellCryptoDropdown(false);
+                      setShowSwapDropdown(false);
+                    }}
+                  >
+                    Buy Crypto
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </Button>
+                </div>
+                <div className="relative">
+                  <Button 
+                    variant="ghost" 
+                    className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showSellCryptoDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
+                    onClick={() => {
+                      setShowSellCryptoDropdown(!showSellCryptoDropdown);
+                      setShowBuyCryptoDropdown(false);
+                      setShowSwapDropdown(false);
+                    }}
+                  >
+                    Sell Crypto
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </Button>
+                </div>
+                <div className="relative">
+                  <Button 
+                    variant="ghost" 
+                    className={`text-gray-700 hover:text-gray-900 hover:bg-gray-100 font-medium text-base px-4 py-2 ${showSwapDropdown ? 'bg-gray-100 text-gray-900' : ''}`}
+                    onClick={() => {
+                      setShowSwapDropdown(!showSwapDropdown);
+                      setShowBuyCryptoDropdown(false);
+                      setShowSellCryptoDropdown(false);
+                    }}
+                  >
+                    Swap
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </Button>
+                </div>
+              </nav>
+            </div>
+            
+            {/* Desktop Sign In Button */}
+            <Button 
+              onClick={() => setLocation("/signin")}
+              className="bg-indigo-700 hover:bg-indigo-600 text-white px-4 sm:px-6 py-2 rounded-lg font-medium flex items-center space-x-2"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span className="hidden lg:inline">Sign In</span>
+            </Button>
+          </div>
         </div>
         
         {/* Mobile Navigation Menu */}
@@ -1146,7 +1165,7 @@ export default function Landing() {
       <section className="px-4 py-8 md:px-6 md:py-16">
         {/* Mobile Layout */}
         <div className="md:hidden">
-          <div className="text-white space-y-6 text-center">
+          <div className="text-white space-y-6 text-left">
             <h1 className="text-4xl font-bold leading-tight">
               The Lowest Fee<br />
               Crypto Exchange
@@ -1241,69 +1260,73 @@ export default function Landing() {
 
       {/* Crypto Cards Section */}
       <section className="px-4 py-6 md:px-2 md:py-8 relative">
-        {/* Mobile Layout - Single Column */}
-        <div className="md:hidden space-y-4">
-          <div className="bg-white rounded-2xl p-4 shadow-lg">
-            <div className="flex items-center mb-3">
-              <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-sm">₿</span>
+        {/* Mobile Layout - Horizontal Scrolling */}
+        <div className="md:hidden">
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-4 pb-4" style={{minWidth: 'max-content'}}>
+              <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
+                <div className="flex items-center mb-3">
+                  <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-sm">₿</span>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm">Bitcoin</div>
+                  </div>
+                </div>
+                <div className="text-2xl font-bold mb-1">$107,990.04</div>
+                <div className="text-green-500 text-sm mb-3">↗ 1.84%</div>
+                <div className="h-8 bg-gradient-to-r from-orange-100 to-orange-200 rounded mb-3"></div>
+                <Button
+                  variant="ghost"
+                  className="text-purple-600 font-medium text-sm p-0 h-auto"
+                  onClick={() => setLocation("/trade/btc")}
+                >
+                  Learn more →
+                </Button>
               </div>
-              <div>
-                <div className="font-semibold">Bitcoin</div>
-                <div className="text-2xl font-bold">$107,924.55</div>
-                <div className="text-green-500 text-sm">↗ 1.78%</div>
-              </div>
-            </div>
-            <div className="h-12 bg-gradient-to-r from-orange-100 to-orange-200 rounded mb-2"></div>
-            <Button
-              variant="ghost"
-              className="text-purple-600 font-medium text-sm"
-              onClick={() => setLocation("/trade/btc")}
-            >
-              Learn more →
-            </Button>
-          </div>
 
-          <div className="bg-white rounded-2xl p-4 shadow-lg">
-            <div className="flex items-center mb-3">
-              <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-sm">Ξ</span>
+              <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
+                <div className="flex items-center mb-3">
+                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-sm">Ξ</span>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm">Ethereum</div>
+                  </div>
+                </div>
+                <div className="text-2xl font-bold mb-1">$2,543.25</div>
+                <div className="text-green-500 text-sm mb-3">↗ 1.10%</div>
+                <div className="h-8 bg-gradient-to-r from-blue-100 to-blue-200 rounded mb-3"></div>
+                <Button
+                  variant="ghost"
+                  className="text-purple-600 font-medium text-sm p-0 h-auto"
+                  onClick={() => setLocation("/trade/eth")}
+                >
+                  Learn more →
+                </Button>
               </div>
-              <div>
-                <div className="font-semibold">Ethereum</div>
-                <div className="text-2xl font-bold">$2,539.49</div>
-                <div className="text-green-500 text-sm">↗ 0.05%</div>
-              </div>
-            </div>
-            <div className="h-12 bg-gradient-to-r from-blue-100 to-blue-200 rounded mb-2"></div>
-            <Button
-              variant="ghost"
-              className="text-purple-600 font-medium text-sm"
-              onClick={() => setLocation("/trade/eth")}
-            >
-              Learn more →
-            </Button>
-          </div>
 
-          <div className="bg-white rounded-2xl p-4 shadow-lg">
-            <div className="flex items-center mb-3">
-              <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-sm">S</span>
-              </div>
-              <div>
-                <div className="font-semibold">Solana</div>
-                <div className="text-2xl font-bold">$132.09</div>
-                <div className="text-green-500 text-sm">↗ 2.00%</div>
+              <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
+                <div className="flex items-center mb-3">
+                  <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-sm">S</span>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm">Solana</div>
+                  </div>
+                </div>
+                <div className="text-2xl font-bold mb-1">$132.09</div>
+                <div className="text-green-500 text-sm mb-3">↗ 2.00%</div>
+                <div className="h-8 bg-gradient-to-r from-purple-100 to-purple-200 rounded mb-3"></div>
+                <Button
+                  variant="ghost"
+                  className="text-purple-600 font-medium text-sm p-0 h-auto"
+                  onClick={() => setLocation("/trade/sol")}
+                >
+                  Learn more →
+                </Button>
               </div>
             </div>
-            <div className="h-12 bg-gradient-to-r from-purple-100 to-purple-200 rounded mb-2"></div>
-            <Button
-              variant="ghost"
-              className="text-purple-600 font-medium text-sm"
-              onClick={() => setLocation("/trade/sol")}
-            >
-              Learn more →
-            </Button>
           </div>
 
           {/* Why ChicksX Section for Mobile */}
