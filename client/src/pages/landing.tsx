@@ -164,8 +164,8 @@ export default function Landing() {
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a cryptocurrency to purchase</p>
                   
-                  <div className="overflow-x-auto scrollbar-hide">
-                    <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
+                  <div className="overflow-x-auto scrollbar-hide w-full">
+                    <div className="flex gap-3 pb-2 pr-6 nowrap" style={{minWidth: 'max-content'}}>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">₿</span>
@@ -361,40 +361,68 @@ export default function Landing() {
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a payment method to proceed</p>
                   
-                  <div className="flex flex-wrap gap-3">
-                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                      <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">💳</span>
+                  <div className="overflow-x-auto scrollbar-hide w-full">
+                    <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content'}}>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">💳</span>
+                        </div>
+                        <span className="text-sm font-medium">Debit/Credit</span>
                       </div>
-                      <span className="text-sm font-medium">Debit/Credit</span>
-                    </div>
-                    
-                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                      <div className="w-6 h-6 bg-gray-200 rounded flex items-center justify-center">
-                        <span className="text-xs font-bold">G</span>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">G</span>
+                        </div>
+                        <span className="text-sm font-medium">Google Pay</span>
                       </div>
-                      <span className="text-sm font-medium">Google Pay</span>
-                    </div>
-                    
-                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                      <div className="w-6 h-6 bg-black rounded flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">🍎</span>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">A</span>
+                        </div>
+                        <span className="text-sm font-medium">Apple Pay</span>
                       </div>
-                      <span className="text-sm font-medium">Apple Pay</span>
-                    </div>
-                    
-                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                      <div className="w-6 h-6 bg-orange-500 rounded flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">I</span>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">I</span>
+                        </div>
+                        <span className="text-sm font-medium">Interac</span>
                       </div>
-                      <span className="text-sm font-medium">Interac E-Transfer</span>
-                    </div>
-                    
-                    <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                      <div className="w-6 h-6 bg-blue-800 rounded flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">S</span>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">S</span>
+                        </div>
+                        <span className="text-sm font-medium">SEPA</span>
                       </div>
-                      <span className="text-sm font-medium">SEPA</span>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">P</span>
+                        </div>
+                        <span className="text-sm font-medium">PayPal</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">W</span>
+                        </div>
+                        <span className="text-sm font-medium">Wire Transfer</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">B</span>
+                        </div>
+                        <span className="text-sm font-medium">Bank Transfer</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">V</span>
+                        </div>
+                        <span className="text-sm font-medium">Visa</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                        <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">M</span>
+                        </div>
+                        <span className="text-sm font-medium">Mastercard</span>
+                      </div>
                     </div>
                   </div>
                 </div>
