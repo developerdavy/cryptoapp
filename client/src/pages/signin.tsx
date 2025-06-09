@@ -55,9 +55,9 @@ export default function SignIn() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white lg:bg-white">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50" ref={dropdownRef}>
+      <header className="bg-white border-b border-gray-200 lg:border-gray-200 lg:sticky lg:top-0 z-50" ref={dropdownRef}>
         <div className="w-full px-2 sm:px-4 lg:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4 sm:space-x-12">
             <img 
@@ -190,7 +190,139 @@ export default function SignIn() {
           </div>
         )}
       </header>
-      <div className="flex flex-col lg:flex-row">
+      
+      {/* Mobile Purple Background */}
+      <div className="lg:hidden min-h-screen bg-gradient-to-br from-purple-900 via-blue-800 to-blue-900 flex flex-col">
+        {/* Mobile Content */}
+        <div className="flex-1 flex flex-col justify-center px-4 py-8">
+          <div className="text-center text-white mb-8">
+            <h1 className="text-3xl font-bold mb-4">The Lowest Fee Crypto Exchange</h1>
+            <p className="text-lg opacity-90 mb-6">Buy, sell, exchange bitcoin, crypto or fiat instantly in any major city around the globe.</p>
+            <Button 
+              onClick={() => setLocation("/trade")}
+              className="bg-white text-purple-900 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium"
+            >
+              Exchange Now
+            </Button>
+          </div>
+          
+          {/* Sign In Form for Mobile */}
+          <div className="bg-white rounded-2xl p-6 mx-4 shadow-xl">
+            <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">Sign In</h2>
+            <form onSubmit={handleSignIn} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address
+                </label>
+                <Input
+                  type="email"
+                  placeholder="Enter email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-purple-500 text-sm"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Password
+                </label>
+                <Input
+                  type="password"
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-purple-500 text-sm"
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col items-center justify-between text-xs space-y-2">
+                <button
+                  type="button"
+                  className="text-gray-600 hover:text-purple-600"
+                >
+                  Forgot your password?
+                </button>
+                <button
+                  type="button"
+                  onClick={handleSignUp}
+                  className="text-gray-600 hover:text-purple-600 text-center"
+                >
+                  Don't have an account? Sign Up
+                </button>
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 text-base font-medium rounded-lg"
+              >
+                Sign In
+              </Button>
+            </form>
+
+            {/* Divider */}
+            <div className="relative my-4">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300" />
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-2 bg-white text-gray-500">or</span>
+              </div>
+            </div>
+
+            {/* Social Login Options */}
+            <div className="space-y-3">
+              <div className="flex justify-center space-x-3">
+                <button 
+                  onClick={() => window.location.href = '/auth/facebook'}
+                  className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
+                >
+                  <span className="font-bold text-sm">f</span>
+                </button>
+                <button 
+                  onClick={() => window.location.href = '/auth/twitter'}
+                  className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors"
+                >
+                  <span className="font-bold text-sm">t</span>
+                </button>
+                <button 
+                  onClick={() => window.location.href = '/auth/google'}
+                  className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors"
+                >
+                  <span className="font-bold text-sm">G</span>
+                </button>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-xs text-gray-500 mb-2">ChicksX Group</p>
+                <div className="flex justify-center space-x-1">
+                  <button className="w-6 h-6 bg-black rounded-full flex items-center justify-center text-white text-xs">
+                    A
+                  </button>
+                  <button className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center text-white text-xs">
+                    M
+                  </button>
+                  <button className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs">
+                    G
+                  </button>
+                  <button className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center text-white text-xs">
+                    S
+                  </button>
+                  <button className="w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center text-white text-xs">
+                    NG
+                  </button>
+                </div>
+                <p className="text-xs text-gray-500 mt-1">Use account to access all of ChicksX services</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="hidden lg:flex flex-col lg:flex-row">
         {/* Left Side - Sign In Form */}
         <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center px-0 py-8 sm:px-8 lg:p-12 min-h-screen">
           <div className="w-full px-4 sm:px-0 sm:max-w-md mx-auto space-y-6 sm:space-y-8">
