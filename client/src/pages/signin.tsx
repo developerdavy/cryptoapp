@@ -35,18 +35,18 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Side - Sign In Form */}
-      <div className="w-1/2 bg-white flex items-center justify-center p-12">
-        <div className="w-full max-w-md space-y-8">
+      <div className="w-full lg:w-1/2 bg-white flex items-center justify-center p-4 sm:p-8 lg:p-12">
+        <div className="w-full max-w-md space-y-6 sm:space-y-8">
           {/* Logo */}
           <div className="flex items-center">
-            <img src={chicksxLogo} alt="ChicksX" className="h-8" />
+            <img src={chicksxLogo} alt="ChicksX" className="h-6 sm:h-8" />
           </div>
 
           {/* Sign In Title */}
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-8">Sign In</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-8">Sign In</h1>
           </div>
 
           {/* Sign In Form */}
@@ -60,7 +60,7 @@ export default function SignIn() {
                 placeholder="Enter email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-purple-500"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-purple-500 text-sm sm:text-base"
                 required
               />
             </div>
@@ -74,12 +74,12 @@ export default function SignIn() {
                 placeholder="Enter password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-purple-500"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:border-purple-500 focus:ring-purple-500 text-sm sm:text-base"
                 required
               />
             </div>
 
-            <div className="flex items-center justify-between text-sm">
+            <div className="flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm space-y-2 sm:space-y-0">
               <button
                 type="button"
                 className="text-gray-600 hover:text-purple-600"
@@ -89,7 +89,7 @@ export default function SignIn() {
               <button
                 type="button"
                 onClick={handleSignUp}
-                className="text-gray-600 hover:text-purple-600"
+                className="text-gray-600 hover:text-purple-600 text-center"
               >
                 Don't have an account? Sign Up
               </button>
@@ -97,7 +97,7 @@ export default function SignIn() {
 
             <Button
               type="submit"
-              className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 text-lg font-medium rounded-lg"
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 sm:py-3 text-base sm:text-lg font-medium rounded-lg"
             >
               Sign In
             </Button>
@@ -115,54 +115,54 @@ export default function SignIn() {
 
           {/* Social Login Options */}
           <div className="space-y-3">
-            <div className="flex justify-center space-x-4">
+            <div className="flex justify-center space-x-3 sm:space-x-4">
               <button 
                 onClick={() => window.location.href = '/auth/facebook'}
-                className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
               >
-                <span className="font-bold">f</span>
+                <span className="font-bold text-sm sm:text-base">f</span>
               </button>
               <button 
                 onClick={() => window.location.href = '/auth/twitter'}
-                className="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors"
               >
-                <span className="font-bold">t</span>
+                <span className="font-bold text-sm sm:text-base">t</span>
               </button>
               <button 
                 onClick={() => window.location.href = '/auth/google'}
-                className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors"
               >
-                <span className="font-bold">G</span>
+                <span className="font-bold text-sm sm:text-base">G</span>
               </button>
             </div>
             
             <div className="text-center">
-              <p className="text-xs text-gray-500 mb-3">ChicksX Group</p>
-              <div className="flex justify-center space-x-2">
-                <button className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-xs">
+              <p className="text-xs text-gray-500 mb-2 sm:mb-3">ChicksX Group</p>
+              <div className="flex justify-center space-x-1 sm:space-x-2">
+                <button className="w-6 h-6 sm:w-8 sm:h-8 bg-black rounded-full flex items-center justify-center text-white text-xs">
                   A
                 </button>
-                <button className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center text-white text-xs">
+                <button className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-600 rounded-full flex items-center justify-center text-white text-xs">
                   M
                 </button>
-                <button className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs">
+                <button className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs">
                   G
                 </button>
-                <button className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-xs">
+                <button className="w-6 h-6 sm:w-8 sm:h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-xs">
                   S
                 </button>
-                <button className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-white text-xs">
+                <button className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-800 rounded-full flex items-center justify-center text-white text-xs">
                   NG
                 </button>
               </div>
-              <p className="text-xs text-gray-500 mt-2">Use account to access all of ChicksX services</p>
+              <p className="text-xs text-gray-500 mt-1 sm:mt-2">Use account to access all of ChicksX services</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Right Side - Animated Background */}
-      <div className="w-1/2 bg-gradient-to-br from-purple-900 via-blue-800 to-blue-900 relative overflow-hidden">
+      <div className="hidden lg:block lg:w-1/2 bg-gradient-to-br from-purple-900 via-blue-800 to-blue-900 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           {/* Stars */}
