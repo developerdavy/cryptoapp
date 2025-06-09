@@ -231,18 +231,19 @@ export default function SignUp() {
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden md:flex min-h-screen">
+      <div className="hidden md:flex min-h-screen relative">
+        {/* Logo positioned on the gradient background */}
+        <div className="absolute top-8 left-8 z-10">
+          <img 
+            src={chicksxLogo} 
+            alt="ChicksX" 
+            className="h-8 cursor-pointer" 
+            onClick={() => setLocation("/")}
+          />
+        </div>
+        
         {/* Left Side - Form */}
-        <div className="w-1/2 bg-white flex flex-col justify-center px-16 relative">
-          {/* Logo */}
-          <div className="absolute top-8 left-8">
-            <img 
-              src={chicksxLogo} 
-              alt="ChicksX" 
-              className="h-8 cursor-pointer" 
-              onClick={() => setLocation("/")}
-            />
-          </div>
+        <div className="w-1/2 bg-white flex flex-col justify-center px-16">
 
           <div className="max-w-md mx-auto w-full">
             <h1 className="text-gray-900 text-4xl font-bold mb-12">Sign In</h1>
