@@ -164,187 +164,187 @@ export default function Landing() {
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a cryptocurrency to purchase</p>
                   
-                  <div className="overflow-x-auto scrollbar-hide w-full">
-                    <div className="flex gap-3 pb-2 pr-6 nowrap" style={{minWidth: 'max-content'}}>
+                  <div className="overflow-x-auto scrollbar-hide w-full" style={{width: '100%'}}>
+                    <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', flexWrap: 'nowrap'}}>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">₿</span>
                         </div>
-                        <span className="text-sm font-medium">BTC</span>
+                        <span className="text-sm font-medium text-black">BTC</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">Ξ</span>
                         </div>
-                        <span className="text-sm font-medium">ETH</span>
+                        <span className="text-sm font-medium text-black">ETH</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">T</span>
                         </div>
-                        <span className="text-sm font-medium">USDT</span>
+                        <span className="text-sm font-medium text-black">USDT</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">₿</span>
                         </div>
-                        <span className="text-sm font-medium">BNB</span>
+                        <span className="text-sm font-medium text-black">BNB</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">ADA</span>
+                        <span className="text-sm font-medium text-black">ADA</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">S</span>
                         </div>
-                        <span className="text-sm font-medium">SOL</span>
+                        <span className="text-sm font-medium text-black">SOL</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">X</span>
                         </div>
-                        <span className="text-sm font-medium">XRP</span>
+                        <span className="text-sm font-medium text-black">XRP</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">D</span>
                         </div>
-                        <span className="text-sm font-medium">DOGE</span>
+                        <span className="text-sm font-medium text-black">DOGE</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">AVAX</span>
+                        <span className="text-sm font-medium text-black">AVAX</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">P</span>
                         </div>
-                        <span className="text-sm font-medium">MATIC</span>
+                        <span className="text-sm font-medium text-black">MATIC</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">D</span>
                         </div>
-                        <span className="text-sm font-medium">DOT</span>
+                        <span className="text-sm font-medium text-black">DOT</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">L</span>
                         </div>
-                        <span className="text-sm font-medium">LTC</span>
+                        <span className="text-sm font-medium text-black">LTC</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-purple-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">U</span>
                         </div>
-                        <span className="text-sm font-medium">UNI</span>
+                        <span className="text-sm font-medium text-black">UNI</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">L</span>
                         </div>
-                        <span className="text-sm font-medium">LINK</span>
+                        <span className="text-sm font-medium text-black">LINK</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">ATOM</span>
+                        <span className="text-sm font-medium text-black">ATOM</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-cyan-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">ALGO</span>
+                        <span className="text-sm font-medium text-black">ALGO</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">I</span>
                         </div>
-                        <span className="text-sm font-medium">ICP</span>
+                        <span className="text-sm font-medium text-black">ICP</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">F</span>
                         </div>
-                        <span className="text-sm font-medium">FTT</span>
+                        <span className="text-sm font-medium text-black">FTT</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-violet-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">APE</span>
+                        <span className="text-sm font-medium text-black">APE</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">N</span>
                         </div>
-                        <span className="text-sm font-medium">NEAR</span>
+                        <span className="text-sm font-medium text-black">NEAR</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-900 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">M</span>
                         </div>
-                        <span className="text-sm font-medium">MANA</span>
+                        <span className="text-sm font-medium text-black">MANA</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">S</span>
                         </div>
-                        <span className="text-sm font-medium">SAND</span>
+                        <span className="text-sm font-medium text-black">SAND</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-indigo-800 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">C</span>
                         </div>
-                        <span className="text-sm font-medium">CRO</span>
+                        <span className="text-sm font-medium text-black">CRO</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">H</span>
                         </div>
-                        <span className="text-sm font-medium">HBAR</span>
+                        <span className="text-sm font-medium text-black">HBAR</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-purple-800 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">T</span>
                         </div>
-                        <span className="text-sm font-medium">THETA</span>
+                        <span className="text-sm font-medium text-black">THETA</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">F</span>
                         </div>
-                        <span className="text-sm font-medium">FLOW</span>
+                        <span className="text-sm font-medium text-black">FLOW</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">Ξ</span>
                         </div>
-                        <span className="text-sm font-medium">EGLD</span>
+                        <span className="text-sm font-medium text-black">EGLD</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-indigo-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">X</span>
                         </div>
-                        <span className="text-sm font-medium">XTZ</span>
+                        <span className="text-sm font-medium text-black">XTZ</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-cyan-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">G</span>
                         </div>
-                        <span className="text-sm font-medium">GRT</span>
+                        <span className="text-sm font-medium text-black">GRT</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-emerald-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">1</span>
                         </div>
-                        <span className="text-sm font-medium">1INCH</span>
+                        <span className="text-sm font-medium text-black">1INCH</span>
                       </div>
                     </div>
                   </div>
@@ -367,61 +367,61 @@ export default function Landing() {
                         <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">💳</span>
                         </div>
-                        <span className="text-sm font-medium">Debit/Credit</span>
+                        <span className="text-sm font-medium text-black">Debit/Credit</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">G</span>
                         </div>
-                        <span className="text-sm font-medium">Google Pay</span>
+                        <span className="text-sm font-medium text-black">Google Pay</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">Apple Pay</span>
+                        <span className="text-sm font-medium text-black">Apple Pay</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">I</span>
                         </div>
-                        <span className="text-sm font-medium">Interac</span>
+                        <span className="text-sm font-medium text-black">Interac</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">S</span>
                         </div>
-                        <span className="text-sm font-medium">SEPA</span>
+                        <span className="text-sm font-medium text-black">SEPA</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">P</span>
                         </div>
-                        <span className="text-sm font-medium">PayPal</span>
+                        <span className="text-sm font-medium text-black">PayPal</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">W</span>
                         </div>
-                        <span className="text-sm font-medium">Wire Transfer</span>
+                        <span className="text-sm font-medium text-black">Wire Transfer</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">B</span>
                         </div>
-                        <span className="text-sm font-medium">Bank Transfer</span>
+                        <span className="text-sm font-medium text-black">Bank Transfer</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">V</span>
                         </div>
-                        <span className="text-sm font-medium">Visa</span>
+                        <span className="text-sm font-medium text-black">Visa</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">M</span>
                         </div>
-                        <span className="text-sm font-medium">Mastercard</span>
+                        <span className="text-sm font-medium text-black">Mastercard</span>
                       </div>
                     </div>
                   </div>
@@ -449,187 +449,187 @@ export default function Landing() {
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a cryptocurrency to sell</p>
                   
-                  <div className="overflow-x-auto scrollbar-hide">
-                    <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
+                  <div className="overflow-x-auto scrollbar-hide w-full" style={{width: '100%'}}>
+                    <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', flexWrap: 'nowrap'}}>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">₿</span>
                         </div>
-                        <span className="text-sm font-medium">BTC</span>
+                        <span className="text-sm font-medium text-black">BTC</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">Ξ</span>
                         </div>
-                        <span className="text-sm font-medium">ETH</span>
+                        <span className="text-sm font-medium text-black">ETH</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">T</span>
                         </div>
-                        <span className="text-sm font-medium">USDT</span>
+                        <span className="text-sm font-medium text-black">USDT</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">₿</span>
                         </div>
-                        <span className="text-sm font-medium">BNB</span>
+                        <span className="text-sm font-medium text-black">BNB</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">ADA</span>
+                        <span className="text-sm font-medium text-black">ADA</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">S</span>
                         </div>
-                        <span className="text-sm font-medium">SOL</span>
+                        <span className="text-sm font-medium text-black">SOL</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">X</span>
                         </div>
-                        <span className="text-sm font-medium">XRP</span>
+                        <span className="text-sm font-medium text-black">XRP</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">D</span>
                         </div>
-                        <span className="text-sm font-medium">DOGE</span>
+                        <span className="text-sm font-medium text-black">DOGE</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">AVAX</span>
+                        <span className="text-sm font-medium text-black">AVAX</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">P</span>
                         </div>
-                        <span className="text-sm font-medium">MATIC</span>
+                        <span className="text-sm font-medium text-black">MATIC</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">D</span>
                         </div>
-                        <span className="text-sm font-medium">DOT</span>
+                        <span className="text-sm font-medium text-black">DOT</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">L</span>
                         </div>
-                        <span className="text-sm font-medium">LTC</span>
+                        <span className="text-sm font-medium text-black">LTC</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-purple-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">U</span>
                         </div>
-                        <span className="text-sm font-medium">UNI</span>
+                        <span className="text-sm font-medium text-black">UNI</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">L</span>
                         </div>
-                        <span className="text-sm font-medium">LINK</span>
+                        <span className="text-sm font-medium text-black">LINK</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">ATOM</span>
+                        <span className="text-sm font-medium text-black">ATOM</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-cyan-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">ALGO</span>
+                        <span className="text-sm font-medium text-black">ALGO</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">I</span>
                         </div>
-                        <span className="text-sm font-medium">ICP</span>
+                        <span className="text-sm font-medium text-black">ICP</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">F</span>
                         </div>
-                        <span className="text-sm font-medium">FTT</span>
+                        <span className="text-sm font-medium text-black">FTT</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-violet-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">A</span>
                         </div>
-                        <span className="text-sm font-medium">APE</span>
+                        <span className="text-sm font-medium text-black">APE</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">N</span>
                         </div>
-                        <span className="text-sm font-medium">NEAR</span>
+                        <span className="text-sm font-medium text-black">NEAR</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-blue-900 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">M</span>
                         </div>
-                        <span className="text-sm font-medium">MANA</span>
+                        <span className="text-sm font-medium text-black">MANA</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">S</span>
                         </div>
-                        <span className="text-sm font-medium">SAND</span>
+                        <span className="text-sm font-medium text-black">SAND</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-indigo-800 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">C</span>
                         </div>
-                        <span className="text-sm font-medium">CRO</span>
+                        <span className="text-sm font-medium text-black">CRO</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-orange-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">H</span>
                         </div>
-                        <span className="text-sm font-medium">HBAR</span>
+                        <span className="text-sm font-medium text-black">HBAR</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-purple-800 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">T</span>
                         </div>
-                        <span className="text-sm font-medium">THETA</span>
+                        <span className="text-sm font-medium text-black">THETA</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">F</span>
                         </div>
-                        <span className="text-sm font-medium">FLOW</span>
+                        <span className="text-sm font-medium text-black">FLOW</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">Ξ</span>
                         </div>
-                        <span className="text-sm font-medium">EGLD</span>
+                        <span className="text-sm font-medium text-black">EGLD</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-indigo-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">X</span>
                         </div>
-                        <span className="text-sm font-medium">XTZ</span>
+                        <span className="text-sm font-medium text-black">XTZ</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-cyan-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">G</span>
                         </div>
-                        <span className="text-sm font-medium">GRT</span>
+                        <span className="text-sm font-medium text-black">GRT</span>
                       </div>
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                         <div className="w-6 h-6 bg-emerald-700 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">1</span>
                         </div>
-                        <span className="text-sm font-medium">1INCH</span>
+                        <span className="text-sm font-medium text-black">1INCH</span>
                       </div>
                     </div>
                   </div>
@@ -651,35 +651,35 @@ export default function Landing() {
                       <div className="w-6 h-6 bg-orange-500 rounded flex items-center justify-center">
                         <span className="text-white text-xs font-bold">I</span>
                       </div>
-                      <span className="text-sm font-medium">Interac E-Transfer</span>
+                      <span className="text-sm font-medium text-black">Interac E-Transfer</span>
                     </div>
                     
                     <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
                       <div className="w-6 h-6 bg-blue-800 rounded flex items-center justify-center">
                         <span className="text-white text-xs font-bold">S</span>
                       </div>
-                      <span className="text-sm font-medium">SEPA</span>
+                      <span className="text-sm font-medium text-black">SEPA</span>
                     </div>
                     
                     <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
                       <div className="w-6 h-6 bg-purple-600 rounded flex items-center justify-center">
                         <span className="text-white text-xs font-bold">S</span>
                       </div>
-                      <span className="text-sm font-medium">SWIFT Bank Transfer</span>
+                      <span className="text-sm font-medium text-black">SWIFT Bank Transfer</span>
                     </div>
                     
                     <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
                       <div className="w-6 h-6 bg-gray-600 rounded flex items-center justify-center">
                         <span className="text-white text-xs font-bold">Ξ</span>
                       </div>
-                      <span className="text-sm font-medium">EFT</span>
+                      <span className="text-sm font-medium text-black">EFT</span>
                     </div>
                     
                     <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
                       <div className="w-6 h-6 bg-yellow-600 rounded flex items-center justify-center">
                         <span className="text-white text-xs font-bold">W</span>
                       </div>
-                      <span className="text-sm font-medium">Western Union</span>
+                      <span className="text-sm font-medium text-black">Western Union</span>
                     </div>
                   </div>
                 </div>
@@ -731,372 +731,372 @@ export default function Landing() {
                   <p className="text-sm text-gray-600 mb-4">Select a fiat currency to swap</p>
                   
                   {swapActiveTab === 'Fiat' ? (
-                    <div className="overflow-x-auto scrollbar-hide">
-                      <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
+                    <div className="overflow-x-auto scrollbar-hide w-full" style={{width: "100%"}}>
+                      <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', flexWrap: 'nowrap'}}>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">IN</span>
                           </div>
-                          <span className="text-sm font-medium">INR</span>
+                          <span className="text-sm font-medium text-black">INR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">US</span>
                           </div>
-                          <span className="text-sm font-medium">USD</span>
+                          <span className="text-sm font-medium text-black">USD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">CA</span>
                           </div>
-                          <span className="text-sm font-medium">CAD</span>
+                          <span className="text-sm font-medium text-black">CAD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">EU</span>
                           </div>
-                          <span className="text-sm font-medium">EUR</span>
+                          <span className="text-sm font-medium text-black">EUR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">AU</span>
                           </div>
-                          <span className="text-sm font-medium">AUD</span>
+                          <span className="text-sm font-medium text-black">AUD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">GB</span>
                           </div>
-                          <span className="text-sm font-medium">GBP</span>
+                          <span className="text-sm font-medium text-black">GBP</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">JP</span>
                           </div>
-                          <span className="text-sm font-medium">JPY</span>
+                          <span className="text-sm font-medium text-black">JPY</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">CH</span>
                           </div>
-                          <span className="text-sm font-medium">CHF</span>
+                          <span className="text-sm font-medium text-black">CHF</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">NO</span>
                           </div>
-                          <span className="text-sm font-medium">NOK</span>
+                          <span className="text-sm font-medium text-black">NOK</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">SE</span>
                           </div>
-                          <span className="text-sm font-medium">SEK</span>
+                          <span className="text-sm font-medium text-black">SEK</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">DK</span>
                           </div>
-                          <span className="text-sm font-medium">DKK</span>
+                          <span className="text-sm font-medium text-black">DKK</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">NZ</span>
                           </div>
-                          <span className="text-sm font-medium">NZD</span>
+                          <span className="text-sm font-medium text-black">NZD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">ZA</span>
                           </div>
-                          <span className="text-sm font-medium">ZAR</span>
+                          <span className="text-sm font-medium text-black">ZAR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">BR</span>
                           </div>
-                          <span className="text-sm font-medium">BRL</span>
+                          <span className="text-sm font-medium text-black">BRL</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">MX</span>
                           </div>
-                          <span className="text-sm font-medium">MXN</span>
+                          <span className="text-sm font-medium text-black">MXN</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">SG</span>
                           </div>
-                          <span className="text-sm font-medium">SGD</span>
+                          <span className="text-sm font-medium text-black">SGD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-900 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">HK</span>
                           </div>
-                          <span className="text-sm font-medium">HKD</span>
+                          <span className="text-sm font-medium text-black">HKD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">KR</span>
                           </div>
-                          <span className="text-sm font-medium">KRW</span>
+                          <span className="text-sm font-medium text-black">KRW</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">CN</span>
                           </div>
-                          <span className="text-sm font-medium">CNY</span>
+                          <span className="text-sm font-medium text-black">CNY</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">RU</span>
                           </div>
-                          <span className="text-sm font-medium">RUB</span>
+                          <span className="text-sm font-medium text-black">RUB</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">AE</span>
                           </div>
-                          <span className="text-sm font-medium">AED</span>
+                          <span className="text-sm font-medium text-black">AED</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">SA</span>
                           </div>
-                          <span className="text-sm font-medium">SAR</span>
+                          <span className="text-sm font-medium text-black">SAR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">TR</span>
                           </div>
-                          <span className="text-sm font-medium">TRY</span>
+                          <span className="text-sm font-medium text-black">TRY</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">PL</span>
                           </div>
-                          <span className="text-sm font-medium">PLN</span>
+                          <span className="text-sm font-medium text-black">PLN</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">TH</span>
                           </div>
-                          <span className="text-sm font-medium">THB</span>
+                          <span className="text-sm font-medium text-black">THB</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">MY</span>
                           </div>
-                          <span className="text-sm font-medium">MYR</span>
+                          <span className="text-sm font-medium text-black">MYR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">ID</span>
                           </div>
-                          <span className="text-sm font-medium">IDR</span>
+                          <span className="text-sm font-medium text-black">IDR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">PH</span>
                           </div>
-                          <span className="text-sm font-medium">PHP</span>
+                          <span className="text-sm font-medium text-black">PHP</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">VN</span>
                           </div>
-                          <span className="text-sm font-medium">VND</span>
+                          <span className="text-sm font-medium text-black">VND</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">EG</span>
                           </div>
-                          <span className="text-sm font-medium">EGP</span>
+                          <span className="text-sm font-medium text-black">EGP</span>
                         </div>
                       </div>
                     </div>
                   ) : (
-                    <div className="overflow-x-auto scrollbar-hide">
-                      <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
+                    <div className="overflow-x-auto scrollbar-hide w-full" style={{width: "100%"}}>
+                      <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', flexWrap: 'nowrap'}}>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">₿</span>
                           </div>
-                          <span className="text-sm font-medium">BTC</span>
+                          <span className="text-sm font-medium text-black">BTC</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">Ξ</span>
                           </div>
-                          <span className="text-sm font-medium">ETH</span>
+                          <span className="text-sm font-medium text-black">ETH</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">T</span>
                           </div>
-                          <span className="text-sm font-medium">USDT</span>
+                          <span className="text-sm font-medium text-black">USDT</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">₿</span>
                           </div>
-                          <span className="text-sm font-medium">BNB</span>
+                          <span className="text-sm font-medium text-black">BNB</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">A</span>
                           </div>
-                          <span className="text-sm font-medium">ADA</span>
+                          <span className="text-sm font-medium text-black">ADA</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">S</span>
                           </div>
-                          <span className="text-sm font-medium">SOL</span>
+                          <span className="text-sm font-medium text-black">SOL</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">X</span>
                           </div>
-                          <span className="text-sm font-medium">XRP</span>
+                          <span className="text-sm font-medium text-black">XRP</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">D</span>
                           </div>
-                          <span className="text-sm font-medium">DOGE</span>
+                          <span className="text-sm font-medium text-black">DOGE</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">A</span>
                           </div>
-                          <span className="text-sm font-medium">AVAX</span>
+                          <span className="text-sm font-medium text-black">AVAX</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">P</span>
                           </div>
-                          <span className="text-sm font-medium">MATIC</span>
+                          <span className="text-sm font-medium text-black">MATIC</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">D</span>
                           </div>
-                          <span className="text-sm font-medium">DOT</span>
+                          <span className="text-sm font-medium text-black">DOT</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">L</span>
                           </div>
-                          <span className="text-sm font-medium">LTC</span>
+                          <span className="text-sm font-medium text-black">LTC</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-purple-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">U</span>
                           </div>
-                          <span className="text-sm font-medium">UNI</span>
+                          <span className="text-sm font-medium text-black">UNI</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">L</span>
                           </div>
-                          <span className="text-sm font-medium">LINK</span>
+                          <span className="text-sm font-medium text-black">LINK</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">A</span>
                           </div>
-                          <span className="text-sm font-medium">ATOM</span>
+                          <span className="text-sm font-medium text-black">ATOM</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-cyan-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">A</span>
                           </div>
-                          <span className="text-sm font-medium">ALGO</span>
+                          <span className="text-sm font-medium text-black">ALGO</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">I</span>
                           </div>
-                          <span className="text-sm font-medium">ICP</span>
+                          <span className="text-sm font-medium text-black">ICP</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">F</span>
                           </div>
-                          <span className="text-sm font-medium">FTT</span>
+                          <span className="text-sm font-medium text-black">FTT</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-violet-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">A</span>
                           </div>
-                          <span className="text-sm font-medium">APE</span>
+                          <span className="text-sm font-medium text-black">APE</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">N</span>
                           </div>
-                          <span className="text-sm font-medium">NEAR</span>
+                          <span className="text-sm font-medium text-black">NEAR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-900 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">M</span>
                           </div>
-                          <span className="text-sm font-medium">MANA</span>
+                          <span className="text-sm font-medium text-black">MANA</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">S</span>
                           </div>
-                          <span className="text-sm font-medium">SAND</span>
+                          <span className="text-sm font-medium text-black">SAND</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-indigo-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">C</span>
                           </div>
-                          <span className="text-sm font-medium">CRO</span>
+                          <span className="text-sm font-medium text-black">CRO</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">H</span>
                           </div>
-                          <span className="text-sm font-medium">HBAR</span>
+                          <span className="text-sm font-medium text-black">HBAR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-purple-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">T</span>
                           </div>
-                          <span className="text-sm font-medium">THETA</span>
+                          <span className="text-sm font-medium text-black">THETA</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">F</span>
                           </div>
-                          <span className="text-sm font-medium">FLOW</span>
+                          <span className="text-sm font-medium text-black">FLOW</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">Ξ</span>
                           </div>
-                          <span className="text-sm font-medium">EGLD</span>
+                          <span className="text-sm font-medium text-black">EGLD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-indigo-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">X</span>
                           </div>
-                          <span className="text-sm font-medium">XTZ</span>
+                          <span className="text-sm font-medium text-black">XTZ</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-cyan-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">G</span>
                           </div>
-                          <span className="text-sm font-medium">GRT</span>
+                          <span className="text-sm font-medium text-black">GRT</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-emerald-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">1</span>
                           </div>
-                          <span className="text-sm font-medium">1INCH</span>
+                          <span className="text-sm font-medium text-black">1INCH</span>
                         </div>
                       </div>
                     </div>
@@ -1115,372 +1115,372 @@ export default function Landing() {
                   <p className="text-sm text-gray-600 mb-4">Select a fiat currency to swap</p>
                   
                   {swapActiveTab === 'Fiat' ? (
-                    <div className="overflow-x-auto scrollbar-hide">
-                      <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
+                    <div className="overflow-x-auto scrollbar-hide w-full" style={{width: "100%"}}>
+                      <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', flexWrap: 'nowrap'}}>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">IN</span>
                           </div>
-                          <span className="text-sm font-medium">INR</span>
+                          <span className="text-sm font-medium text-black">INR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">US</span>
                           </div>
-                          <span className="text-sm font-medium">USD</span>
+                          <span className="text-sm font-medium text-black">USD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">CA</span>
                           </div>
-                          <span className="text-sm font-medium">CAD</span>
+                          <span className="text-sm font-medium text-black">CAD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">EU</span>
                           </div>
-                          <span className="text-sm font-medium">EUR</span>
+                          <span className="text-sm font-medium text-black">EUR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">AU</span>
                           </div>
-                          <span className="text-sm font-medium">AUD</span>
+                          <span className="text-sm font-medium text-black">AUD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">GB</span>
                           </div>
-                          <span className="text-sm font-medium">GBP</span>
+                          <span className="text-sm font-medium text-black">GBP</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">JP</span>
                           </div>
-                          <span className="text-sm font-medium">JPY</span>
+                          <span className="text-sm font-medium text-black">JPY</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">CH</span>
                           </div>
-                          <span className="text-sm font-medium">CHF</span>
+                          <span className="text-sm font-medium text-black">CHF</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">NO</span>
                           </div>
-                          <span className="text-sm font-medium">NOK</span>
+                          <span className="text-sm font-medium text-black">NOK</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">SE</span>
                           </div>
-                          <span className="text-sm font-medium">SEK</span>
+                          <span className="text-sm font-medium text-black">SEK</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">DK</span>
                           </div>
-                          <span className="text-sm font-medium">DKK</span>
+                          <span className="text-sm font-medium text-black">DKK</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">NZ</span>
                           </div>
-                          <span className="text-sm font-medium">NZD</span>
+                          <span className="text-sm font-medium text-black">NZD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">ZA</span>
                           </div>
-                          <span className="text-sm font-medium">ZAR</span>
+                          <span className="text-sm font-medium text-black">ZAR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">BR</span>
                           </div>
-                          <span className="text-sm font-medium">BRL</span>
+                          <span className="text-sm font-medium text-black">BRL</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">MX</span>
                           </div>
-                          <span className="text-sm font-medium">MXN</span>
+                          <span className="text-sm font-medium text-black">MXN</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">SG</span>
                           </div>
-                          <span className="text-sm font-medium">SGD</span>
+                          <span className="text-sm font-medium text-black">SGD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-900 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">HK</span>
                           </div>
-                          <span className="text-sm font-medium">HKD</span>
+                          <span className="text-sm font-medium text-black">HKD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">KR</span>
                           </div>
-                          <span className="text-sm font-medium">KRW</span>
+                          <span className="text-sm font-medium text-black">KRW</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">CN</span>
                           </div>
-                          <span className="text-sm font-medium">CNY</span>
+                          <span className="text-sm font-medium text-black">CNY</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">RU</span>
                           </div>
-                          <span className="text-sm font-medium">RUB</span>
+                          <span className="text-sm font-medium text-black">RUB</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">AE</span>
                           </div>
-                          <span className="text-sm font-medium">AED</span>
+                          <span className="text-sm font-medium text-black">AED</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">SA</span>
                           </div>
-                          <span className="text-sm font-medium">SAR</span>
+                          <span className="text-sm font-medium text-black">SAR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">TR</span>
                           </div>
-                          <span className="text-sm font-medium">TRY</span>
+                          <span className="text-sm font-medium text-black">TRY</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">PL</span>
                           </div>
-                          <span className="text-sm font-medium">PLN</span>
+                          <span className="text-sm font-medium text-black">PLN</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">TH</span>
                           </div>
-                          <span className="text-sm font-medium">THB</span>
+                          <span className="text-sm font-medium text-black">THB</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">MY</span>
                           </div>
-                          <span className="text-sm font-medium">MYR</span>
+                          <span className="text-sm font-medium text-black">MYR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">ID</span>
                           </div>
-                          <span className="text-sm font-medium">IDR</span>
+                          <span className="text-sm font-medium text-black">IDR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">PH</span>
                           </div>
-                          <span className="text-sm font-medium">PHP</span>
+                          <span className="text-sm font-medium text-black">PHP</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">VN</span>
                           </div>
-                          <span className="text-sm font-medium">VND</span>
+                          <span className="text-sm font-medium text-black">VND</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">EG</span>
                           </div>
-                          <span className="text-sm font-medium">EGP</span>
+                          <span className="text-sm font-medium text-black">EGP</span>
                         </div>
                       </div>
                     </div>
                   ) : (
-                    <div className="overflow-x-auto scrollbar-hide">
-                      <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', width: 'fit-content'}}>
+                    <div className="overflow-x-auto scrollbar-hide w-full" style={{width: "100%"}}>
+                      <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', flexWrap: 'nowrap'}}>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">₿</span>
                           </div>
-                          <span className="text-sm font-medium">BTC</span>
+                          <span className="text-sm font-medium text-black">BTC</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">Ξ</span>
                           </div>
-                          <span className="text-sm font-medium">ETH</span>
+                          <span className="text-sm font-medium text-black">ETH</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">T</span>
                           </div>
-                          <span className="text-sm font-medium">USDT</span>
+                          <span className="text-sm font-medium text-black">USDT</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">₿</span>
                           </div>
-                          <span className="text-sm font-medium">BNB</span>
+                          <span className="text-sm font-medium text-black">BNB</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">A</span>
                           </div>
-                          <span className="text-sm font-medium">ADA</span>
+                          <span className="text-sm font-medium text-black">ADA</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">S</span>
                           </div>
-                          <span className="text-sm font-medium">SOL</span>
+                          <span className="text-sm font-medium text-black">SOL</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">X</span>
                           </div>
-                          <span className="text-sm font-medium">XRP</span>
+                          <span className="text-sm font-medium text-black">XRP</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">D</span>
                           </div>
-                          <span className="text-sm font-medium">DOGE</span>
+                          <span className="text-sm font-medium text-black">DOGE</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">A</span>
                           </div>
-                          <span className="text-sm font-medium">AVAX</span>
+                          <span className="text-sm font-medium text-black">AVAX</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">P</span>
                           </div>
-                          <span className="text-sm font-medium">MATIC</span>
+                          <span className="text-sm font-medium text-black">MATIC</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">D</span>
                           </div>
-                          <span className="text-sm font-medium">DOT</span>
+                          <span className="text-sm font-medium text-black">DOT</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">L</span>
                           </div>
-                          <span className="text-sm font-medium">LTC</span>
+                          <span className="text-sm font-medium text-black">LTC</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-purple-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">U</span>
                           </div>
-                          <span className="text-sm font-medium">UNI</span>
+                          <span className="text-sm font-medium text-black">UNI</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">L</span>
                           </div>
-                          <span className="text-sm font-medium">LINK</span>
+                          <span className="text-sm font-medium text-black">LINK</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">A</span>
                           </div>
-                          <span className="text-sm font-medium">ATOM</span>
+                          <span className="text-sm font-medium text-black">ATOM</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-cyan-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">A</span>
                           </div>
-                          <span className="text-sm font-medium">ALGO</span>
+                          <span className="text-sm font-medium text-black">ALGO</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">I</span>
                           </div>
-                          <span className="text-sm font-medium">ICP</span>
+                          <span className="text-sm font-medium text-black">ICP</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">F</span>
                           </div>
-                          <span className="text-sm font-medium">FTT</span>
+                          <span className="text-sm font-medium text-black">FTT</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-violet-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">A</span>
                           </div>
-                          <span className="text-sm font-medium">APE</span>
+                          <span className="text-sm font-medium text-black">APE</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">N</span>
                           </div>
-                          <span className="text-sm font-medium">NEAR</span>
+                          <span className="text-sm font-medium text-black">NEAR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-blue-900 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">M</span>
                           </div>
-                          <span className="text-sm font-medium">MANA</span>
+                          <span className="text-sm font-medium text-black">MANA</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">S</span>
                           </div>
-                          <span className="text-sm font-medium">SAND</span>
+                          <span className="text-sm font-medium text-black">SAND</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-indigo-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">C</span>
                           </div>
-                          <span className="text-sm font-medium">CRO</span>
+                          <span className="text-sm font-medium text-black">CRO</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-orange-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">H</span>
                           </div>
-                          <span className="text-sm font-medium">HBAR</span>
+                          <span className="text-sm font-medium text-black">HBAR</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-purple-800 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">T</span>
                           </div>
-                          <span className="text-sm font-medium">THETA</span>
+                          <span className="text-sm font-medium text-black">THETA</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">F</span>
                           </div>
-                          <span className="text-sm font-medium">FLOW</span>
+                          <span className="text-sm font-medium text-black">FLOW</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">Ξ</span>
                           </div>
-                          <span className="text-sm font-medium">EGLD</span>
+                          <span className="text-sm font-medium text-black">EGLD</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-indigo-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">X</span>
                           </div>
-                          <span className="text-sm font-medium">XTZ</span>
+                          <span className="text-sm font-medium text-black">XTZ</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-cyan-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">G</span>
                           </div>
-                          <span className="text-sm font-medium">GRT</span>
+                          <span className="text-sm font-medium text-black">GRT</span>
                         </div>
                         <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
                           <div className="w-6 h-6 bg-emerald-700 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">1</span>
                           </div>
-                          <span className="text-sm font-medium">1INCH</span>
+                          <span className="text-sm font-medium text-black">1INCH</span>
                         </div>
                       </div>
                     </div>
