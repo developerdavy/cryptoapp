@@ -106,10 +106,14 @@ export default function Landing() {
           <Button
             variant="ghost"
             size="sm"
-            className="p-2"
+            className="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100"
             onClick={() => setShowMobileMenu(!showMobileMenu)}
           >
-            <Menu className="h-5 w-5" />
+            <div className="flex flex-col space-y-1">
+              <div className="w-5 h-0.5 bg-gray-700"></div>
+              <div className="w-5 h-0.5 bg-gray-700"></div>
+              <div className="w-5 h-0.5 bg-gray-700"></div>
+            </div>
           </Button>
           
           <div className="flex items-center">
