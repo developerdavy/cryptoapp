@@ -134,7 +134,7 @@ export default function Landing() {
         </div>
 
         {/* Desktop Header */}
-        <div className="hidden md:block w-full px-2 sm:px-4 lg:px-6 py-4">
+        <div className="hidden md:block w-full py-4" style={{marginLeft: '20px', marginRight: '20px'}}>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4 sm:space-x-12">
               <img src={chicksxLogo} alt="ChicksX" className="h-8 sm:h-10" />
@@ -1310,7 +1310,7 @@ export default function Landing() {
 
         {/* Desktop Layout */}
         <div className="hidden md:block">
-          <div className="w-full mx-auto px-6 lg:px-12 xl:px-16">
+          <div className="w-full mx-auto" style={{marginLeft: '120px', marginRight: '120px'}}>
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="text-white space-y-6 lg:space-y-8 text-left ml-4">
                 <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
@@ -1377,7 +1377,7 @@ export default function Landing() {
       <section className="w-full py-6 sm:py-8 relative">
         {/* Desktop Layout */}
         <div className="hidden md:block w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-6 lg:px-12 xl:px-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" style={{marginLeft: '120px', marginRight: '120px'}}>
             {/* Bitcoin Card */}
             <Card className="bg-white shadow-lg">
               <CardContent className="p-2 sm:p-3 md:p-4">
@@ -1524,7 +1524,7 @@ export default function Landing() {
 
       {/* Security Section */}
       <section className="w-full py-16 bg-gradient-to-r from-purple-900 to-blue-800">
-        <div className="w-full px-6 lg:px-12 xl:px-16">
+        <div className="w-full" style={{marginLeft: '120px', marginRight: '120px'}}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="text-white">
               <div className="flex items-center space-x-4 mb-6">
@@ -1563,7 +1563,7 @@ export default function Landing() {
 
       {/* 24/7 Support Section */}
       <section className="w-full py-16 bg-gray-50">
-        <div className="w-full px-6 lg:px-12 xl:px-16">
+        <div className="w-full" style={{marginLeft: '120px', marginRight: '120px'}}>
           <div className="flex items-start" style={{gap: '60px'}}>
             <div className="flex-shrink-0">
               <div className="w-16 h-16 bg-purple-700 rounded-full flex items-center justify-center">
