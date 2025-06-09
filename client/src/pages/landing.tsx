@@ -180,36 +180,36 @@ export default function Landing() {
                   
                   <div className="overflow-x-auto scrollbar-hide w-full" style={{width: '100%'}}>
                     <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', flexWrap: 'nowrap'}}>
-                      <CryptoBadge symbol="BTC" name="Bitcoin" color="bg-orange-500" icon="₿" action="trade" />
-                      <CryptoBadge symbol="ETH" name="Ethereum" color="bg-blue-500" icon="Ξ" action="trade" />
-                      <CryptoBadge symbol="USDT" name="Tether" color="bg-green-500" icon="T" action="trade" />
-                      <CryptoBadge symbol="BNB" name="Binance Coin" color="bg-yellow-600" icon="B" action="trade" />
-                      <CryptoBadge symbol="ADA" name="Cardano" color="bg-red-500" icon="A" action="trade" />
-                      <CryptoBadge symbol="SOL" name="Solana" color="bg-purple-600" icon="S" action="trade" />
-                      <CryptoBadge symbol="XRP" name="Ripple" color="bg-blue-700" icon="X" action="trade" />
-                      <CryptoBadge symbol="DOGE" name="Dogecoin" color="bg-yellow-700" icon="D" action="trade" />
-                      <CryptoBadge symbol="AVAX" name="Avalanche" color="bg-teal-600" icon="A" action="trade" />
-                      <CryptoBadge symbol="MATIC" name="Polygon" color="bg-indigo-600" icon="P" action="trade" />
-                      <CryptoBadge symbol="DOT" name="Polkadot" color="bg-pink-600" icon="D" action="trade" />
-                      <CryptoBadge symbol="LTC" name="Litecoin" color="bg-gray-500" icon="L" action="trade" />
-                      <CryptoBadge symbol="UNI" name="Uniswap" color="bg-purple-700" icon="U" action="trade" />
-                      <CryptoBadge symbol="LINK" name="Chainlink" color="bg-blue-800" icon="L" action="trade" />
-                      <CryptoBadge symbol="ATOM" name="Cosmos" color="bg-orange-600" icon="A" action="trade" />
-                      <CryptoBadge symbol="ALGO" name="Algorand" color="bg-cyan-600" icon="A" action="trade" />
-                      <CryptoBadge symbol="ICP" name="Internet Computer" color="bg-red-600" icon="I" action="trade" />
-                      <CryptoBadge symbol="FTT" name="FTX Token" color="bg-emerald-600" icon="F" action="trade" />
-                      <CryptoBadge symbol="APE" name="ApeCoin" color="bg-violet-600" icon="A" action="trade" />
-                      <CryptoBadge symbol="NEAR" name="NEAR Protocol" color="bg-slate-600" icon="N" action="trade" />
-                      <CryptoBadge symbol="MANA" name="Decentraland" color="bg-blue-900" icon="M" action="trade" />
-                      <CryptoBadge symbol="SAND" name="The Sandbox" color="bg-green-600" icon="S" action="trade" />
-                      <CryptoBadge symbol="CRO" name="Cronos" color="bg-indigo-800" icon="C" action="trade" />
-                      <CryptoBadge symbol="HBAR" name="Hedera" color="bg-orange-700" icon="H" action="trade" />
-                      <CryptoBadge symbol="THETA" name="Theta" color="bg-purple-800" icon="T" action="trade" />
-                      <CryptoBadge symbol="FLOW" name="Flow" color="bg-red-700" icon="F" action="trade" />
-                      <CryptoBadge symbol="EGLD" name="MultiversX" color="bg-teal-700" icon="E" action="trade" />
-                      <CryptoBadge symbol="XTZ" name="Tezos" color="bg-indigo-700" icon="X" action="trade" />
-                      <CryptoBadge symbol="GRT" name="The Graph" color="bg-cyan-700" icon="G" action="trade" />
-                      <CryptoBadge symbol="1INCH" name="1inch" color="bg-emerald-700" icon="1" action="trade" />
+                      <CryptoBadge symbol="BTC" name="Bitcoin" color="bg-orange-500" icon="₿" action="buy" />
+                      <CryptoBadge symbol="ETH" name="Ethereum" color="bg-blue-500" icon="Ξ" action="buy" />
+                      <CryptoBadge symbol="USDT" name="Tether" color="bg-green-500" icon="T" action="buy" />
+                      <CryptoBadge symbol="BNB" name="Binance Coin" color="bg-yellow-600" icon="B" action="buy" />
+                      <CryptoBadge symbol="ADA" name="Cardano" color="bg-red-500" icon="A" action="buy" />
+                      <CryptoBadge symbol="SOL" name="Solana" color="bg-purple-600" icon="S" action="buy" />
+                      <CryptoBadge symbol="XRP" name="Ripple" color="bg-blue-700" icon="X" action="buy" />
+                      <CryptoBadge symbol="DOGE" name="Dogecoin" color="bg-yellow-700" icon="D" action="buy" />
+                      <CryptoBadge symbol="AVAX" name="Avalanche" color="bg-teal-600" icon="A" action="buy" />
+                      <CryptoBadge symbol="MATIC" name="Polygon" color="bg-indigo-600" icon="P" action="buy" />
+                      <CryptoBadge symbol="DOT" name="Polkadot" color="bg-pink-600" icon="D" action="buy" />
+                      <CryptoBadge symbol="LTC" name="Litecoin" color="bg-gray-500" icon="L" action="buy" />
+                      <CryptoBadge symbol="UNI" name="Uniswap" color="bg-purple-700" icon="U" action="buy" />
+                      <CryptoBadge symbol="LINK" name="Chainlink" color="bg-blue-800" icon="L" action="buy" />
+                      <CryptoBadge symbol="ATOM" name="Cosmos" color="bg-orange-600" icon="A" action="buy" />
+                      <CryptoBadge symbol="ALGO" name="Algorand" color="bg-cyan-600" icon="A" action="buy" />
+                      <CryptoBadge symbol="ICP" name="Internet Computer" color="bg-red-600" icon="I" action="buy" />
+                      <CryptoBadge symbol="FTT" name="FTX Token" color="bg-emerald-600" icon="F" action="buy" />
+                      <CryptoBadge symbol="APE" name="ApeCoin" color="bg-violet-600" icon="A" action="buy" />
+                      <CryptoBadge symbol="NEAR" name="NEAR Protocol" color="bg-slate-600" icon="N" action="buy" />
+                      <CryptoBadge symbol="MANA" name="Decentraland" color="bg-blue-900" icon="M" action="buy" />
+                      <CryptoBadge symbol="SAND" name="The Sandbox" color="bg-green-600" icon="S" action="buy" />
+                      <CryptoBadge symbol="CRO" name="Cronos" color="bg-indigo-800" icon="C" action="buy" />
+                      <CryptoBadge symbol="HBAR" name="Hedera" color="bg-orange-700" icon="H" action="buy" />
+                      <CryptoBadge symbol="THETA" name="Theta" color="bg-purple-800" icon="T" action="buy" />
+                      <CryptoBadge symbol="FLOW" name="Flow" color="bg-red-700" icon="F" action="buy" />
+                      <CryptoBadge symbol="EGLD" name="MultiversX" color="bg-teal-700" icon="E" action="buy" />
+                      <CryptoBadge symbol="XTZ" name="Tezos" color="bg-indigo-700" icon="X" action="buy" />
+                      <CryptoBadge symbol="GRT" name="The Graph" color="bg-cyan-700" icon="G" action="buy" />
+                      <CryptoBadge symbol="1INCH" name="1inch" color="bg-emerald-700" icon="1" action="buy" />
                     </div>
                   </div>
                 </div>
