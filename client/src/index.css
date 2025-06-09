@@ -117,6 +117,90 @@
   --chart-5: 280 100% 50%; /* #8000ff */
 }
 
+/* Light theme */
+.light {
+  --background: 0 0% 100%; /* #ffffff */
+  --foreground: 0 0% 0%; /* #000000 */
+  --muted: 210 40% 98%; /* #f8fafc */
+  --muted-foreground: 215 13% 34%; /* #64748b */
+  --popover: 0 0% 100%; /* #ffffff */
+  --popover-foreground: 0 0% 0%; /* #000000 */
+  --card: 0 0% 100%; /* #ffffff */
+  --card-foreground: 0 0% 0%; /* #000000 */
+  --border: 214 32% 91%; /* #e2e8f0 */
+  --input: 214 32% 91%; /* #e2e8f0 */
+  --primary: 221 83% 53%; /* #3b82f6 */
+  --primary-foreground: 0 0% 100%; /* #ffffff */
+  --secondary: 210 40% 96%; /* #f1f5f9 */
+  --secondary-foreground: 222 84% 5%; /* #0f172a */
+  --accent: 210 40% 96%; /* #f1f5f9 */
+  --accent-foreground: 222 84% 5%; /* #0f172a */
+  --destructive: 0 84% 60%; /* #ef4444 */
+  --destructive-foreground: 0 0% 100%; /* #ffffff */
+  --ring: 221 83% 53%; /* #3b82f6 */
+  --chart-1: 12 76% 61%; /* #e11d48 */
+  --chart-2: 173 58% 39%; /* #10b981 */
+  --chart-3: 197 37% 24%; /* #164e63 */
+  --chart-4: 43 74% 66%; /* #f59e0b */
+  --chart-5: 27 87% 67%; /* #f97316 */
+}
+
+/* High contrast dark theme */
+.high-contrast-dark {
+  --background: 0 0% 0%; /* #000000 */
+  --foreground: 0 0% 100%; /* #ffffff */
+  --muted: 0 0% 5%; /* #0d0d0d */
+  --muted-foreground: 0 0% 80%; /* #cccccc */
+  --popover: 0 0% 0%; /* #000000 */
+  --popover-foreground: 0 0% 100%; /* #ffffff */
+  --card: 0 0% 5%; /* #0d0d0d */
+  --card-foreground: 0 0% 100%; /* #ffffff */
+  --border: 0 0% 100%; /* #ffffff */
+  --input: 0 0% 10%; /* #1a1a1a */
+  --primary: 60 100% 50%; /* #ffff00 */
+  --primary-foreground: 0 0% 0%; /* #000000 */
+  --secondary: 0 0% 15%; /* #262626 */
+  --secondary-foreground: 0 0% 100%; /* #ffffff */
+  --accent: 0 0% 15%; /* #262626 */
+  --accent-foreground: 0 0% 100%; /* #ffffff */
+  --destructive: 0 100% 50%; /* #ff0000 */
+  --destructive-foreground: 0 0% 100%; /* #ffffff */
+  --ring: 60 100% 50%; /* #ffff00 */
+  --chart-1: 60 100% 50%; /* #ffff00 */
+  --chart-2: 120 100% 50%; /* #00ff00 */
+  --chart-3: 180 100% 50%; /* #00ffff */
+  --chart-4: 300 100% 50%; /* #ff00ff */
+  --chart-5: 240 100% 50%; /* #0000ff */
+}
+
+/* High contrast light theme */
+.high-contrast-light {
+  --background: 0 0% 100%; /* #ffffff */
+  --foreground: 0 0% 0%; /* #000000 */
+  --muted: 0 0% 95%; /* #f2f2f2 */
+  --muted-foreground: 0 0% 20%; /* #333333 */
+  --popover: 0 0% 100%; /* #ffffff */
+  --popover-foreground: 0 0% 0%; /* #000000 */
+  --card: 0 0% 100%; /* #ffffff */
+  --card-foreground: 0 0% 0%; /* #000000 */
+  --border: 0 0% 0%; /* #000000 */
+  --input: 0 0% 95%; /* #f2f2f2 */
+  --primary: 240 100% 25%; /* #000080 */
+  --primary-foreground: 0 0% 100%; /* #ffffff */
+  --secondary: 0 0% 90%; /* #e6e6e6 */
+  --secondary-foreground: 0 0% 0%; /* #000000 */
+  --accent: 0 0% 90%; /* #e6e6e6 */
+  --accent-foreground: 0 0% 0%; /* #000000 */
+  --destructive: 0 100% 25%; /* #800000 */
+  --destructive-foreground: 0 0% 100%; /* #ffffff */
+  --ring: 240 100% 25%; /* #000080 */
+  --chart-1: 0 100% 25%; /* #800000 */
+  --chart-2: 120 100% 25%; /* #008000 */
+  --chart-3: 240 100% 25%; /* #000080 */
+  --chart-4: 300 100% 25%; /* #800080 */
+  --chart-5: 60 100% 25%; /* #808000 */
+}
+
 @layer base {
   * {
     @apply border-border;
