@@ -1460,25 +1460,25 @@ export default function Landing() {
       </section>
 
       {/* Enhanced Footer */}
-      <footer className="px-6 py-16 bg-gray-50 border-t" id="enhanced-footer">
+      <footer className="px-4 py-8 sm:px-6 sm:py-12 bg-gray-50 border-t" id="enhanced-footer">
         <div className="max-w-7xl mx-auto">
           {/* Main Footer Content */}
-          <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 gap-8 mb-12">
-            <div className="lg:col-span-2">
-              <img src={chicksxLogo} alt="ChicksX" className="h-8 mb-6" />
-              <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6 sm:gap-8 mb-8 sm:mb-12">
+            <div className="sm:col-span-2 xl:col-span-2">
+              <img src={chicksxLogo} alt="ChicksX" className="h-6 sm:h-8 mb-3 sm:mb-6" />
+              <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-6 leading-relaxed">
                 Your trusted cryptocurrency exchange platform. Trade with confidence using our secure, fast, and reliable trading infrastructure.
               </p>
-              <div className="space-y-2">
-                <div className="text-sm text-gray-600">📧 support@chicksx.com</div>
-                <div className="text-sm text-gray-600">📞 1-800-CHICKSX</div>
-                <div className="text-sm text-gray-600">🕒 24/7 Customer Support</div>
+              <div className="space-y-1 sm:space-y-2">
+                <div className="text-xs sm:text-sm text-gray-600">📧 support@chicksx.com</div>
+                <div className="text-xs sm:text-sm text-gray-600">📞 1-800-CHICKSX</div>
+                <div className="text-xs sm:text-sm text-gray-600">🕒 24/7 Customer Support</div>
               </div>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4 text-gray-900">Company</h4>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <h4 className="font-semibold mb-2 sm:mb-4 text-sm sm:text-base text-gray-900">Company</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600">
                 <li><Link href="/about" className="hover:text-purple-600 transition-colors">About Us</Link></li>
                 <li><Link href="/blog" className="hover:text-purple-600 transition-colors">Blog</Link></li>
                 <li><Link href="/careers" className="hover:text-purple-600 transition-colors">Careers</Link></li>
@@ -1488,8 +1488,8 @@ export default function Landing() {
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4 text-gray-900">Products</h4>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <h4 className="font-semibold mb-2 sm:mb-4 text-sm sm:text-base text-gray-900">Products</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600">
                 <li><Link href="/trade" className="hover:text-purple-600 transition-colors">Spot Trading</Link></li>
                 <li><Link href="/markets" className="hover:text-purple-600 transition-colors">Markets</Link></li>
                 <li><Link href="/wallet" className="hover:text-purple-600 transition-colors">Wallet</Link></li>
@@ -1499,8 +1499,8 @@ export default function Landing() {
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4 text-gray-900">Support</h4>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <h4 className="font-semibold mb-2 sm:mb-4 text-sm sm:text-base text-gray-900">Support</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600">
                 <li><Link href="/help" className="hover:text-purple-600 transition-colors">Help Center</Link></li>
                 <li><Link href="/contact" className="hover:text-purple-600 transition-colors">Contact Us</Link></li>
                 <li><Link href="/status" className="hover:text-purple-600 transition-colors">System Status</Link></li>
@@ -1510,8 +1510,8 @@ export default function Landing() {
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4 text-gray-900">Legal</h4>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <h4 className="font-semibold mb-2 sm:mb-4 text-sm sm:text-base text-gray-900">Legal</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600">
                 <li><Link href="/privacy" className="hover:text-purple-600 transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/terms" className="hover:text-purple-600 transition-colors">Terms of Service</Link></li>
                 <li><Link href="/cookies" className="hover:text-purple-600 transition-colors">Cookie Policy</Link></li>
@@ -1521,18 +1521,18 @@ export default function Landing() {
             </div>
           </div>
           
-          {/* Newsletter Signup */}
-          <div className="bg-white rounded-lg p-8 mb-12 shadow-sm border">
+          {/* Newsletter Signup - Hidden on Mobile */}
+          <div className="hidden sm:block bg-white rounded-lg p-6 sm:p-8 mb-6 sm:mb-12 shadow-sm border">
             <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Stay Updated</h3>
-              <p className="text-gray-600 mb-6">Get the latest crypto news, market updates, and trading insights delivered to your inbox.</p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Stay Updated</h3>
+              <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Get the latest crypto news, market updates, and trading insights delivered to your inbox.</p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto">
                 <input 
                   type="email" 
                   placeholder="Enter your email" 
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="flex-1 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
                 />
-                <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded-lg">
+                <Button className="bg-purple-700 hover:bg-purple-600 text-white px-4 sm:px-6 py-2 rounded-lg text-sm">
                   Subscribe
                 </Button>
               </div>
@@ -1540,31 +1540,31 @@ export default function Landing() {
           </div>
           
           {/* Social Links and Trust Indicators */}
-          <div className="flex flex-col lg:flex-row items-center justify-between pt-8 border-t border-gray-200">
-            <div className="flex items-center space-x-6 mb-6 lg:mb-0">
-              <div>
-                <h4 className="font-semibold mb-2 text-gray-900">Follow Us</h4>
-                <div className="flex space-x-3">
-                  <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm">f</div>
-                  <div className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center text-white text-sm">t</div>
-                  <div className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center text-white text-sm">in</div>
-                  <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-white text-sm">gh</div>
+          <div className="flex flex-col sm:flex-row items-center justify-between pt-4 sm:pt-8 border-t border-gray-200 space-y-4 sm:space-y-0">
+            <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6">
+              <div className="text-center sm:text-left">
+                <h4 className="font-semibold mb-2 text-sm sm:text-base text-gray-900">Follow Us</h4>
+                <div className="flex space-x-2 sm:space-x-3 justify-center sm:justify-start">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs sm:text-sm">f</div>
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-400 rounded-full flex items-center justify-center text-white text-xs sm:text-sm">t</div>
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-800 rounded-full flex items-center justify-center text-white text-xs sm:text-sm">in</div>
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center text-white text-xs sm:text-sm">gh</div>
                 </div>
               </div>
               
-              <div>
-                <div className="text-sm font-semibold text-gray-900">Trustpilot Reviews</div>
-                <div className="flex text-green-500 mt-1">
+              <div className="text-center sm:text-left">
+                <div className="text-xs sm:text-sm font-semibold text-gray-900">Trustpilot Reviews</div>
+                <div className="flex text-green-500 mt-1 justify-center sm:justify-start">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
+                    <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
                   ))}
                 </div>
                 <div className="text-xs text-gray-600 mt-1">Excellent • 4.4/5 • 12,543 reviews</div>
               </div>
             </div>
             
-            <div className="text-center lg:text-right">
-              <p className="text-gray-600 text-sm mb-2">
+            <div className="text-center sm:text-right">
+              <p className="text-gray-600 text-xs sm:text-sm mb-1 sm:mb-2">
                 © 2024 ChicksX. All rights reserved.
               </p>
               <p className="text-xs text-gray-500">
