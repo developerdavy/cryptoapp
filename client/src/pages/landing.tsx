@@ -1531,7 +1531,7 @@ export default function Landing() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
             {/* Global Crypto Trading */}
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center max-w-sm h-full flex flex-col">
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center h-full flex flex-col">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Global Crypto Trading Made Simple</h3>
               <p className="text-gray-600 mb-6 leading-relaxed text-left flex-grow">
                 Trade crypto and fiat currencies from anywhere, anytime. We support all digital currencies with the lowest fees.
@@ -1542,7 +1542,7 @@ export default function Landing() {
             </div>
             
             {/* Trade 200+ Currencies */}
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center max-w-sm h-full flex flex-col">
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center h-full flex flex-col">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Trade 200+ Currencies at Lowest Rates</h3>
               <p className="text-gray-600 mb-6 leading-relaxed text-left flex-grow">
                 From BTC to ETH, USDT, SOL, plus fiat currencies like USD and CAD - we offer competitive rates on every trade.
@@ -1553,7 +1553,7 @@ export default function Landing() {
             </div>
             
             {/* Pay and Withdraw */}
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center max-w-sm h-full flex flex-col">
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center h-full flex flex-col">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Pay and Withdraw Your Way</h3>
               <p className="text-gray-600 mb-6 leading-relaxed text-left flex-grow">
                 We give you the option of selecting the digital currency to sell, and your preferred cashout or payout method.
