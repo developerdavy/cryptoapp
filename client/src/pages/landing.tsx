@@ -1168,7 +1168,7 @@ export default function Landing() {
       </header>
 
       {/* Hero Section */}
-      <section className="px-4 py-8 md:px-6 md:py-16">
+      <section className="px-4 py-8 md:px-6 md:py-16 pb-24">
         {/* Mobile Layout */}
         <div className="md:hidden">
           <div className="text-white space-y-6 text-left">
@@ -1187,7 +1187,7 @@ export default function Landing() {
             </Button>
             
             {/* Features for Mobile */}
-            <div className="space-y-4">
+            <div className="space-y-4 mb-8">
               <div className="flex items-center text-white">
                 <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mr-3">
                   <Shield className="w-4 h-4 text-purple-900" />
@@ -1207,6 +1207,106 @@ export default function Landing() {
                   <div className="text-sm text-purple-200">Customers review on trustpilot.com →</div>
                 </div>
               </div>
+            </div>
+
+            {/* Crypto Cards for Mobile - Embedded in hero */}
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex gap-4 pb-4" style={{minWidth: 'max-content'}}>
+                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
+                  <div className="flex items-center mb-3">
+                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-white font-bold text-sm">₿</span>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-sm">Bitcoin</div>
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold mb-1">$107,870.07</div>
+                  <div className="text-green-500 text-sm mb-3">↗ 1.78%</div>
+                  <div className="h-8 mb-3">
+                    <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
+                      <polyline
+                        fill="none"
+                        stroke="#f97316"
+                        strokeWidth="2"
+                        points="0,20 20,15 40,18 60,12 80,10 100,8"
+                      />
+                    </svg>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    className="text-purple-600 font-medium text-sm p-0 h-auto"
+                    onClick={() => setLocation("/trade/btc")}
+                  >
+                    Learn more →
+                  </Button>
+                </div>
+
+                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
+                  <div className="flex items-center mb-3">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-white font-bold text-sm">Ξ</span>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-sm">Ethereum</div>
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold mb-1">$2,540.75</div>
+                  <div className="text-green-500 text-sm mb-3">↗ 1.08%</div>
+                  <div className="h-8 mb-3">
+                    <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
+                      <polyline
+                        fill="none"
+                        stroke="#3b82f6"
+                        strokeWidth="2"
+                        points="0,15 20,18 40,16 60,14 80,12 100,10"
+                      />
+                    </svg>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    className="text-purple-600 font-medium text-sm p-0 h-auto"
+                    onClick={() => setLocation("/trade/eth")}
+                  >
+                    Learn more →
+                  </Button>
+                </div>
+
+                <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
+                  <div className="flex items-center mb-3">
+                    <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-white font-bold text-sm">S</span>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-sm">Solana</div>
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold mb-1">$132.09</div>
+                  <div className="text-green-500 text-sm mb-3">↗ 2.20%</div>
+                  <div className="h-8 mb-3">
+                    <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
+                      <polyline
+                        fill="none"
+                        stroke="#6b7280"
+                        strokeWidth="2"
+                        points="0,22 20,20 40,16 60,18 80,14 100,12"
+                      />
+                    </svg>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    className="text-purple-600 font-medium text-sm p-0 h-auto"
+                    onClick={() => setLocation("/trade/sol")}
+                  >
+                    Learn more →
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Why ChicksX Section for Mobile */}
+            <div className="text-center text-white pt-8">
+              <h2 className="text-2xl font-bold mb-4">Why ChicksX?</h2>
             </div>
           </div>
         </div>
@@ -1264,110 +1364,8 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Crypto Cards Section - Overlapping */}
-      <section className="relative -mt-16 px-4 md:px-2 md:py-8">
-        {/* Mobile Layout - Horizontal Scrolling */}
-        <div className="md:hidden">
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-4 pb-4" style={{minWidth: 'max-content'}}>
-              <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
-                <div className="flex items-center mb-3">
-                  <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-bold text-sm">₿</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm">Bitcoin</div>
-                  </div>
-                </div>
-                <div className="text-2xl font-bold mb-1">$107,870.07</div>
-                <div className="text-green-500 text-sm mb-3">↗ 1.78%</div>
-                <div className="h-8 mb-3">
-                  <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
-                    <polyline
-                      fill="none"
-                      stroke="#f97316"
-                      strokeWidth="2"
-                      points="0,20 20,15 40,18 60,12 80,10 100,8"
-                    />
-                  </svg>
-                </div>
-                <Button
-                  variant="ghost"
-                  className="text-purple-600 font-medium text-sm p-0 h-auto"
-                  onClick={() => setLocation("/trade/btc")}
-                >
-                  Learn more →
-                </Button>
-              </div>
-
-              <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
-                <div className="flex items-center mb-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-bold text-sm">Ξ</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm">Ethereum</div>
-                  </div>
-                </div>
-                <div className="text-2xl font-bold mb-1">$2,540.75</div>
-                <div className="text-green-500 text-sm mb-3">↗ 1.08%</div>
-                <div className="h-8 mb-3">
-                  <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
-                    <polyline
-                      fill="none"
-                      stroke="#3b82f6"
-                      strokeWidth="2"
-                      points="0,15 20,18 40,16 60,14 80,12 100,10"
-                    />
-                  </svg>
-                </div>
-                <Button
-                  variant="ghost"
-                  className="text-purple-600 font-medium text-sm p-0 h-auto"
-                  onClick={() => setLocation("/trade/eth")}
-                >
-                  Learn more →
-                </Button>
-              </div>
-
-              <div className="bg-white rounded-2xl p-4 shadow-lg w-48 flex-shrink-0">
-                <div className="flex items-center mb-3">
-                  <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-bold text-sm">S</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm">Solana</div>
-                  </div>
-                </div>
-                <div className="text-2xl font-bold mb-1">$132.09</div>
-                <div className="text-green-500 text-sm mb-3">↗ 2.00%</div>
-                <div className="h-8 mb-3">
-                  <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
-                    <polyline
-                      fill="none"
-                      stroke="#6b7280"
-                      strokeWidth="2"
-                      points="0,22 20,20 40,16 60,18 80,14 100,12"
-                    />
-                  </svg>
-                </div>
-                <Button
-                  variant="ghost"
-                  className="text-purple-600 font-medium text-sm p-0 h-auto"
-                  onClick={() => setLocation("/trade/sol")}
-                >
-                  Learn more →
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Why ChicksX Section for Mobile */}
-          <div className="text-center text-white pt-8">
-            <h2 className="text-2xl font-bold mb-4">Why ChicksX?</h2>
-          </div>
-        </div>
-
+      {/* Crypto Cards Section */}
+      <section className="px-2 sm:px-4 lg:px-6 py-6 sm:py-8 relative">
         {/* Desktop Layout */}
         <div className="hidden md:block w-full mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4 mx-4 sm:mx-8 lg:mx-12">
