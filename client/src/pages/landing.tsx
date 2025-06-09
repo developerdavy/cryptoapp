@@ -154,49 +154,143 @@ export default function Landing() {
       </section>
 
       {/* Crypto Cards Section */}
-      <section className="px-6 py-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {cryptoCards.map((crypto, index) => (
-              <Card key={index} className="bg-white">
-                <CardContent className="p-4">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <div className={`w-8 h-8 ${crypto.bgColor} rounded-full flex items-center justify-center`}>
-                      <span className={`text-sm font-bold ${crypto.color}`}>₿</span>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-sm">{crypto.name}</div>
-                      <div className="text-xs text-gray-500">{crypto.symbol}</div>
-                    </div>
+      <section className="px-6 py-8 relative -mt-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-5 gap-4">
+            {/* Bitcoin Card */}
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-4">
+                <div className="flex items-center space-x-2 mb-3">
+                  <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                    <span className="text-orange-500 text-lg font-bold">₿</span>
                   </div>
-                  <div className="mb-2">
-                    <div className="font-bold text-lg">{crypto.price}</div>
-                    <div className={`text-sm ${crypto.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
-                      {crypto.change}
-                    </div>
-                  </div>
-                  <div className="h-12 relative">
-                    <svg className="w-full h-full" viewBox="0 0 100 40">
-                      <path
-                        d="M0,20 Q25,10 50,15 T100,25"
-                        fill="none"
-                        strokeWidth="2"
-                        className={crypto.chartColor}
-                      />
-                    </svg>
-                  </div>
-                  <Link href="#" className="text-purple-600 text-xs hover:underline">
-                    Learn more →
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-            <Card className="bg-purple-100">
-              <CardContent className="p-4 flex flex-col justify-center items-center text-center h-full">
-                <div className="text-purple-700 font-semibold mb-2">
-                  View more than<br />200+<br />cryptocurrencies<br />here
+                  <div className="text-sm font-semibold text-gray-800">Bitcoin</div>
                 </div>
-                <Link href="#" className="text-purple-600 text-xs hover:underline">
+                <div className="mb-2">
+                  <div className="font-bold text-lg text-gray-800">$105,571.15</div>
+                  <div className="text-green-500 text-sm flex items-center">
+                    ▲ 0.06%
+                  </div>
+                </div>
+                <div className="h-10 mb-3">
+                  <svg className="w-full h-full" viewBox="0 0 100 30">
+                    <path
+                      d="M0,15 L20,12 L40,18 L60,8 L80,14 L100,10"
+                      fill="none"
+                      strokeWidth="2"
+                      className="stroke-orange-500"
+                    />
+                  </svg>
+                </div>
+                <Link href="#" className="text-purple-600 text-xs hover:underline flex items-center">
+                  Learn more →
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Ethereum Card */}
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-4">
+                <div className="flex items-center space-x-2 mb-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-500 text-lg font-bold">Ξ</span>
+                  </div>
+                  <div className="text-sm font-semibold text-gray-800">Ethereum</div>
+                </div>
+                <div className="mb-2">
+                  <div className="font-bold text-lg text-gray-800">$2,488.31</div>
+                  <div className="text-red-500 text-sm flex items-center">
+                    ▼ 1.08%
+                  </div>
+                </div>
+                <div className="h-10 mb-3">
+                  <svg className="w-full h-full" viewBox="0 0 100 30">
+                    <path
+                      d="M0,10 L20,15 L40,8 L60,18 L80,12 L100,20"
+                      fill="none"
+                      strokeWidth="2"
+                      className="stroke-blue-500"
+                    />
+                  </svg>
+                </div>
+                <Link href="#" className="text-purple-600 text-xs hover:underline flex items-center">
+                  Learn more →
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Solana Card */}
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-4">
+                <div className="flex items-center space-x-2 mb-3">
+                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                    <span className="text-purple-500 text-lg font-bold">◎</span>
+                  </div>
+                  <div className="text-sm font-semibold text-gray-800">Solana</div>
+                </div>
+                <div className="mb-2">
+                  <div className="font-bold text-lg text-gray-800">$150.39</div>
+                  <div className="text-green-500 text-sm flex items-center">
+                    ▲ 0.66%
+                  </div>
+                </div>
+                <div className="h-10 mb-3">
+                  <svg className="w-full h-full" viewBox="0 0 100 30">
+                    <path
+                      d="M0,20 L20,15 L40,22 L60,10 L80,16 L100,8"
+                      fill="none"
+                      strokeWidth="2"
+                      className="stroke-purple-500"
+                    />
+                  </svg>
+                </div>
+                <Link href="#" className="text-purple-600 text-xs hover:underline flex items-center">
+                  Learn more →
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Cardano Card */}
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-4">
+                <div className="flex items-center space-x-2 mb-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-600 text-lg font-bold">₳</span>
+                  </div>
+                  <div className="text-sm font-semibold text-gray-800">Cardano</div>
+                </div>
+                <div className="mb-2">
+                  <div className="font-bold text-lg text-gray-800">$0.66</div>
+                  <div className="text-green-500 text-sm flex items-center">
+                    ▲ 0.00%
+                  </div>
+                </div>
+                <div className="h-10 mb-3">
+                  <svg className="w-full h-full" viewBox="0 0 100 30">
+                    <path
+                      d="M0,18 L20,12 L40,20 L60,14 L80,18 L100,16"
+                      fill="none"
+                      strokeWidth="2"
+                      className="stroke-blue-600"
+                    />
+                  </svg>
+                </div>
+                <Link href="#" className="text-purple-600 text-xs hover:underline flex items-center">
+                  Learn more →
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* View More Card */}
+            <Card className="bg-purple-100 shadow-lg">
+              <CardContent className="p-4 flex flex-col justify-center items-center text-center h-full">
+                <div className="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center mb-3">
+                  <span className="text-purple-600 text-lg font-bold">✕</span>
+                </div>
+                <div className="text-purple-700 font-semibold text-sm mb-3">
+                  View more than<br />300<br />cryptocurrencies<br />here
+                </div>
+                <Link href="#" className="text-purple-600 text-xs hover:underline flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
