@@ -421,47 +421,128 @@ export default function Landing() {
                   <p className="text-sm text-gray-600 mb-4">Select a fiat currency to swap</p>
                   
                   {swapActiveTab === 'Fiat' ? (
-                    <div className="flex flex-wrap gap-3">
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">I</span>
+                    <div className="overflow-x-auto">
+                      <div className="flex gap-3 pb-2" style={{minWidth: 'max-content'}}>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇮🇳</span>
+                          <span className="text-sm font-medium">INR</span>
                         </div>
-                        <span className="text-sm font-medium">INR</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">$</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇺🇸</span>
+                          <span className="text-sm font-medium">USD</span>
                         </div>
-                        <span className="text-sm font-medium">USD</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">C</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇨🇦</span>
+                          <span className="text-sm font-medium">CAD</span>
                         </div>
-                        <span className="text-sm font-medium">CAD</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">€</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇪🇺</span>
+                          <span className="text-sm font-medium">EUR</span>
                         </div>
-                        <span className="text-sm font-medium">EUR</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇦🇺</span>
+                          <span className="text-sm font-medium">AUD</span>
                         </div>
-                        <span className="text-sm font-medium">AUD</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">£</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇬🇧</span>
+                          <span className="text-sm font-medium">GBP</span>
                         </div>
-                        <span className="text-sm font-medium">GBP</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇯🇵</span>
+                          <span className="text-sm font-medium">JPY</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇨🇭</span>
+                          <span className="text-sm font-medium">CHF</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇳🇴</span>
+                          <span className="text-sm font-medium">NOK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇸🇪</span>
+                          <span className="text-sm font-medium">SEK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇩🇰</span>
+                          <span className="text-sm font-medium">DKK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇳🇿</span>
+                          <span className="text-sm font-medium">NZD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇿🇦</span>
+                          <span className="text-sm font-medium">ZAR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇧🇷</span>
+                          <span className="text-sm font-medium">BRL</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇲🇽</span>
+                          <span className="text-sm font-medium">MXN</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇸🇬</span>
+                          <span className="text-sm font-medium">SGD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇭🇰</span>
+                          <span className="text-sm font-medium">HKD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇰🇷</span>
+                          <span className="text-sm font-medium">KRW</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇨🇳</span>
+                          <span className="text-sm font-medium">CNY</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇷🇺</span>
+                          <span className="text-sm font-medium">RUB</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇦🇪</span>
+                          <span className="text-sm font-medium">AED</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇸🇦</span>
+                          <span className="text-sm font-medium">SAR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇹🇷</span>
+                          <span className="text-sm font-medium">TRY</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇵🇱</span>
+                          <span className="text-sm font-medium">PLN</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇹🇭</span>
+                          <span className="text-sm font-medium">THB</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇲🇾</span>
+                          <span className="text-sm font-medium">MYR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇮🇩</span>
+                          <span className="text-sm font-medium">IDR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇵🇭</span>
+                          <span className="text-sm font-medium">PHP</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇻🇳</span>
+                          <span className="text-sm font-medium">VND</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇪🇬</span>
+                          <span className="text-sm font-medium">EGP</span>
+                        </div>
                       </div>
                     </div>
                   ) : (
@@ -472,14 +553,12 @@ export default function Landing() {
                         </div>
                         <span className="text-sm font-medium">BTC</span>
                       </div>
-                      
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
                         <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">Ξ</span>
                         </div>
                         <span className="text-sm font-medium">ETH</span>
                       </div>
-                      
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
                         <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">T</span>
@@ -502,47 +581,128 @@ export default function Landing() {
                   <p className="text-sm text-gray-600 mb-4">Select a fiat currency to swap</p>
                   
                   {swapActiveTab === 'Fiat' ? (
-                    <div className="flex flex-wrap gap-3">
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">I</span>
+                    <div className="overflow-x-auto">
+                      <div className="flex gap-3 pb-2" style={{minWidth: 'max-content'}}>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇮🇳</span>
+                          <span className="text-sm font-medium">INR</span>
                         </div>
-                        <span className="text-sm font-medium">INR</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">$</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇺🇸</span>
+                          <span className="text-sm font-medium">USD</span>
                         </div>
-                        <span className="text-sm font-medium">USD</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">C</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇨🇦</span>
+                          <span className="text-sm font-medium">CAD</span>
                         </div>
-                        <span className="text-sm font-medium">CAD</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">€</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇪🇺</span>
+                          <span className="text-sm font-medium">EUR</span>
                         </div>
-                        <span className="text-sm font-medium">EUR</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇦🇺</span>
+                          <span className="text-sm font-medium">AUD</span>
                         </div>
-                        <span className="text-sm font-medium">AUD</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-                        <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">£</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇬🇧</span>
+                          <span className="text-sm font-medium">GBP</span>
                         </div>
-                        <span className="text-sm font-medium">GBP</span>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇯🇵</span>
+                          <span className="text-sm font-medium">JPY</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇨🇭</span>
+                          <span className="text-sm font-medium">CHF</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇳🇴</span>
+                          <span className="text-sm font-medium">NOK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇸🇪</span>
+                          <span className="text-sm font-medium">SEK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇩🇰</span>
+                          <span className="text-sm font-medium">DKK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇳🇿</span>
+                          <span className="text-sm font-medium">NZD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇿🇦</span>
+                          <span className="text-sm font-medium">ZAR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇧🇷</span>
+                          <span className="text-sm font-medium">BRL</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇲🇽</span>
+                          <span className="text-sm font-medium">MXN</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇸🇬</span>
+                          <span className="text-sm font-medium">SGD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇭🇰</span>
+                          <span className="text-sm font-medium">HKD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇰🇷</span>
+                          <span className="text-sm font-medium">KRW</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇨🇳</span>
+                          <span className="text-sm font-medium">CNY</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇷🇺</span>
+                          <span className="text-sm font-medium">RUB</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇦🇪</span>
+                          <span className="text-sm font-medium">AED</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇸🇦</span>
+                          <span className="text-sm font-medium">SAR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇹🇷</span>
+                          <span className="text-sm font-medium">TRY</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇵🇱</span>
+                          <span className="text-sm font-medium">PLN</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇹🇭</span>
+                          <span className="text-sm font-medium">THB</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇲🇾</span>
+                          <span className="text-sm font-medium">MYR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇮🇩</span>
+                          <span className="text-sm font-medium">IDR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇵🇭</span>
+                          <span className="text-sm font-medium">PHP</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇻🇳</span>
+                          <span className="text-sm font-medium">VND</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <span className="text-lg">🇪🇬</span>
+                          <span className="text-sm font-medium">EGP</span>
+                        </div>
                       </div>
                     </div>
                   ) : (
@@ -553,14 +713,12 @@ export default function Landing() {
                         </div>
                         <span className="text-sm font-medium">BTC</span>
                       </div>
-                      
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
                         <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">Ξ</span>
                         </div>
                         <span className="text-sm font-medium">ETH</span>
                       </div>
-                      
                       <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg">
                         <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-bold">T</span>
