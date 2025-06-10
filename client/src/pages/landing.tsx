@@ -1171,9 +1171,9 @@ export default function Landing() {
       </header>
 
       {/* Hero Section */}
-      <section className="px-4 py-8 md:py-16 relative" style={{marginLeft: '120px', marginRight: '120px'}}>
+      <section className="px-0 md:px-4 lg:px-24 xl:px-32 py-8 md:py-16 relative">
         {/* Mobile Layout */}
-        <div className="md:hidden pb-20">
+        <div className="md:hidden pb-20 px-4">
           <div className="text-white space-y-6 text-left mb-8">
             <h1 className="text-4xl font-bold leading-tight">
               The Lowest Fee<br />
@@ -1568,11 +1568,11 @@ export default function Landing() {
       </section>
 
       {/* Mobile Why ChicksX Section */}
-      <section className="md:hidden bg-gray-50 px-4 pt-24 pb-8">
-        <div className="text-center mb-6">
+      <section className="md:hidden bg-gray-50 px-0 pt-24 pb-8">
+        <div className="text-center mb-6 px-4">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ChicksX?</h2>
         </div>
-        <div className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto text-center">
+        <div className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto text-center px-4">
           We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our focus is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously updating and perfecting our security protocols, we ensure to provide the safest platform possible.
         </div>
       </section>
@@ -1653,7 +1653,7 @@ export default function Landing() {
 
       {/* Footer */}
       <footer className="bg-white py-16 border-t border-gray-200 w-full">
-        <div className="max-w-6xl mx-auto" style={{marginLeft: '120px', marginRight: '120px'}}>
+        <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-24 xl:px-32">
           <div className="grid grid-cols-5 gap-16">
             {/* Logo and Email */}
             <div className="col-span-1">
