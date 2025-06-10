@@ -1623,10 +1623,42 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* 24/7 Support Section */}
-      <section className="w-full py-16 bg-gray-50">
-        <div className="w-full" style={{marginLeft: '120px', marginRight: '120px'}}>
-          <div className="flex items-start" style={{gap: '60px'}}>
+      {/* Mobile 24/7 Support Section */}
+      <section className="md:hidden w-full py-16 bg-gray-50">
+        <div className="flex items-start gap-4 px-4">
+          {/* Icon */}
+          <div className="flex-shrink-0">
+            <div className="w-12 h-12 bg-purple-700 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                <polyline points="14,2 14,8 20,8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10,9 9,9 8,9"/>
+              </svg>
+            </div>
+          </div>
+          
+          {/* Content */}
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">24/7 Live Support</h2>
+            <p className="text-gray-600 text-sm leading-relaxed mb-3">
+              To provide our customers with the best services possible, we provide 24/7 customer support. Our live chat will connect you to one of our specialists who will happily assist you with any inquiries or questions you may have.
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              Feel free to connect with us at any time.
+            </p>
+            <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-2 rounded font-medium text-sm">
+              Get In Touch
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Desktop 24/7 Support Section */}
+      <section className="hidden md:block w-full py-16 bg-gray-50">
+        <div className="w-full px-4 md:px-8 lg:px-24 xl:px-32">
+          <div className="flex items-start gap-8 lg:gap-16">
             <div className="flex-shrink-0">
               <div className="w-16 h-16 bg-purple-700 rounded-full flex items-center justify-center">
                 <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
