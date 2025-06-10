@@ -259,7 +259,7 @@ export default function SignUp() {
 
                   <button
                     type="submit"
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-md transition-colors"
+                    className="w-full bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 px-4 rounded-md transition-colors"
                   >
                     Sign In
                   </button>
@@ -276,19 +276,19 @@ export default function SignUp() {
                   <div className="flex justify-center space-x-4">
                     <button
                       type="button"
-                      className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
+                      className="w-12 h-12 bg-blue-900 hover:bg-blue-800 rounded-full flex items-center justify-center transition-colors"
                     >
                       <SiGoogle className="w-5 h-5 text-white" />
                     </button>
                     <button
                       type="button"
-                      className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
+                      className="w-12 h-12 bg-blue-900 hover:bg-blue-800 rounded-full flex items-center justify-center transition-colors"
                     >
                       <SiFacebook className="w-5 h-5 text-white" />
                     </button>
                     <button
                       type="button"
-                      className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
+                      className="w-12 h-12 bg-blue-900 hover:bg-blue-800 rounded-full flex items-center justify-center transition-colors"
                     >
                       <SiApple className="w-5 h-5 text-white" />
                     </button>
@@ -297,19 +297,19 @@ export default function SignUp() {
                   <div className="text-center">
                     <p className="text-gray-600 text-sm mb-4">ChicksX Group</p>
                     <div className="flex justify-center space-x-3 mb-4">
-                      <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                      <div className="w-8 h-8 bg-blue-900 rounded flex items-center justify-center">
                         <span className="text-white text-sm font-bold">M</span>
                       </div>
-                      <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                      <div className="w-8 h-8 bg-blue-900 rounded flex items-center justify-center">
                         <span className="text-white text-sm font-bold">C</span>
                       </div>
-                      <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                      <div className="w-8 h-8 bg-blue-900 rounded flex items-center justify-center">
                         <span className="text-white text-sm font-bold">S</span>
                       </div>
-                      <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                      <div className="w-8 h-8 bg-blue-900 rounded flex items-center justify-center">
                         <span className="text-white text-sm font-bold">P</span>
                       </div>
-                      <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                      <div className="w-8 h-8 bg-blue-900 rounded flex items-center justify-center">
                         <span className="text-white text-sm font-bold">AU</span>
                       </div>
                     </div>
@@ -320,8 +320,8 @@ export default function SignUp() {
             </div>
           </div>
 
-          {/* Right Side - Blue Gradient Background */}
-          <div className="bg-gradient-to-br from-blue-500 to-blue-700">
+          {/* Right Side - Deep Blue Background */}
+          <div className="bg-blue-900">
           </div>
         </div>
       </div>
