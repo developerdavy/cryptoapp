@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { useToast } from "@/hooks/use-toast";
 import { SiGoogle, SiFacebook, SiApple } from "react-icons/si";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -66,7 +67,7 @@ export default function SignUp() {
         <div className="min-h-screen flex flex-col px-6 py-8">
           {/* Logo */}
           <div className="mb-12">
-            <h1 className="text-white text-xl font-semibold tracking-wide">CHICKSX</h1>
+            <img src={chicksxLogo} alt="CHICKSX" className="h-8" />
           </div>
 
           {/* Sign In Title */}
@@ -200,7 +201,7 @@ export default function SignUp() {
           <div className="bg-white flex flex-col px-12 py-8">
             {/* Logo */}
             <div className="mb-16">
-              <h1 className="text-xl font-semibold tracking-wide text-gray-900">CHICKSX</h1>
+              <img src={chicksxLogo} alt="CHICKSX" className="h-8" />
             </div>
             
             {/* Form Container */}
