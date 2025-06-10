@@ -245,12 +245,7 @@ export default function Landing() {
               >
                 Swap
               </Button>
-              <Button
-                onClick={() => setLocation("/signup")}
-                className="w-full bg-indigo-700 hover:bg-indigo-600 text-white mt-2 mx-4"
-              >
-                Sign In
-              </Button>
+
             </div>
           </div>
         )}
