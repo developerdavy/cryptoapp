@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -84,14 +84,14 @@ export default function WalletPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted to-background">
       <Navbar />
-      <main className="container mx-auto px-4 py-6">
-        <div className="mb-8">
+      <main className="container mx-auto px-0 md:px-4 py-6">
+        <div className="mb-8 px-4 md:px-0">
           <h1 className="text-3xl font-bold mb-2">Wallet</h1>
           <p className="text-muted-foreground">Manage your cryptocurrency portfolio</p>
         </div>
 
         {/* Portfolio Overview */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 px-4 md:px-0">
           <Card className="lg:col-span-2 glass-effect">
             <CardHeader>
               <CardTitle className="flex items-center justify-between">

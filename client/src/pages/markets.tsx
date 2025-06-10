@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -80,14 +80,14 @@ export default function Markets() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted to-background">
       <Navbar />
-      <main className="container mx-auto px-4 py-6">
-        <div className="mb-8">
+      <main className="container mx-auto px-0 md:px-4 py-6">
+        <div className="mb-8 px-4 md:px-0">
           <h1 className="text-3xl font-bold mb-2">Markets</h1>
           <p className="text-muted-foreground">Explore cryptocurrency markets and pricing</p>
         </div>
 
         {/* Search and Filters */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-6">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-6 px-4 md:px-0">
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input 
