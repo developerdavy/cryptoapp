@@ -54,7 +54,7 @@ export default function SignUp() {
   return (
     <div className="min-h-screen">
       {/* Mobile Layout */}
-      <div className="md:hidden min-h-screen bg-gradient-to-b from-purple-600 via-blue-600 to-purple-700 flex flex-col">
+      <div className="block md:hidden min-h-screen bg-gradient-to-b from-purple-600 via-blue-600 to-purple-700 flex flex-col">
         {/* Logo */}
         <div className="pt-8 pb-6 px-6">
           <div className="max-w-sm mx-auto">
@@ -237,7 +237,7 @@ export default function SignUp() {
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden md:flex min-h-screen relative">
+      <div className="hidden md:flex min-h-screen relative bg-white">
         {/* Logo positioned on the gradient background */}
         <div className="absolute top-8 left-8 z-10">
           <img 
