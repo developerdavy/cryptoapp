@@ -104,8 +104,8 @@ export default function Landing() {
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50" ref={dropdownRef}>
         {/* Mobile Header */}
-        <div className="md:hidden px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+        <div className="md:hidden px-0 py-4 flex items-center justify-between w-full">
+          <div className="flex items-center space-x-3 pl-4">
             <Button
               variant="ghost"
               size="sm"
@@ -125,8 +125,8 @@ export default function Landing() {
           </div>
           
           <Button 
-            onClick={() => setLocation("/signin")}
-            className="bg-indigo-700 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium text-sm"
+            onClick={() => setLocation("/signup")}
+            className="bg-indigo-700 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium text-sm mr-4"
           >
             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -210,11 +210,11 @@ export default function Landing() {
         
         {/* Mobile Navigation Menu */}
         {showMobileMenu && (
-          <div className="md:hidden bg-white border-t border-gray-200">
-            <div className="px-4 py-2 space-y-1">
+          <div className="md:hidden bg-white border-t border-gray-200 w-full">
+            <div className="px-0 py-2 space-y-1 w-full">
               <Button
                 variant="ghost"
-                className="w-full justify-start text-gray-700 hover:text-gray-900"
+                className="w-full justify-start text-gray-700 hover:text-gray-900 px-4"
                 onClick={() => {
                   setShowBuyCryptoDropdown(!showBuyCryptoDropdown);
                   setShowSellCryptoDropdown(false);
@@ -225,7 +225,7 @@ export default function Landing() {
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-start text-gray-700 hover:text-gray-900"
+                className="w-full justify-start text-gray-700 hover:text-gray-900 px-4"
                 onClick={() => {
                   setShowSellCryptoDropdown(!showSellCryptoDropdown);
                   setShowBuyCryptoDropdown(false);
@@ -236,7 +236,7 @@ export default function Landing() {
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-start text-gray-700 hover:text-gray-900"
+                className="w-full justify-start text-gray-700 hover:text-gray-900 px-4"
                 onClick={() => {
                   setShowSwapDropdown(!showSwapDropdown);
                   setShowBuyCryptoDropdown(false);
@@ -247,7 +247,7 @@ export default function Landing() {
               </Button>
               <Button
                 onClick={() => setLocation("/signup")}
-                className="w-full bg-indigo-700 hover:bg-indigo-600 text-white mt-2"
+                className="w-full bg-indigo-700 hover:bg-indigo-600 text-white mt-2 mx-4"
               >
                 Sign In
               </Button>
@@ -257,8 +257,8 @@ export default function Landing() {
         
         {/* Buy Crypto Dropdown */}
         {showBuyCryptoDropdown && (
-          <div className="bg-white border-t border-gray-200 shadow-lg">
-            <div className="w-full px-2 sm:px-4 lg:px-6 py-6 sm:py-8">
+          <div className="bg-white border-t border-gray-200 shadow-lg w-full">
+            <div className="w-full px-0 md:px-4 lg:px-6 py-6 sm:py-8">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Buy Crypto</h3>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
@@ -1214,7 +1214,7 @@ export default function Landing() {
           </div>
 
           {/* Crypto Cards positioned at bottom overlapping onto next section */}
-          <div className="absolute bottom-0 left-0 right-0 px-4 transform translate-y-1/2 z-10">
+          <div className="absolute bottom-0 left-0 right-0 px-0 md:px-4 transform translate-y-1/2 z-10">
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex gap-3 pb-4" style={{minWidth: 'max-content'}}>
                 <div className="bg-white rounded-2xl p-4 shadow-lg w-44 flex-shrink-0">
