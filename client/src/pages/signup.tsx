@@ -196,127 +196,132 @@ export default function SignUp() {
       {/* Desktop Layout */}
       <div className="hidden md:block min-h-screen">
         <div className="grid lg:grid-cols-2 min-h-screen">
-          {/* Left Side - Purple Section with Logo */}
-          <div className="bg-gradient-to-br from-purple-600 to-purple-800 flex items-start justify-start p-8">
-            <div className="text-white">
-              <h1 className="text-xl font-semibold tracking-wide">CHICKSX</h1>
+          {/* Left Side - Sign In Form */}
+          <div className="bg-white flex flex-col px-12 py-8">
+            {/* Logo */}
+            <div className="mb-16">
+              <h1 className="text-xl font-semibold tracking-wide text-gray-900">CHICKSX</h1>
+            </div>
+            
+            {/* Form Container */}
+            <div className="flex-1 flex items-center justify-center">
+              <div className="w-full max-w-md">
+                <div className="mb-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Sign In</h2>
+                </div>
+
+                <form onSubmit={handleSignIn} className="space-y-6">
+                  <div>
+                    <label htmlFor="emailDesktop" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address
+                    </label>
+                    <input
+                      id="emailDesktop"
+                      type="email"
+                      className="w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="Enter email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="passwordDesktop" className="block text-sm font-medium text-gray-700 mb-2">
+                      Password
+                    </label>
+                    <input
+                      id="passwordDesktop"
+                      type="password"
+                      className="w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="Enter password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="flex items-center justify-between text-sm">
+                    <button type="button" className="text-gray-600 hover:text-gray-800">
+                      Forgot your password?
+                    </button>
+                    <div>
+                      <span className="text-gray-600">Don't have an account? </span>
+                      <button
+                        type="button"
+                        onClick={() => setLocation("/signup")}
+                        className="text-purple-600 hover:text-purple-800 font-medium"
+                      >
+                        Sign Up
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-md transition-colors"
+                  >
+                    Sign In
+                  </button>
+
+                  <div className="relative my-6">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-gray-300" />
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                      <span className="px-2 bg-white text-gray-500">or</span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-center space-x-4">
+                    <button
+                      type="button"
+                      className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
+                    >
+                      <SiGoogle className="w-5 h-5 text-white" />
+                    </button>
+                    <button
+                      type="button"
+                      className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
+                    >
+                      <SiFacebook className="w-5 h-5 text-white" />
+                    </button>
+                    <button
+                      type="button"
+                      className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
+                    >
+                      <SiApple className="w-5 h-5 text-white" />
+                    </button>
+                  </div>
+
+                  <div className="text-center">
+                    <p className="text-gray-600 text-sm mb-4">ChicksX Group</p>
+                    <div className="flex justify-center space-x-3 mb-4">
+                      <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">M</span>
+                      </div>
+                      <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">C</span>
+                      </div>
+                      <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">S</span>
+                      </div>
+                      <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">P</span>
+                      </div>
+                      <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">AU</span>
+                      </div>
+                    </div>
+                    <p className="text-gray-500 text-xs">One account to access all of ChicksX services</p>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
 
-          {/* Right Side - Sign In Form */}
-          <div className="bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center px-12">
-            <div className="w-full max-w-md bg-white rounded-lg p-8 shadow-lg">
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Sign In</h2>
-              </div>
-
-              <form onSubmit={handleSignIn} className="space-y-6">
-                <div>
-                  <label htmlFor="emailDesktop" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    id="emailDesktop"
-                    type="email"
-                    className="w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="Enter email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="passwordDesktop" className="block text-sm font-medium text-gray-700 mb-2">
-                    Password
-                  </label>
-                  <input
-                    id="passwordDesktop"
-                    type="password"
-                    className="w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="Enter password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className="flex items-center justify-between text-sm">
-                  <button type="button" className="text-gray-600 hover:text-gray-800">
-                    Forgot your password?
-                  </button>
-                  <div>
-                    <span className="text-gray-600">Don't have an account? </span>
-                    <button
-                      type="button"
-                      onClick={() => setLocation("/signup")}
-                      className="text-purple-600 hover:text-purple-800 font-medium"
-                    >
-                      Sign Up
-                    </button>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-md transition-colors"
-                >
-                  Sign In
-                </button>
-
-                <div className="relative my-6">
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-gray-300" />
-                  </div>
-                  <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white text-gray-500">or</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-center space-x-4">
-                  <button
-                    type="button"
-                    className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
-                  >
-                    <SiGoogle className="w-5 h-5 text-white" />
-                  </button>
-                  <button
-                    type="button"
-                    className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
-                  >
-                    <SiFacebook className="w-5 h-5 text-white" />
-                  </button>
-                  <button
-                    type="button"
-                    className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
-                  >
-                    <SiApple className="w-5 h-5 text-white" />
-                  </button>
-                </div>
-
-                <div className="text-center">
-                  <p className="text-gray-600 text-sm mb-4">ChicksX Group</p>
-                  <div className="flex justify-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
-                      <span className="text-white text-sm font-bold">M</span>
-                    </div>
-                    <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
-                      <span className="text-white text-sm font-bold">C</span>
-                    </div>
-                    <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
-                      <span className="text-white text-sm font-bold">S</span>
-                    </div>
-                    <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
-                      <span className="text-white text-sm font-bold">P</span>
-                    </div>
-                    <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
-                      <span className="text-white text-sm font-bold">AU</span>
-                    </div>
-                  </div>
-                  <p className="text-gray-500 text-xs">One account to access all of ChicksX services</p>
-                </div>
-              </form>
-            </div>
+          {/* Right Side - Blue Gradient Background */}
+          <div className="bg-gradient-to-br from-blue-500 to-blue-700">
           </div>
         </div>
       </div>
