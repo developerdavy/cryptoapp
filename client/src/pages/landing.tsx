@@ -1569,11 +1569,18 @@ export default function Landing() {
 
       {/* Mobile Why ChicksX Section */}
       <section className="md:hidden bg-gray-50 px-0 pt-24 pb-8">
-        <div className="text-center mb-6 px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ChicksX?</h2>
-        </div>
-        <div className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto text-center px-4">
-          We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our focus is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously updating and perfecting our security protocols, we ensure to provide the safest platform possible.
+        <div className="flex items-start gap-4 px-4">
+          {/* Title */}
+          <div className="flex-shrink-0">
+            <h2 className="text-2xl font-bold text-gray-900">Why ChicksX?</h2>
+          </div>
+          
+          {/* Description */}
+          <div className="flex-1">
+            <p className="text-gray-600 text-sm leading-relaxed">
+              We are committed to upholding the integrity, trust, and privacy of our brand in order to best serve the needs of our clients. Our focus is to provide our customers with a secure exchange platform where all your personal data is secure and protected. By continuously updating and perfecting our security protocols, we ensure to provide the safest platform possible.
+            </p>
+          </div>
         </div>
       </section>
 
