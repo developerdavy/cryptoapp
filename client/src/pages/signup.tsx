@@ -54,9 +54,9 @@ export default function SignUp() {
   return (
     <div className="min-h-screen">
       {/* Mobile Layout */}
-      <div className="block md:hidden min-h-screen bg-gradient-to-b from-purple-600 via-blue-600 to-purple-700 flex flex-col">
+      <div className="block md:hidden min-h-screen bg-gradient-to-b from-purple-600 via-blue-600 to-purple-700 flex flex-col w-full">
         {/* Logo */}
-        <div className="pt-8 pb-6 px-6">
+        <div className="pt-8 pb-6 px-4 w-full">
           <div className="max-w-sm mx-auto">
             <img 
               src={chicksxLogo} 
@@ -68,12 +68,12 @@ export default function SignUp() {
         </div>
 
         {/* Sign Up Form */}
-        <div className="flex-1 px-6">
-          <div className="mb-6 max-w-sm mx-auto">
+        <div className="flex-1 px-4 w-full">
+          <div className="mb-6 w-full px-4">
             <h2 className="text-white text-xl font-semibold">Sign Up</h2>
           </div>
 
-          <form onSubmit={handleSignUp} className="space-y-3 max-w-sm mx-auto">
+          <form onSubmit={handleSignUp} className="space-y-3 w-full px-4">
           <div className="row">
             <div className="col-6">
               <div className="mb-3">

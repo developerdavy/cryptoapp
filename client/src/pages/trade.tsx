@@ -149,8 +149,8 @@ export default function Trade() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
-        <div className="w-full px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-8">
+        <div className="w-full px-0 md:px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-8 pl-4 md:pl-0">
             <img src={chicksxLogo} alt="ChicksX" className="h-8" />
             <nav className="hidden md:flex items-center space-x-6">
               <button className="text-gray-700 hover:text-purple-600 font-medium flex items-center">
@@ -188,9 +188,9 @@ export default function Trade() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-7xl mx-auto px-0 md:px-6 py-8">
         {/* Trading Card */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-lg p-4 md:p-8 max-w-4xl mx-auto">
           {/* Trading Tabs */}
           <div className="flex space-x-2 mb-8">
             <button

@@ -17,7 +17,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gradient-to-br from-background via-muted to-background">
       <Navbar />
       
-      <main className="container mx-auto px-4 py-6">
+      <main className="container mx-auto px-0 md:px-4 py-6">
         {/* Dashboard Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <Card className="glass-effect trade-card">
