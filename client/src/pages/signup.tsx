@@ -194,58 +194,31 @@ export default function SignUp() {
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden md:block min-h-screen bg-gradient-to-br from-background via-muted to-background">
+      <div className="hidden md:block min-h-screen">
         <div className="grid lg:grid-cols-2 min-h-screen">
-          {/* Left Side - Form */}
-          <div className="flex items-center justify-center px-8">
-            <div className="w-full max-w-md space-y-8">
-              <div className="text-center">
-                <h2 className="text-3xl font-bold text-foreground">Create Account</h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Join the future of cryptocurrency trading
-                </p>
+          {/* Left Side - Purple Section with Logo */}
+          <div className="bg-gradient-to-br from-purple-600 to-purple-800 flex items-start justify-start p-8">
+            <div className="text-white">
+              <h1 className="text-xl font-semibold tracking-wide">CHICKSX</h1>
+            </div>
+          </div>
+
+          {/* Right Side - Sign In Form */}
+          <div className="bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center px-12">
+            <div className="w-full max-w-md bg-white rounded-lg p-8 shadow-lg">
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Sign In</h2>
               </div>
 
-              <form onSubmit={handleSignUp} className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-foreground mb-2">
-                      First Name
-                    </label>
-                    <input
-                      id="firstName"
-                      type="text"
-                      className="w-full px-3 py-2 border border-border rounded-md shadow-sm placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
-                      placeholder="Enter first name"
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-foreground mb-2">
-                      Last Name
-                    </label>
-                    <input
-                      id="lastName"
-                      type="text"
-                      className="w-full px-3 py-2 border border-border rounded-md shadow-sm placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
-                      placeholder="Enter last name"
-                      value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
-                      required
-                    />
-                  </div>
-                </div>
-
+              <form onSubmit={handleSignIn} className="space-y-6">
                 <div>
-                  <label htmlFor="emailDesktop" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="emailDesktop" className="block text-sm font-medium text-gray-700 mb-2">
                     Email Address
                   </label>
                   <input
                     id="emailDesktop"
                     type="email"
-                    className="w-full px-3 py-2 border border-border rounded-md shadow-sm placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                    className="w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="Enter email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -254,116 +227,95 @@ export default function SignUp() {
                 </div>
 
                 <div>
-                  <label htmlFor="passwordDesktop" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="passwordDesktop" className="block text-sm font-medium text-gray-700 mb-2">
                     Password
                   </label>
-                  <div className="relative">
-                    <input
-                      id="passwordDesktop"
-                      type={showPassword ? "text" : "password"}
-                      className="w-full px-3 py-2 border border-border rounded-md shadow-sm placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent pr-10"
-                      placeholder="Enter password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
-                    <button
-                      type="button"
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? <FaEyeSlash className="w-4 h-4" /> : <FaEye className="w-4 h-4" />}
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="confirmPassword" className="block text-sm font-medium text-foreground mb-2">
-                    Confirm Password
-                  </label>
                   <input
-                    id="confirmPassword"
+                    id="passwordDesktop"
                     type="password"
-                    className="w-full px-3 py-2 border border-border rounded-md shadow-sm placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
-                    placeholder="Confirm password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="Enter password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                 </div>
 
+                <div className="flex items-center justify-between text-sm">
+                  <button type="button" className="text-gray-600 hover:text-gray-800">
+                    Forgot your password?
+                  </button>
+                  <div>
+                    <span className="text-gray-600">Don't have an account? </span>
+                    <button
+                      type="button"
+                      onClick={() => setLocation("/signup")}
+                      className="text-purple-600 hover:text-purple-800 font-medium"
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                </div>
+
                 <button
                   type="submit"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-2 px-4 rounded-md transition-colors"
+                  className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-md transition-colors"
                 >
-                  Create Account
+                  Sign In
                 </button>
 
-                <div className="relative">
+                <div className="relative my-6">
                   <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-border" />
+                    <div className="w-full border-t border-gray-300" />
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-background text-muted-foreground">Or continue with</span>
+                    <span className="px-2 bg-white text-gray-500">or</span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3">
+                <div className="flex justify-center space-x-4">
                   <button
                     type="button"
-                    className="w-full inline-flex justify-center py-2 px-4 border border-border rounded-md shadow-sm bg-background text-sm font-medium text-foreground hover:bg-muted"
+                    className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
                   >
-                    <SiGoogle className="w-5 h-5" />
+                    <SiGoogle className="w-5 h-5 text-white" />
                   </button>
                   <button
                     type="button"
-                    className="w-full inline-flex justify-center py-2 px-4 border border-border rounded-md shadow-sm bg-background text-sm font-medium text-foreground hover:bg-muted"
+                    className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
                   >
-                    <SiFacebook className="w-5 h-5" />
+                    <SiFacebook className="w-5 h-5 text-white" />
                   </button>
                   <button
                     type="button"
-                    className="w-full inline-flex justify-center py-2 px-4 border border-border rounded-md shadow-sm bg-background text-sm font-medium text-foreground hover:bg-muted"
+                    className="w-12 h-12 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors"
                   >
-                    <SiApple className="w-5 h-5" />
+                    <SiApple className="w-5 h-5 text-white" />
                   </button>
                 </div>
 
-                <p className="text-center text-sm text-muted-foreground">
-                  Already have an account?{' '}
-                  <button
-                    type="button"
-                    onClick={() => setLocation("/")}
-                    className="font-medium text-primary hover:text-primary/80"
-                  >
-                    Sign in
-                  </button>
-                </p>
+                <div className="text-center">
+                  <p className="text-gray-600 text-sm mb-4">ChicksX Group</p>
+                  <div className="flex justify-center space-x-3 mb-4">
+                    <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">M</span>
+                    </div>
+                    <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">C</span>
+                    </div>
+                    <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">S</span>
+                    </div>
+                    <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">P</span>
+                    </div>
+                    <div className="w-8 h-8 bg-gray-600 rounded flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">AU</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-500 text-xs">One account to access all of ChicksX services</p>
+                </div>
               </form>
-            </div>
-          </div>
-
-          {/* Right Side - Illustration */}
-          <div className="bg-muted flex items-center justify-center">
-            <div className="max-w-md text-center space-y-6 p-8">
-              <div className="relative w-80 h-60 mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl"></div>
-                <div className="absolute top-4 right-4 w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🚀</span>
-                </div>
-                <div className="absolute bottom-4 left-4 w-20 h-20 bg-secondary rounded-xl flex items-center justify-center">
-                  <span className="text-3xl">📈</span>
-                </div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-accent rounded-full flex items-center justify-center">
-                  <span className="text-4xl">💎</span>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-foreground">Start Trading Today</h3>
-                <p className="text-muted-foreground">
-                  Join thousands of traders who trust our platform for secure, fast, and reliable cryptocurrency trading.
-                </p>
-              </div>
             </div>
           </div>
         </div>
