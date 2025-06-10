@@ -1579,7 +1579,7 @@ export default function Landing() {
 
       {/* Security Section */}
       <section className="w-full py-16 bg-gradient-to-r from-purple-900 to-blue-800">
-        <div className="w-full" style={{marginLeft: '120px', marginRight: '120px'}}>
+        <div className="w-full px-4 md:px-8 lg:px-24 xl:px-32">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="text-white">
               <div className="flex items-center space-x-4 mb-6">
