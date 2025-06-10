@@ -30,7 +30,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-700 via-purple-800 to-blue-900">
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900">
       <div className="min-h-screen flex flex-col px-6 py-8">
         {/* Logo */}
         <div className="mb-12">
