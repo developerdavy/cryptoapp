@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 export default function PriceChart() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

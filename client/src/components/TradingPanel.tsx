@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { isUnauthorizedError } from "@/lib/authUtils";
@@ -16,6 +16,18 @@ export default function TradingPanel() {
   const [selectedCrypto, setSelectedCrypto] = useState('BTC');
   const { toast } = useToast();
   const queryClient = useQueryClient();
+
+  // Fetch market data for real prices
+  const { data: marketData = [] } = useQuery({
+    queryKey: ['/api/market-data'],
+    refetchInterval: 5000,
+  }) as { data: any[] };
+
+  // Get current price for selected crypto
+  const getCurrentPrice = (symbol: string) => {
+    const crypto = (marketData as any[]).find((m: any) => m.symbol === symbol);
+    return crypto?.price || 0;
+  };
 
   const tradeMutation = useMutation({
     mutationFn: async (tradeData: any) => {
@@ -145,7 +157,7 @@ export default function TradingPanel() {
                 className="bg-transparent text-lg font-medium border-none shadow-none focus-visible:ring-0"
               />
               <div className="text-xs text-muted-foreground mt-1">
-                ≈ ${amount ? (parseFloat(amount) * (selectedCrypto === 'BTC' ? 43521 : selectedCrypto === 'ETH' ? 2341 : 0.5)).toLocaleString() : '0.00'} USD
+                ≈ ${amount ? (parseFloat(amount) * getCurrentPrice(selectedCrypto)).toLocaleString() : '0.00'} USD
               </div>
             </div>
           </div>
@@ -164,7 +176,7 @@ export default function TradingPanel() {
             <div className="flex justify-between text-sm mb-1">
               <span className="text-muted-foreground">Price per {selectedCrypto}</span>
               <span>
-                ${selectedCrypto === 'BTC' ? '43,521.00' : selectedCrypto === 'ETH' ? '2,341.00' : '0.50'}
+                ${getCurrentPrice(selectedCrypto).toLocaleString()}
               </span>
             </div>
             <div className="flex justify-between text-sm mb-1">
@@ -175,7 +187,7 @@ export default function TradingPanel() {
               <div className="flex justify-between font-medium">
                 <span>Total</span>
                 <span className="text-ring">
-                  ${amount ? (parseFloat(amount) * (selectedCrypto === 'BTC' ? 43521 : selectedCrypto === 'ETH' ? 2341 : 0.5) + 0.99).toLocaleString() : '0.99'}
+                  ${amount ? (parseFloat(amount) * getCurrentPrice(selectedCrypto) + 0.99).toLocaleString() : '0.99'}
                 </span>
               </div>
             </div>
