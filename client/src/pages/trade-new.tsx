@@ -6,16 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowLeftRight, ChevronDown } from "lucide-react";
 import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
 
-// Cryptocurrency data
-const cryptoData = {
-  BTC: { name: "Bitcoin", symbol: "₿", price: 43567.89, change: 2.45, color: "bg-orange-500" },
-  ETH: { name: "Ethereum", symbol: "Ξ", price: 2654.23, change: -1.23, color: "bg-blue-500" },
-  USDT: { name: "Tether", symbol: "T", price: 1.00, change: 0.01, color: "bg-green-500" },
-  BNB: { name: "BNB", symbol: "B", price: 315.67, change: 1.89, color: "bg-yellow-600" },
-  ADA: { name: "Cardano", symbol: "A", price: 0.456, change: -2.34, color: "bg-red-500" },
-  SOL: { name: "Solana", symbol: "S", price: 89.12, change: 3.45, color: "bg-purple-600" },
-  XRP: { name: "Ripple", symbol: "X", price: 0.587, change: 1.23, color: "bg-blue-700" },
-  DOGE: { name: "Dogecoin", symbol: "D", price: 0.087, change: -0.56, color: "bg-yellow-700" },
+
 };
 
 const paymentMethods = [
