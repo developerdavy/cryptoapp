@@ -6,11 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Trash2, Plus, Edit, Save, X, TrendingUp, TrendingDown, Check, ChevronsUpDown } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Trash2, Plus, Edit, Save, X, TrendingUp, TrendingDown } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
-import { cn } from "@/lib/utils";
 
 interface MarketData {
   id: number;
@@ -40,7 +38,6 @@ export default function AdminPanel() {
     marketCap: "",
   });
   const [showAddForm, setShowAddForm] = useState(false);
-  const [openCombobox, setOpenCombobox] = useState(false);
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -255,52 +252,21 @@ export default function AdminPanel() {
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               <div>
                 <Label htmlFor="new-crypto">Symbol</Label>
-                <Popover open={openCombobox} onOpenChange={setOpenCombobox}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      role="combobox"
-                      aria-expanded={openCombobox}
-                      className="w-full justify-between"
-                    >
-                      {newRate.cryptocurrency
-                        ? availableCryptos.find((crypto) => crypto.symbol === newRate.cryptocurrency)?.symbol + " - " + availableCryptos.find((crypto) => crypto.symbol === newRate.cryptocurrency)?.name
-                        : "Select cryptocurrency..."}
-                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-full p-0">
-                    <Command>
-                      <CommandInput placeholder="Search cryptocurrency..." />
-                      <CommandList>
-                        <CommandEmpty>No cryptocurrency found.</CommandEmpty>
-                        <CommandGroup>
-                          {availableCryptos.map((crypto) => (
-                            <CommandItem
-                              key={crypto.symbol}
-                              value={crypto.symbol}
-                              onSelect={(currentValue) => {
-                                setNewRate({ 
-                                  ...newRate, 
-                                  cryptocurrency: currentValue.toUpperCase() 
-                                });
-                                setOpenCombobox(false);
-                              }}
-                            >
-                              <Check
-                                className={cn(
-                                  "mr-2 h-4 w-4",
-                                  newRate.cryptocurrency === crypto.symbol ? "opacity-100" : "opacity-0"
-                                )}
-                              />
-                              {crypto.symbol} - {crypto.name}
-                            </CommandItem>
-                          ))}
-                        </CommandGroup>
-                      </CommandList>
-                    </Command>
-                  </PopoverContent>
-                </Popover>
+                <Select
+                  value={newRate.cryptocurrency}
+                  onValueChange={(value) => setNewRate({ ...newRate, cryptocurrency: value })}
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select cryptocurrency..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {availableCryptos.map((crypto) => (
+                      <SelectItem key={crypto.symbol} value={crypto.symbol}>
+                        {crypto.symbol} - {crypto.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <Label htmlFor="new-price">Price ($)</Label>
