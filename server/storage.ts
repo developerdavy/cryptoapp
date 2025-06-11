@@ -10,6 +10,7 @@ import {
   type Transaction,
   type InsertTransaction,
   type MarketData,
+  type InsertMarketData,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and } from "drizzle-orm";
@@ -32,7 +33,10 @@ export interface IStorage {
   
   // Market data operations
   getMarketData(cryptocurrency: string): Promise<MarketData | undefined>;
+  getAllMarketData(): Promise<MarketData[]>;
   upsertMarketData(cryptocurrency: string, price: number, priceChange24h?: number): Promise<MarketData>;
+  insertCustomMarketData(data: InsertMarketData): Promise<MarketData>;
+  deleteMarketData(cryptocurrency: string): Promise<void>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -119,6 +123,10 @@ export class DatabaseStorage implements IStorage {
     return data;
   }
 
+  async getAllMarketData(): Promise<MarketData[]> {
+    return await db.select().from(marketData);
+  }
+
   async upsertMarketData(cryptocurrency: string, price: number, priceChange24h: number = 0): Promise<MarketData> {
     const [data] = await db
       .insert(marketData)
@@ -140,6 +148,34 @@ export class DatabaseStorage implements IStorage {
       .returning();
     return data;
   }
+
+  async insertCustomMarketData(data: InsertMarketData): Promise<MarketData> {
+    const [result] = await db
+      .insert(marketData)
+      .values({
+        ...data,
+        price: data.price.toString(),
+        priceChange24h: data.priceChange24h?.toString() || "0",
+        volume24h: data.volume24h?.toString() || "0",
+        marketCap: data.marketCap?.toString() || "0",
+      })
+      .onConflictDoUpdate({
+        target: [marketData.cryptocurrency],
+        set: {
+          price: data.price.toString(),
+          priceChange24h: data.priceChange24h?.toString() || "0",
+          volume24h: data.volume24h?.toString() || "0",
+          marketCap: data.marketCap?.toString() || "0",
+          updatedAt: new Date(),
+        },
+      })
+      .returning();
+    return result;
+  }
+
+  async deleteMarketData(cryptocurrency: string): Promise<void> {
+    await db.delete(marketData).where(eq(marketData.cryptocurrency, cryptocurrency));
+  }
 }
 
 // Temporary in-memory storage for development
@@ -160,6 +196,7 @@ class MemStorage implements IStorage {
       firstName: userData.firstName || null,
       lastName: userData.lastName || null,
       profileImageUrl: userData.profileImageUrl || null,
+      role: userData.role || "user",
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -229,6 +266,10 @@ class MemStorage implements IStorage {
     return this.marketData.get(cryptocurrency);
   }
 
+  async getAllMarketData(): Promise<MarketData[]> {
+    return Array.from(this.marketData.values());
+  }
+
   async upsertMarketData(cryptocurrency: string, price: number, priceChange24h: number = 0): Promise<MarketData> {
     const data: MarketData = {
       id: Math.floor(Math.random() * 1000000),
@@ -241,6 +282,24 @@ class MemStorage implements IStorage {
     };
     this.marketData.set(cryptocurrency, data);
     return data;
+  }
+
+  async insertCustomMarketData(data: InsertMarketData): Promise<MarketData> {
+    const marketDataEntry: MarketData = {
+      id: Math.floor(Math.random() * 1000000),
+      cryptocurrency: data.cryptocurrency,
+      price: data.price.toString(),
+      priceChange24h: data.priceChange24h?.toString() || "0",
+      volume24h: data.volume24h?.toString() || "0",
+      marketCap: data.marketCap?.toString() || "0",
+      updatedAt: new Date(),
+    };
+    this.marketData.set(data.cryptocurrency, marketDataEntry);
+    return marketDataEntry;
+  }
+
+  async deleteMarketData(cryptocurrency: string): Promise<void> {
+    this.marketData.delete(cryptocurrency);
   }
 }
 

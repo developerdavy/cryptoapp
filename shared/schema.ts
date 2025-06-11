@@ -33,6 +33,7 @@ export const users = pgTable("users", {
   firstName: varchar("first_name"),
   lastName: varchar("last_name"),
   profileImageUrl: varchar("profile_image_url"),
+  role: varchar("role").notNull().default("user"), // user, admin
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
@@ -91,4 +92,9 @@ export const insertTransactionSchema = createInsertSchema(transactions).omit({
 export type InsertTransaction = z.infer<typeof insertTransactionSchema>;
 export type Transaction = typeof transactions.$inferSelect;
 
+export const insertMarketDataSchema = createInsertSchema(marketData).omit({
+  id: true,
+  updatedAt: true,
+});
+export type InsertMarketData = z.infer<typeof insertMarketDataSchema>;
 export type MarketData = typeof marketData.$inferSelect;
