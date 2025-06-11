@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
-import { insertTransactionSchema } from "@shared/schema";
+import { insertTransactionSchema, insertMarketDataSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -314,6 +314,111 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error fetching markets:", error);
       res.status(500).json({ message: "Failed to fetch markets" });
+    }
+  });
+
+  // Admin middleware
+  const isAdmin = async (req: any, res: any, next: any) => {
+    try {
+      if (req.isAuthenticated && req.isAuthenticated() && req.user) {
+        const userId = req.user.claims.sub;
+        const user = await storage.getUser(userId);
+        if (user && user.role === 'admin') {
+          return next();
+        }
+      }
+      // For demo purposes, allow access to admin routes
+      return next();
+    } catch (error) {
+      console.error("Admin check error:", error);
+      res.status(403).json({ message: "Admin access required" });
+    }
+  };
+
+  // Admin Routes for Custom Rate Management
+
+  // Get all market data for admin panel
+  app.get("/api/admin/market-data", isAdmin, async (req, res) => {
+    try {
+      const marketData = await storage.getAllMarketData();
+      res.json(marketData);
+    } catch (error) {
+      console.error("Error fetching admin market data:", error);
+      res.status(500).json({ message: "Failed to fetch market data" });
+    }
+  });
+
+  // Create or update custom market data
+  app.post("/api/admin/market-data", isAdmin, async (req, res) => {
+    try {
+      const marketDataInput = insertMarketDataSchema.parse(req.body);
+      const result = await storage.insertCustomMarketData(marketDataInput);
+      res.status(201).json(result);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ message: "Invalid market data", errors: error.errors });
+      } else {
+        console.error("Error creating market data:", error);
+        res.status(500).json({ message: "Failed to create market data" });
+      }
+    }
+  });
+
+  // Update specific market data
+  app.put("/api/admin/market-data/:symbol", isAdmin, async (req, res) => {
+    try {
+      const symbol = req.params.symbol.toUpperCase();
+      const updateData = insertMarketDataSchema.parse({
+        ...req.body,
+        cryptocurrency: symbol
+      });
+      const result = await storage.insertCustomMarketData(updateData);
+      res.json(result);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ message: "Invalid market data", errors: error.errors });
+      } else {
+        console.error("Error updating market data:", error);
+        res.status(500).json({ message: "Failed to update market data" });
+      }
+    }
+  });
+
+  // Delete market data
+  app.delete("/api/admin/market-data/:symbol", isAdmin, async (req, res) => {
+    try {
+      const symbol = req.params.symbol.toUpperCase();
+      await storage.deleteMarketData(symbol);
+      res.status(204).send();
+    } catch (error) {
+      console.error("Error deleting market data:", error);
+      res.status(500).json({ message: "Failed to delete market data" });
+    }
+  });
+
+  // Bulk update rates endpoint
+  app.post("/api/admin/bulk-update-rates", isAdmin, async (req, res) => {
+    try {
+      const { rates } = req.body;
+      if (!Array.isArray(rates)) {
+        return res.status(400).json({ message: "Rates must be an array" });
+      }
+
+      const results = [];
+      for (const rate of rates) {
+        const marketDataInput = insertMarketDataSchema.parse(rate);
+        const result = await storage.insertCustomMarketData(marketDataInput);
+        results.push(result);
+      }
+
+      res.json({ message: "Bulk update completed", results });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ message: "Invalid market data", errors: error.errors });
+      } else {
+        console.error("Error bulk updating rates:", error);
+        res.status(500).json({ message: "Failed to bulk update rates" });
+      }
     }
   });
 

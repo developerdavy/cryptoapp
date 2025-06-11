@@ -14,6 +14,7 @@ import Markets from "./pages/markets";
 import History from "./pages/history";
 import SignIn from "./pages/signin";
 import SignUp from "./pages/signup";
+import AdminPanel from "./pages/admin";
 
 function Router() {
   return (
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/wallet" component={Wallet} />
       <Route path="/markets" component={Markets} />
       <Route path="/history" component={History} />
+      <Route path="/admin" component={AdminPanel} />
       <Route component={NotFound} />
     </Switch>
   );
