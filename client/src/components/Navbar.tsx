@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Box, Wallet, User } from "lucide-react";
 import { Link, useLocation } from "wouter";
+import WebSocketStatus from "./WebSocketStatus";
 
 export default function Navbar() {
   const [location] = useLocation();

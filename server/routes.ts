@@ -353,6 +353,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const marketDataInput = insertMarketDataSchema.parse(req.body);
       const result = await storage.insertCustomMarketData(marketDataInput);
+      
+      // Broadcast update to all connected clients
+      if (global.broadcastMarketUpdate) {
+        global.broadcastMarketUpdate(result);
+      }
+      
       res.status(201).json(result);
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -373,6 +379,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         cryptocurrency: symbol
       });
       const result = await storage.insertCustomMarketData(updateData);
+      
+      // Broadcast update to all connected clients
+      if (global.broadcastMarketUpdate) {
+        global.broadcastMarketUpdate(result);
+      }
+      
       res.json(result);
     } catch (error) {
       if (error instanceof z.ZodError) {

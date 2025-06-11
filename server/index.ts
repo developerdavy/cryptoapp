@@ -1,4 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
+import { WebSocketServer } from "ws";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
@@ -38,6 +39,41 @@ app.use((req, res, next) => {
 
 (async () => {
   const server = await registerRoutes(app);
+
+  // WebSocket Server for real-time updates
+  const wss = new WebSocketServer({ server });
+  
+  // Store WebSocket connections
+  const clients = new Set();
+  
+  wss.on('connection', (ws) => {
+    clients.add(ws);
+    log('WebSocket client connected');
+    
+    ws.on('close', () => {
+      clients.delete(ws);
+      log('WebSocket client disconnected');
+    });
+    
+    ws.on('error', (error) => {
+      log(`WebSocket error: ${error.message}`);
+      clients.delete(ws);
+    });
+  });
+
+  // Broadcast function for market data updates
+  global.broadcastMarketUpdate = (marketData) => {
+    const message = JSON.stringify({
+      type: 'marketUpdate',
+      data: marketData
+    });
+    
+    clients.forEach((client) => {
+      if (client.readyState === 1) { // WebSocket.OPEN
+        client.send(message);
+      }
+    });
+  };
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
