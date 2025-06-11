@@ -2,16 +2,27 @@ import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
-import { useQuery } from "@tanstack/react-query";
 
 export default function PriceChart() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [timeframe, setTimeframe] = useState('24H');
 
-  const { data: priceData } = useQuery({
-    queryKey: ["/api/market/btc-usd"],
+  // Fetch market data for admin-controlled rates
+  const { data: marketData = [] } = useQuery({
+    queryKey: ['/api/market-data'],
     refetchInterval: 5000,
-  });
+  }) as { data: any[] };
+
+  // Get BTC data from admin-controlled rates
+  const getBTCPrice = () => {
+    const btcData = (marketData as any[]).find((m: any) => m.symbol === 'BTC');
+    return btcData?.price || 43521;
+  };
+
+  const getBTCChange = () => {
+    const btcData = (marketData as any[]).find((m: any) => m.symbol === 'BTC');
+    return btcData?.priceChange24h || 2.34;
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -23,7 +34,7 @@ export default function PriceChart() {
     // Generate candlestick data
     const generateCandlestickData = () => {
       const data = [];
-      let basePrice = 43521;
+      let basePrice = getBTCPrice();
       
       for (let i = 0; i < 24; i++) {
         const open = basePrice;
@@ -142,10 +153,10 @@ export default function PriceChart() {
             <h2 className="text-xl font-semibold">BTC/USD</h2>
             <div className="flex items-center space-x-4 mt-1">
               <span className="text-2xl font-bold text-ring">
-                {(priceData as any)?.price ? `$${(priceData as any).price.toLocaleString()}` : '$43,521.00'}
+                ${getBTCPrice().toLocaleString()}
               </span>
               <span className="text-ring bg-ring/20 px-2 py-1 rounded text-sm">
-                +2.34%
+                {getBTCChange() >= 0 ? '+' : ''}{getBTCChange().toFixed(2)}%
               </span>
             </div>
           </div>
