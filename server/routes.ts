@@ -182,17 +182,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const tradeData = tradeSchema.parse(req.body);
       
-      let marketData = await storage.getMarketData(tradeData.cryptocurrency);
+      const marketData = await storage.getMarketData(tradeData.cryptocurrency);
       if (!marketData) {
-        const mockPrices: { [key: string]: number } = {
-          'BTC': 43521,
-          'ETH': 2341,
-          'ADA': 0.5,
-          'SOL': 98.45,
-          'DOT': 6.78,
-        };
-        const price = mockPrices[tradeData.cryptocurrency] || 100;
-        marketData = await storage.upsertMarketData(tradeData.cryptocurrency, price, 2.34);
+        res.status(400).json({ message: "Cryptocurrency not available. Please contact admin to add this cryptocurrency." });
+        return;
       }
       
       const price = parseFloat(marketData.price);
@@ -244,22 +237,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Market data endpoint
+  // Market data endpoint - serves only admin-controlled rates
   app.get("/api/market/:symbol", async (req, res) => {
     try {
       const symbol = req.params.symbol.toUpperCase();
-      let marketData = await storage.getMarketData(symbol);
+      const marketData = await storage.getMarketData(symbol);
       
       if (!marketData) {
-        const mockPrices: { [key: string]: number } = {
-          'BTC': 43521,
-          'ETH': 2341,
-          'ADA': 0.5,
-          'SOL': 98.45,
-          'DOT': 6.78,
-        };
-        const price = mockPrices[symbol] || 100;
-        marketData = await storage.upsertMarketData(symbol, price, Math.random() * 10 - 5);
+        res.status(404).json({ message: "Market data not found. Please add this cryptocurrency in the admin panel." });
+        return;
       }
       
       res.json({
@@ -276,39 +262,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Markets overview
+  // Markets overview - serves only admin-controlled rates
   app.get("/api/markets", async (req, res) => {
     try {
-      const symbols = ['BTC', 'ETH', 'ADA', 'SOL', 'DOT', 'MATIC', 'AVAX', 'LINK'];
-      const markets = [];
-
-      for (const symbol of symbols) {
-        let marketData = await storage.getMarketData(symbol);
-        if (!marketData) {
-          const mockPrices: { [key: string]: number } = {
-            'BTC': 43521,
-            'ETH': 2341,
-            'ADA': 0.5,
-            'SOL': 98.45,
-            'DOT': 6.78,
-            'MATIC': 0.89,
-            'AVAX': 35.67,
-            'LINK': 14.23,
-          };
-          const price = mockPrices[symbol] || Math.random() * 1000;
-          const change = Math.random() * 20 - 10; // -10% to +10%
-          marketData = await storage.upsertMarketData(symbol, price, change);
-        }
-
-        markets.push({
-          symbol,
-          name: getAssetName(symbol),
-          price: parseFloat(marketData.price),
-          priceChange24h: parseFloat(marketData.priceChange24h),
-          volume24h: parseFloat(marketData.volume24h || '1000000'),
-          marketCap: parseFloat(marketData.marketCap || '10000000'),
-        });
-      }
+      const allMarketData = await storage.getAllMarketData();
+      const markets = allMarketData.map(marketData => ({
+        symbol: marketData.cryptocurrency,
+        name: getAssetName(marketData.cryptocurrency),
+        price: parseFloat(marketData.price),
+        priceChange24h: parseFloat(marketData.priceChange24h),
+        volume24h: parseFloat(marketData.volume24h || '1000000'),
+        marketCap: parseFloat(marketData.marketCap || '10000000'),
+      }));
 
       res.json(markets);
     } catch (error) {

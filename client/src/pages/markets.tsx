@@ -32,19 +32,7 @@ export default function Markets() {
     queryKey: ["/api/market-data"],
   });
 
-  // Mock data for demonstration
-  const mockMarkets = [
-    { symbol: 'BTC', price: '43521.00', change24h: '2.34', marketCap: '852B', volume: '28.5B' },
-    { symbol: 'ETH', price: '2341.50', change24h: '1.89', marketCap: '281B', volume: '15.2B' },
-    { symbol: 'ADA', price: '0.52', change24h: '-0.58', marketCap: '18.2B', volume: '1.2B' },
-    { symbol: 'SOL', price: '98.45', change24h: '4.12', marketCap: '42.1B', volume: '2.8B' },
-    { symbol: 'MATIC', price: '0.89', change24h: '3.21', marketCap: '8.3B', volume: '856M' },
-    { symbol: 'DOT', price: '6.78', change24h: '-1.45', marketCap: '9.1B', volume: '423M' },
-    { symbol: 'AVAX', price: '34.56', change24h: '2.87', marketCap: '12.8B', volume: '734M' },
-    { symbol: 'LINK', price: '14.23', change24h: '1.12', marketCap: '8.1B', volume: '521M' },
-  ];
-
-  const displayMarkets = Array.isArray(marketData) && marketData.length > 0 ? marketData : mockMarkets;
+  const displayMarkets = Array.isArray(marketData) ? marketData : [];
 
   // Redirect to login if not authenticated
   useEffect(() => {
