@@ -4,6 +4,7 @@ import { Star, Shield, Headphones, Menu, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
 import { FaDiscord, FaTwitter, FaFacebookF } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
@@ -18,6 +19,12 @@ export default function Landing() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [, setLocation] = useLocation();
   const { isAuthenticated, isLoading } = useAuth();
+
+  // Fetch market data from admin-controlled rates
+  const { data: marketData = [] } = useQuery({
+    queryKey: ['/api/market-data'],
+    refetchInterval: 5000, // Refresh every 5 seconds
+  }) as { data: any[] };
 
   // Helper function to create clickable crypto badge
   const CryptoBadge = ({ symbol, name, color, icon, action = "trade" }: { symbol: string, name: string, color: string, icon: string, action?: string }) => (
@@ -45,12 +52,13 @@ export default function Landing() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-  const cryptoCards = [
+  // Generate dynamic crypto cards from admin-controlled market data
+  const cryptoCards = Array.isArray(marketData) && marketData.length > 0 ? [
     {
       name: "Bitcoin",
       symbol: "BTC",
-      price: "$134,849.23",
-      change: "+5.31%",
+      price: `$${(marketData as any[]).find((m: any) => m.symbol === 'BTC')?.price?.toLocaleString() || '43,521'}`,
+      change: `${(marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h >= 0 ? '+' : ''}${(marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h?.toFixed(2) || '0.00'}%`,
       color: "text-yellow-500",
       bgColor: "bg-yellow-500/10",
       chartColor: "stroke-yellow-500"
@@ -58,31 +66,31 @@ export default function Landing() {
     {
       name: "Ethereum", 
       symbol: "ETH",
-      price: "$2,604.19",
-      change: "-1.48%",
+      price: `$${(marketData as any[]).find((m: any) => m.symbol === 'ETH')?.price?.toLocaleString() || '2,341'}`,
+      change: `${(marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h >= 0 ? '+' : ''}${(marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h?.toFixed(2) || '0.00'}%`,
       color: "text-blue-500",
       bgColor: "bg-blue-500/10",
       chartColor: "stroke-blue-500"
     },
     {
-      name: "Bitcoin",
-      symbol: "BTC", 
-      price: "$132.09",
-      change: "+2.00%",
-      color: "text-gray-600",
-      bgColor: "bg-gray-500/10",
-      chartColor: "stroke-gray-500"
-    },
-    {
       name: "Solana",
       symbol: "SOL",
-      price: "$0.58",
-      change: "+3.21%",
+      price: `$${(marketData as any[]).find((m: any) => m.symbol === 'SOL')?.price?.toLocaleString() || '98.45'}`,
+      change: `${(marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h >= 0 ? '+' : ''}${(marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h?.toFixed(2) || '0.00'}%`,
       color: "text-purple-500",
       bgColor: "bg-purple-500/10", 
       chartColor: "stroke-purple-500"
+    },
+    {
+      name: "Cardano",
+      symbol: "ADA",
+      price: `$${(marketData as any[]).find((m: any) => m.symbol === 'ADA')?.price?.toLocaleString() || '0.50'}`,
+      change: `${(marketData as any[]).find((m: any) => m.symbol === 'ADA')?.priceChange24h >= 0 ? '+' : ''}${(marketData as any[]).find((m: any) => m.symbol === 'ADA')?.priceChange24h?.toFixed(2) || '0.00'}%`,
+      color: "text-red-500",
+      bgColor: "bg-red-500/10",
+      chartColor: "stroke-red-500"
     }
-  ];
+  ] : [];
 
   const features = [
     {
@@ -1376,9 +1384,17 @@ export default function Landing() {
                   <div className="text-xs sm:text-sm font-semibold text-gray-800">Bitcoin</div>
                 </div>
                 <div className="mb-1">
-                  <div className="font-bold text-xs sm:text-lg text-gray-800">$105,571.15</div>
-                  <div className="text-green-500 text-xs flex items-center">
-                    ▲ 0.06%
+                  <div className="font-bold text-xs sm:text-lg text-gray-800">
+                    {Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.price ? 
+                      `$${(marketData as any[]).find((m: any) => m.symbol === 'BTC').price.toLocaleString()}` : 
+                      '$43,521'}
+                  </div>
+                  <div className={`text-xs flex items-center ${
+                    Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h >= 0 ? 
+                    'text-green-500' : 'text-red-500'
+                  }`}>
+                    {Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h >= 0 ? '▲' : '▼'} 
+                    {Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0).toFixed(2) : '0.00'}%
                   </div>
                 </div>
                 <div className="h-4 sm:h-8 mb-1 sm:mb-2">
