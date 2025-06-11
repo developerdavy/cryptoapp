@@ -11,6 +11,7 @@ export default function Navbar() {
     { href: "/wallet", label: "Wallet" },
     { href: "/markets", label: "Markets" },
     { href: "/history", label: "History" },
+    { href: "/admin", label: "Admin" },
   ];
 
   return (

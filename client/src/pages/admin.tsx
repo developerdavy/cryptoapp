@@ -52,12 +52,15 @@ export default function AdminPanel() {
 
   // Create/Update mutation
   const createMutation = useMutation({
-    mutationFn: (data: EditingRate) => 
-      apiRequest("/api/admin/market-data", {
+    mutationFn: async (data: EditingRate) => {
+      const response = await fetch("/api/admin/market-data", {
         method: "POST",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
-      }),
+      });
+      if (!response.ok) throw new Error("Failed to create market data");
+      return response.json();
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/market-data"] });
       toast({ title: "Success", description: "Custom rate created successfully" });
@@ -81,12 +84,15 @@ export default function AdminPanel() {
 
   // Update mutation
   const updateMutation = useMutation({
-    mutationFn: ({ symbol, data }: { symbol: string; data: EditingRate }) =>
-      apiRequest(`/api/admin/market-data/${symbol}`, {
+    mutationFn: async ({ symbol, data }: { symbol: string; data: EditingRate }) => {
+      const response = await fetch(`/api/admin/market-data/${symbol}`, {
         method: "PUT",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
-      }),
+      });
+      if (!response.ok) throw new Error("Failed to update market data");
+      return response.json();
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/market-data"] });
       toast({ title: "Success", description: "Custom rate updated successfully" });
@@ -103,8 +109,13 @@ export default function AdminPanel() {
 
   // Delete mutation
   const deleteMutation = useMutation({
-    mutationFn: (symbol: string) =>
-      apiRequest(`/api/admin/market-data/${symbol}`, { method: "DELETE" }),
+    mutationFn: async (symbol: string) => {
+      const response = await fetch(`/api/admin/market-data/${symbol}`, { 
+        method: "DELETE" 
+      });
+      if (!response.ok) throw new Error("Failed to delete market data");
+      return response;
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/market-data"] });
       toast({ title: "Success", description: "Custom rate deleted successfully" });
@@ -120,12 +131,15 @@ export default function AdminPanel() {
 
   // Bulk update mutation
   const bulkUpdateMutation = useMutation({
-    mutationFn: (rates: EditingRate[]) =>
-      apiRequest("/api/admin/bulk-update-rates", {
+    mutationFn: async (rates: EditingRate[]) => {
+      const response = await fetch("/api/admin/bulk-update-rates", {
         method: "POST",
         body: JSON.stringify({ rates }),
         headers: { "Content-Type": "application/json" },
-      }),
+      });
+      if (!response.ok) throw new Error("Failed to bulk update rates");
+      return response.json();
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/admin/market-data"] });
       toast({ title: "Success", description: "Bulk update completed successfully" });
