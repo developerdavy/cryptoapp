@@ -40,8 +40,11 @@ app.use((req, res, next) => {
 (async () => {
   const server = await registerRoutes(app);
 
-  // WebSocket Server for real-time updates
-  const wss = new WebSocketServer({ server });
+  // WebSocket Server for real-time updates on separate path
+  const wss = new WebSocketServer({ 
+    server,
+    path: '/api/ws'
+  });
   
   // Store WebSocket connections
   const clients = new Set();
@@ -62,13 +65,13 @@ app.use((req, res, next) => {
   });
 
   // Broadcast function for market data updates
-  global.broadcastMarketUpdate = (marketData) => {
+  (global as any).broadcastMarketUpdate = (marketData: any) => {
     const message = JSON.stringify({
       type: 'marketUpdate',
       data: marketData
     });
     
-    clients.forEach((client) => {
+    clients.forEach((client: any) => {
       if (client.readyState === 1) { // WebSocket.OPEN
         client.send(message);
       }

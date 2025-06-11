@@ -355,8 +355,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const result = await storage.insertCustomMarketData(marketDataInput);
       
       // Broadcast update to all connected clients
-      if (global.broadcastMarketUpdate) {
-        global.broadcastMarketUpdate(result);
+      if ((global as any).broadcastMarketUpdate) {
+        (global as any).broadcastMarketUpdate(result);
       }
       
       res.status(201).json(result);
@@ -381,8 +381,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const result = await storage.insertCustomMarketData(updateData);
       
       // Broadcast update to all connected clients
-      if (global.broadcastMarketUpdate) {
-        global.broadcastMarketUpdate(result);
+      if ((global as any).broadcastMarketUpdate) {
+        (global as any).broadcastMarketUpdate(result);
       }
       
       res.json(result);

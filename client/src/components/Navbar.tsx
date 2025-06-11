@@ -45,6 +45,7 @@ export default function Navbar() {
             </nav>
           </div>
           <div className="flex items-center space-x-4">
+            <WebSocketStatus />
             <div className="hidden md:flex items-center space-x-2 bg-card rounded-lg px-3 py-2">
               <Wallet className="w-4 h-4 text-ring" />
               <span className="text-sm">$22,048.12</span>
