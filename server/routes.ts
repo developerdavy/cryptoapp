@@ -262,7 +262,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Markets overview - serves only admin-controlled rates
+  // Market data endpoint for trading components - serves only admin-controlled rates
+  app.get("/api/market-data", async (req, res) => {
+    try {
+      const allMarketData = await storage.getAllMarketData();
+      const markets = allMarketData.map(marketData => ({
+        symbol: marketData.cryptocurrency,
+        name: getAssetName(marketData.cryptocurrency),
+        price: parseFloat(marketData.price),
+        priceChange24h: parseFloat(marketData.priceChange24h),
+        volume24h: parseFloat(marketData.volume24h || '1000000'),
+        marketCap: parseFloat(marketData.marketCap || '10000000'),
+      }));
+
+      res.json(markets);
+    } catch (error) {
+      console.error("Error fetching market data:", error);
+      res.status(500).json({ message: "Failed to fetch market data" });
+    }
+  });
+
+  // Markets overview - serves only admin-controlled rates  
   app.get("/api/markets", async (req, res) => {
     try {
       const allMarketData = await storage.getAllMarketData();
