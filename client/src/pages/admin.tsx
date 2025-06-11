@@ -38,6 +38,9 @@ export default function AdminPanel() {
     marketCap: "",
   });
   const [showAddForm, setShowAddForm] = useState(false);
+  const [adminKey, setAdminKey] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [authAttempted, setAuthAttempted] = useState(false);
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -91,14 +94,43 @@ export default function AdminPanel() {
     { symbol: 'BAND', name: 'Band Protocol' },
   ];
 
-  // Fetch all market data
+  // Authentication check
+  const authenticateAdmin = () => {
+    if (adminKey === "admin-secret-2024") {
+      setIsAuthenticated(true);
+      localStorage.setItem('adminAuth', 'true');
+      toast({ title: "Access Granted", description: "Welcome to admin panel" });
+    } else {
+      setAuthAttempted(true);
+      toast({ 
+        title: "Access Denied", 
+        description: "Invalid admin key",
+        variant: "destructive" 
+      });
+    }
+  };
+
+  // Check for stored auth on component mount
+  useEffect(() => {
+    const storedAuth = localStorage.getItem('adminAuth');
+    if (storedAuth === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  // Fetch all market data (only when authenticated)
   const { data: marketData, isLoading } = useQuery({
     queryKey: ["/api/admin/market-data"],
     queryFn: async () => {
-      const response = await fetch("/api/admin/market-data");
+      const response = await fetch("/api/admin/market-data", {
+        headers: {
+          'x-admin-key': 'admin-secret-2024'
+        }
+      });
       if (!response.ok) throw new Error("Failed to fetch market data");
       return response.json();
     },
+    enabled: isAuthenticated,
   });
 
   // Create/Update mutation
@@ -107,7 +139,10 @@ export default function AdminPanel() {
       const response = await fetch("/api/admin/market-data", {
         method: "POST",
         body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "x-admin-key": "admin-secret-2024"
+        },
       });
       if (!response.ok) throw new Error("Failed to create market data");
       return response.json();
@@ -139,7 +174,10 @@ export default function AdminPanel() {
       const response = await fetch(`/api/admin/market-data/${symbol}`, {
         method: "PUT",
         body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "x-admin-key": "admin-secret-2024"
+        },
       });
       if (!response.ok) throw new Error("Failed to update market data");
       return response.json();
@@ -162,7 +200,10 @@ export default function AdminPanel() {
   const deleteMutation = useMutation({
     mutationFn: async (symbol: string) => {
       const response = await fetch(`/api/admin/market-data/${symbol}`, { 
-        method: "DELETE" 
+        method: "DELETE",
+        headers: {
+          "x-admin-key": "admin-secret-2024"
+        }
       });
       if (!response.ok) throw new Error("Failed to delete market data");
       return response;
@@ -250,6 +291,52 @@ export default function AdminPanel() {
     return `${num >= 0 ? '+' : ''}${num.toFixed(2)}%`;
   };
 
+  // Show authentication form if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full space-y-8">
+          <div>
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+              Admin Access Required
+            </h2>
+            <p className="mt-2 text-center text-sm text-gray-600">
+              Enter the admin key to access the management panel
+            </p>
+          </div>
+          <Card>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <div>
+                  <Label htmlFor="admin-key">Admin Key</Label>
+                  <Input
+                    id="admin-key"
+                    type="password"
+                    placeholder="Enter admin key"
+                    value={adminKey}
+                    onChange={(e) => setAdminKey(e.target.value)}
+                    onKeyPress={(e) => e.key === 'Enter' && authenticateAdmin()}
+                    className={authAttempted && !isAuthenticated ? "border-red-500" : ""}
+                  />
+                  {authAttempted && !isAuthenticated && (
+                    <p className="text-red-500 text-sm mt-1">Invalid admin key</p>
+                  )}
+                </div>
+                <Button 
+                  onClick={authenticateAdmin}
+                  className="w-full"
+                  disabled={!adminKey}
+                >
+                  Access Admin Panel
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  }
+
   if (isLoading) {
     return (
       <div className="container mx-auto px-6 py-8">
@@ -261,11 +348,23 @@ export default function AdminPanel() {
     );
   }
 
+  const logout = () => {
+    setIsAuthenticated(false);
+    setAdminKey("");
+    localStorage.removeItem('adminAuth');
+    toast({ title: "Logged Out", description: "Admin session ended" });
+  };
+
   return (
     <div className="container mx-auto px-6 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Panel</h1>
-        <p className="text-gray-600">Manage custom cryptocurrency rates and pricing</p>
+      <div className="mb-8 flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Panel</h1>
+          <p className="text-gray-600">Manage custom cryptocurrency rates and pricing</p>
+        </div>
+        <Button onClick={logout} variant="outline" className="text-red-600 border-red-300 hover:bg-red-50">
+          Logout
+        </Button>
       </div>
 
       {/* Add New Rate Form */}
