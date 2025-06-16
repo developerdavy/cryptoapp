@@ -107,7 +107,9 @@
       min-height: 56px !important;
       padding: 12px 16px !important;
       display: block !important;
-      width: 100% !important;
+      width: calc(100% - 32px) !important;
+      margin-left: 16px !important;
+      margin-right: 16px !important;
       -webkit-appearance: none !important;
       -moz-appearance: none !important;
       appearance: none !important;
