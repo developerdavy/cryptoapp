@@ -377,72 +377,25 @@ export default function Landing() {
                       type="text" 
                       placeholder="Search a payment method to proceed"
                       className="w-full px-4 py-3 rounded-lg crypto-search-input"
+                      value={paymentMethodSearch}
+                      onChange={(e) => setPaymentMethodSearch(e.target.value)}
                     />
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a payment method to proceed</p>
                   
                   <div className="overflow-x-auto scrollbar-hide w-full">
                     <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content'}}>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">💳</span>
+                      {filteredPaymentMethods.map((method) => (
+                        <div key={method.name} className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
+                          <div className={`w-6 h-6 ${method.color} rounded-full flex items-center justify-center`}>
+                            <span className="text-white text-xs font-bold">{method.icon}</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">{method.name}</span>
                         </div>
-                        <span className="text-sm font-medium text-black">Debit/Credit</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">G</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">Google Pay</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">A</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">Apple Pay</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">I</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">Interac</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">S</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">SEPA</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">P</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">PayPal</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">W</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">Wire Transfer</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">B</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">Bank Transfer</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">V</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">Visa</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap">
-                        <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">M</span>
-                        </div>
-                        <span className="text-sm font-medium text-black">Mastercard</span>
-                      </div>
+                      ))}
+                      {filteredPaymentMethods.length === 0 && paymentMethodSearch && (
+                        <div className="text-gray-500 px-4 py-2">No payment methods found</div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -465,61 +418,27 @@ export default function Landing() {
                       type="text" 
                       placeholder="Select a cryptocurrency to sell"
                       className="w-full px-4 py-3 rounded-lg crypto-search-input"
+                      value={sellCryptoSearch}
+                      onChange={(e) => setSellCryptoSearch(e.target.value)}
                     />
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a cryptocurrency to sell</p>
                   
                   <div className="overflow-x-auto scrollbar-hide w-full" style={{width: '100%'}}>
                     <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', flexWrap: 'nowrap'}}>
-                      <CryptoBadge symbol="BTC" name="Bitcoin" color="bg-orange-500" icon="₿" action="sell" />
-                      <CryptoBadge symbol="ETH" name="Ethereum" color="bg-blue-500" icon="Ξ" action="sell" />
-                      <CryptoBadge symbol="USDT" name="Tether" color="bg-green-500" icon="T" action="sell" />
-                      <CryptoBadge symbol="BNB" name="Binance Coin" color="bg-yellow-600" icon="B" action="sell" />
-                      <CryptoBadge symbol="ADA" name="Cardano" color="bg-red-500" icon="A" action="sell" />
-                      <CryptoBadge symbol="SOL" name="Solana" color="bg-purple-600" icon="S" action="sell" />
-                      <CryptoBadge symbol="XRP" name="Ripple" color="bg-blue-700" icon="X" action="sell" />
-                      <CryptoBadge symbol="DOGE" name="Dogecoin" color="bg-yellow-700" icon="D" action="sell" />
-                      <CryptoBadge symbol="AVAX" name="Avalanche" color="bg-teal-600" icon="A" action="sell" />
-                      <CryptoBadge symbol="MATIC" name="Polygon" color="bg-indigo-600" icon="P" action="sell" />
-                      <CryptoBadge symbol="DOT" name="Polkadot" color="bg-pink-600" icon="D" action="sell" />
-                      <CryptoBadge symbol="LTC" name="Litecoin" color="bg-gray-500" icon="L" action="sell" />
-                      <CryptoBadge symbol="UNI" name="Uniswap" color="bg-purple-700" icon="U" action="sell" />
-                      <CryptoBadge symbol="LINK" name="Chainlink" color="bg-blue-800" icon="L" action="sell" />
-                      <CryptoBadge symbol="ATOM" name="Cosmos" color="bg-orange-600" icon="A" action="sell" />
-                      <CryptoBadge symbol="ALGO" name="Algorand" color="bg-cyan-600" icon="A" action="sell" />
-                      <CryptoBadge symbol="ICP" name="Internet Computer" color="bg-red-600" icon="I" action="sell" />
-                      <CryptoBadge symbol="FTT" name="FTX Token" color="bg-emerald-600" icon="F" action="sell" />
-                      <CryptoBadge symbol="APE" name="ApeCoin" color="bg-violet-600" icon="A" action="sell" />
-                      <CryptoBadge symbol="NEAR" name="NEAR Protocol" color="bg-slate-600" icon="N" action="sell" />
-                      <CryptoBadge symbol="MANA" name="Decentraland" color="bg-blue-900" icon="M" action="sell" />
-                      <CryptoBadge symbol="SAND" name="The Sandbox" color="bg-green-600" icon="S" action="sell" />
-                      <CryptoBadge symbol="CRO" name="Cronos" color="bg-indigo-800" icon="C" action="sell" />
-                      <CryptoBadge symbol="HBAR" name="Hedera" color="bg-orange-700" icon="H" action="sell" />
-                      <CryptoBadge symbol="THETA" name="Theta" color="bg-purple-800" icon="T" action="sell" />
-                      <CryptoBadge symbol="FLOW" name="Flow" color="bg-red-700" icon="F" action="sell" />
-                      <CryptoBadge symbol="EGLD" name="MultiversX" color="bg-teal-700" icon="E" action="sell" />
-                      <CryptoBadge symbol="XTZ" name="Tezos" color="bg-indigo-700" icon="X" action="sell" />
-                      <CryptoBadge symbol="GRT" name="The Graph" color="bg-cyan-700" icon="G" action="sell" />
-                      <CryptoBadge symbol="1INCH" name="1inch" color="bg-emerald-700" icon="1" action="sell" />
-                      <CryptoBadge symbol="CAKE" name="PancakeSwap" color="bg-rose-600" icon="C" action="sell" />
-                      <CryptoBadge symbol="ENJ" name="Enjin Coin" color="bg-lime-600" icon="E" action="sell" />
-                      <CryptoBadge symbol="AAVE" name="Aave" color="bg-amber-600" icon="A" action="sell" />
-                      <CryptoBadge symbol="COMP" name="Compound" color="bg-violet-700" icon="C" action="sell" />
-                      <CryptoBadge symbol="MKR" name="Maker" color="bg-sky-600" icon="M" action="sell" />
-                      <CryptoBadge symbol="SNX" name="Synthetix" color="bg-fuchsia-600" icon="S" action="sell" />
-                      <CryptoBadge symbol="YFI" name="yearn.finance" color="bg-stone-600" icon="Y" action="sell" />
-                      <CryptoBadge symbol="BAT" name="Basic Attention Token" color="bg-zinc-600" icon="B" action="sell" />
-                      <CryptoBadge symbol="ZRX" name="0x" color="bg-neutral-600" icon="Z" action="sell" />
-                      <CryptoBadge symbol="KNC" name="Kyber Network" color="bg-pink-700" icon="K" action="sell" />
-                      <CryptoBadge symbol="REN" name="Ren" color="bg-red-800" icon="R" action="sell" />
-                      <CryptoBadge symbol="LRC" name="Loopring" color="bg-blue-900" icon="L" action="sell" />
-                      <CryptoBadge symbol="BAND" name="Band Protocol" color="bg-green-800" icon="B" action="sell" />
-                      <CryptoBadge symbol="SUSHI" name="SushiSwap" color="bg-yellow-800" icon="S" action="sell" />
-                      <CryptoBadge symbol="CEL" name="Celsius" color="bg-orange-800" icon="C" action="sell" />
-                      <CryptoBadge symbol="OMG" name="OMG Network" color="bg-teal-800" icon="O" action="sell" />
-                      <CryptoBadge symbol="QNT" name="Quant" color="bg-purple-900" icon="Q" action="sell" />
-                      <CryptoBadge symbol="FTM" name="Fantom" color="bg-emerald-800" icon="F" action="sell" />
-                      <CryptoBadge symbol="CHZ" name="Chiliz" color="bg-rose-800" icon="C" action="sell" />
+                      {filteredSellCryptos.map((crypto) => (
+                        <CryptoBadge 
+                          key={crypto.symbol}
+                          symbol={crypto.symbol} 
+                          name={crypto.name} 
+                          color={crypto.color} 
+                          icon={crypto.icon} 
+                          action="sell" 
+                        />
+                      ))}
+                      {filteredSellCryptos.length === 0 && sellCryptoSearch && (
+                        <div className="text-gray-500 px-4 py-2">No cryptocurrencies found</div>
+                      )}
                     </div>
                   </div>
                 </div>
