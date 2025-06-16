@@ -318,7 +318,7 @@ export default function Landing() {
                     <input 
                       type="text" 
                       placeholder="Search a payment method to proceed"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600"
+                      className="w-full px-4 py-3 rounded-lg crypto-search-input"
                     />
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a payment method to proceed</p>

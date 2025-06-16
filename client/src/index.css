@@ -72,6 +72,8 @@
     padding: 12px 16px;
     font-size: 14px;
     transition: all 0.2s ease;
+    height: 48px;
+    min-height: 48px;
   }
   
   .crypto-search-input:focus,
@@ -80,6 +82,14 @@
     border-color: #3b82f6;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     outline: none;
+  }
+
+  /* Ensure consistent field heights in desktop view */
+  @media (min-width: 769px) {
+    input[type="text"] {
+      height: 48px;
+      min-height: 48px;
+    }
   }
 
   /* Enhanced crypto search input styles for mobile visibility only */
