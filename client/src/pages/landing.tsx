@@ -271,7 +271,8 @@ export default function Landing() {
                     <input 
                       type="text" 
                       placeholder="Select a cryptocurrency to buy"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder:text-gray-500 placeholder:text-base focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+                      style={{ fontSize: '16px' }}
                     />
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a cryptocurrency to purchase</p>
@@ -396,7 +397,7 @@ export default function Landing() {
         {/* Sell Crypto Dropdown */}
         {showSellCryptoDropdown && (
           <div className="bg-white border-t border-gray-200 shadow-lg">
-            <div className="w-full px-2 sm:px-4 lg:px-6 py-6 sm:py-8">
+            <div className="w-full px-4 md:px-4 lg:px-6 py-6 sm:py-8">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Sell Crypto</h3>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
@@ -406,7 +407,8 @@ export default function Landing() {
                     <input 
                       type="text" 
                       placeholder="Select a cryptocurrency to sell"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder:text-gray-500 placeholder:text-base focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+                      style={{ fontSize: '16px' }}
                     />
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a cryptocurrency to sell</p>
