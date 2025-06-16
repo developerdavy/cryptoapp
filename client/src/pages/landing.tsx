@@ -534,6 +534,8 @@ export default function Landing() {
                       type="text" 
                       placeholder="Select a fiat currency to exchange"
                       className="w-full px-4 py-3 rounded-lg crypto-search-input"
+                      value={swapCryptoSearch}
+                      onChange={(e) => setSwapCryptoSearch(e.target.value)}
                     />
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a fiat currency to swap</p>
