@@ -406,8 +406,7 @@ export default function Landing() {
                     <input 
                       type="text" 
                       placeholder="Select a cryptocurrency to sell"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder:text-gray-500 placeholder:text-base focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
-                      style={{ fontSize: '16px' }}
+                      className="w-full px-4 py-3 rounded-lg crypto-search-input"
                     />
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a cryptocurrency to sell</p>
@@ -473,7 +472,7 @@ export default function Landing() {
                     <input 
                       type="text" 
                       placeholder="Search a payment method to proceed"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600"
+                      className="w-full px-4 py-3 rounded-lg crypto-search-input"
                     />
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a payment method to proceed</p>
@@ -557,7 +556,7 @@ export default function Landing() {
                     <input 
                       type="text" 
                       placeholder="Select a fiat currency to exchange"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600"
+                      className="w-full px-4 py-3 rounded-lg crypto-search-input"
                     />
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a fiat currency to swap</p>
@@ -791,7 +790,7 @@ export default function Landing() {
                     <input 
                       type="text" 
                       placeholder="Select a fiat currency to proceed"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600"
+                      className="w-full px-4 py-3 rounded-lg crypto-search-input"
                     />
                   </div>
                   <p className="text-sm text-gray-600 mb-4">Select a fiat currency to swap</p>
