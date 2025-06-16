@@ -129,6 +129,25 @@
       outline: none !important;
       transform: scale(1.02) !important;
     }
+
+    /* Add margins to dropdown text content on mobile for uniformity */
+    .crypto-search-input + p,
+    .crypto-search-input ~ p {
+      margin-left: 16px !important;
+      margin-right: 16px !important;
+    }
+
+    /* Add margins to all dropdown headings and text on mobile */
+    h3 {
+      margin-left: 16px !important;
+      margin-right: 16px !important;
+    }
+
+    /* Add margins to tab buttons and other elements */
+    .flex.space-x-4 {
+      margin-left: 16px !important;
+      margin-right: 16px !important;
+    }
   }
 }
 
