@@ -261,7 +261,7 @@ export default function Landing() {
         {/* Buy Crypto Dropdown */}
         {showBuyCryptoDropdown && (
           <div className="bg-white border-t border-gray-200 shadow-lg w-full">
-            <div className="w-full px-0 md:px-4 lg:px-6 py-6 sm:py-8">
+            <div className="w-full px-4 md:px-4 lg:px-6 py-6 sm:py-8">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Buy Crypto</h3>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
@@ -522,7 +522,7 @@ export default function Landing() {
         {/* Swap Dropdown */}
         {showSwapDropdown && (
           <div className="bg-white border-t border-gray-200 shadow-lg">
-            <div className="w-full px-2 sm:px-4 lg:px-6 py-6 sm:py-8">
+            <div className="w-full px-4 md:px-4 lg:px-6 py-6 sm:py-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Swap</h3>
               
               {/* Tabs */}
