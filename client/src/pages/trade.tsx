@@ -316,7 +316,7 @@ export default function Trade() {
 
                 <Button 
                   onClick={handleCheckout}
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white py-4 text-lg font-medium rounded-xl mt-6"
+                  className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 sm:py-4 text-base sm:text-lg font-medium rounded-xl mt-4 sm:mt-6"
                 >
                   Checkout now
                 </Button>
@@ -325,27 +325,27 @@ export default function Trade() {
           </div>
 
           {/* Process Steps */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-8 border-t border-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-100">
             <div className="text-center">
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-purple-600 text-xl">📱</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <span className="text-purple-600 text-lg sm:text-xl">📱</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Select Your Trade</h3>
-              <p className="text-sm text-gray-600">Choose your crypto or fiat exchange type to buy, sell, or swap currencies directly.</p>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Select Your Trade</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Choose your crypto or fiat exchange type to buy, sell, or swap currencies directly.</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-purple-600 text-xl">🛒</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <span className="text-purple-600 text-lg sm:text-xl">🛒</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Set Up Your Trade</h3>
-              <p className="text-sm text-gray-600">Specify your exchange amount and payment method. Move to secure checkout.</p>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Set Up Your Trade</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Specify your exchange amount and payment method. Move to secure checkout.</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-purple-600 text-xl">✅</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <span className="text-purple-600 text-lg sm:text-xl">✅</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Finish Your Exchange</h3>
-              <p className="text-sm text-gray-600">Follow simple instructions to complete your transaction quickly and securely.</p>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Finish Your Exchange</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Follow simple instructions to complete your transaction quickly and securely.</p>
             </div>
           </div>
 
