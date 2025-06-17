@@ -9,7 +9,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowLeftRight, ChevronDown } from "lucide-react";
 import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
 
-
+const cryptoData = {
+  BTC: { name: "Bitcoin", icon: "₿", color: "bg-orange-500" },
+  ETH: { name: "Ethereum", icon: "Ξ", color: "bg-blue-500" },
+  LTC: { name: "Litecoin", icon: "Ł", color: "bg-gray-500" },
+  XRP: { name: "Ripple", icon: "⚡", color: "bg-blue-600" },
+  ADA: { name: "Cardano", icon: "₳", color: "bg-blue-700" },
+  DOT: { name: "Polkadot", icon: "●", color: "bg-pink-500" },
+  LINK: { name: "Chainlink", icon: "⛓", color: "bg-blue-400" },
+  BCH: { name: "Bitcoin Cash", icon: "₿", color: "bg-green-500" },
+  XLM: { name: "Stellar", icon: "✦", color: "bg-black" },
+  UNI: { name: "Uniswap", icon: "🦄", color: "bg-pink-600" }
+};
 
 const currencies = [
   { id: "CAD", name: "CA Dollar", icon: "🍁", color: "bg-red-500" },
