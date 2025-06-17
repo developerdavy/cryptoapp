@@ -48,24 +48,24 @@ export default function SignUp() {
     e.preventDefault();
     if (!email || !password || !confirmPassword) {
       toast({
-        title: "Error",
-        description: "Please fill in all fields",
+        title: "Missing information",
+        description: "Please fill in all required fields to create your account.",
         variant: "destructive",
       });
       return;
     }
     if (password !== confirmPassword) {
       toast({
-        title: "Error",
-        description: "Passwords do not match",
+        title: "Password mismatch",
+        description: "Your passwords don't match. Please check and try again.",
         variant: "destructive",
       });
       return;
     }
     if (password.length < 6) {
       toast({
-        title: "Error",
-        description: "Password must be at least 6 characters",
+        title: "Password too short",
+        description: "Your password must be at least 6 characters long.",
         variant: "destructive",
       });
       return;
