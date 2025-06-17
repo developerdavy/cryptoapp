@@ -58,27 +58,27 @@ export default function SignIn() {
   return (
     <div className="min-h-screen flex">
       {/* Left Panel - Form */}
-      <div className="w-1/2 bg-gradient-to-br from-purple-700 via-purple-800 to-purple-900 flex flex-col justify-center px-20">
+      <div className="w-1/2 bg-white flex flex-col justify-center px-16">
         {/* Logo */}
-        <div className="mb-16">
-          <div className="text-white text-sm font-normal tracking-widest cursor-pointer" onClick={() => setLocation("/")}>
+        <div className="mb-12 ml-8">
+          <div className="text-purple-700 text-lg font-bold tracking-wider cursor-pointer" onClick={() => setLocation("/")}>
             CHICKSX
           </div>
         </div>
 
         {/* Sign In Form */}
-        <div className="max-w-sm bg-white rounded-lg p-8">
-          <h1 className="text-purple-800 text-xl font-bold mb-8">Sign In</h1>
+        <div className="max-w-md mx-auto w-full">
+          <h1 className="text-purple-800 text-2xl font-bold mb-8">Sign In</h1>
           
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-gray-700 text-sm font-medium mb-2">
+              <label className="block text-gray-800 text-sm font-medium mb-3">
                 Email Address
               </label>
               <input
                 type="email"
                 placeholder="Enter email address"
-                className="w-full px-3 py-3 rounded bg-gray-200 border-0 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400 text-sm"
+                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -86,20 +86,20 @@ export default function SignIn() {
             </div>
 
             <div>
-              <label className="block text-gray-700 text-sm font-medium mb-2">
+              <label className="block text-gray-800 text-sm font-medium mb-3">
                 Password
               </label>
               <input
                 type="password"
                 placeholder="Enter password"
-                className="w-full px-3 py-3 rounded bg-gray-200 border-0 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400 text-sm"
+                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
 
-            <div className="flex justify-between items-center text-xs pt-2">
+            <div className="flex justify-between items-center text-sm pt-3">
               <a href="#" className="text-gray-600 hover:text-purple-600">
                 Forgot your password?
               </a>
@@ -118,22 +118,22 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={signinMutation.isPending}
-              className="w-full bg-purple-700 hover:bg-purple-800 text-white font-medium py-3 px-4 rounded transition-colors disabled:opacity-50 mt-6"
+              className="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50 mt-8"
             >
               {signinMutation.isPending ? "Signing In..." : "Sign in"}
             </button>
           </form>
 
           {/* Divider */}
-          <div className="flex items-center my-6">
+          <div className="flex items-center my-8">
             <div className="flex-1 border-t border-gray-300"></div>
-            <span className="px-3 text-gray-500 text-sm">or</span>
+            <span className="px-4 text-gray-500 text-sm">or</span>
             <div className="flex-1 border-t border-gray-300"></div>
           </div>
 
           {/* Social Login Buttons */}
           <div className="space-y-4">
-            <div className="text-center text-gray-600 text-sm mb-4">Quick Setup</div>
+            <div className="text-center text-gray-600 text-sm mb-6">Quick Setup</div>
             
             <div className="flex justify-center space-x-4">
               <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
@@ -149,7 +149,7 @@ export default function SignIn() {
           </div>
 
           {/* Additional Service Icons */}
-          <div className="flex justify-center space-x-3 mt-6">
+          <div className="flex justify-center space-x-3 mt-8">
             <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
               <div className="w-4 h-4 bg-white rounded-sm"></div>
             </div>
@@ -167,7 +167,7 @@ export default function SignIn() {
             </div>
           </div>
           
-          <div className="text-center text-gray-500 text-xs mt-4">
+          <div className="text-center text-gray-500 text-sm mt-6">
             Get account to access all of ChicksX services
           </div>
         </div>
