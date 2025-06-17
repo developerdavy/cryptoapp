@@ -24,7 +24,7 @@ export default function Landing() {
   const [swapCryptoSearch, setSwapCryptoSearch] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [, setLocation] = useLocation();
-  const { isAuthenticated, isLoading } = useAuth();
+  const { user, isAuthenticated, isLoading, logout } = useAuth();
 
   // Fetch market data from admin-controlled rates
   const { data: marketData = [] } = useQuery({
@@ -98,6 +98,12 @@ export default function Landing() {
   const filteredPaymentMethods = allPaymentMethods.filter(method => 
     method.name.toLowerCase().includes(paymentMethodSearch.toLowerCase())
   );
+
+  // Handle logout with redirect
+  const handleLogout = async () => {
+    await logout();
+    setLocation("/signin");
+  };
 
   // Helper function to create clickable crypto badge
   const CryptoBadge = ({ symbol, name, color, icon, action = "trade" }: { symbol: string, name: string, color: string, icon: string, action?: string }) => (
@@ -205,15 +211,27 @@ export default function Landing() {
             </div>
           </div>
           
-          <Button 
-            onClick={() => setLocation("/signup")}
-            className="bg-indigo-700 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium text-sm mr-4"
-          >
-            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-            Sign In
-          </Button>
+          {isAuthenticated ? (
+            <div className="flex items-center space-x-2">
+              <span className="text-sm text-gray-700">Hi, {(user as any)?.email?.split('@')[0] || 'User'}</span>
+              <Button 
+                onClick={handleLogout}
+                className="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg font-medium text-sm"
+              >
+                Logout
+              </Button>
+            </div>
+          ) : (
+            <Button 
+              onClick={() => setLocation("/signup")}
+              className="bg-indigo-700 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium text-sm mr-4"
+            >
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              Sign In
+            </Button>
+          )}
         </div>
 
         {/* Desktop Header */}
@@ -275,17 +293,34 @@ export default function Landing() {
               </nav>
             </div>
             
-            {/* Desktop Sign In Button */}
-            <Button 
-              onClick={() => setLocation("/signup")}
-              className="bg-indigo-700 hover:bg-indigo-600 text-white px-4 sm:px-6 py-2 rounded-lg font-medium flex items-center space-x-2"
-              style={{ marginRight: '20px', marginInlineEnd: '20px' }}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-              <span className="hidden lg:inline">Sign In</span>
-            </Button>
+            {/* Desktop Authentication */}
+            {isAuthenticated ? (
+              <div className="flex items-center space-x-4" style={{ marginRight: '20px', marginInlineEnd: '20px' }}>
+                <div className="flex items-center space-x-2 text-gray-700">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span className="hidden lg:inline">Welcome, {user?.email?.split('@')[0]}</span>
+                </div>
+                <Button 
+                  onClick={handleLogout}
+                  className="bg-red-600 hover:bg-red-700 text-white px-4 sm:px-6 py-2 rounded-lg font-medium"
+                >
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <Button 
+                onClick={() => setLocation("/signup")}
+                className="bg-indigo-700 hover:bg-indigo-600 text-white px-4 sm:px-6 py-2 rounded-lg font-medium flex items-center space-x-2"
+                style={{ marginRight: '20px', marginInlineEnd: '20px' }}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span className="hidden lg:inline">Sign In</span>
+              </Button>
+            )}
           </div>
         </div>
         
