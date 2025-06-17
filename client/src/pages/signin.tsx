@@ -72,7 +72,7 @@ export default function SignIn() {
 
         {/* Sign In Form */}
         <div className="max-w-md mx-auto w-full">
-          <h1 className="text-purple-800 text-2xl font-bold mb-8">Sign In</h1>
+          <h1 className="text-blue-900 text-2xl font-bold mb-8">Sign In</h1>
           
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
@@ -82,7 +82,7 @@ export default function SignIn() {
               <input
                 type="email"
                 placeholder="Enter email address"
-                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -96,7 +96,7 @@ export default function SignIn() {
               <input
                 type="password"
                 placeholder="Enter password"
-                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -104,7 +104,7 @@ export default function SignIn() {
             </div>
 
             <div className="flex justify-between items-center text-sm pt-3">
-              <a href="#" className="text-gray-600 hover:text-purple-600">
+              <a href="#" className="text-gray-600 hover:text-blue-800">
                 Forgot your password?
               </a>
               <div className="text-gray-600">
@@ -112,7 +112,7 @@ export default function SignIn() {
                 <button
                   type="button"
                   onClick={() => setLocation("/signup")}
-                  className="text-purple-600 hover:underline ml-1"
+                  className="text-blue-800 hover:underline ml-1"
                 >
                   Sign Up
                 </button>
@@ -122,7 +122,7 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={signinMutation.isPending}
-              className="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50 mt-8"
+              className="w-full bg-blue-800 hover:bg-blue-900 text-white font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50 mt-8"
             >
               {signinMutation.isPending ? "Signing In..." : "Sign in"}
             </button>
