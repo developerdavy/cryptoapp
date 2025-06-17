@@ -140,13 +140,13 @@ export default function SignIn() {
             <div className="text-center text-gray-600 text-sm mb-6">Quick Setup</div>
             
             <div className="flex justify-center space-x-4">
-              <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+              <button className="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors">
                 <span className="text-white text-sm font-bold">f</span>
               </button>
-              <button className="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+              <button className="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
                 <span className="text-white text-sm font-bold">t</span>
               </button>
-              <button className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
+              <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
                 <span className="text-white text-sm font-bold">G</span>
               </button>
             </div>
