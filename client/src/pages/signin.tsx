@@ -28,16 +28,17 @@ export default function SignIn() {
     },
     onSuccess: () => {
       toast({
-        title: "Success",
-        description: "Signed in successfully!",
+        title: "Welcome back!",
+        description: "You've been signed in successfully.",
+        variant: "success",
       });
       queryClient.invalidateQueries({ queryKey: ["/api/auth/user"] });
       setLocation("/");
     },
     onError: (error: any) => {
       toast({
-        title: "Error",
-        description: error.message || "Failed to sign in",
+        title: "Sign in failed",
+        description: error.message || "Please check your credentials and try again.",
         variant: "destructive",
       });
     },
@@ -47,8 +48,8 @@ export default function SignIn() {
     e.preventDefault();
     if (!email || !password) {
       toast({
-        title: "Error",
-        description: "Please fill in all fields",
+        title: "Missing information",
+        description: "Please enter both your email and password.",
         variant: "destructive",
       });
       return;

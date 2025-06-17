@@ -29,15 +29,16 @@ export default function SignUp() {
     },
     onSuccess: () => {
       toast({
-        title: "Success",
-        description: "Account created successfully! Please sign in.",
+        title: "Account created!",
+        description: "Welcome to ChicksX! Please sign in with your new account.",
+        variant: "success",
       });
       setLocation("/signin");
     },
     onError: (error: any) => {
       toast({
-        title: "Error",
-        description: error.message || "Failed to create account",
+        title: "Registration failed",
+        description: error.message || "Unable to create your account. Please try again.",
         variant: "destructive",
       });
     },
