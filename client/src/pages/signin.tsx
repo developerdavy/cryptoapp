@@ -82,7 +82,7 @@ export default function SignIn() {
               <input
                 type="email"
                 placeholder="Enter email address"
-                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm placeholder:text-sm"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -96,7 +96,7 @@ export default function SignIn() {
               <input
                 type="password"
                 placeholder="Enter password"
-                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm placeholder:text-sm"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
