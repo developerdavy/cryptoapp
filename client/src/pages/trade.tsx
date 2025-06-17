@@ -330,6 +330,13 @@ export default function Trade() {
             </div>
           </div>
 
+          {/* Coupon Code Section */}
+          <div className="mt-6">
+            <div className="text-xs text-gray-500">
+              Enter coupon code
+            </div>
+          </div>
+
           {/* Process Steps */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-100">
             <div className="text-center">
