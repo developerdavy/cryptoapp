@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 import { SiGoogle, SiFacebook, SiX } from "react-icons/si";
 import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +13,7 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   const signinMutation = useMutation({
     mutationFn: async (data: { email: string; password: string }) => {
@@ -32,6 +33,8 @@ export default function SignIn() {
         title: "Success",
         description: "Signed in successfully!",
       });
+      // Refresh user data after successful signin
+      queryClient.invalidateQueries({ queryKey: ["/api/auth/user"] });
       setLocation("/");
     },
     onError: (error: any) => {
@@ -141,7 +144,7 @@ export default function SignIn() {
               disabled={signinMutation.isPending}
               onMouseOut={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#a855f7'}
             >
-              Sign In
+              {signinMutation.isPending ? "Signing In..." : "Sign In"}
             </button>
           </div>
         </form>
