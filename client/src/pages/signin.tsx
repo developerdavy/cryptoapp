@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
-import { SiGoogle, SiFacebook, SiX } from "react-icons/si";
-import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -60,138 +57,186 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-600 via-blue-600 to-purple-700 flex flex-col">
-      {/* Logo */}
-      <div className="pt-8 pb-6 px-6">
-        <div className="max-w-sm mx-auto">
-          <img 
-            src={chicksxLogo} 
-            alt="ChicksX" 
-            className="h-6 cursor-pointer" 
-            onClick={() => setLocation("/")}
-          />
+    <div className="min-h-screen flex">
+      {/* Left Panel - Form */}
+      <div className="w-1/2 bg-gradient-to-b from-purple-600 to-purple-700 flex flex-col justify-center px-16">
+        {/* Logo */}
+        <div className="mb-12">
+          <div className="text-white text-xl font-bold tracking-wider cursor-pointer" onClick={() => setLocation("/")}>
+            CHICKSX
+          </div>
+        </div>
+
+        {/* Sign In Form */}
+        <div className="max-w-sm">
+          <h1 className="text-white text-3xl font-bold mb-8">Sign In</h1>
+          
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label className="block text-white text-sm font-medium mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                placeholder="Enter email address"
+                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-white/40"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-white text-sm font-medium mb-2">
+                Password
+              </label>
+              <input
+                type="password"
+                placeholder="Enter password"
+                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-white/40"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="flex justify-between items-center text-sm">
+              <a href="#" className="text-white/80 hover:text-white">
+                Forgot your password?
+              </a>
+              <div className="text-white/80">
+                Don't have an account? 
+                <button
+                  type="button"
+                  onClick={() => setLocation("/signup")}
+                  className="text-white hover:underline ml-1"
+                >
+                  Sign Up
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={signinMutation.isPending}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors disabled:opacity-50"
+            >
+              {signinMutation.isPending ? "Signing In..." : "Sign in"}
+            </button>
+          </form>
+
+          {/* Divider */}
+          <div className="flex items-center my-8">
+            <div className="flex-1 border-t border-white/20"></div>
+            <span className="px-4 text-white/60 text-sm">or</span>
+            <div className="flex-1 border-t border-white/20"></div>
+          </div>
+
+          {/* Social Login Buttons */}
+          <div className="space-y-3">
+            <div className="text-center text-white/80 text-sm mb-4">Quick Setup</div>
+            
+            <div className="flex justify-center space-x-4">
+              <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                <div className="w-6 h-6 bg-white rounded-sm"></div>
+              </button>
+              <button className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <div className="w-6 h-6 bg-white rounded-sm"></div>
+              </button>
+              <button className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                <div className="w-6 h-6 bg-white rounded-sm"></div>
+              </button>
+            </div>
+          </div>
+
+          {/* Additional Icons */}
+          <div className="flex justify-center space-x-4 mt-8">
+            <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
+              <div className="w-5 h-5 bg-white rounded-sm"></div>
+            </div>
+            <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
+              <div className="w-5 h-5 bg-white rounded-sm"></div>
+            </div>
+            <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center">
+              <div className="w-5 h-5 bg-white rounded-sm"></div>
+            </div>
+            <div className="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center">
+              <div className="w-5 h-5 bg-white rounded-sm"></div>
+            </div>
+            <div className="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center">
+              <div className="w-5 h-5 bg-white rounded-sm"></div>
+            </div>
+          </div>
+          
+          <div className="text-center text-white/60 text-xs mt-4">
+            Get account to access all of ChicksX services
+          </div>
         </div>
       </div>
 
-      {/* Sign In Form */}
-      <div className="flex-1 px-6">
-        <div className="mb-6 max-w-sm mx-auto">
-          <h2 className="text-white text-xl font-semibold">Sign In</h2>
+      {/* Right Panel - Illustration */}
+      <div className="w-1/2 bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          {/* Stars */}
+          <div className="absolute top-8 right-20 w-2 h-2 bg-white rounded-full opacity-80"></div>
+          <div className="absolute top-16 right-32 w-1 h-1 bg-white rounded-full opacity-60"></div>
+          <div className="absolute top-32 right-16 w-2 h-2 bg-white rounded-full opacity-80"></div>
+          <div className="absolute top-48 left-20 w-1 h-1 bg-white rounded-full opacity-60"></div>
+          <div className="absolute bottom-32 right-24 w-2 h-2 bg-white rounded-full opacity-80"></div>
+          
+          {/* Floating Orbs */}
+          <div className="absolute top-8 right-8 w-16 h-16 bg-pink-400 rounded-full opacity-80"></div>
+          <div className="absolute top-40 left-16 w-12 h-12 bg-purple-400 rounded-full opacity-60"></div>
+          
+          {/* Abstract Shapes */}
+          <div className="absolute top-20 left-1/3 w-32 h-8 bg-blue-300 rounded-full opacity-40 transform rotate-12"></div>
+          <div className="absolute bottom-40 right-1/4 w-24 h-24 bg-purple-300 rounded-full opacity-30"></div>
         </div>
 
-        <form className="space-y-3 max-w-sm mx-auto" onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label text-white" style={{fontSize: '12px'}}>
-              Email Address
-            </label>
-            <input
-              id="email"
-              type="email"
-              className="form-control"
-              placeholder="enter email address"
-              style={{fontSize: '12px', borderRadius: '6px'}}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+        {/* Main Illustration Area */}
+        <div className="absolute bottom-0 left-0 right-0 h-96">
+          {/* Ground/Platform */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-400 to-transparent"></div>
           
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label text-white" style={{fontSize: '12px'}}>
-              Password
-            </label>
-            <input
-              id="password"
-              type="password"
-              className="form-control"
-              placeholder="enter password"
-              style={{fontSize: '12px', borderRadius: '6px'}}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          
-          <div className="text-center text-xs pt-2">
-            <a href="#" className="text-purple-200 hover:text-white">
-              Forgot your password?
-            </a>
+          {/* Robot Character */}
+          <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
+            {/* Robot body */}
+            <div className="w-16 h-20 bg-yellow-400 rounded-t-full rounded-b-lg relative">
+              {/* Robot face */}
+              <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-black rounded-full">
+                <div className="absolute top-1 left-1 w-2 h-2 bg-white rounded-full"></div>
+                <div className="absolute top-1 right-1 w-2 h-2 bg-white rounded-full"></div>
+                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-3 h-1 bg-white rounded-full"></div>
+              </div>
+            </div>
           </div>
 
-          <div className="text-center text-xs">
-            <span className="text-purple-200">Don't have an account? </span>
-            <button
-              type="button"
-              onClick={() => setLocation("/signup")}
-              className="text-purple-200 hover:text-white underline"
-            >
-              Sign Up
-            </button>
+          {/* Crypto Symbols */}
+          <div className="absolute bottom-24 right-1/4 w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-xs">₿</span>
           </div>
+          <div className="absolute bottom-32 left-1/4 w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+            <span className="text-gray-700 font-bold text-xs">Ł</span>
+          </div>
+          <div className="absolute bottom-20 right-1/3 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-xs">M</span>
+          </div>
+          <div className="absolute bottom-28 left-1/3 w-6 h-6 bg-black rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-xs">X</span>
+          </div>
+
+          {/* Dome Structure */}
+          <div className="absolute bottom-8 right-8 w-24 h-16 bg-white/20 border-2 border-white/30 rounded-t-full"></div>
           
-          <div className="pt-4">
-            <button
-              type="submit"
-              className="btn btn-primary w-100"
-              style={{
-                backgroundColor: '#a855f7',
-                borderColor: '#a855f7',
-                fontSize: '14px',
-                borderRadius: '6px',
-                padding: '10px 16px'
-              }}
-              onMouseOver={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#9333ea'}
-              disabled={signinMutation.isPending}
-              onMouseOut={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#a855f7'}
-            >
-              {signinMutation.isPending ? "Signing In..." : "Sign In"}
-            </button>
-          </div>
-        </form>
-        
-        <div className="relative my-6 max-w-sm mx-auto">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-white/30" />
-          </div>
-          <div className="relative flex justify-center text-xs">
-            <span className="px-4 bg-transparent text-white/70">or</span>
-          </div>
-        </div>
-        
-        {/* Social Login Buttons */}
-        <div className="flex justify-center space-x-3 mb-6">
-          <button className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
-            <SiGoogle className="w-4 h-4 text-white" />
-          </button>
-          <button className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
-            <SiFacebook className="w-4 h-4 text-white" />
-          </button>
-          <button className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
-            <SiX className="w-4 h-4 text-white" />
-          </button>
+          {/* Additional Elements */}
+          <div className="absolute bottom-12 left-8 w-8 h-8 bg-green-400 rounded-full"></div>
+          <div className="absolute bottom-16 left-20 w-6 h-6 bg-blue-300 rounded-full"></div>
         </div>
 
-        {/* ChicksX Group */}
-        <div className="text-center pb-6">
-          <p className="text-white/70 text-xs mb-3">ChicksX Group</p>
-          <div className="flex justify-center space-x-3 mb-3">
-            <div className="w-6 h-6 bg-yellow-500 rounded flex items-center justify-center">
-              <span className="text-white text-xs font-bold">M</span>
-            </div>
-            <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
-              <span className="text-white text-xs font-bold">JK</span>
-            </div>
-            <div className="w-6 h-6 bg-yellow-400 rounded flex items-center justify-center">
-              <span className="text-black text-xs font-bold">S</span>
-            </div>
-            <div className="w-6 h-6 bg-green-500 rounded flex items-center justify-center">
-              <span className="text-white text-xs font-bold">A</span>
-            </div>
-            <div className="w-6 h-6 bg-yellow-500 rounded flex items-center justify-center">
-              <span className="text-red-600 text-xs font-bold">M</span>
-            </div>
-          </div>
-          <p className="text-white/60 text-xs">One account to access all of ChicksX services</p>
+        {/* ChicksX Card/Badge */}
+        <div className="absolute top-1/3 left-8 bg-white rounded-lg px-3 py-2 shadow-lg transform rotate-12">
+          <div className="text-purple-600 font-bold text-sm">CHICKSX</div>
         </div>
       </div>
     </div>
