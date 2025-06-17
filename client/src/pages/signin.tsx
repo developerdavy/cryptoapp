@@ -59,27 +59,27 @@ export default function SignIn() {
   return (
     <div className="min-h-screen flex">
       {/* Left Panel - Form */}
-      <div className="w-1/2 bg-gradient-to-b from-purple-600 to-purple-700 flex flex-col justify-center px-16">
+      <div className="w-1/2 bg-gradient-to-br from-purple-700 via-purple-800 to-purple-900 flex flex-col justify-center px-16">
         {/* Logo */}
-        <div className="mb-12">
-          <div className="text-white text-xl font-bold tracking-wider cursor-pointer" onClick={() => setLocation("/")}>
+        <div className="mb-16">
+          <div className="text-white text-lg font-semibold tracking-widest cursor-pointer" onClick={() => setLocation("/")}>
             CHICKSX
           </div>
         </div>
 
         {/* Sign In Form */}
-        <div className="max-w-sm">
-          <h1 className="text-white text-3xl font-bold mb-8">Sign In</h1>
+        <div className="max-w-xs">
+          <h1 className="text-white text-2xl font-bold mb-10">Sign In</h1>
           
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-white text-sm font-medium mb-2">
+              <label className="block text-gray-200 text-sm mb-2">
                 Email Address
               </label>
               <input
                 type="email"
                 placeholder="Enter email address"
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-white/40"
+                className="w-full px-4 py-3 rounded-md bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -87,24 +87,24 @@ export default function SignIn() {
             </div>
 
             <div>
-              <label className="block text-white text-sm font-medium mb-2">
+              <label className="block text-gray-200 text-sm mb-2">
                 Password
               </label>
               <input
                 type="password"
                 placeholder="Enter password"
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-white/40"
+                className="w-full px-4 py-3 rounded-md bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
 
-            <div className="flex justify-between items-center text-sm">
-              <a href="#" className="text-white/80 hover:text-white">
+            <div className="flex justify-between items-center text-sm mt-3">
+              <a href="#" className="text-gray-300 hover:text-white">
                 Forgot your password?
               </a>
-              <div className="text-white/80">
+              <div className="text-gray-300">
                 Don't have an account? 
                 <button
                   type="button"
@@ -119,56 +119,56 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={signinMutation.isPending}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors disabled:opacity-50"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-md transition-colors disabled:opacity-50 mt-6"
             >
               {signinMutation.isPending ? "Signing In..." : "Sign in"}
             </button>
           </form>
 
           {/* Divider */}
-          <div className="flex items-center my-8">
-            <div className="flex-1 border-t border-white/20"></div>
-            <span className="px-4 text-white/60 text-sm">or</span>
-            <div className="flex-1 border-t border-white/20"></div>
+          <div className="flex items-center my-6">
+            <div className="flex-1 border-t border-gray-400"></div>
+            <span className="px-3 text-gray-300 text-sm">or</span>
+            <div className="flex-1 border-t border-gray-400"></div>
           </div>
 
           {/* Social Login Buttons */}
-          <div className="space-y-3">
-            <div className="text-center text-white/80 text-sm mb-4">Quick Setup</div>
+          <div className="space-y-4">
+            <div className="text-center text-gray-300 text-sm mb-4">Quick Setup</div>
             
-            <div className="flex justify-center space-x-4">
-              <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                <div className="w-6 h-6 bg-white rounded-sm"></div>
+            <div className="flex justify-center space-x-3">
+              <button className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                <span className="text-white text-xs font-bold">f</span>
               </button>
-              <button className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <div className="w-6 h-6 bg-white rounded-sm"></div>
+              <button className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <span className="text-white text-xs font-bold">t</span>
               </button>
-              <button className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
-                <div className="w-6 h-6 bg-white rounded-sm"></div>
+              <button className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
+                <span className="text-white text-xs font-bold">G</span>
               </button>
             </div>
           </div>
 
-          {/* Additional Icons */}
-          <div className="flex justify-center space-x-4 mt-8">
-            <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
-              <div className="w-5 h-5 bg-white rounded-sm"></div>
+          {/* Additional Service Icons */}
+          <div className="flex justify-center space-x-2 mt-6">
+            <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 bg-white rounded-sm"></div>
             </div>
-            <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
-              <div className="w-5 h-5 bg-white rounded-sm"></div>
+            <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 bg-white rounded-sm"></div>
             </div>
-            <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center">
-              <div className="w-5 h-5 bg-white rounded-sm"></div>
+            <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 bg-white rounded-sm"></div>
             </div>
-            <div className="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center">
-              <div className="w-5 h-5 bg-white rounded-sm"></div>
+            <div className="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 bg-white rounded-sm"></div>
             </div>
-            <div className="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center">
-              <div className="w-5 h-5 bg-white rounded-sm"></div>
+            <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 bg-white rounded-sm"></div>
             </div>
           </div>
           
-          <div className="text-center text-white/60 text-xs mt-4">
+          <div className="text-center text-gray-400 text-xs mt-4">
             Get account to access all of ChicksX services
           </div>
         </div>
