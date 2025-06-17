@@ -116,52 +116,54 @@ export default function Trade() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
-        <div className="w-full px-0 md:px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-8 pl-4 md:pl-0">
-            <img src={chicksxLogo} alt="ChicksX" className="h-8" />
-            <nav className="hidden md:flex items-center space-x-6">
-              <button className="text-gray-700 hover:text-purple-600 font-medium flex items-center">
+        <div className="w-full px-3 sm:px-4 md:px-6 py-3 sm:py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-4 sm:space-x-6 md:space-x-8">
+            <img src={chicksxLogo} alt="ChicksX" className="h-6 sm:h-7 md:h-8" />
+            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
+              <button className="text-gray-700 hover:text-purple-600 font-medium flex items-center text-sm lg:text-base">
                 Buy Crypto
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown className="ml-1 h-3 w-3 lg:h-4 lg:w-4" />
               </button>
-              <button className="text-gray-700 hover:text-purple-600 font-medium flex items-center">
+              <button className="text-gray-700 hover:text-purple-600 font-medium flex items-center text-sm lg:text-base">
                 Sell Crypto
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown className="ml-1 h-3 w-3 lg:h-4 lg:w-4" />
               </button>
-              <button className="text-gray-700 hover:text-purple-600 font-medium flex items-center">
+              <button className="text-gray-700 hover:text-purple-600 font-medium flex items-center text-sm lg:text-base">
                 Swap
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown className="ml-1 h-3 w-3 lg:h-4 lg:w-4" />
               </button>
             </nav>
           </div>
           {!isAuthenticated ? (
             <Button 
               onClick={() => window.location.href = "/api/login"}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg flex items-center"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-3 sm:px-4 md:px-6 py-2 rounded-lg flex items-center text-sm md:text-base"
             >
-              <span className="mr-2">👤</span>
-              Sign In
+              <span className="mr-1 sm:mr-2">👤</span>
+              <span className="hidden sm:inline">Sign In</span>
+              <span className="sm:hidden">Login</span>
             </Button>
           ) : (
             <Button 
               onClick={() => window.location.href = "/api/logout"}
-              className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg flex items-center"
+              className="bg-gray-600 hover:bg-gray-700 text-white px-3 sm:px-4 md:px-6 py-2 rounded-lg flex items-center text-sm md:text-base"
             >
-              <span className="mr-2">👤</span>
-              Sign Out
+              <span className="mr-1 sm:mr-2">👤</span>
+              <span className="hidden sm:inline">Sign Out</span>
+              <span className="sm:hidden">Logout</span>
             </Button>
           )}
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="px-4 md:px-6 py-8">
+      <main className="px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8">
         {/* Trading Card */}
-        <div className="bg-white rounded-2xl shadow-lg p-4 md:p-8 w-full">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 lg:p-8 w-full">
           {/* Trading Tabs */}
-          <div className="flex space-x-2 mb-8">
+          <div className="flex flex-wrap gap-2 sm:space-x-2 mb-6 sm:mb-8">
             <button
-              className={`px-8 py-3 rounded-full font-medium transition-colors ${
+              className={`flex-1 sm:flex-none px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base ${
                 activeTab === "Buy"
                   ? "bg-purple-600 text-white shadow-md"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -171,7 +173,7 @@ export default function Trade() {
               Buy
             </button>
             <button
-              className={`px-8 py-3 rounded-full font-medium transition-colors ${
+              className={`flex-1 sm:flex-none px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base ${
                 activeTab === "Sell"
                   ? "bg-purple-600 text-white shadow-md"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -181,7 +183,7 @@ export default function Trade() {
               Sell
             </button>
             <button
-              className={`px-8 py-3 rounded-full font-medium transition-colors ${
+              className={`flex-1 sm:flex-none px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base ${
                 activeTab === "Swap"
                   ? "bg-purple-600 text-white shadow-md"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -193,21 +195,21 @@ export default function Trade() {
           </div>
 
           {/* Trading Interface */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-4 sm:gap-6 items-start">
             {/* Spend Section */}
-            <div className="lg:col-span-2">
-              <div className="space-y-4">
+            <div className="xl:col-span-2">
+              <div className="space-y-3 sm:space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-600 mb-2">Spend</label>
                   <div className="relative">
                     <Select value={selectedCurrency} onValueChange={setSelectedCurrency}>
-                      <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
-                        <div className="flex items-center space-x-3">
-                          <div className={`w-8 h-8 ${currentCurrency.color} rounded-full flex items-center justify-center`}>
-                            <span className="text-white text-sm font-bold">{currentCurrency.icon}</span>
+                      <SelectTrigger className="w-full h-12 sm:h-14 border-2 border-gray-200 rounded-xl">
+                        <div className="flex items-center space-x-2 sm:space-x-3">
+                          <div className={`w-6 h-6 sm:w-8 sm:h-8 ${currentCurrency.color} rounded-full flex items-center justify-center`}>
+                            <span className="text-white text-xs sm:text-sm font-bold">{currentCurrency.icon}</span>
                           </div>
                           <div className="text-left">
-                            <div className="font-medium">{selectedCurrency} - {currentCurrency.name}</div>
+                            <div className="font-medium text-sm sm:text-base">{selectedCurrency} - {currentCurrency.name}</div>
                           </div>
                         </div>
                       </SelectTrigger>
@@ -225,44 +227,44 @@ export default function Trade() {
                       </SelectContent>
                     </Select>
                   </div>
-                  <div className="mt-3">
+                  <div className="mt-2 sm:mt-3">
                     <div className="text-right text-xs text-gray-500 mb-1">134.72</div>
                     <Input
                       type="text"
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
-                      className="text-right text-lg font-medium border-0 p-0 bg-transparent"
+                      className="text-right text-base sm:text-lg font-medium border-0 p-0 bg-transparent"
                     />
                   </div>
                 </div>
                 
-                <div className="text-xs text-gray-500 mt-4">
+                <div className="text-xs text-gray-500 mt-3 sm:mt-4">
                   Enter coupon code
                 </div>
               </div>
             </div>
 
             {/* Swap Arrow */}
-            <div className="flex justify-center items-center lg:col-span-1">
-              <button className="p-3 rounded-full border-2 border-gray-200 hover:bg-gray-50 transition-colors">
-                <ArrowLeftRight className="h-5 w-5 text-gray-500" />
+            <div className="flex justify-center items-center xl:col-span-1 order-3 md:order-2">
+              <button className="p-2 sm:p-3 rounded-full border-2 border-gray-200 hover:bg-gray-50 transition-colors">
+                <ArrowLeftRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500" />
               </button>
             </div>
 
             {/* Receive Section */}
-            <div className="lg:col-span-2">
-              <div className="space-y-4">
+            <div className="xl:col-span-2 order-2 md:order-3">
+              <div className="space-y-3 sm:space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-600 mb-2">Receive</label>
                   <div className="relative">
                     <Select value={selectedCrypto} onValueChange={setSelectedCrypto}>
-                      <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
-                        <div className="flex items-center space-x-3">
-                          <div className={`w-8 h-8 ${currentCrypto.color} rounded-full flex items-center justify-center`}>
-                            <span className="text-white text-sm font-bold">{currentCrypto.icon}</span>
+                      <SelectTrigger className="w-full h-12 sm:h-14 border-2 border-gray-200 rounded-xl">
+                        <div className="flex items-center space-x-2 sm:space-x-3">
+                          <div className={`w-6 h-6 sm:w-8 sm:h-8 ${currentCrypto.color} rounded-full flex items-center justify-center`}>
+                            <span className="text-white text-xs sm:text-sm font-bold">{currentCrypto.icon}</span>
                           </div>
                           <div className="text-left">
-                            <div className="font-medium">{selectedCrypto} - {currentCrypto.name}</div>
+                            <div className="font-medium text-sm sm:text-base">{selectedCrypto} - {currentCrypto.name}</div>
                           </div>
                         </div>
                       </SelectTrigger>
@@ -280,21 +282,21 @@ export default function Trade() {
                       </SelectContent>
                     </Select>
                   </div>
-                  <div className="mt-3">
+                  <div className="mt-2 sm:mt-3">
                     <div className="text-right text-xs text-gray-500 mb-1">{receiveAmount}</div>
-                    <div className="text-right text-lg font-medium">{receiveAmount}</div>
+                    <div className="text-right text-base sm:text-lg font-medium">{receiveAmount}</div>
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-600 mb-2">Payment method</label>
                   <Select value={selectedPayment} onValueChange={setSelectedPayment}>
-                    <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                          <span className="text-white text-sm">{currentPayment.icon}</span>
+                    <SelectTrigger className="w-full h-12 sm:h-14 border-2 border-gray-200 rounded-xl">
+                      <div className="flex items-center space-x-2 sm:space-x-3">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                          <span className="text-white text-xs sm:text-sm">{currentPayment.icon}</span>
                         </div>
-                        <span className="font-medium">{currentPayment.name}</span>
+                        <span className="font-medium text-sm sm:text-base">{currentPayment.name}</span>
                       </div>
                     </SelectTrigger>
                     <SelectContent>
