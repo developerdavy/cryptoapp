@@ -205,12 +205,8 @@ class MemStorage implements IStorage {
   }
 
   async getUserByEmail(email: string): Promise<User | undefined> {
-    for (const user of this.users.values()) {
-      if (user.email === email) {
-        return user;
-      }
-    }
-    return undefined;
+    const users = Array.from(this.users.values());
+    return users.find(user => user.email === email);
   }
 
   async createUser(userData: UpsertUser): Promise<User> {

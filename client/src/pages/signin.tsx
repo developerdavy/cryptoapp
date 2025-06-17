@@ -3,10 +3,58 @@ import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 import { SiGoogle, SiFacebook, SiX } from "react-icons/si";
 import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function SignIn() {
   const [, setLocation] = useLocation();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { toast } = useToast();
+
+  const signinMutation = useMutation({
+    mutationFn: async (data: { email: string; password: string }) => {
+      const response = await fetch("/api/auth/signin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to sign in");
+      }
+      return await response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Success",
+        description: "Signed in successfully!",
+      });
+      setLocation("/");
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to sign in",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !password) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+    signinMutation.mutate({ email, password });
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-600 via-blue-600 to-purple-700 flex flex-col">
@@ -28,7 +76,7 @@ export default function SignIn() {
           <h2 className="text-white text-xl font-semibold">Sign In</h2>
         </div>
 
-        <form className="space-y-3 max-w-sm mx-auto">
+        <form className="space-y-3 max-w-sm mx-auto" onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email" className="form-label text-white" style={{fontSize: '12px'}}>
               Email Address
@@ -39,6 +87,9 @@ export default function SignIn() {
               className="form-control"
               placeholder="enter email address"
               style={{fontSize: '12px', borderRadius: '6px'}}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           
@@ -52,6 +103,9 @@ export default function SignIn() {
               className="form-control"
               placeholder="enter password"
               style={{fontSize: '12px', borderRadius: '6px'}}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           
@@ -84,6 +138,7 @@ export default function SignIn() {
                 padding: '10px 16px'
               }}
               onMouseOver={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#9333ea'}
+              disabled={signinMutation.isPending}
               onMouseOut={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#a855f7'}
             >
               Sign In
