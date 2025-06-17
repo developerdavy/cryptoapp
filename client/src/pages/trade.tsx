@@ -155,9 +155,9 @@ export default function Trade() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-0 md:px-6 py-8">
+      <main className="px-4 md:px-6 py-8">
         {/* Trading Card */}
-        <div className="bg-white rounded-2xl shadow-lg p-4 md:p-8 max-w-4xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-lg p-4 md:p-8 w-full">
           {/* Trading Tabs */}
           <div className="flex space-x-2 mb-8">
             <button
@@ -259,7 +259,7 @@ export default function Trade() {
                       <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
                         <div className="flex items-center space-x-3">
                           <div className={`w-8 h-8 ${currentCrypto.color} rounded-full flex items-center justify-center`}>
-                            <span className="text-white text-sm font-bold">{currentCrypto.symbol}</span>
+                            <span className="text-white text-sm font-bold">{currentCrypto.icon}</span>
                           </div>
                           <div className="text-left">
                             <div className="font-medium">{selectedCrypto} - {currentCrypto.name}</div>
@@ -271,7 +271,7 @@ export default function Trade() {
                           <SelectItem key={symbol} value={symbol}>
                             <div className="flex items-center space-x-3">
                               <div className={`w-6 h-6 ${data.color} rounded-full flex items-center justify-center`}>
-                                <span className="text-white text-xs font-bold">{data.symbol}</span>
+                                <span className="text-white text-xs font-bold">{data.icon}</span>
                               </div>
                               <span>{symbol} - {data.name}</span>
                             </div>
