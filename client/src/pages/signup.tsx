@@ -74,32 +74,32 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Panel - Form */}
-      <div className="w-1/2 bg-white flex flex-col justify-center px-16">
+      <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center px-4 sm:px-8 lg:px-16 py-8 lg:py-0">
         {/* Logo */}
-        <div className="mb-12 ml-8">
+        <div className="mb-8 lg:mb-12 ml-0 lg:ml-8">
           <img 
             src={chicksxLogo} 
             alt="ChicksX" 
-            className="h-8 cursor-pointer" 
+            className="h-6 sm:h-8 cursor-pointer" 
             onClick={() => setLocation("/")}
           />
         </div>
 
         {/* Sign Up Form */}
         <div className="max-w-md mx-auto w-full">
-          <h1 className="text-blue-900 text-2xl font-bold mb-8">Sign Up</h1>
+          <h1 className="text-blue-900 text-xl sm:text-2xl font-bold mb-6 sm:mb-8">Sign Up</h1>
           
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
             <div>
-              <label className="block text-gray-800 text-sm font-medium mb-3">
+              <label className="block text-gray-800 text-sm font-medium mb-2 sm:mb-3">
                 Email Address
               </label>
               <input
                 type="email"
                 placeholder="Enter email address"
-                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm placeholder:text-sm"
+                className="w-full px-3 sm:px-4 py-3 sm:py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm placeholder:text-sm"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -107,13 +107,13 @@ export default function SignUp() {
             </div>
 
             <div>
-              <label className="block text-gray-800 text-sm font-medium mb-3">
+              <label className="block text-gray-800 text-sm font-medium mb-2 sm:mb-3">
                 Password
               </label>
               <input
                 type="password"
                 placeholder="Enter password"
-                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm placeholder:text-sm"
+                className="w-full px-3 sm:px-4 py-3 sm:py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm placeholder:text-sm"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
