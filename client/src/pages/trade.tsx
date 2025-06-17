@@ -66,24 +66,32 @@ export default function Trade() {
 
   // Determine trade type and crypto from URL
   useEffect(() => {
+    console.log('Trade component params:', params);
+    console.log('Trade component location:', location);
+    
     if (location.includes('/buy/')) {
       setActiveTab("Buy");
       const crypto = params.crypto?.toUpperCase();
+      console.log('Buy crypto param:', crypto);
       if (crypto && cryptoData[crypto as keyof typeof cryptoData]) {
         setSelectedCrypto(crypto);
       }
     } else if (location.includes('/sell/')) {
       setActiveTab("Sell");
       const crypto = params.crypto?.toUpperCase();
+      console.log('Sell crypto param:', crypto);
       if (crypto && cryptoData[crypto as keyof typeof cryptoData]) {
         setSelectedCrypto(crypto);
       }
     } else if (location.includes('/swap/')) {
       setActiveTab("Swap");
       const crypto = params.crypto?.toUpperCase();
+      console.log('Swap crypto param:', crypto);
       if (crypto && cryptoData[crypto as keyof typeof cryptoData]) {
         setSelectedCrypto(crypto);
       }
+    } else if (location === '/trade') {
+      setActiveTab("Buy");
     }
   }, [location, params.crypto]);
 
