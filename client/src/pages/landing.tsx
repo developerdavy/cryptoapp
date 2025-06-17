@@ -213,7 +213,7 @@ export default function Landing() {
           
           {isAuthenticated ? (
             <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-700">Hi, {(user as any)?.email?.split('@')[0] || 'User'}</span>
+              <span className="text-sm text-gray-700">Hi, {(user as any)?.email ? (user as any).email.split('@')[0] : 'User'}</span>
               <Button 
                 onClick={handleLogout}
                 className="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg font-medium text-sm"
@@ -300,7 +300,7 @@ export default function Landing() {
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
-                  <span className="hidden lg:inline">Welcome, {user?.email?.split('@')[0]}</span>
+                  <span className="hidden lg:inline">Welcome, {(user as any)?.email ? (user as any).email.split('@')[0] : 'User'}</span>
                 </div>
                 <Button 
                   onClick={handleLogout}
