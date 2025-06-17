@@ -103,6 +103,7 @@ CryptoX is a modern, full-stack cryptocurrency exchange platform built with a Re
 
 ```
 Changelog:
+- June 17, 2025. Made signin and signup pages fully mobile responsive with adaptive layouts, mobile-first design, and hidden desktop illustrations on small screens
 - June 17, 2025. Changed admin panel background to elegant cream white gradient with improved text contrast and professional styling
 - June 17, 2025. Updated signin page to match exact user-provided screenshot design with split-screen layout, deep blue color scheme, actual ChicksX logo, and 14px placeholder text
 - June 16, 2025. Initial setup

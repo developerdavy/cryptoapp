@@ -121,24 +121,24 @@ export default function SignUp() {
             </div>
 
             <div>
-              <label className="block text-gray-800 text-sm font-medium mb-3">
+              <label className="block text-gray-800 text-sm font-medium mb-2 sm:mb-3">
                 Confirm Password
               </label>
               <input
                 type="password"
                 placeholder="Confirm password"
-                className="w-full px-4 py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm placeholder:text-sm"
+                className="w-full px-3 sm:px-4 py-3 sm:py-4 rounded-lg bg-gray-100 border-0 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm placeholder:text-sm"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
             </div>
 
-            <div className="flex justify-between items-center text-sm pt-3">
-              <a href="#" className="text-gray-600 hover:text-blue-800">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm pt-2 sm:pt-3 space-y-2 sm:space-y-0">
+              <a href="#" className="text-gray-600 hover:text-blue-800 text-center sm:text-left">
                 Terms and conditions
               </a>
-              <div className="text-gray-600">
+              <div className="text-gray-600 text-center sm:text-right">
                 Already have an account? 
                 <button
                   type="button"
@@ -153,63 +153,63 @@ export default function SignUp() {
             <button
               type="submit"
               disabled={signupMutation.isPending}
-              className="w-full bg-blue-800 hover:bg-blue-900 text-white font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50 mt-8"
+              className="w-full bg-blue-800 hover:bg-blue-900 text-white font-semibold py-3 sm:py-4 px-6 rounded-lg transition-colors disabled:opacity-50 mt-6 sm:mt-8"
             >
               {signupMutation.isPending ? "Creating Account..." : "Sign up"}
             </button>
           </form>
 
           {/* Divider */}
-          <div className="flex items-center my-8">
+          <div className="flex items-center my-6 sm:my-8">
             <div className="flex-1 border-t border-gray-300"></div>
-            <span className="px-4 text-gray-500 text-sm">or</span>
+            <span className="px-3 sm:px-4 text-gray-500 text-sm">or</span>
             <div className="flex-1 border-t border-gray-300"></div>
           </div>
 
           {/* Social Login Buttons */}
-          <div className="space-y-4">
-            <div className="text-center text-gray-600 text-sm mb-6">Quick Setup</div>
+          <div className="space-y-3 sm:space-y-4">
+            <div className="text-center text-gray-600 text-sm mb-4 sm:mb-6">Quick Setup</div>
             
-            <div className="flex justify-center space-x-4">
-              <button className="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors">
-                <span className="text-white text-sm font-bold">f</span>
+            <div className="flex justify-center space-x-3 sm:space-x-4">
+              <button className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors">
+                <span className="text-white text-xs sm:text-sm font-bold">f</span>
               </button>
-              <button className="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
-                <span className="text-white text-sm font-bold">t</span>
+              <button className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
+                <span className="text-white text-xs sm:text-sm font-bold">t</span>
               </button>
-              <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+              <button className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
                 <span className="text-white text-sm font-bold">G</span>
               </button>
             </div>
           </div>
 
           {/* Additional Service Icons */}
-          <div className="flex justify-center space-x-3 mt-8">
-            <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-sm"></div>
+          <div className="flex justify-center space-x-2 sm:space-x-3 mt-6 sm:mt-8">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-sm"></div>
             </div>
-            <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-sm"></div>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-600 rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-sm"></div>
             </div>
-            <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-sm"></div>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-sm"></div>
             </div>
-            <div className="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-sm"></div>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-500 rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-sm"></div>
             </div>
-            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-sm"></div>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-sm"></div>
             </div>
           </div>
           
-          <div className="text-center text-gray-500 text-sm mt-6">
+          <div className="text-center text-gray-500 text-sm mt-4 sm:mt-6 px-4">
             Get account to access all of ChicksX services
           </div>
         </div>
       </div>
 
-      {/* Right Panel - Illustration */}
-      <div className="w-1/2 bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 relative overflow-hidden">
+      {/* Right Panel - Illustration (hidden on mobile) */}
+      <div className="hidden lg:block w-1/2 bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           {/* Stars */}
