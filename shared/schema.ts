@@ -48,7 +48,9 @@ export const holdings = pgTable("holdings", {
   averageCost: decimal("average_cost", { precision: 20, scale: 10 }).notNull().default("0"),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
-});
+}, (table) => ({
+  userCryptoUnique: unique().on(table.userId, table.cryptocurrency),
+}));
 
 // Transactions table for trade history
 export const transactions = pgTable("transactions", {
