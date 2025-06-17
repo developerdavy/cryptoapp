@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
+import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function SignIn() {
@@ -61,9 +62,12 @@ export default function SignIn() {
       <div className="w-1/2 bg-white flex flex-col justify-center px-16">
         {/* Logo */}
         <div className="mb-12 ml-8">
-          <div className="text-purple-700 text-lg font-bold tracking-wider cursor-pointer" onClick={() => setLocation("/")}>
-            CHICKSX
-          </div>
+          <img 
+            src={chicksxLogo} 
+            alt="ChicksX" 
+            className="h-8 cursor-pointer" 
+            onClick={() => setLocation("/")}
+          />
         </div>
 
         {/* Sign In Form */}
