@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Trash2, Plus, Edit, Save, X, TrendingUp, TrendingDown } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
+import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
 
 interface MarketData {
   id: number;
@@ -296,7 +297,12 @@ export default function AdminPanel() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
-          <div>
+          <div className="text-center">
+            <img 
+              src={chicksxLogo} 
+              alt="ChicksX" 
+              className="h-12 mx-auto mb-6" 
+            />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
               Admin Access Required
             </h2>
@@ -358,9 +364,16 @@ export default function AdminPanel() {
   return (
     <div className="container mx-auto px-6 py-8">
       <div className="mb-8 flex justify-between items-center">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Panel</h1>
-          <p className="text-gray-600">Manage custom cryptocurrency rates and pricing</p>
+        <div className="flex items-center space-x-4">
+          <img 
+            src={chicksxLogo} 
+            alt="ChicksX" 
+            className="h-10" 
+          />
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Panel</h1>
+            <p className="text-gray-600">Manage custom cryptocurrency rates and pricing</p>
+          </div>
         </div>
         <Button onClick={logout} variant="outline" className="text-red-600 border-red-300 hover:bg-red-50">
           Logout
