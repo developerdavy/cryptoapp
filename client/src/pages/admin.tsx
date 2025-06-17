@@ -295,7 +295,7 @@ export default function AdminPanel() {
   // Show authentication form if not authenticated
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div className="text-center">
             <img 
@@ -303,10 +303,10 @@ export default function AdminPanel() {
               alt="ChicksX" 
               className="h-12 mx-auto mb-6" 
             />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
               Admin Access Required
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
+            <p className="mt-2 text-center text-sm text-gray-200">
               Enter the admin key to access the management panel
             </p>
           </div>
@@ -362,23 +362,24 @@ export default function AdminPanel() {
   };
 
   return (
-    <div className="container mx-auto px-6 py-8">
-      <div className="mb-8 flex justify-between items-center">
-        <div className="flex items-center space-x-4">
-          <img 
-            src={chicksxLogo} 
-            alt="ChicksX" 
-            className="h-10" 
-          />
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Panel</h1>
-            <p className="text-gray-600">Manage custom cryptocurrency rates and pricing</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
+      <div className="container mx-auto px-6 py-8">
+        <div className="mb-8 flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <img 
+              src={chicksxLogo} 
+              alt="ChicksX" 
+              className="h-10" 
+            />
+            <div>
+              <h1 className="text-3xl font-bold text-white mb-2">Admin Panel</h1>
+              <p className="text-gray-200">Manage custom cryptocurrency rates and pricing</p>
+            </div>
           </div>
+          <Button onClick={logout} variant="outline" className="text-red-300 border-red-300 hover:bg-red-800 hover:text-white">
+            Logout
+          </Button>
         </div>
-        <Button onClick={logout} variant="outline" className="text-red-600 border-red-300 hover:bg-red-50">
-          Logout
-        </Button>
-      </div>
 
       {/* Add New Rate Form */}
       <Card className="mb-8">
@@ -605,6 +606,7 @@ export default function AdminPanel() {
           </div>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 }
