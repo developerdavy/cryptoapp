@@ -32,5 +32,3 @@ if (!process.env.DATABASE_URL) {
   pool = new Pool({ connectionString: process.env.DATABASE_URL });
   db = drizzle({ client: pool, schema });
 }
-
-export { db }
