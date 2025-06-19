@@ -12,7 +12,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+<<<<<<< HEAD
 import AccessibilitySettings from "@/components/AccessibilitySettings";
+=======
+>>>>>>> 86be93431a69bc5f440a99a2af7c1778281cab52
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -33,6 +36,7 @@ export default function Navbar() {
   };
 
   const handleLogout = () => {
+<<<<<<< HEAD
     window.location.href = "/";
   };
 
@@ -40,6 +44,15 @@ export default function Navbar() {
     <header className="glass-effect sticky top-0 z-50 border-b border-border/50 w-full">
       <div className="container mx-auto px-4 py-3 sm:py-4 max-w-7xl">
         <div className="flex items-center justify-between w-full">
+=======
+    window.location.href = "/api/logout";
+  };
+
+  return (
+    <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+>>>>>>> 86be93431a69bc5f440a99a2af7c1778281cab52
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <div className="w-8 h-8 crypto-gradient rounded-xl flex items-center justify-center">
@@ -71,21 +84,31 @@ export default function Navbar() {
           </nav>
 
           {/* Right Side */}
+<<<<<<< HEAD
           <div className="flex items-center space-x-2 sm:space-x-4">
             {/* Balance Display */}
             <div className="hidden lg:flex items-center space-x-2 bg-card/50 rounded-lg px-3 py-2">
+=======
+          <div className="flex items-center space-x-4">
+            {/* Balance Display */}
+            <div className="hidden md:flex items-center space-x-2 bg-card/50 rounded-lg px-3 py-2">
+>>>>>>> 86be93431a69bc5f440a99a2af7c1778281cab52
               <Wallet className="h-4 w-4 text-green-400" />
               <span className="text-sm">$12,543.67</span>
             </div>
 
+<<<<<<< HEAD
             {/* Accessibility Settings */}
             <AccessibilitySettings />
 
+=======
+>>>>>>> 86be93431a69bc5f440a99a2af7c1778281cab52
             {/* User Menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center space-x-2 p-2">
                   <Avatar className="h-8 w-8">
+<<<<<<< HEAD
                     <AvatarImage src={(user as any)?.profileImageUrl || ""} alt={(user as any)?.firstName || "User"} />
                     <AvatarFallback className="bg-gradient-to-r from-green-400 to-blue-500 text-black">
                       {(user as any)?.firstName?.[0] || 'U'}{(user as any)?.lastName?.[0] || ''}
@@ -93,14 +116,28 @@ export default function Navbar() {
                   </Avatar>
                   <span className="hidden md:inline text-sm">
                     {(user as any)?.firstName || 'User'} {(user as any)?.lastName || ''}
+=======
+                    <AvatarImage src={user?.profileImageUrl || ""} alt={user?.firstName || ""} />
+                    <AvatarFallback className="bg-gradient-to-r from-green-400 to-blue-500 text-black">
+                      {user?.firstName?.[0]}{user?.lastName?.[0]}
+                    </AvatarFallback>
+                  </Avatar>
+                  <span className="hidden md:inline text-sm">
+                    {user?.firstName} {user?.lastName}
+>>>>>>> 86be93431a69bc5f440a99a2af7c1778281cab52
                   </span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56 glass-effect border-border/50">
                 <DropdownMenuItem className="flex items-center space-x-2">
                   <div className="flex flex-col">
+<<<<<<< HEAD
                     <span className="font-medium">{(user as any)?.firstName || 'User'} {(user as any)?.lastName || ''}</span>
                     <span className="text-xs text-gray-400">{(user as any)?.email || 'user@example.com'}</span>
+=======
+                    <span className="font-medium">{user?.firstName} {user?.lastName}</span>
+                    <span className="text-xs text-gray-400">{user?.email}</span>
+>>>>>>> 86be93431a69bc5f440a99a2af7c1778281cab52
                   </div>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-border/50" />
@@ -114,8 +151,13 @@ export default function Navbar() {
             {/* Mobile Menu */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
+<<<<<<< HEAD
                 <Button variant="outline" size="icon" className="md:hidden bg-white text-black border-gray-900 hover:bg-gray-100">
                   <Menu className="h-5 w-5 text-black" />
+=======
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-5 w-5" />
+>>>>>>> 86be93431a69bc5f440a99a2af7c1778281cab52
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="glass-effect border-border/50">
