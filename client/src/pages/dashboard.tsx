@@ -1,4 +1,4 @@
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Eye, Coins, TrendingUp, ArrowUpDown } from "lucide-react";
 import PriceChart from "@/components/price-chart";
