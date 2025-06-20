@@ -5,11 +5,30 @@ import * as schema from "@shared/schema";
 
 neonConfig.webSocketConstructor = ws;
 
-if (!process.env.DATABASE_URL) {
-  throw new Error(
-    "DATABASE_URL must be set. Did you forget to provision a database?",
-  );
-}
+// Declare exports at top level
+export let pool: any;
+export let db: any;
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-export const db = drizzle({ client: pool, schema });
+// Check if DATABASE_URL is set
+if (!process.env.DATABASE_URL) {
+  console.warn("⚠️  DATABASE_URL is not set!");
+  console.warn("📝 To fix this:");
+  console.warn("   1. Click the 'Secrets' tab (lock icon) in the left sidebar");
+  console.warn("   2. Add a new secret named 'DATABASE_URL'");
+  console.warn("   3. Set the value to your PostgreSQL connection string");
+  console.warn("   4. Restart the application");
+  console.warn("");
+  console.warn("🔧 For now, the app will run without database functionality.");
+  
+  // Create a mock database connection for development
+  const mockPool = {
+    query: () => Promise.resolve({ rows: [] }),
+    end: () => Promise.resolve()
+  } as any;
+  
+  pool = mockPool;
+  db = drizzle({ client: mockPool, schema });
+} else {
+  pool = new Pool({ connectionString: process.env.DATABASE_URL });
+  db = drizzle({ client: pool, schema });
+}

@@ -86,21 +86,29 @@ export default function Navbar() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center space-x-2 p-2">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src={(user as any)?.profileImageUrl || ""} alt={(user as any)?.firstName || "User"} />
+                    <AvatarImage
+                      src={(user as any)?.profileImageUrl || ""}
+                      alt={(user as any)?.firstName || "User"}
+                    />
                     <AvatarFallback className="bg-gradient-to-r from-green-400 to-blue-500 text-black">
-                      {(user as any)?.firstName?.[0] || 'U'}{(user as any)?.lastName?.[0] || ''}
+                      {(user as any)?.firstName?.[0] || "U"}
+                      {(user as any)?.lastName?.[0] || ""}
                     </AvatarFallback>
                   </Avatar>
                   <span className="hidden md:inline text-sm">
-                    {(user as any)?.firstName || 'User'} {(user as any)?.lastName || ''}
+                    {(user as any)?.firstName || "User"} {(user as any)?.lastName || ""}
                   </span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56 glass-effect border-border/50">
                 <DropdownMenuItem className="flex items-center space-x-2">
                   <div className="flex flex-col">
-                    <span className="font-medium">{(user as any)?.firstName || 'User'} {(user as any)?.lastName || ''}</span>
-                    <span className="text-xs text-gray-400">{(user as any)?.email || 'user@example.com'}</span>
+                    <span className="font-medium">
+                      {(user as any)?.firstName || "User"} {(user as any)?.lastName || ""}
+                    </span>
+                    <span className="text-xs text-gray-400">
+                      {(user as any)?.email || "user@example.com"}
+                    </span>
                   </div>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-border/50" />
@@ -114,7 +122,11 @@ export default function Navbar() {
             {/* Mobile Menu */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="md:hidden bg-white text-black border-gray-900 hover:bg-gray-100">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="md:hidden bg-white text-black border-gray-900 hover:bg-gray-100"
+                >
                   <Menu className="h-5 w-5 text-black" />
                 </Button>
               </SheetTrigger>
