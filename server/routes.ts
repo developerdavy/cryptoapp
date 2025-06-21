@@ -577,6 +577,37 @@ export async function registerRoutes(app: Express): Promise<Server> {
         throw new Error('Failed to authenticate with Pesapal');
       }
 
+      // First, register IPN URL if not already registered
+      const ipnUrl = `${req.protocol}://${req.get('host')}/api/payment/pesapal/ipn`;
+      const ipnRegisterUrl = pesapalEnvironment === 'live'
+        ? 'https://pay.pesapal.com/v3/api/URLSetup/RegisterIPN'
+        : 'https://cybqa.pesapal.com/pesapalv3/api/URLSetup/RegisterIPN';
+
+      let ipnId = process.env.PESAPAL_IPN_ID;
+      
+      if (!ipnId) {
+        const ipnResponse = await fetch(ipnRegisterUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${authData.token}`
+          },
+          body: JSON.stringify({
+            url: ipnUrl,
+            ipn_notification_type: 'GET'
+          })
+        });
+
+        const ipnResult = await ipnResponse.json();
+        if (ipnResult.ipn_id) {
+          ipnId = ipnResult.ipn_id;
+          console.log('Registered IPN URL with ID:', ipnId);
+        } else {
+          throw new Error('Failed to register IPN URL: ' + JSON.stringify(ipnResult));
+        }
+      }
+
       // Submit order to Pesapal
       const orderUrl = pesapalEnvironment === 'live'
         ? 'https://pay.pesapal.com/v3/api/Transactions/SubmitOrderRequest'
@@ -588,7 +619,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         amount: parseFloat(amount),
         description: `Cryptocurrency purchase - ${amount} ${currency}`,
         callback_url: `${req.protocol}://${req.get('host')}/api/payment/pesapal/callback`,
-        notification_id: merchantReference,
+        notification_id: ipnId,
         billing_address: {
           email_address: email,
           phone_number: phone,
@@ -638,6 +669,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ 
         error: { message: error instanceof Error ? error.message : 'Payment processing failed' }
       });
+    }
+  });
+
+  // Pesapal IPN endpoint
+  app.get('/api/payment/pesapal/ipn', async (req, res) => {
+    try {
+      const { OrderTrackingId, OrderMerchantReference, OrderNotificationType } = req.query;
+      
+      console.log('IPN received:', { OrderTrackingId, OrderMerchantReference, OrderNotificationType });
+      
+      if (OrderTrackingId && OrderNotificationType === 'COMPLETE') {
+        // Update transaction status in database
+        // Add your logic here to update transaction status
+        console.log('Payment completed for order:', OrderTrackingId);
+      }
+      
+      res.status(200).send('OK');
+    } catch (error) {
+      console.error('IPN processing error:', error);
+      res.status(500).send('Error');
     }
   });
 
