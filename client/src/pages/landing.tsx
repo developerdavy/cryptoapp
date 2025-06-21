@@ -26,6 +26,24 @@ export default function Landing() {
   const [, setLocation] = useLocation();
   const { user, isAuthenticated, isLoading, logout } = useAuth();
 
+  // Check for payment status in URL params
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const paymentStatus = urlParams.get('payment');
+    
+    if (paymentStatus === 'success') {
+      // Show success message
+      setTimeout(() => {
+        alert('Payment completed successfully! Your transaction is being processed.');
+      }, 500);
+    } else if (paymentStatus === 'failed') {
+      // Show failure message
+      setTimeout(() => {
+        alert('Payment failed. Please try again or contact support.');
+      }, 500);
+    }
+  }, []);
+
   // Fetch market data from admin-controlled rates
   const { data: marketData = [] } = useQuery({
     queryKey: ['/api/market-data'],

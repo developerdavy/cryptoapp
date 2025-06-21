@@ -531,6 +531,173 @@ export async function registerRoutes(app: Express): Promise<Server> {
     return names[symbol] || symbol;
   }
 
+  // Pesapal Payment Integration
+  app.post('/api/payment/pesapal/initiate', async (req, res) => {
+    try {
+      const { amount, currency, email, firstName, lastName, phone } = req.body;
+      
+      if (!amount || !email || !firstName || !lastName) {
+        return res.status(400).json({ error: { message: 'Missing required fields' } });
+      }
+
+      // Generate unique merchant reference
+      const merchantReference = `TXN_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      
+      // Pesapal API configuration
+      const pesapalConsumerKey = process.env.PESAPAL_CONSUMER_KEY;
+      const pesapalConsumerSecret = process.env.PESAPAL_CONSUMER_SECRET;
+      const pesapalEnvironment = process.env.PESAPAL_ENVIRONMENT || 'sandbox'; // sandbox or live
+      
+      if (!pesapalConsumerKey || !pesapalConsumerSecret) {
+        return res.status(500).json({ 
+          error: { message: 'Payment gateway configuration missing' }
+        });
+      }
+
+      // Pesapal authentication
+      const authUrl = pesapalEnvironment === 'live' 
+        ? 'https://pay.pesapal.com/v3/api/Auth/RequestToken'
+        : 'https://cybqa.pesapal.com/pesapalv3/api/Auth/RequestToken';
+
+      const authResponse = await fetch(authUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          consumer_key: pesapalConsumerKey,
+          consumer_secret: pesapalConsumerSecret
+        })
+      });
+
+      const authData = await authResponse.json();
+      
+      if (!authData.token) {
+        throw new Error('Failed to authenticate with Pesapal');
+      }
+
+      // Submit order to Pesapal
+      const orderUrl = pesapalEnvironment === 'live'
+        ? 'https://pay.pesapal.com/v3/api/Transactions/SubmitOrderRequest'
+        : 'https://cybqa.pesapal.com/pesapalv3/api/Transactions/SubmitOrderRequest';
+
+      const orderData = {
+        id: merchantReference,
+        currency: currency.toUpperCase(),
+        amount: parseFloat(amount),
+        description: `Cryptocurrency purchase - ${amount} ${currency}`,
+        callback_url: `${req.protocol}://${req.get('host')}/api/payment/pesapal/callback`,
+        notification_id: merchantReference,
+        billing_address: {
+          email_address: email,
+          phone_number: phone,
+          country_code: 'KE', // Default to Kenya, can be made dynamic
+          first_name: firstName,
+          last_name: lastName
+        }
+      };
+
+      const orderResponse = await fetch(orderUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${authData.token}`
+        },
+        body: JSON.stringify(orderData)
+      });
+
+      const orderResult = await orderResponse.json();
+
+      if (orderResult.order_tracking_id && orderResult.redirect_url) {
+        // Store transaction record
+        const userId = req.session?.userId || 'guest';
+        await storage.createTransaction({
+          userId,
+          type: 'buy',
+          cryptocurrency: 'PENDING',
+          amount: amount.toString(),
+          fiatAmount: amount.toString(),
+          price: '1',
+          fee: '0',
+          status: 'pending'
+        });
+
+        res.json({
+          order_tracking_id: orderResult.order_tracking_id,
+          merchant_reference: merchantReference,
+          redirect_url: orderResult.redirect_url,
+          status: 'success'
+        });
+      } else {
+        throw new Error(orderResult.error?.message || 'Failed to create payment order');
+      }
+    } catch (error) {
+      console.error('Pesapal payment error:', error);
+      res.status(500).json({ 
+        error: { message: error instanceof Error ? error.message : 'Payment processing failed' }
+      });
+    }
+  });
+
+  // Pesapal payment callback
+  app.get('/api/payment/pesapal/callback', async (req, res) => {
+    try {
+      const { OrderTrackingId, OrderMerchantReference } = req.query;
+      
+      if (!OrderTrackingId) {
+        return res.redirect('/?payment=failed');
+      }
+
+      // Verify payment status with Pesapal
+      const pesapalEnvironment = process.env.PESAPAL_ENVIRONMENT || 'sandbox';
+      const authUrl = pesapalEnvironment === 'live' 
+        ? 'https://pay.pesapal.com/v3/api/Auth/RequestToken'
+        : 'https://cybqa.pesapal.com/pesapalv3/api/Auth/RequestToken';
+
+      const authResponse = await fetch(authUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          consumer_key: process.env.PESAPAL_CONSUMER_KEY,
+          consumer_secret: process.env.PESAPAL_CONSUMER_SECRET
+        })
+      });
+
+      const authData = await authResponse.json();
+      
+      if (authData.token) {
+        const statusUrl = pesapalEnvironment === 'live'
+          ? `https://pay.pesapal.com/v3/api/Transactions/GetTransactionStatus?orderTrackingId=${OrderTrackingId}`
+          : `https://cybqa.pesapal.com/pesapalv3/api/Transactions/GetTransactionStatus?orderTrackingId=${OrderTrackingId}`;
+
+        const statusResponse = await fetch(statusUrl, {
+          headers: {
+            'Authorization': `Bearer ${authData.token}`,
+            'Accept': 'application/json'
+          }
+        });
+
+        const statusData = await statusResponse.json();
+        
+        if (statusData.payment_status_description === 'Completed') {
+          res.redirect('/?payment=success');
+        } else {
+          res.redirect('/?payment=failed');
+        }
+      } else {
+        res.redirect('/?payment=failed');
+      }
+    } catch (error) {
+      console.error('Payment callback error:', error);
+      res.redirect('/?payment=failed');
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

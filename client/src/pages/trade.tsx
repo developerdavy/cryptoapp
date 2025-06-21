@@ -107,7 +107,7 @@ export default function Trade() {
         variant: "destructive",
       });
       setTimeout(() => {
-        window.location.href = "/api/login";
+        window.location.href = "/login";
       }, 1000);
       return;
     }
@@ -117,6 +117,10 @@ export default function Trade() {
       title: "Processing Transaction",
       description: "Redirecting to secure checkout...",
     });
+    
+    setTimeout(() => {
+      window.location.href = "/checkout";
+    }, 1000);
     // Add actual checkout logic here
   };
 
