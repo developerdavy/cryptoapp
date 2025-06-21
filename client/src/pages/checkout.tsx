@@ -114,43 +114,44 @@ export default function Checkout() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="w-full max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setLocation("/")}
-                className="text-gray-600 hover:text-gray-900"
+                className="text-gray-600 hover:text-gray-900 p-1 sm:p-2"
               >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
+                <ArrowLeft className="w-4 h-4 sm:mr-2" />
+                <span className="hidden sm:inline">Back</span>
               </Button>
-              <img src={chicksxLogo} alt="ChicksX" className="h-8" />
+              <img src={chicksxLogo} alt="ChicksX" className="h-6 sm:h-8" />
             </div>
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <Lock className="w-4 h-4" />
-              <span>Secure Checkout</span>
+            <div className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm text-gray-600">
+              <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">Secure Checkout</span>
+              <span className="sm:hidden">Secure</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Card className="bg-white">
-          <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
-              <CreditCard className="w-5 h-5" />
+      <div className="w-full max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+        <Card className="bg-white w-full">
+          <CardHeader className="px-4 sm:px-6">
+            <CardTitle className="flex items-center space-x-2 text-lg sm:text-xl">
+              <CreditCard className="w-5 h-5 sm:w-6 sm:h-6" />
               <span>Payment Details</span>
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <form onSubmit={handlePayment} className="space-y-6">
+          <CardContent className="px-4 sm:px-6">
+            <form onSubmit={handlePayment} className="space-y-4 sm:space-y-6">
               {/* Amount Section */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium text-gray-900">Transaction Amount</h3>
-                <div className="flex space-x-4">
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-base sm:text-lg font-medium text-gray-900">Transaction Amount</h3>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <div className="flex-1">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Amount
@@ -162,15 +163,15 @@ export default function Checkout() {
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
                       required
-                      className="text-lg"
+                      className="text-base sm:text-lg h-10 sm:h-12"
                     />
                   </div>
-                  <div className="w-32">
+                  <div className="w-full sm:w-32">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Currency
                     </label>
                     <Select value={currency} onValueChange={setCurrency}>
-                      <SelectTrigger>
+                      <SelectTrigger className="h-10 sm:h-12">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -187,9 +188,9 @@ export default function Checkout() {
               </div>
 
               {/* Billing Information */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium text-gray-900">Billing Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-base sm:text-lg font-medium text-gray-900">Billing Information</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       First Name
@@ -199,6 +200,7 @@ export default function Checkout() {
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       required
+                      className="h-10 sm:h-12"
                     />
                   </div>
                   <div>
@@ -210,6 +212,7 @@ export default function Checkout() {
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       required
+                      className="h-10 sm:h-12"
                     />
                   </div>
                 </div>
@@ -222,6 +225,7 @@ export default function Checkout() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    className="h-10 sm:h-12"
                   />
                 </div>
                 <div>
@@ -234,19 +238,20 @@ export default function Checkout() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
+                    className="h-10 sm:h-12"
                   />
                 </div>
               </div>
 
               {/* Payment Method */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium text-gray-900">Payment Method</h3>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-base sm:text-lg font-medium text-gray-900">Payment Method</h3>
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
                   <div className="flex items-center space-x-3">
-                    <CreditCard className="w-6 h-6 text-blue-600" />
+                    <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-blue-900">Credit/Debit Card via Pesapal</p>
-                      <p className="text-sm text-blue-700">Secure payment processing by Pesapal</p>
+                      <p className="font-medium text-blue-900 text-sm sm:text-base">Credit/Debit Card via Pesapal</p>
+                      <p className="text-xs sm:text-sm text-blue-700">Secure payment processing by Pesapal</p>
                     </div>
                   </div>
                 </div>
@@ -256,13 +261,13 @@ export default function Checkout() {
               <Button
                 type="submit"
                 disabled={isProcessing}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg font-medium"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 sm:py-4 text-base sm:text-lg font-medium h-12 sm:h-14"
               >
                 {isProcessing ? "Processing..." : `Pay ${currency} ${amount || "0.00"}`}
               </Button>
 
               {/* Security Notice */}
-              <div className="text-center text-sm text-gray-500">
+              <div className="text-center text-xs sm:text-sm text-gray-500 space-y-1">
                 <p>Your payment information is encrypted and secure.</p>
                 <p>Powered by Pesapal - Africa's leading payment gateway.</p>
               </div>

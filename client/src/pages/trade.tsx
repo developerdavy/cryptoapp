@@ -128,10 +128,10 @@ export default function Trade() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
-        <div className="w-full px-3 sm:px-4 md:px-6 py-3 sm:py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-4 sm:space-x-6 md:space-x-8">
+        <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8">
             <img src={chicksxLogo} alt="ChicksX" className="h-6 sm:h-7 md:h-8" />
-            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
+            <nav className="hidden lg:flex items-center space-x-2 xl:space-x-4">
               <button className="text-gray-700 hover:text-purple-600 font-medium flex items-center text-sm lg:text-base">
                 Buy Crypto
                 <ChevronDown className="ml-1 h-3 w-3 lg:h-4 lg:w-4" />
@@ -206,21 +206,21 @@ export default function Trade() {
             </button>
           </div>
 
-          {/* Trading Interface - Horizontal Layout */}
-          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 items-center lg:items-end">
+          {/* Trading Interface - Responsive Layout */}
+          <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-6 items-stretch lg:items-end">
             {/* Spend Section */}
             <div className="flex-1 min-w-0">
               <div>
                 <label className="block text-sm font-medium text-gray-600 mb-2">Spend</label>
                 <div className="relative">
                   <Select value={selectedCurrency} onValueChange={setSelectedCurrency}>
-                    <SelectTrigger className="w-full h-12 sm:h-14 border-2 border-gray-200 rounded-xl">
+                    <SelectTrigger className="w-full h-10 sm:h-12 lg:h-14 border-2 border-gray-200 rounded-xl">
                       <div className="flex items-center space-x-2 sm:space-x-3">
-                        <div className={`w-6 h-6 sm:w-8 sm:h-8 ${currentCurrency.color} rounded-full flex items-center justify-center`}>
+                        <div className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 ${currentCurrency.color} rounded-full flex items-center justify-center`}>
                           <span className="text-white text-xs sm:text-sm font-bold">{currentCurrency.icon}</span>
                         </div>
-                        <div className="text-left">
-                          <div className="font-medium text-sm sm:text-base">{selectedCurrency} - {currentCurrency.name}</div>
+                        <div className="text-left min-w-0">
+                          <div className="font-medium text-xs sm:text-sm lg:text-base truncate">{selectedCurrency} - {currentCurrency.name}</div>
                         </div>
                       </div>
                     </SelectTrigger>
