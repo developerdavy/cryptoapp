@@ -546,7 +546,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Pesapal API configuration
       const pesapalConsumerKey = process.env.PESAPAL_CONSUMER_KEY;
       const pesapalConsumerSecret = process.env.PESAPAL_CONSUMER_SECRET;
-      const pesapalEnvironment = process.env.PESAPAL_ENVIRONMENT || 'sandbox'; // sandbox or live
+      const pesapalEnvironment = 'live'; // Use live environment for production
       
       if (!pesapalConsumerKey || !pesapalConsumerSecret) {
         return res.status(500).json({ 
@@ -651,7 +651,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       // Verify payment status with Pesapal
-      const pesapalEnvironment = process.env.PESAPAL_ENVIRONMENT || 'sandbox';
+      const pesapalEnvironment = 'live'; // Use live environment for production
       const authUrl = pesapalEnvironment === 'live' 
         ? 'https://pay.pesapal.com/v3/api/Auth/RequestToken'
         : 'https://cybqa.pesapal.com/pesapalv3/api/Auth/RequestToken';
