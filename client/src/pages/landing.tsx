@@ -44,36 +44,66 @@ export default function Landing() {
     }
   }, []);
 
-  // Fetch live market data from external API
+  // Fetch live market data with historical chart data from external API
   const { data: marketData = [] } = useQuery({
     queryKey: ['live-market-data'],
     queryFn: async () => {
       try {
-        // Fetch live data from CoinGecko API
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano&vs_currencies=usd&include_24hr_change=true');
-        if (!response.ok) throw new Error('Failed to fetch live data');
-        const data = await response.json();
+        // Fetch current prices and 24h changes
+        const priceResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano&vs_currencies=usd&include_24hr_change=true');
+        if (!priceResponse.ok) throw new Error('Failed to fetch price data');
+        const priceData = await priceResponse.json();
+        
+        // Fetch 7-day historical data for chart generation
+        const cryptos = [
+          { id: 'bitcoin', symbol: 'BTC' },
+          { id: 'ethereum', symbol: 'ETH' },
+          { id: 'solana', symbol: 'SOL' },
+          { id: 'cardano', symbol: 'ADA' }
+        ];
+        
+        const chartDataPromises = cryptos.map(async (crypto) => {
+          try {
+            const chartResponse = await fetch(`https://api.coingecko.com/api/v3/coins/${crypto.id}/market_chart?vs_currency=usd&days=7&interval=daily`);
+            if (chartResponse.ok) {
+              const chartData = await chartResponse.json();
+              return {
+                symbol: crypto.symbol,
+                prices: chartData.prices || []
+              };
+            }
+          } catch (error) {
+            console.log(`Chart data unavailable for ${crypto.symbol}`);
+          }
+          return { symbol: crypto.symbol, prices: [] };
+        });
+        
+        const chartResults = await Promise.all(chartDataPromises);
         
         return [
           {
             symbol: 'BTC',
-            price: data.bitcoin?.usd || 43521,
-            priceChange24h: data.bitcoin?.usd_24h_change || 0
+            price: priceData.bitcoin?.usd || 43521,
+            priceChange24h: priceData.bitcoin?.usd_24h_change || 0,
+            chartData: chartResults.find(c => c.symbol === 'BTC')?.prices || []
           },
           {
             symbol: 'ETH',
-            price: data.ethereum?.usd || 2341,
-            priceChange24h: data.ethereum?.usd_24h_change || 0
+            price: priceData.ethereum?.usd || 2341,
+            priceChange24h: priceData.ethereum?.usd_24h_change || 0,
+            chartData: chartResults.find(c => c.symbol === 'ETH')?.prices || []
           },
           {
             symbol: 'SOL',
-            price: data.solana?.usd || 98.45,
-            priceChange24h: data.solana?.usd_24h_change || 0
+            price: priceData.solana?.usd || 98.45,
+            priceChange24h: priceData.solana?.usd_24h_change || 0,
+            chartData: chartResults.find(c => c.symbol === 'SOL')?.prices || []
           },
           {
             symbol: 'ADA',
-            price: data.cardano?.usd || 0.50,
-            priceChange24h: data.cardano?.usd_24h_change || 0
+            price: priceData.cardano?.usd || 0.50,
+            priceChange24h: priceData.cardano?.usd_24h_change || 0,
+            chartData: chartResults.find(c => c.symbol === 'ADA')?.prices || []
           }
         ];
       } catch (error) {
@@ -187,61 +217,95 @@ export default function Landing() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-  // Generate realistic chart data points
-  const generateChartPoints = (change: number, points: number = 20) => {
-    const chartPoints = [];
-    let currentValue = 50;
-    const volatility = Math.abs(change) * 2;
-    
-    for (let i = 0; i < points; i++) {
-      const trend = change > 0 ? 0.5 : -0.5;
-      const randomChange = (Math.random() - 0.5) * volatility;
-      currentValue += trend + randomChange;
-      currentValue = Math.max(10, Math.min(90, currentValue));
-      chartPoints.push(`${(i * (100 / (points - 1)))},${100 - currentValue}`);
+  // Generate chart data points from live historical data
+  const generateChartPointsFromLiveData = (historicalPrices: any[]) => {
+    if (!historicalPrices || historicalPrices.length === 0) {
+      // Return empty string if no data available
+      return '';
     }
+
+    // Get the last 7 days of price data
+    const prices = historicalPrices.slice(-7).map(([timestamp, price]) => price);
+    
+    if (prices.length === 0) return '';
+    
+    // Normalize prices to fit in 0-100 range for SVG
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+    const priceRange = maxPrice - minPrice;
+    
+    const chartPoints = prices.map((price, index) => {
+      const normalizedPrice = priceRange > 0 ? ((price - minPrice) / priceRange) * 80 + 10 : 50;
+      const x = (index / (prices.length - 1)) * 100;
+      const y = 100 - normalizedPrice; // Invert Y axis for SVG
+      return `${x},${y}`;
+    });
     
     return chartPoints.join(' ');
   };
 
-  // Animated live chart component
-  const LiveChart = ({ change, color }: { change: number, color: string }) => {
-    const [chartData, setChartData] = useState(generateChartPoints(change));
+  // Animated live chart component using real market data
+  const LiveChart = ({ change, color, symbol }: { change: number, color: string, symbol: string }) => {
+    const [chartData, setChartData] = useState('');
     const [isAnimating, setIsAnimating] = useState(false);
 
+    // Update chart data when market data changes
+    useEffect(() => {
+      const cryptoData = marketData.find((crypto: any) => crypto.symbol === symbol);
+      if (cryptoData && cryptoData.chartData) {
+        const newChartData = generateChartPointsFromLiveData(cryptoData.chartData);
+        if (newChartData !== chartData) {
+          setIsAnimating(true);
+          setTimeout(() => {
+            setChartData(newChartData);
+            setIsAnimating(false);
+          }, 200);
+        }
+      }
+    }, [marketData, symbol, chartData]);
+
+    // Animate chart every 30 seconds to sync with data refresh
     useEffect(() => {
       const interval = setInterval(() => {
-        setIsAnimating(true);
-        setTimeout(() => {
-          setChartData(generateChartPoints(change));
-          setIsAnimating(false);
-        }, 200);
-      }, 3000 + Math.random() * 2000); // Random intervals between 3-5 seconds
+        const cryptoData = marketData.find((crypto: any) => crypto.symbol === symbol);
+        if (cryptoData && cryptoData.chartData) {
+          setIsAnimating(true);
+          setTimeout(() => {
+            const newChartData = generateChartPointsFromLiveData(cryptoData.chartData);
+            setChartData(newChartData);
+            setIsAnimating(false);
+          }, 200);
+        }
+      }, 30000); // 30 seconds to match data refresh
 
       return () => clearInterval(interval);
-    }, [change]);
+    }, [marketData, symbol]);
 
     return (
       <div className={`h-16 w-full transition-opacity duration-200 ${isAnimating ? 'opacity-70' : 'opacity-100'}`}>
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>
-            <linearGradient id={`gradient-${color}`} x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id={`gradient-${color}-${symbol}`} x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor={color} stopOpacity="0.3"/>
               <stop offset="100%" stopColor={color} stopOpacity="0.05"/>
             </linearGradient>
           </defs>
-          <path
-            d={`M ${chartData} L 100,100 L 0,100 Z`}
-            fill={`url(#gradient-${color})`}
-            className="transition-all duration-500"
-          />
-          <polyline
-            fill="none"
-            stroke={color}
-            strokeWidth="2"
-            points={chartData}
-            className="transition-all duration-500"
-          />
+          {chartData && (
+            <>
+              <path
+                d={`M ${chartData} L 100,100 L 0,100 Z`}
+                fill={`url(#gradient-${color}-${symbol})`}
+                className="transition-all duration-500"
+              />
+              <polyline
+                fill="none"
+                stroke={color}
+                strokeWidth="2"
+                points={chartData}
+                className="transition-all duration-500"
+              />
+            </>
+          )}
         </svg>
       </div>
     );
@@ -1498,7 +1562,7 @@ export default function Landing() {
                         {isPositive ? <TrendingUp className="w-3 h-3 mr-1" /> : <TrendingDown className="w-3 h-3 mr-1" />}
                         {isPositive ? '+' : ''}{change.toFixed(2)}%
                       </div>
-                      <LiveChart change={change} color={cryptoConfig.color} />
+                      <LiveChart change={change} color={cryptoConfig.color} symbol={crypto.symbol} />
                       <Button
                         variant="ghost"
                         className="text-purple-600 font-medium text-sm p-0 h-auto"
@@ -1611,14 +1675,11 @@ export default function Landing() {
                   />
                 </div>
                 <div className="h-4 sm:h-8 mb-1 sm:mb-2">
-                  <svg className="w-full h-full" viewBox="0 0 100 30">
-                    <path
-                      d="M0,15 L20,12 L40,18 L60,8 L80,14 L100,10"
-                      fill="none"
-                      strokeWidth="2"
-                      className="stroke-orange-500"
-                    />
-                  </svg>
+                  <LiveChart 
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0 : 0}
+                    color="#f59e0b" 
+                    symbol="BTC"
+                  />
                 </div>
                 <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
@@ -1650,14 +1711,11 @@ export default function Landing() {
                   />
                 </div>
                 <div className="h-4 sm:h-8 mb-1 sm:mb-2">
-                  <svg className="w-full h-full" viewBox="0 0 100 30">
-                    <path
-                      d="M0,10 L20,15 L40,8 L60,18 L80,12 L100,20"
-                      fill="none"
-                      strokeWidth="2"
-                      className="stroke-blue-500"
-                    />
-                  </svg>
+                  <LiveChart 
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h || 0 : -1.08}
+                    color="#3b82f6" 
+                    symbol="ETH"
+                  />
                 </div>
                 <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
@@ -1689,14 +1747,11 @@ export default function Landing() {
                   />
                 </div>
                 <div className="h-4 sm:h-8 mb-1 sm:mb-2">
-                  <svg className="w-full h-full" viewBox="0 0 100 30">
-                    <path
-                      d="M0,20 L20,15 L40,22 L60,10 L80,16 L100,8"
-                      fill="none"
-                      strokeWidth="2"
-                      className="stroke-purple-500"
-                    />
-                  </svg>
+                  <LiveChart 
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h || 0 : 0.66}
+                    color="#8b5cf6" 
+                    symbol="SOL"
+                  />
                 </div>
                 <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
@@ -1720,14 +1775,11 @@ export default function Landing() {
                   </div>
                 </div>
                 <div className="h-4 sm:h-8 mb-1 sm:mb-2">
-                  <svg className="w-full h-full" viewBox="0 0 100 30">
-                    <path
-                      d="M0,18 L20,12 L40,20 L60,14 L80,18 L100,16"
-                      fill="none"
-                      strokeWidth="2"
-                      className="stroke-blue-600"
-                    />
-                  </svg>
+                  <LiveChart 
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ADA')?.priceChange24h || 0 : 1.2}
+                    color="#2563eb" 
+                    symbol="ADA"
+                  />
                 </div>
                 <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
