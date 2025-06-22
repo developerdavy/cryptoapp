@@ -297,6 +297,20 @@ export default function Landing() {
       }
     }, [price, displayPrice]);
 
+    // Trigger animation every 30 seconds regardless of data changes
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setIsFlashing(true);
+        setAnimationKey(prev => prev + 1);
+        
+        setTimeout(() => {
+          setIsFlashing(false);
+        }, 800);
+      }, 30000); // 30 seconds
+
+      return () => clearInterval(interval);
+    }, []);
+
     // Split price into individual characters for animation
     const priceChars = displayPrice.split('');
 
@@ -319,12 +333,22 @@ export default function Landing() {
   // Animated percentage component
   const AnimatedPercentage = ({ percentage, change }: { percentage: string, change: number }) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [animationTrigger, setAnimationTrigger] = useState(0);
 
     useEffect(() => {
       setIsVisible(false);
       const timeout = setTimeout(() => setIsVisible(true), 100);
       return () => clearTimeout(timeout);
-    }, [percentage]);
+    }, [percentage, animationTrigger]);
+
+    // Trigger animation every 30 seconds
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setAnimationTrigger(prev => prev + 1);
+      }, 30000); // 30 seconds
+
+      return () => clearInterval(interval);
+    }, []);
 
     return (
       <div className={`flex items-center text-sm font-medium transition-all duration-500 ${
