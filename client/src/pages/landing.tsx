@@ -118,37 +118,37 @@ export default function Landing() {
     refetchInterval: 30000, // Refresh every 30 seconds for live data
   }) as { data: any[] };
 
-  // All available cryptocurrencies
+  // All available cryptocurrencies with authentic icons
   const allCryptos = [
     { symbol: "BTC", name: "Bitcoin", color: "bg-orange-500", icon: "₿" },
     { symbol: "ETH", name: "Ethereum", color: "bg-blue-500", icon: "Ξ" },
-    { symbol: "USDT", name: "Tether", color: "bg-green-500", icon: "T" },
-    { symbol: "BNB", name: "Binance Coin", color: "bg-yellow-600", icon: "B" },
-    { symbol: "ADA", name: "Cardano", color: "bg-red-500", icon: "A" },
-    { symbol: "SOL", name: "Solana", color: "bg-purple-600", icon: "S" },
-    { symbol: "XRP", name: "Ripple", color: "bg-blue-700", icon: "X" },
-    { symbol: "DOGE", name: "Dogecoin", color: "bg-yellow-700", icon: "D" },
-    { symbol: "AVAX", name: "Avalanche", color: "bg-teal-600", icon: "A" },
-    { symbol: "MATIC", name: "Polygon", color: "bg-indigo-600", icon: "P" },
-    { symbol: "DOT", name: "Polkadot", color: "bg-pink-600", icon: "D" },
-    { symbol: "LTC", name: "Litecoin", color: "bg-gray-500", icon: "L" },
-    { symbol: "UNI", name: "Uniswap", color: "bg-purple-700", icon: "U" },
-    { symbol: "LINK", name: "Chainlink", color: "bg-blue-800", icon: "L" },
-    { symbol: "ATOM", name: "Cosmos", color: "bg-orange-600", icon: "A" },
-    { symbol: "ALGO", name: "Algorand", color: "bg-cyan-600", icon: "A" },
-    { symbol: "ICP", name: "Internet Computer", color: "bg-red-600", icon: "I" },
-    { symbol: "FTT", name: "FTX Token", color: "bg-emerald-600", icon: "F" },
-    { symbol: "APE", name: "ApeCoin", color: "bg-violet-600", icon: "A" },
-    { symbol: "NEAR", name: "NEAR Protocol", color: "bg-slate-600", icon: "N" },
+    { symbol: "USDT", name: "Tether", color: "bg-green-500", icon: "₮" },
+    { symbol: "BNB", name: "Binance Coin", color: "bg-yellow-600", icon: "⬡" },
+    { symbol: "ADA", name: "Cardano", color: "bg-red-500", icon: "₳" },
+    { symbol: "SOL", name: "Solana", color: "bg-purple-600", icon: "◎" },
+    { symbol: "XRP", name: "Ripple", color: "bg-blue-700", icon: "✕" },
+    { symbol: "DOGE", name: "Dogecoin", color: "bg-yellow-700", icon: "Ð" },
+    { symbol: "AVAX", name: "Avalanche", color: "bg-teal-600", icon: "△" },
+    { symbol: "MATIC", name: "Polygon", color: "bg-indigo-600", icon: "⬟" },
+    { symbol: "DOT", name: "Polkadot", color: "bg-pink-600", icon: "●" },
+    { symbol: "LTC", name: "Litecoin", color: "bg-gray-500", icon: "Ł" },
+    { symbol: "UNI", name: "Uniswap", color: "bg-purple-700", icon: "🦄" },
+    { symbol: "LINK", name: "Chainlink", color: "bg-blue-800", icon: "⬢" },
+    { symbol: "ATOM", name: "Cosmos", color: "bg-orange-600", icon: "⚛" },
+    { symbol: "ALGO", name: "Algorand", color: "bg-cyan-600", icon: "△" },
+    { symbol: "ICP", name: "Internet Computer", color: "bg-red-600", icon: "∞" },
+    { symbol: "FTT", name: "FTX Token", color: "bg-emerald-600", icon: "⟨⟩" },
+    { symbol: "APE", name: "ApeCoin", color: "bg-violet-600", icon: "🐒" },
+    { symbol: "NEAR", name: "NEAR Protocol", color: "bg-slate-600", icon: "◐" },
     { symbol: "MANA", name: "Decentraland", color: "bg-blue-900", icon: "M" },
-    { symbol: "SAND", name: "The Sandbox", color: "bg-green-600", icon: "S" },
-    { symbol: "CRO", name: "Cronos", color: "bg-indigo-800", icon: "C" },
-    { symbol: "HBAR", name: "Hedera", color: "bg-orange-700", icon: "H" },
-    { symbol: "THETA", name: "Theta", color: "bg-purple-800", icon: "T" },
-    { symbol: "FLOW", name: "Flow", color: "bg-red-700", icon: "F" },
-    { symbol: "EGLD", name: "MultiversX", color: "bg-teal-700", icon: "E" },
-    { symbol: "XTZ", name: "Tezos", color: "bg-indigo-700", icon: "X" },
-    { symbol: "GRT", name: "The Graph", color: "bg-cyan-700", icon: "G" },
+    { symbol: "SAND", name: "The Sandbox", color: "bg-green-600", icon: "◇" },
+    { symbol: "CRO", name: "Cronos", color: "bg-indigo-800", icon: "⧫" },
+    { symbol: "HBAR", name: "Hedera", color: "bg-orange-700", icon: "ℏ" },
+    { symbol: "THETA", name: "Theta", color: "bg-purple-800", icon: "Θ" },
+    { symbol: "FLOW", name: "Flow", color: "bg-red-700", icon: "◊" },
+    { symbol: "EGLD", name: "MultiversX", color: "bg-teal-700", icon: "⚡" },
+    { symbol: "XTZ", name: "Tezos", color: "bg-indigo-700", icon: "ꜩ" },
+    { symbol: "GRT", name: "The Graph", color: "bg-cyan-700", icon: "⌐" },
     { symbol: "1INCH", name: "1inch", color: "bg-emerald-700", icon: "1" }
   ];
 
@@ -1656,7 +1656,7 @@ export default function Landing() {
               <CardContent className="p-2 sm:p-3 md:p-4">
                 <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
                   <div className="w-5 h-5 sm:w-8 sm:h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                    <span className="text-orange-500 text-xs sm:text-lg font-bold">B</span>
+                    <span className="text-orange-500 text-xs sm:text-lg font-bold">₿</span>
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-800">Bitcoin</div>
                 </div>
@@ -1692,7 +1692,7 @@ export default function Landing() {
               <CardContent className="p-2 sm:p-3 md:p-4">
                 <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
                   <div className="w-5 h-5 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-blue-500 text-xs sm:text-lg font-bold">E</span>
+                    <span className="text-blue-500 text-xs sm:text-lg font-bold">Ξ</span>
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-gray-800">Ethereum</div>
                 </div>
