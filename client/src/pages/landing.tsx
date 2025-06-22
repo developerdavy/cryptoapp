@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Shield, Headphones, Menu, X } from "lucide-react";
+import { Star, Shield, Headphones, Menu, X, TrendingUp, TrendingDown } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/hooks/useAuth";
@@ -149,6 +149,90 @@ export default function Landing() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+  // Generate realistic chart data points
+  const generateChartPoints = (change: number, points: number = 20) => {
+    const chartPoints = [];
+    let currentValue = 50;
+    const volatility = Math.abs(change) * 2;
+    
+    for (let i = 0; i < points; i++) {
+      const trend = change > 0 ? 0.5 : -0.5;
+      const randomChange = (Math.random() - 0.5) * volatility;
+      currentValue += trend + randomChange;
+      currentValue = Math.max(10, Math.min(90, currentValue));
+      chartPoints.push(`${(i * (100 / (points - 1)))},${100 - currentValue}`);
+    }
+    
+    return chartPoints.join(' ');
+  };
+
+  // Animated live chart component
+  const LiveChart = ({ change, color }: { change: number, color: string }) => {
+    const [chartData, setChartData] = useState(generateChartPoints(change));
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setChartData(generateChartPoints(change));
+          setIsAnimating(false);
+        }, 200);
+      }, 3000 + Math.random() * 2000); // Random intervals between 3-5 seconds
+
+      return () => clearInterval(interval);
+    }, [change]);
+
+    return (
+      <div className={`h-16 w-full transition-opacity duration-200 ${isAnimating ? 'opacity-70' : 'opacity-100'}`}>
+        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id={`gradient-${color}`} x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor={color} stopOpacity="0.3"/>
+              <stop offset="100%" stopColor={color} stopOpacity="0.05"/>
+            </linearGradient>
+          </defs>
+          <path
+            d={`M ${chartData} L 100,100 L 0,100 Z`}
+            fill={`url(#gradient-${color})`}
+            className="transition-all duration-500"
+          />
+          <polyline
+            fill="none"
+            stroke={color}
+            strokeWidth="2"
+            points={chartData}
+            className="transition-all duration-500"
+          />
+        </svg>
+      </div>
+    );
+  };
+
+  // Price animation component
+  const AnimatedPrice = ({ price, change }: { price: string, change: number }) => {
+    const [displayPrice, setDisplayPrice] = useState(price);
+    const [isFlashing, setIsFlashing] = useState(false);
+
+    useEffect(() => {
+      if (price !== displayPrice) {
+        setIsFlashing(true);
+        setTimeout(() => {
+          setDisplayPrice(price);
+          setIsFlashing(false);
+        }, 300);
+      }
+    }, [price, displayPrice]);
+
+    return (
+      <div className={`font-bold text-lg transition-all duration-300 ${
+        isFlashing ? (change >= 0 ? 'text-green-500' : 'text-red-500') : 'text-gray-900'
+      }`}>
+        {displayPrice}
+      </div>
+    );
+  };
+
   // Generate dynamic crypto cards from admin-controlled market data
   const cryptoCards = Array.isArray(marketData) && marketData.length > 0 ? [
     {
@@ -1248,99 +1332,65 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Crypto Cards positioned at bottom overlapping onto next section */}
+          {/* Live Crypto Cards positioned at bottom overlapping onto next section */}
           <div className="absolute bottom-0 left-0 right-0 px-0 md:px-4 transform translate-y-1/2 z-10">
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex gap-3 pb-4" style={{minWidth: 'max-content'}}>
-                <div className="bg-white rounded-2xl p-4 shadow-lg w-44 flex-shrink-0">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-white font-bold text-sm">₿</span>
+                {Array.isArray(marketData) && marketData.length > 0 ? marketData.slice(0, 5).map((crypto: any) => {
+                  const change = parseFloat(crypto.priceChange24h) || 0;
+                  const isPositive = change >= 0;
+                  const cryptoConfigMap: { [key: string]: { name: string, icon: string, color: string, bgColor: string } } = {
+                    BTC: { name: "Bitcoin", icon: "₿", color: "#f97316", bgColor: "bg-orange-500" },
+                    ETH: { name: "Ethereum", icon: "Ξ", color: "#3b82f6", bgColor: "bg-blue-500" },
+                    SOL: { name: "Solana", icon: "◎", color: "#9945ff", bgColor: "bg-purple-500" },
+                    ADA: { name: "Cardano", icon: "₳", color: "#0033ad", bgColor: "bg-blue-600" },
+                    BNB: { name: "BNB", icon: "B", color: "#f0b90b", bgColor: "bg-yellow-500" }
+                  };
+                  const cryptoConfig = cryptoConfigMap[crypto.symbol] || { name: crypto.symbol, icon: crypto.symbol[0], color: "#6b7280", bgColor: "bg-gray-500" };
+
+                  return (
+                    <div key={crypto.symbol} className="bg-white rounded-2xl p-4 shadow-lg w-44 flex-shrink-0 hover:shadow-xl transition-shadow cursor-pointer"
+                         onClick={() => setLocation(`/trade/${crypto.symbol.toLowerCase()}`)}>
+                      <div className="flex items-center mb-3">
+                        <div className={`w-8 h-8 ${cryptoConfig.bgColor} rounded-full flex items-center justify-center mr-3`}>
+                          <span className="text-white font-bold text-sm">{cryptoConfig.icon}</span>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-sm">{cryptoConfig.name}</div>
+                        </div>
+                      </div>
+                      <AnimatedPrice 
+                        price={`$${parseFloat(crypto.price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+                        change={change}
+                      />
+                      <div className={`text-sm mb-3 flex items-center ${isPositive ? 'text-green-500' : 'text-red-500'}`}>
+                        {isPositive ? <TrendingUp className="w-3 h-3 mr-1" /> : <TrendingDown className="w-3 h-3 mr-1" />}
+                        {isPositive ? '+' : ''}{change.toFixed(2)}%
+                      </div>
+                      <LiveChart change={change} color={cryptoConfig.color} />
+                      <Button
+                        variant="ghost"
+                        className="text-purple-600 font-medium text-sm p-0 h-auto"
+                        onClick={() => setLocation(`/trade/${crypto.symbol.toLowerCase()}`)}
+                      >
+                        Trade now →
+                      </Button>
                     </div>
-                    <div>
+                  );
+                }) : (
+                  // Fallback cards when no market data available
+                  <div className="bg-white rounded-2xl p-4 shadow-lg w-44 flex-shrink-0">
+                    <div className="flex items-center mb-3">
+                      <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
+                        <span className="text-white font-bold text-sm">₿</span>
+                      </div>
                       <div className="font-semibold text-sm">Bitcoin</div>
                     </div>
+                    <div className="text-xl font-bold mb-1">Loading...</div>
+                    <div className="text-gray-400 text-sm mb-3">---%</div>
+                    <div className="h-16 bg-gray-100 rounded animate-pulse"></div>
                   </div>
-                  <div className="text-xl font-bold mb-1">$107,945.78</div>
-                  <div className="text-green-500 text-sm mb-3">↗ 1.59%</div>
-                  <div className="h-6 mb-3">
-                    <svg className="w-full h-full" viewBox="0 0 100 20" preserveAspectRatio="none">
-                      <polyline
-                        fill="none"
-                        stroke="#f97316"
-                        strokeWidth="1.5"
-                        points="0,15 20,12 40,14 60,10 80,8 100,6"
-                      />
-                    </svg>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    className="text-purple-600 font-medium text-sm p-0 h-auto"
-                    onClick={() => setLocation("/trade/btc")}
-                  >
-                    Learn more →
-                  </Button>
-                </div>
-
-                <div className="bg-white rounded-2xl p-4 shadow-lg w-44 flex-shrink-0">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-white font-bold text-sm">Ξ</span>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-sm">Ethereum</div>
-                    </div>
-                  </div>
-                  <div className="text-xl font-bold mb-1">$2,551.80</div>
-                  <div className="text-green-500 text-sm mb-3">↗ 0.90%</div>
-                  <div className="h-6 mb-3">
-                    <svg className="w-full h-full" viewBox="0 0 100 20" preserveAspectRatio="none">
-                      <polyline
-                        fill="none"
-                        stroke="#3b82f6"
-                        strokeWidth="1.5"
-                        points="0,12 20,14 40,11 60,9 80,7 100,5"
-                      />
-                    </svg>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    className="text-purple-600 font-medium text-sm p-0 h-auto"
-                    onClick={() => setLocation("/trade/eth")}
-                  >
-                    Learn more →
-                  </Button>
-                </div>
-
-                <div className="bg-white rounded-2xl p-4 shadow-lg w-44 flex-shrink-0">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-white font-bold text-sm">S</span>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-sm">Solana</div>
-                    </div>
-                  </div>
-                  <div className="text-xl font-bold mb-1">$132.09</div>
-                  <div className="text-green-500 text-sm mb-3">↗ 2.20%</div>
-                  <div className="h-6 mb-3">
-                    <svg className="w-full h-full" viewBox="0 0 100 20" preserveAspectRatio="none">
-                      <polyline
-                        fill="none"
-                        stroke="#6b7280"
-                        strokeWidth="1.5"
-                        points="0,16 20,14 40,11 60,13 80,9 100,7"
-                      />
-                    </svg>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    className="text-purple-600 font-medium text-sm p-0 h-auto"
-                    onClick={() => setLocation("/trade/sol")}
-                  >
-                    Learn more →
-                  </Button>
-                </div>
+                )}
               </div>
             </div>
           </div>
