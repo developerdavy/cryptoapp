@@ -38,4 +38,12 @@ Your payment system is now configured for **LIVE** transactions with real money 
 - **Settlement**: Funds will be deposited to your Pesapal merchant account
 - **Refunds**: Handle through Pesapal merchant dashboard
 
+### Merchant Name Configuration:
+To change the business name that appears in USSD messages (currently "PESAPAL SABI H.O"):
+1. Log into your Pesapal merchant dashboard at https://www.pesapal.com/
+2. Go to Account Settings > Business Profile
+3. Update "Business Name" or "Trading Name" to "CHICKSX"
+4. Changes may take 24-48 hours to reflect in payment messages
+5. Contact Pesapal support if you need assistance with the name change
+
 Your payment system is ready for production use!
