@@ -100,18 +100,7 @@ export default function Landing() {
     </div>
   );
 
-  // Helper function to create clickable fiat badge
-  const FiatBadge = ({ symbol, name, color, icon, action = "trade" }: { symbol: string, name: string, color: string, icon: string, action?: string }) => (
-    <div 
-      className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer"
-      onClick={() => setLocation(`/${action}/${symbol.toLowerCase()}`)}
-    >
-      <div className={`w-6 h-6 ${color} rounded-full flex items-center justify-center`}>
-        <span className="text-white text-xs font-bold">{icon}</span>
-      </div>
-      <span className="text-sm font-medium text-black">{symbol}</span>
-    </div>
-  );
+
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -563,36 +552,186 @@ export default function Landing() {
                   {swapActiveTab === 'Fiat' ? (
                     <div className="overflow-x-auto scrollbar-hide w-full" style={{width: "100%"}}>
                       <div className="flex gap-3 pb-2 pr-6" style={{minWidth: 'max-content', flexWrap: 'nowrap'}}>
-                        <FiatBadge symbol="INR" name="Indian Rupee" color="bg-orange-500" icon="IN" action="swap" />
-                        <FiatBadge symbol="USD" name="US Dollar" color="bg-blue-600" icon="US" action="swap" />
-                        <FiatBadge symbol="CAD" name="Canadian Dollar" color="bg-red-500" icon="CA" action="swap" />
-                        <FiatBadge symbol="EUR" name="Euro" color="bg-blue-800" icon="EU" action="swap" />
-                        <FiatBadge symbol="AUD" name="Australian Dollar" color="bg-green-600" icon="AU" action="swap" />
-                        <FiatBadge symbol="GBP" name="British Pound" color="bg-purple-600" icon="GB" action="swap" />
-                        <FiatBadge symbol="JPY" name="Japanese Yen" color="bg-red-600" icon="JP" action="swap" />
-                        <FiatBadge symbol="CHF" name="Swiss Franc" color="bg-gray-600" icon="CH" action="swap" />
-                        <FiatBadge symbol="NOK" name="Norwegian Krone" color="bg-blue-700" icon="NO" action="swap" />
-                        <FiatBadge symbol="SEK" name="Swedish Krona" color="bg-yellow-500" icon="SE" action="swap" />
-                        <FiatBadge symbol="DKK" name="Danish Krone" color="bg-red-700" icon="DK" action="swap" />
-                        <FiatBadge symbol="NZD" name="New Zealand Dollar" color="bg-blue-500" icon="NZ" action="swap" />
-                        <FiatBadge symbol="ZAR" name="South African Rand" color="bg-green-700" icon="ZA" action="swap" />
-                        <FiatBadge symbol="BRL" name="Brazilian Real" color="bg-green-800" icon="BR" action="swap" />
-                        <FiatBadge symbol="MXN" name="Mexican Peso" color="bg-green-600" icon="MX" action="swap" />
-                        <FiatBadge symbol="SGD" name="Singapore Dollar" color="bg-red-800" icon="SG" action="swap" />
-                        <FiatBadge symbol="HKD" name="Hong Kong Dollar" color="bg-blue-900" icon="HK" action="swap" />
-                        <FiatBadge symbol="KRW" name="South Korean Won" color="bg-slate-600" icon="KR" action="swap" />
-                        <FiatBadge symbol="CNY" name="Chinese Yuan" color="bg-red-600" icon="CN" action="swap" />
-                        <FiatBadge symbol="RUB" name="Russian Ruble" color="bg-blue-700" icon="RU" action="swap" />
-                        <FiatBadge symbol="AED" name="UAE Dirham" color="bg-emerald-600" icon="AE" action="swap" />
-                        <FiatBadge symbol="SAR" name="Saudi Riyal" color="bg-green-500" icon="SA" action="swap" />
-                        <FiatBadge symbol="TRY" name="Turkish Lira" color="bg-red-500" icon="TR" action="swap" />
-                        <FiatBadge symbol="PLN" name="Polish Zloty" color="bg-red-600" icon="PL" action="swap" />
-                        <FiatBadge symbol="THB" name="Thai Baht" color="bg-blue-600" icon="TH" action="swap" />
-                        <FiatBadge symbol="MYR" name="Malaysian Ringgit" color="bg-yellow-600" icon="MY" action="swap" />
-                        <FiatBadge symbol="IDR" name="Indonesian Rupiah" color="bg-orange-600" icon="ID" action="swap" />
-                        <FiatBadge symbol="PHP" name="Philippine Peso" color="bg-indigo-600" icon="PH" action="swap" />
-                        <FiatBadge symbol="VND" name="Vietnamese Dong" color="bg-red-700" icon="VN" action="swap" />
-                        <FiatBadge symbol="EGP" name="Egyptian Pound" color="bg-yellow-700" icon="EG" action="swap" />
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/inr")}>
+                          <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">IN</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">INR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/usd")}>
+                          <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">US</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">USD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/cad")}>
+                          <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">CA</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">CAD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/eur")}>
+                          <div className="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">EU</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">EUR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/aud")}>
+                          <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">AU</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">AUD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/gbp")}>
+                          <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">GB</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">GBP</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/jpy")}>
+                          <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">JP</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">JPY</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/chf")}>
+                          <div className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">CH</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">CHF</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/nok")}>
+                          <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">NO</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">NOK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/sek")}>
+                          <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">SE</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">SEK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/dkk")}>
+                          <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">DK</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">DKK</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/nzd")}>
+                          <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">NZ</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">NZD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/zar")}>
+                          <div className="w-6 h-6 bg-green-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">ZA</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">ZAR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/brl")}>
+                          <div className="w-6 h-6 bg-green-800 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">BR</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">BRL</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/mxn")}>
+                          <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">MX</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">MXN</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/sgd")}>
+                          <div className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">SG</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">SGD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/hkd")}>
+                          <div className="w-6 h-6 bg-blue-900 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">HK</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">HKD</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/krw")}>
+                          <div className="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">KR</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">KRW</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/cny")}>
+                          <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">CN</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">CNY</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/rub")}>
+                          <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">RU</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">RUB</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/aed")}>
+                          <div className="w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">AE</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">AED</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/sar")}>
+                          <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">SA</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">SAR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/try")}>
+                          <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">TR</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">TRY</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/pln")}>
+                          <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">PL</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">PLN</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/thb")}>
+                          <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">TH</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">THB</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/myr")}>
+                          <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">MY</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">MYR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/idr")}>
+                          <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">ID</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">IDR</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/php")}>
+                          <div className="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">PH</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">PHP</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/vnd")}>
+                          <div className="w-6 h-6 bg-red-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">VN</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">VND</span>
+                        </div>
+                        <div className="flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 transition-colors cursor-pointer" onClick={() => setLocation("/swap/egp")}>
+                          <div className="w-6 h-6 bg-yellow-700 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">EG</span>
+                          </div>
+                          <span className="text-sm font-medium text-black">EGP</span>
+                        </div>
                       </div>
                     </div>
                   ) : (
