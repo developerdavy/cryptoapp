@@ -1690,147 +1690,159 @@ export default function Landing() {
         <div className="hidden md:block w-full">
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" style={{marginLeft: '120px', marginRight: '120px'}}>
             {/* Bitcoin Card */}
-            <Card className="bg-orange-500 shadow-lg rounded-xl overflow-hidden">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-orange-500 text-lg font-bold">₿</span>
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-2 sm:p-3 md:p-4">
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                    <span className="text-orange-500 text-xs sm:text-lg font-bold">₿</span>
                   </div>
-                  <div className="text-sm font-semibold text-white">Bitcoin</div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-800">Bitcoin</div>
                 </div>
-                <div className="mb-3">
-                  <div className="text-lg font-bold text-white mb-1">
-                    {Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.price ? 
-                      `$${(marketData as any[]).find((m: any) => m.symbol === 'BTC').price.toLocaleString()}` : 
-                      '$99,206.14'}
+                <div className="mb-1">
+                  <div className="text-xs sm:text-lg">
+                    <AnimatedPrice 
+                      price={Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.price ? 
+                        `$${(marketData as any[]).find((m: any) => m.symbol === 'BTC').price.toLocaleString()}` : 
+                        '$43,521'}
+                      change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0 : 0}
+                    />
                   </div>
-                  <div className="text-white text-sm flex items-center">
-                    <span className="mr-1">↓</span>
-                    <span>{Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0).toFixed(2) : '2.39'}%</span>
-                  </div>
+                  <AnimatedPercentage 
+                    percentage={`${Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0).toFixed(2) : '0.00'}%`}
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0 : 0}
+                  />
                 </div>
-                <div className="h-12 mb-3">
+                <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <LiveChart 
-                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0 : -2.39}
-                    color="#ffffff" 
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0 : 0}
+                    color="#f59e0b" 
                     symbol="BTC"
                   />
                 </div>
-                <Link href="#" className="text-white text-sm hover:underline flex items-center">
+                <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
             </Card>
 
             {/* Ethereum Card */}
-            <Card className="bg-blue-500 shadow-lg rounded-xl overflow-hidden">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-blue-500 text-lg font-bold">Ξ</span>
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-2 sm:p-3 md:p-4">
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-500 text-xs sm:text-lg font-bold">Ξ</span>
                   </div>
-                  <div className="text-sm font-semibold text-white">Ethereum</div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-800">Ethereum</div>
                 </div>
-                <div className="mb-3">
-                  <div className="text-lg font-bold text-white mb-1">
-                    {Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'ETH')?.price ? 
-                      `$${(marketData as any[]).find((m: any) => m.symbol === 'ETH').price.toLocaleString()}` : 
-                      '$2,189.55'}
+                <div className="mb-1">
+                  <div className="text-xs sm:text-lg">
+                    <AnimatedPrice 
+                      price={Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'ETH')?.price ? 
+                        `$${(marketData as any[]).find((m: any) => m.symbol === 'ETH').price.toLocaleString()}` : 
+                        '$2,488.31'}
+                      change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h || 0 : -1.08}
+                    />
                   </div>
-                  <div className="text-white text-sm flex items-center">
-                    <span className="mr-1">↓</span>
-                    <span>{Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h || 0).toFixed(2) : '8.20'}%</span>
-                  </div>
+                  <AnimatedPercentage 
+                    percentage={`${Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h || 0).toFixed(2) : '1.08'}%`}
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h || 0 : -1.08}
+                  />
                 </div>
-                <div className="h-12 mb-3">
+                <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <LiveChart 
-                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h || 0 : -8.20}
-                    color="#ffffff" 
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h || 0 : -1.08}
+                    color="#3b82f6" 
                     symbol="ETH"
                   />
                 </div>
-                <Link href="#" className="text-white text-sm hover:underline flex items-center">
+                <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
             </Card>
 
             {/* Solana Card */}
-            <Card className="bg-gray-900 shadow-lg rounded-xl overflow-hidden">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-gray-900 text-lg font-bold">◎</span>
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-2 sm:p-3 md:p-4">
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                    <span className="text-purple-500 text-xs sm:text-lg font-bold">◎</span>
                   </div>
-                  <div className="text-sm font-semibold text-white">Solana</div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-800">Solana</div>
                 </div>
-                <div className="mb-3">
-                  <div className="text-lg font-bold text-white mb-1">
-                    {Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'SOL')?.price ? 
-                      `$${(marketData as any[]).find((m: any) => m.symbol === 'SOL').price.toLocaleString()}` : 
-                      '$129.35'}
+                <div className="mb-1">
+                  <div className="text-xs sm:text-lg">
+                    <AnimatedPrice 
+                      price={Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'SOL')?.price ? 
+                        `$${(marketData as any[]).find((m: any) => m.symbol === 'SOL').price.toLocaleString()}` : 
+                        '$150.39'}
+                      change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h || 0 : 0.66}
+                    />
                   </div>
-                  <div className="text-white text-sm flex items-center">
-                    <span className="mr-1">↓</span>
-                    <span>{Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h || 0).toFixed(2) : '5.80'}%</span>
-                  </div>
+                  <AnimatedPercentage 
+                    percentage={`${Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h || 0).toFixed(2) : '0.66'}%`}
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h || 0 : 0.66}
+                  />
                 </div>
-                <div className="h-12 mb-3">
+                <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <LiveChart 
-                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h || 0 : -5.80}
-                    color="#ffffff" 
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h || 0 : 0.66}
+                    color="#8b5cf6" 
                     symbol="SOL"
                   />
                 </div>
-                <Link href="#" className="text-white text-sm hover:underline flex items-center">
+                <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
             </Card>
 
             {/* Cardano Card */}
-            <Card className="bg-blue-600 shadow-lg rounded-xl overflow-hidden">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-blue-600 text-lg font-bold">₳</span>
+            <Card className="bg-white shadow-lg">
+              <CardContent className="p-2 sm:p-3 md:p-4">
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-600 text-xs sm:text-lg font-bold">₳</span>
                   </div>
-                  <div className="text-sm font-semibold text-white">Cardano</div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-800">Cardano</div>
                 </div>
-                <div className="mb-3">
-                  <div className="text-lg font-bold text-white mb-1">
-                    {Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'ADA')?.price ? 
-                      `$${(marketData as any[]).find((m: any) => m.symbol === 'ADA').price.toFixed(2)}` : 
-                      '$0.53'}
+                <div className="mb-1">
+                  <div className="text-xs sm:text-lg">
+                    <AnimatedPrice 
+                      price={Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'ADA')?.price ? 
+                        `$${(marketData as any[]).find((m: any) => m.symbol === 'ADA').price.toFixed(2)}` : 
+                        '$0.66'}
+                      change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ADA')?.priceChange24h || 0 : 1.2}
+                    />
                   </div>
-                  <div className="text-white text-sm flex items-center">
-                    <span className="mr-1">↓</span>
-                    <span>{Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'ADA')?.priceChange24h || 0).toFixed(2) : '6.70'}%</span>
-                  </div>
+                  <AnimatedPercentage 
+                    percentage={`${Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'ADA')?.priceChange24h || 0).toFixed(2) : '0.00'}%`}
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ADA')?.priceChange24h || 0 : 1.2}
+                  />
                 </div>
-                <div className="h-12 mb-3">
+                <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <LiveChart 
-                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ADA')?.priceChange24h || 0 : -6.70}
-                    color="#ffffff" 
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ADA')?.priceChange24h || 0 : 1.2}
+                    color="#2563eb" 
                     symbol="ADA"
                   />
                 </div>
-                <Link href="#" className="text-white text-sm hover:underline flex items-center">
+                <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
             </Card>
 
             {/* View More Card */}
-            <Card className="bg-purple-600 shadow-lg rounded-xl overflow-hidden">
-              <CardContent className="p-4 flex flex-col justify-center items-center text-center h-full">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mb-3">
-                  <span className="text-purple-600 text-lg font-bold">✕</span>
+            <Card className="bg-purple-100 shadow-lg">
+              <CardContent className="p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center text-center h-full">
+                <div className="w-5 h-5 sm:w-8 sm:h-8 bg-purple-200 rounded-full flex items-center justify-center mb-1 sm:mb-2">
+                  <span className="text-purple-600 text-xs sm:text-lg font-bold">✕</span>
                 </div>
-                <div className="text-white font-semibold text-sm mb-4">
+                <div className="text-purple-700 font-semibold text-xs sm:text-sm mb-1 sm:mb-2">
                   View more than<br />300<br />cryptocurrencies<br />here
                 </div>
-                <Link href="#" className="text-white text-sm hover:underline flex items-center">
+                <Link href="#" className="text-purple-600 text-xs hover:underline hidden sm:flex items-center">
                   Learn more →
                 </Link>
               </CardContent>
