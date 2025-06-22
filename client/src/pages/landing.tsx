@@ -44,10 +44,48 @@ export default function Landing() {
     }
   }, []);
 
-  // Fetch market data from admin-controlled rates
+  // Fetch live market data from external API
   const { data: marketData = [] } = useQuery({
-    queryKey: ['/api/market-data'],
-    refetchInterval: 5000, // Refresh every 5 seconds
+    queryKey: ['live-market-data'],
+    queryFn: async () => {
+      try {
+        // Fetch live data from CoinGecko API
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano&vs_currencies=usd&include_24hr_change=true');
+        if (!response.ok) throw new Error('Failed to fetch live data');
+        const data = await response.json();
+        
+        return [
+          {
+            symbol: 'BTC',
+            price: data.bitcoin?.usd || 43521,
+            priceChange24h: data.bitcoin?.usd_24h_change || 0
+          },
+          {
+            symbol: 'ETH',
+            price: data.ethereum?.usd || 2341,
+            priceChange24h: data.ethereum?.usd_24h_change || 0
+          },
+          {
+            symbol: 'SOL',
+            price: data.solana?.usd || 98.45,
+            priceChange24h: data.solana?.usd_24h_change || 0
+          },
+          {
+            symbol: 'ADA',
+            price: data.cardano?.usd || 0.50,
+            priceChange24h: data.cardano?.usd_24h_change || 0
+          }
+        ];
+      } catch (error) {
+        // Fallback to local market data if external API fails
+        const fallbackResponse = await fetch('/api/market-data');
+        if (fallbackResponse.ok) {
+          return await fallbackResponse.json();
+        }
+        return [];
+      }
+    },
+    refetchInterval: 30000, // Refresh every 30 seconds for live data
   }) as { data: any[] };
 
   // All available cryptocurrencies
@@ -233,7 +271,7 @@ export default function Landing() {
     );
   };
 
-  // Generate dynamic crypto cards from admin-controlled market data
+  // Generate dynamic crypto cards from live market data
   const cryptoCards = Array.isArray(marketData) && marketData.length > 0 ? [
     {
       name: "Bitcoin",
