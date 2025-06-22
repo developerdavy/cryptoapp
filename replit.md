@@ -103,6 +103,7 @@ CryptoX is a modern, full-stack cryptocurrency exchange platform built with a Re
 
 ```
 Changelog:
+- June 22, 2025. Added smooth digit-by-digit animations to crypto price cards with down-up fade motion, staggered character transitions, and color-coded price flashing
 - June 22, 2025. Successfully migrated project from Replit Agent to Replit environment with PostgreSQL database, live market data integration using CoinGecko API for landing page cards
 - June 17, 2025. Made trade page fully responsive across all devices with adaptive grid layouts, mobile-optimized form elements, and flexible sizing
 - June 17, 2025. Made signin and signup pages fully mobile responsive with adaptive layouts, mobile-first design, and hidden desktop illustrations on small screens

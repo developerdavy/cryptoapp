@@ -247,26 +247,95 @@ export default function Landing() {
     );
   };
 
-  // Price animation component
+  // Animated digit component with fade motion
+  const AnimatedDigit = ({ digit, index, change }: { digit: string, index: number, change: number }) => {
+    const [currentDigit, setCurrentDigit] = useState(digit);
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    useEffect(() => {
+      if (digit !== currentDigit) {
+        setIsAnimating(true);
+        const timeout = setTimeout(() => {
+          setCurrentDigit(digit);
+          setTimeout(() => setIsAnimating(false), 150);
+        }, index * 50); // Stagger animation by index
+
+        return () => clearTimeout(timeout);
+      }
+    }, [digit, currentDigit, index]);
+
+    return (
+      <span 
+        className={`inline-block transition-all duration-300 ${
+          isAnimating ? 'transform translate-y-2 opacity-0' : 'transform translate-y-0 opacity-100'
+        }`}
+        style={{ transitionDelay: `${index * 30}ms` }}
+      >
+        {currentDigit}
+      </span>
+    );
+  };
+
+  // Enhanced price animation component with digit-by-digit motion
   const AnimatedPrice = ({ price, change }: { price: string, change: number }) => {
     const [displayPrice, setDisplayPrice] = useState(price);
     const [isFlashing, setIsFlashing] = useState(false);
+    const [animationKey, setAnimationKey] = useState(0);
 
     useEffect(() => {
       if (price !== displayPrice) {
         setIsFlashing(true);
-        setTimeout(() => {
+        setAnimationKey(prev => prev + 1);
+        
+        // Animate price change
+        const timeout = setTimeout(() => {
           setDisplayPrice(price);
-          setIsFlashing(false);
-        }, 300);
+          setTimeout(() => setIsFlashing(false), 500);
+        }, 200);
+
+        return () => clearTimeout(timeout);
       }
     }, [price, displayPrice]);
 
+    // Split price into individual characters for animation
+    const priceChars = displayPrice.split('');
+
     return (
-      <div className={`font-bold text-lg transition-all duration-300 ${
+      <div className={`font-bold text-lg transition-colors duration-500 ${
         isFlashing ? (change >= 0 ? 'text-green-500' : 'text-red-500') : 'text-gray-900'
       }`}>
-        {displayPrice}
+        {priceChars.map((char, index) => (
+          <AnimatedDigit 
+            key={`${animationKey}-${index}`}
+            digit={char} 
+            index={index} 
+            change={change}
+          />
+        ))}
+      </div>
+    );
+  };
+
+  // Animated percentage component
+  const AnimatedPercentage = ({ percentage, change }: { percentage: string, change: number }) => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+      setIsVisible(false);
+      const timeout = setTimeout(() => setIsVisible(true), 100);
+      return () => clearTimeout(timeout);
+    }, [percentage]);
+
+    return (
+      <div className={`flex items-center text-sm font-medium transition-all duration-500 ${
+        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-1'
+      } ${change >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+        {change >= 0 ? (
+          <TrendingUp className="w-4 h-4 mr-1" />
+        ) : (
+          <TrendingDown className="w-4 h-4 mr-1" />
+        )}
+        <span className="animate-pulse">{percentage}</span>
       </div>
     );
   };
@@ -1504,18 +1573,18 @@ export default function Landing() {
                   <div className="text-xs sm:text-sm font-semibold text-gray-800">Bitcoin</div>
                 </div>
                 <div className="mb-1">
-                  <div className="font-bold text-xs sm:text-lg text-gray-800">
-                    {Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.price ? 
-                      `$${(marketData as any[]).find((m: any) => m.symbol === 'BTC').price.toLocaleString()}` : 
-                      '$43,521'}
+                  <div className="text-xs sm:text-lg">
+                    <AnimatedPrice 
+                      price={Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.price ? 
+                        `$${(marketData as any[]).find((m: any) => m.symbol === 'BTC').price.toLocaleString()}` : 
+                        '$43,521'}
+                      change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0 : 0}
+                    />
                   </div>
-                  <div className={`text-xs flex items-center ${
-                    Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h >= 0 ? 
-                    'text-green-500' : 'text-red-500'
-                  }`}>
-                    {Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h >= 0 ? '▲' : '▼'} 
-                    {Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0).toFixed(2) : '0.00'}%
-                  </div>
+                  <AnimatedPercentage 
+                    percentage={`${Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0).toFixed(2) : '0.00'}%`}
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'BTC')?.priceChange24h || 0 : 0}
+                  />
                 </div>
                 <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <svg className="w-full h-full" viewBox="0 0 100 30">
@@ -1543,10 +1612,18 @@ export default function Landing() {
                   <div className="text-xs sm:text-sm font-semibold text-gray-800">Ethereum</div>
                 </div>
                 <div className="mb-1">
-                  <div className="font-bold text-xs sm:text-lg text-gray-800">$2,488.31</div>
-                  <div className="text-red-500 text-xs flex items-center">
-                    ▼ 1.08%
+                  <div className="text-xs sm:text-lg">
+                    <AnimatedPrice 
+                      price={Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'ETH')?.price ? 
+                        `$${(marketData as any[]).find((m: any) => m.symbol === 'ETH').price.toLocaleString()}` : 
+                        '$2,488.31'}
+                      change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h || 0 : -1.08}
+                    />
                   </div>
+                  <AnimatedPercentage 
+                    percentage={`${Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h || 0).toFixed(2) : '1.08'}%`}
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'ETH')?.priceChange24h || 0 : -1.08}
+                  />
                 </div>
                 <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <svg className="w-full h-full" viewBox="0 0 100 30">
@@ -1574,10 +1651,18 @@ export default function Landing() {
                   <div className="text-xs sm:text-sm font-semibold text-gray-800">Solana</div>
                 </div>
                 <div className="mb-1">
-                  <div className="font-bold text-xs sm:text-lg text-gray-800">$150.39</div>
-                  <div className="text-green-500 text-xs flex items-center">
-                    ▲ 0.66%
+                  <div className="text-xs sm:text-lg">
+                    <AnimatedPrice 
+                      price={Array.isArray(marketData) && (marketData as any[]).find((m: any) => m.symbol === 'SOL')?.price ? 
+                        `$${(marketData as any[]).find((m: any) => m.symbol === 'SOL').price.toLocaleString()}` : 
+                        '$150.39'}
+                      change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h || 0 : 0.66}
+                    />
                   </div>
+                  <AnimatedPercentage 
+                    percentage={`${Array.isArray(marketData) ? Math.abs((marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h || 0).toFixed(2) : '0.66'}%`}
+                    change={Array.isArray(marketData) ? (marketData as any[]).find((m: any) => m.symbol === 'SOL')?.priceChange24h || 0 : 0.66}
+                  />
                 </div>
                 <div className="h-4 sm:h-8 mb-1 sm:mb-2">
                   <svg className="w-full h-full" viewBox="0 0 100 30">
