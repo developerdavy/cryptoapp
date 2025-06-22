@@ -63,6 +63,7 @@ export const transactions = pgTable("transactions", {
   price: decimal("price", { precision: 20, scale: 10 }).notNull(),
   fee: decimal("fee", { precision: 20, scale: 2 }).notNull().default("0"),
   status: varchar("status").notNull().default("completed"), // pending, completed, failed
+  walletAddress: varchar("wallet_address"), // crypto wallet address for transfers
   createdAt: timestamp("created_at").defaultNow(),
 });
 

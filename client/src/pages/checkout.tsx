@@ -28,6 +28,7 @@ export default function Checkout() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
+  const [walletAddress, setWalletAddress] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
@@ -38,9 +39,9 @@ export default function Checkout() {
     }
     
     if (user) {
-      setEmail(user.email || "");
-      setFirstName(user.firstName || "");
-      setLastName(user.lastName || "");
+      setEmail((user as any).email || "");
+      setFirstName((user as any).firstName || "");
+      setLastName((user as any).lastName || "");
     }
   }, [isAuthenticated, user, setLocation]);
 
@@ -51,6 +52,15 @@ export default function Checkout() {
       toast({
         title: "Invalid Amount",
         description: "Please enter a valid amount greater than 0",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!walletAddress.trim()) {
+      toast({
+        title: "Wallet Address Required",
+        description: "Please enter your wallet address for crypto transfer",
         variant: "destructive",
       });
       return;
@@ -71,6 +81,7 @@ export default function Checkout() {
           firstName,
           lastName,
           phone,
+          walletAddress,
         }),
       });
 
@@ -240,6 +251,27 @@ export default function Checkout() {
                     required
                     className="h-10 sm:h-12"
                   />
+                </div>
+              </div>
+
+              {/* Wallet Address */}
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-base sm:text-lg font-medium text-gray-900">Wallet Address</h3>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Crypto Wallet Address
+                  </label>
+                  <Input
+                    type="text"
+                    placeholder="Enter your wallet address (e.g., 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa)"
+                    value={walletAddress}
+                    onChange={(e) => setWalletAddress(e.target.value)}
+                    required
+                    className="h-10 sm:h-12 font-mono text-sm"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Enter the wallet address where your cryptocurrency or funds will be transferred
+                  </p>
                 </div>
               </div>
 

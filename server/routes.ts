@@ -534,10 +534,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Pesapal Payment Integration
   app.post('/api/payment/pesapal/initiate', async (req, res) => {
     try {
-      const { amount, currency, email, firstName, lastName, phone } = req.body;
+      const { amount, currency, email, firstName, lastName, phone, walletAddress } = req.body;
       
-      if (!amount || !email || !firstName || !lastName) {
-        return res.status(400).json({ error: { message: 'Missing required fields' } });
+      if (!amount || !email || !firstName || !lastName || !walletAddress) {
+        return res.status(400).json({ error: { message: 'Missing required fields including wallet address' } });
       }
 
       // Generate unique merchant reference
@@ -642,8 +642,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const orderResult = await orderResponse.json();
 
       if (orderResult.order_tracking_id && orderResult.redirect_url) {
-        // Store transaction record
-        const userId = req.session?.userId || 'guest';
+        // Store transaction record with wallet address
+        const userId = (req.session as any)?.userId || 'guest';
         await storage.createTransaction({
           userId,
           type: 'buy',
@@ -652,7 +652,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
           fiatAmount: amount.toString(),
           price: '1',
           fee: '0',
-          status: 'pending'
+          status: 'pending',
+          walletAddress: walletAddress
         });
 
         res.json({
