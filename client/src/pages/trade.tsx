@@ -237,44 +237,23 @@ export default function Trade() {
 
           {/* Trading Interface - Responsive Layout */}
           <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-6 items-stretch lg:items-end">
-            {/* Spend Section */}
+            {/* Amount Section */}
             <div className="flex-1 min-w-0">
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-600 mb-2">Spend</label>
-                  <Select value={selectedCurrency} onValueChange={setSelectedCurrency}>
-                    <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
-                      <div className="flex items-center space-x-3">
-                        <div className={`w-8 h-8 ${currentCurrency.color} rounded-full flex items-center justify-center`}>
-                          <span className="text-white text-sm font-bold">{currentCurrency.icon}</span>
-                        </div>
-                        <div className="text-left min-w-0">
-                          <div className="font-medium text-base truncate">{selectedCurrency} - {currentCurrency.name}</div>
-                        </div>
-                      </div>
-                    </SelectTrigger>
-                    <SelectContent>
-                      {currencies.map((currency) => (
-                        <SelectItem key={currency.id} value={currency.id}>
-                          <div className="flex items-center space-x-3">
-                            <div className={`w-6 h-6 ${currency.color} rounded-full flex items-center justify-center`}>
-                              <span className="text-white text-xs font-bold">{currency.icon}</span>
-                            </div>
-                            <span>{currency.id} - {currency.name}</span>
-                          </div>
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <label className="block text-sm font-medium text-gray-600 mb-2">Amount ({selectedCurrency})</label>
+                  <div className="h-14 bg-gray-50 border-2 border-gray-200 rounded-xl flex items-center px-3">
+                    <Input
+                      type="number"
+                      value={amount}
+                      onChange={(e) => handleAmountChange(e.target.value)}
+                      className="text-right text-lg font-medium border-0 p-0 bg-transparent w-full"
+                      placeholder="0.00"
+                    />
+                  </div>
                 </div>
-                <div className="h-14 bg-gray-50 border-2 border-gray-200 rounded-xl flex items-center px-3">
-                  <Input
-                    type="text"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                    className="text-right text-lg font-medium border-0 p-0 bg-transparent w-full"
-                    placeholder="0.00"
-                  />
+                <div className="h-14 bg-blue-50 border-2 border-blue-200 rounded-xl flex items-center px-3">
+                  <span className="text-lg font-medium text-blue-700 w-full text-right">≈ {receiveAmount} {selectedCrypto}</span>
                 </div>
               </div>
             </div>
@@ -286,11 +265,11 @@ export default function Trade() {
               </button>
             </div>
 
-            {/* Receive Section */}
+            {/* Cryptocurrency Selection */}
             <div className="flex-1 min-w-0">
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-600 mb-2">Receive</label>
+                  <label className="block text-sm font-medium text-gray-600 mb-2">Cryptocurrency</label>
                   <Select value={selectedCrypto} onValueChange={setSelectedCrypto}>
                     <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
                       <div className="flex items-center space-x-3">
@@ -316,9 +295,7 @@ export default function Trade() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="h-14 bg-gray-50 border-2 border-gray-200 rounded-xl flex items-center px-3">
-                  <span className="text-lg font-medium text-gray-700 w-full text-right">{receiveAmount}</span>
-                </div>
+                <div className="h-14"></div>
               </div>
             </div>
 
