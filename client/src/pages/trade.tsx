@@ -239,17 +239,17 @@ export default function Trade() {
           <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-6 items-stretch lg:items-end">
             {/* Spend Section */}
             <div className="flex-1 min-w-0">
-              <div>
-                <label className="block text-sm font-medium text-gray-600 mb-2">Spend</label>
-                <div className="relative">
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-600 mb-2">Spend</label>
                   <Select value={selectedCurrency} onValueChange={setSelectedCurrency}>
-                    <SelectTrigger className="w-full h-10 sm:h-12 lg:h-14 border-2 border-gray-200 rounded-xl">
-                      <div className="flex items-center space-x-2 sm:space-x-3">
-                        <div className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 ${currentCurrency.color} rounded-full flex items-center justify-center`}>
-                          <span className="text-white text-xs sm:text-sm font-bold">{currentCurrency.icon}</span>
+                    <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
+                      <div className="flex items-center space-x-3">
+                        <div className={`w-8 h-8 ${currentCurrency.color} rounded-full flex items-center justify-center`}>
+                          <span className="text-white text-sm font-bold">{currentCurrency.icon}</span>
                         </div>
                         <div className="text-left min-w-0">
-                          <div className="font-medium text-xs sm:text-sm lg:text-base truncate">{selectedCurrency} - {currentCurrency.name}</div>
+                          <div className="font-medium text-base truncate">{selectedCurrency} - {currentCurrency.name}</div>
                         </div>
                       </div>
                     </SelectTrigger>
@@ -267,13 +267,13 @@ export default function Trade() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="mt-2 sm:mt-3">
-                  <div className="text-right text-xs text-gray-500 mb-1">134.72</div>
+                <div className="h-14 bg-gray-50 border-2 border-gray-200 rounded-xl flex items-center px-3">
                   <Input
                     type="text"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    className="text-right text-base sm:text-lg font-medium border-0 p-0 bg-transparent"
+                    className="text-right text-lg font-medium border-0 p-0 bg-transparent w-full"
+                    placeholder="0.00"
                   />
                 </div>
               </div>
@@ -288,17 +288,17 @@ export default function Trade() {
 
             {/* Receive Section */}
             <div className="flex-1 min-w-0">
-              <div>
-                <label className="block text-sm font-medium text-gray-600 mb-2">Receive</label>
-                <div className="relative">
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-600 mb-2">Receive</label>
                   <Select value={selectedCrypto} onValueChange={setSelectedCrypto}>
-                    <SelectTrigger className="w-full h-12 sm:h-14 border-2 border-gray-200 rounded-xl">
-                      <div className="flex items-center space-x-2 sm:space-x-3">
-                        <div className={`w-6 h-6 sm:w-8 sm:h-8 ${currentCrypto.color} rounded-full flex items-center justify-center`}>
-                          <span className="text-white text-xs sm:text-sm font-bold">{currentCrypto.icon}</span>
+                    <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
+                      <div className="flex items-center space-x-3">
+                        <div className={`w-8 h-8 ${currentCrypto.color} rounded-full flex items-center justify-center`}>
+                          <span className="text-white text-sm font-bold">{currentCrypto.icon}</span>
                         </div>
                         <div className="text-left">
-                          <div className="font-medium text-sm sm:text-base">{selectedCrypto} - {currentCrypto.name}</div>
+                          <div className="font-medium text-base">{selectedCrypto} - {currentCrypto.name}</div>
                         </div>
                       </div>
                     </SelectTrigger>
@@ -316,39 +316,41 @@ export default function Trade() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="mt-2 sm:mt-3">
-                  <div className="text-right text-xs text-gray-500 mb-1">{receiveAmount}</div>
-                  <div className="text-right text-base sm:text-lg font-medium">{receiveAmount}</div>
+                <div className="h-14 bg-gray-50 border-2 border-gray-200 rounded-xl flex items-center px-3">
+                  <span className="text-lg font-medium text-gray-700 w-full text-right">{receiveAmount}</span>
                 </div>
               </div>
             </div>
 
             {/* Payment Method Section */}
             <div className="flex-1 min-w-0">
-              <div>
-                <label className="block text-sm font-medium text-gray-600 mb-2">Payment method</label>
-                <Select value={selectedPayment} onValueChange={setSelectedPayment}>
-                  <SelectTrigger className="w-full h-12 sm:h-14 border-2 border-gray-200 rounded-xl">
-                    <div className="flex items-center space-x-2 sm:space-x-3">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                        <span className="text-white text-xs sm:text-sm">{currentPayment.icon}</span>
-                      </div>
-                      <span className="font-medium text-sm sm:text-base">{currentPayment.name}</span>
-                    </div>
-                  </SelectTrigger>
-                  <SelectContent>
-                    {paymentMethods.map((method) => (
-                      <SelectItem key={method.id} value={method.id}>
-                        <div className="flex items-center space-x-3">
-                          <div className={`w-6 h-6 ${method.color} rounded-lg flex items-center justify-center`}>
-                            <span className="text-white text-xs">{method.icon}</span>
-                          </div>
-                          <span>{method.name}</span>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-600 mb-2">Payment method</label>
+                  <Select value={selectedPayment} onValueChange={setSelectedPayment}>
+                    <SelectTrigger className="w-full h-14 border-2 border-gray-200 rounded-xl">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                          <span className="text-white text-sm">{currentPayment.icon}</span>
                         </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                        <span className="font-medium text-base">{currentPayment.name}</span>
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent>
+                      {paymentMethods.map((method) => (
+                        <SelectItem key={method.id} value={method.id}>
+                          <div className="flex items-center space-x-3">
+                            <div className={`w-6 h-6 ${method.color} rounded-lg flex items-center justify-center`}>
+                              <span className="text-white text-xs">{method.icon}</span>
+                            </div>
+                            <span>{method.name}</span>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="h-14"></div>
               </div>
             </div>
 
