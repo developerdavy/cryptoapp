@@ -6,7 +6,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowLeftRight, ChevronDown } from "lucide-react";
 import chicksxLogo from "@assets/chicksx-main-logo-hover_1749112747335.png";
 
-
+const cryptoData = {
+  BTC: { name: "Bitcoin", symbol: "₿", color: "bg-orange-500" },
+  ETH: { name: "Ethereum", symbol: "Ξ", color: "bg-blue-500" },
+  ADA: { name: "Cardano", symbol: "₳", color: "bg-blue-600" },
+  DOT: { name: "Polkadot", symbol: "⬢", color: "bg-pink-500" },
+  SOL: { name: "Solana", symbol: "◎", color: "bg-purple-500" },
 };
 
 const paymentMethods = [

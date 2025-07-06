@@ -15,7 +15,7 @@ import { Bitcoin, CreditCard, ChevronDown } from "lucide-react";
 export default function TradingPanel() {
   const [activeTab, setActiveTab] = useState("buy");
   const [selectedAsset, setSelectedAsset] = useState("BTC");
-  const [amount, setAmount] = useState("");
+  const [fiatAmount, setFiatAmount] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("card");
   
   const { toast } = useToast();
@@ -36,7 +36,7 @@ export default function TradingPanel() {
       });
       queryClient.invalidateQueries({ queryKey: ["/api/portfolio"] });
       queryClient.invalidateQueries({ queryKey: ["/api/transactions"] });
-      setAmount("");
+      setFiatAmount("");
     },
     onError: (error) => {
       if (isUnauthorizedError(error)) {
@@ -58,12 +58,14 @@ export default function TradingPanel() {
     },
   });
 
-  const currentPrice = marketData?.find((m: any) => m.symbol === selectedAsset)?.price || "0";
-  const fee = parseFloat(amount || "0") * parseFloat(currentPrice) * 0.001; // 0.1% fee
-  const total = parseFloat(amount || "0") * parseFloat(currentPrice) + (activeTab === "buy" ? fee : -fee);
+  const currentPrice = parseFloat(marketData?.find((m: any) => m.symbol === selectedAsset)?.price || "0");
+  const fiatAmountNum = parseFloat(fiatAmount || "0");
+  const cryptoAmount = currentPrice > 0 ? fiatAmountNum / currentPrice : 0;
+  const fee = fiatAmountNum * 0.001; // 0.1% fee
+  const total = activeTab === "buy" ? fiatAmountNum + fee : fiatAmountNum - fee;
 
   const handleTrade = () => {
-    if (!amount || parseFloat(amount) <= 0) {
+    if (!fiatAmount || fiatAmountNum <= 0) {
       toast({
         title: "Invalid Amount",
         description: "Please enter a valid amount",
@@ -75,8 +77,8 @@ export default function TradingPanel() {
     tradeMutation.mutate({
       type: activeTab,
       symbol: selectedAsset,
-      amount: amount,
-      price: currentPrice,
+      amount: cryptoAmount.toString(),
+      price: currentPrice.toString(),
     });
   };
 
@@ -135,17 +137,17 @@ export default function TradingPanel() {
 
         {/* Amount Input */}
         <div>
-          <Label className="text-sm text-gray-400 mb-2 block">Amount</Label>
+          <Label className="text-sm text-gray-400 mb-2 block">Amount (USD)</Label>
           <div className="bg-card/50 border border-border/50 rounded-lg p-3">
             <Input
               type="number"
               placeholder="0.00"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              value={fiatAmount}
+              onChange={(e) => setFiatAmount(e.target.value)}
               className="bg-transparent border-none text-lg font-medium p-0 focus-visible:ring-0"
             />
             <div className="text-xs text-gray-400 mt-1">
-              ≈ ${(parseFloat(amount || "0") * parseFloat(currentPrice)).toFixed(2)} USD
+              ≈ {cryptoAmount.toFixed(8)} {selectedAsset}
             </div>
           </div>
         </div>
@@ -177,7 +179,7 @@ export default function TradingPanel() {
         <div className="bg-secondary/50 rounded-lg p-4 space-y-2">
           <div className="flex justify-between text-sm">
             <span className="text-gray-400">Price per {selectedAsset}</span>
-            <span>${parseFloat(currentPrice).toLocaleString()}</span>
+            <span>${currentPrice.toLocaleString()}</span>
           </div>
           <div className="flex justify-between text-sm">
             <span className="text-gray-400">Trading fee</span>
@@ -195,7 +197,7 @@ export default function TradingPanel() {
         {/* Trade Button */}
         <Button
           onClick={handleTrade}
-          disabled={tradeMutation.isPending || !amount}
+          disabled={tradeMutation.isPending || !fiatAmount}
           className={`w-full font-semibold py-3 ${
             activeTab === "buy"
               ? "crypto-gradient text-black neon-glow"
