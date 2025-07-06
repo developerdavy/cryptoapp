@@ -155,8 +155,15 @@ export default function Trade() {
                   </div>
                 </div>
                 
-                <div className="text-xs text-gray-500 mt-4">
-                  Enter coupon code
+                <div className="mt-4">
+                  <label className="block text-sm font-medium text-gray-600 mb-2">Amount</label>
+                  <Input
+                    type="number"
+                    placeholder="Enter amount"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    className="w-full h-12 border-2 border-gray-200 rounded-xl text-lg font-medium"
+                  />
                 </div>
               </div>
             </div>
