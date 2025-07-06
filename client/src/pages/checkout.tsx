@@ -29,6 +29,9 @@ export default function Checkout() {
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("KE");
   const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
@@ -82,6 +85,9 @@ export default function Checkout() {
           lastName,
           phone,
           walletAddress,
+          address,
+          city,
+          country,
         }),
       });
 
@@ -252,6 +258,54 @@ export default function Checkout() {
                     className="h-10 sm:h-12"
                   />
                 </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Address
+                  </label>
+                  <Input
+                    type="text"
+                    placeholder="Street address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    required
+                    className="h-10 sm:h-12"
+                  />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      City
+                    </label>
+                    <Input
+                      type="text"
+                      placeholder="City"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      required
+                      className="h-10 sm:h-12"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Country
+                    </label>
+                    <Select value={country} onValueChange={setCountry}>
+                      <SelectTrigger className="h-10 sm:h-12">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="KE">Kenya</SelectItem>
+                        <SelectItem value="UG">Uganda</SelectItem>
+                        <SelectItem value="TZ">Tanzania</SelectItem>
+                        <SelectItem value="RW">Rwanda</SelectItem>
+                        <SelectItem value="US">United States</SelectItem>
+                        <SelectItem value="GB">United Kingdom</SelectItem>
+                        <SelectItem value="CA">Canada</SelectItem>
+                        <SelectItem value="AU">Australia</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
               </div>
 
               {/* Wallet Address */}
@@ -282,8 +336,9 @@ export default function Checkout() {
                   <div className="flex items-center space-x-3">
                     <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-blue-900 text-sm sm:text-base">Credit/Debit Card via Pesapal</p>
-                      <p className="text-xs sm:text-sm text-blue-700">Secure payment processing by Pesapal</p>
+                      <p className="font-medium text-blue-900 text-sm sm:text-base">Multiple Payment Options</p>
+                      <p className="text-xs sm:text-sm text-blue-700">Credit/Debit Cards, M-Pesa, Bank Transfer via Pesapal</p>
+                      <p className="text-xs text-blue-600 mt-1">Complete billing address required for card payments</p>
                     </div>
                   </div>
                 </div>

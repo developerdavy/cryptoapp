@@ -534,7 +534,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Pesapal Payment Integration
   app.post('/api/payment/pesapal/initiate', async (req, res) => {
     try {
-      const { amount, currency, email, firstName, lastName, phone, walletAddress } = req.body;
+      const { amount, currency, email, firstName, lastName, phone, walletAddress, address, city, country } = req.body;
       
       if (!amount || !email || !firstName || !lastName || !walletAddress) {
         return res.status(400).json({ error: { message: 'Missing required fields including wallet address' } });
@@ -623,10 +623,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
         billing_address: {
           email_address: email,
           phone_number: phone,
-          country_code: 'KE', // Default to Kenya, can be made dynamic
+          country_code: country || 'KE',
           first_name: firstName,
-          last_name: lastName
-        }
+          last_name: lastName,
+          middle_name: '',
+          line_1: address || 'P.O. Box 1234',
+          line_2: '',
+          city: city || 'Nairobi',
+          state: city || 'Nairobi',
+          postal_code: '00100',
+          zip_code: '00100'
+        },
+        // Explicitly specify supported payment methods
+        payment_methods: ['CARD', 'MOBILE_MONEY', 'BANK_TRANSFER'],
+        // Add secure payment configuration
+        secure_payment: true
       };
 
       const orderResponse = await fetch(orderUrl, {
@@ -640,6 +651,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       const orderResult = await orderResponse.json();
+
+      // Log detailed response for debugging
+      console.log('Pesapal order response:', JSON.stringify(orderResult, null, 2));
 
       if (orderResult.order_tracking_id && orderResult.redirect_url) {
         // Store transaction record with wallet address
