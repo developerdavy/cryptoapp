@@ -128,235 +128,296 @@ export default function Checkout() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="w-full max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4">
+      <div className="bg-white/80 backdrop-blur-sm shadow-lg border-b border-blue-100">
+        <div className="w-full max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2 sm:space-x-4">
+            <div className="flex items-center space-x-3 sm:space-x-4">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setLocation("/")}
-                className="text-gray-600 hover:text-gray-900 p-1 sm:p-2"
+                className="text-blue-600 hover:text-blue-800 hover:bg-blue-50 p-2 sm:p-3 rounded-full transition-all duration-200"
               >
                 <ArrowLeft className="w-4 h-4 sm:mr-2" />
-                <span className="hidden sm:inline">Back</span>
+                <span className="hidden sm:inline font-medium">Back</span>
               </Button>
-              <img src={chicksxLogo} alt="ChicksX" className="h-6 sm:h-8" />
+              <img src={chicksxLogo} alt="ChicksX" className="h-7 sm:h-10" />
             </div>
-            <div className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm text-gray-600">
-              <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">Secure Checkout</span>
-              <span className="sm:hidden">Secure</span>
+            <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base text-green-700 bg-green-50 px-3 py-2 rounded-full border border-green-200">
+              <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+              <span className="hidden sm:inline font-medium">Secure Checkout</span>
+              <span className="sm:hidden font-medium">Secure</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="w-full max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
-        <Card className="bg-white w-full">
-          <CardHeader className="px-4 sm:px-6">
-            <CardTitle className="flex items-center space-x-2 text-lg sm:text-xl">
-              <CreditCard className="w-5 h-5 sm:w-6 sm:h-6" />
-              <span>Payment Details</span>
+      <div className="w-full max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
+        <Card className="bg-white/95 backdrop-blur-sm shadow-2xl border-0 ring-1 ring-blue-100 w-full">
+          <CardHeader className="px-6 sm:px-8 py-6 sm:py-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-t-lg">
+            <CardTitle className="flex items-center space-x-3 text-xl sm:text-2xl text-white">
+              <div className="p-2 bg-white/20 rounded-full">
+                <CreditCard className="w-6 h-6 sm:w-7 sm:h-7" />
+              </div>
+              <span className="font-semibold">Payment Details</span>
             </CardTitle>
+            <p className="text-blue-100 text-sm sm:text-base mt-2">Complete your secure cryptocurrency purchase</p>
           </CardHeader>
-          <CardContent className="px-4 sm:px-6">
+          <CardContent className="px-6 sm:px-8 py-8">
             <form onSubmit={handlePayment} className="space-y-4 sm:space-y-6">
               {/* Amount Section */}
-              <div className="space-y-3 sm:space-y-4">
-                <h3 className="text-base sm:text-lg font-medium text-gray-900">Transaction Amount</h3>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <div className="flex-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Amount
-                    </label>
-                    <Input
-                      type="number"
-                      step="0.01"
-                      placeholder="0.00"
-                      value={amount}
-                      onChange={(e) => setAmount(e.target.value)}
-                      required
-                      className="text-base sm:text-lg h-10 sm:h-12"
-                    />
-                  </div>
-                  <div className="w-full sm:w-32">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Currency
-                    </label>
-                    <Select value={currency} onValueChange={setCurrency}>
-                      <SelectTrigger className="h-10 sm:h-12">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="USD">USD</SelectItem>
-                        <SelectItem value="EUR">EUR</SelectItem>
-                        <SelectItem value="GBP">GBP</SelectItem>
-                        <SelectItem value="KES">KES</SelectItem>
-                        <SelectItem value="UGX">UGX</SelectItem>
-                        <SelectItem value="TZS">TZS</SelectItem>
-                      </SelectContent>
-                    </Select>
+              <div className="space-y-4 sm:space-y-6">
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 sm:p-6 border border-blue-200">
+                  <h3 className="text-lg sm:text-xl font-semibold text-blue-900 mb-4 flex items-center">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-white font-bold text-sm">1</span>
+                    </div>
+                    Transaction Amount
+                  </h3>
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                    <div className="flex-1">
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Amount
+                      </label>
+                      <Input
+                        type="number"
+                        step="0.01"
+                        placeholder="0.00"
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
+                        required
+                        className="text-lg sm:text-xl h-12 sm:h-14 border-2 border-blue-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 rounded-xl"
+                      />
+                    </div>
+                    <div className="w-full sm:w-40">
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Currency
+                      </label>
+                      <Select value={currency} onValueChange={setCurrency}>
+                        <SelectTrigger className="h-12 sm:h-14 border-2 border-blue-200 focus:border-blue-500 rounded-xl">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="USD">🇺🇸 USD</SelectItem>
+                          <SelectItem value="EUR">🇪🇺 EUR</SelectItem>
+                          <SelectItem value="GBP">🇬🇧 GBP</SelectItem>
+                          <SelectItem value="KES">🇰🇪 KES</SelectItem>
+                          <SelectItem value="UGX">🇺🇬 UGX</SelectItem>
+                          <SelectItem value="TZS">🇹🇿 TZS</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Billing Information */}
-              <div className="space-y-3 sm:space-y-4">
-                <h3 className="text-base sm:text-lg font-medium text-gray-900">Billing Information</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      First Name
-                    </label>
-                    <Input
-                      type="text"
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
-                      required
-                      className="h-10 sm:h-12"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Last Name
-                    </label>
-                    <Input
-                      type="text"
-                      value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
-                      required
-                      className="h-10 sm:h-12"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
-                  </label>
-                  <Input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="h-10 sm:h-12"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
-                  </label>
-                  <Input
-                    type="tel"
-                    placeholder="+254xxxxxxxxx"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
-                    className="h-10 sm:h-12"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Address
-                  </label>
-                  <Input
-                    type="text"
-                    placeholder="Street address"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    required
-                    className="h-10 sm:h-12"
-                  />
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      City
-                    </label>
-                    <Input
-                      type="text"
-                      placeholder="City"
-                      value={city}
-                      onChange={(e) => setCity(e.target.value)}
-                      required
-                      className="h-10 sm:h-12"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Country
-                    </label>
-                    <Select value={country} onValueChange={setCountry}>
-                      <SelectTrigger className="h-10 sm:h-12">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="KE">Kenya</SelectItem>
-                        <SelectItem value="UG">Uganda</SelectItem>
-                        <SelectItem value="TZ">Tanzania</SelectItem>
-                        <SelectItem value="RW">Rwanda</SelectItem>
-                        <SelectItem value="US">United States</SelectItem>
-                        <SelectItem value="GB">United Kingdom</SelectItem>
-                        <SelectItem value="CA">Canada</SelectItem>
-                        <SelectItem value="AU">Australia</SelectItem>
-                      </SelectContent>
-                    </Select>
+              <div className="space-y-4 sm:space-y-6">
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 sm:p-6 border border-green-200">
+                  <h3 className="text-lg sm:text-xl font-semibold text-green-900 mb-4 flex items-center">
+                    <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-white font-bold text-sm">2</span>
+                    </div>
+                    Billing Information
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          First Name
+                        </label>
+                        <Input
+                          type="text"
+                          value={firstName}
+                          onChange={(e) => setFirstName(e.target.value)}
+                          required
+                          className="h-12 sm:h-14 border-2 border-green-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 rounded-xl"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          Last Name
+                        </label>
+                        <Input
+                          type="text"
+                          value={lastName}
+                          onChange={(e) => setLastName(e.target.value)}
+                          required
+                          className="h-12 sm:h-14 border-2 border-green-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 rounded-xl"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Email Address
+                      </label>
+                      <Input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="h-12 sm:h-14 border-2 border-green-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 rounded-xl"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Phone Number
+                      </label>
+                      <Input
+                        type="tel"
+                        placeholder="+254xxxxxxxxx"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        required
+                        className="h-12 sm:h-14 border-2 border-green-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 rounded-xl"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Street Address
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder="Enter your street address"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        required
+                        className="h-12 sm:h-14 border-2 border-green-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 rounded-xl"
+                      />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          City
+                        </label>
+                        <Input
+                          type="text"
+                          placeholder="City"
+                          value={city}
+                          onChange={(e) => setCity(e.target.value)}
+                          required
+                          className="h-12 sm:h-14 border-2 border-green-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 rounded-xl"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          Country
+                        </label>
+                        <Select value={country} onValueChange={setCountry}>
+                          <SelectTrigger className="h-12 sm:h-14 border-2 border-green-200 focus:border-green-500 rounded-xl">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="KE">🇰🇪 Kenya</SelectItem>
+                            <SelectItem value="UG">🇺🇬 Uganda</SelectItem>
+                            <SelectItem value="TZ">🇹🇿 Tanzania</SelectItem>
+                            <SelectItem value="RW">🇷🇼 Rwanda</SelectItem>
+                            <SelectItem value="US">🇺🇸 United States</SelectItem>
+                            <SelectItem value="GB">🇬🇧 United Kingdom</SelectItem>
+                            <SelectItem value="CA">🇨🇦 Canada</SelectItem>
+                            <SelectItem value="AU">🇦🇺 Australia</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Wallet Address */}
-              <div className="space-y-3 sm:space-y-4">
-                <h3 className="text-base sm:text-lg font-medium text-gray-900">Wallet Address</h3>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Crypto Wallet Address
-                  </label>
-                  <Input
-                    type="text"
-                    placeholder="Enter your wallet address (e.g., 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa)"
-                    value={walletAddress}
-                    onChange={(e) => setWalletAddress(e.target.value)}
-                    required
-                    className="h-10 sm:h-12 font-mono text-sm"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">
-                    Enter the wallet address where your cryptocurrency or funds will be transferred
-                  </p>
+              <div className="space-y-4 sm:space-y-6">
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 sm:p-6 border border-purple-200">
+                  <h3 className="text-lg sm:text-xl font-semibold text-purple-900 mb-4 flex items-center">
+                    <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-white font-bold text-sm">3</span>
+                    </div>
+                    Wallet Address
+                  </h3>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Crypto Wallet Address
+                    </label>
+                    <Input
+                      type="text"
+                      placeholder="Enter your wallet address (e.g., 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa)"
+                      value={walletAddress}
+                      onChange={(e) => setWalletAddress(e.target.value)}
+                      required
+                      className="h-12 sm:h-14 font-mono text-sm border-2 border-purple-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-200 rounded-xl"
+                    />
+                    <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 mt-3">
+                      <p className="text-sm text-purple-700 flex items-start">
+                        <span className="text-purple-500 mr-2">💡</span>
+                        Enter the wallet address where your cryptocurrency or funds will be transferred after successful payment
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Payment Method */}
-              <div className="space-y-3 sm:space-y-4">
-                <h3 className="text-base sm:text-lg font-medium text-gray-900">Payment Method</h3>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
-                  <div className="flex items-center space-x-3">
-                    <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-blue-900 text-sm sm:text-base">Multiple Payment Options</p>
-                      <p className="text-xs sm:text-sm text-blue-700">Credit/Debit Cards, M-Pesa, Bank Transfer via Pesapal</p>
-                      <p className="text-xs text-blue-600 mt-1">Complete billing address required for card payments</p>
+              <div className="space-y-4 sm:space-y-6">
+                <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl p-4 sm:p-6 border border-orange-200">
+                  <h3 className="text-lg sm:text-xl font-semibold text-orange-900 mb-4 flex items-center">
+                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-white font-bold text-sm">4</span>
+                    </div>
+                    Payment Method
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="bg-white border-2 border-orange-200 rounded-lg p-4 shadow-sm">
+                      <div className="flex items-center space-x-3">
+                        <CreditCard className="w-6 h-6 text-orange-600 flex-shrink-0" />
+                        <div>
+                          <p className="font-semibold text-orange-900 text-base">Multiple Payment Options</p>
+                          <p className="text-sm text-orange-700">Credit/Debit Cards, M-Pesa, Bank Transfer via Pesapal</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
+                      <p className="text-sm text-orange-700 flex items-start">
+                        <span className="text-orange-500 mr-2">📋</span>
+                        Complete billing address required for card payments
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Submit Button */}
-              <Button
-                type="submit"
-                disabled={isProcessing}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 sm:py-4 text-base sm:text-lg font-medium h-12 sm:h-14"
-              >
-                {isProcessing ? "Processing..." : `Pay ${currency} ${amount || "0.00"}`}
-              </Button>
+              <div className="space-y-4 pt-4">
+                <Button
+                  type="submit"
+                  disabled={isProcessing}
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-4 sm:py-5 text-lg sm:text-xl font-semibold h-14 sm:h-16 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  {isProcessing ? (
+                    <div className="flex items-center justify-center space-x-3">
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      <span>Processing Payment...</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center space-x-2">
+                      <Lock className="w-5 h-5" />
+                      <span>Pay {currency} {amount || "0.00"}</span>
+                    </div>
+                  )}
+                </Button>
 
-              {/* Security Notice */}
-              <div className="text-center text-xs sm:text-sm text-gray-500 space-y-1">
-                <p>Your payment information is encrypted and secure.</p>
-                <p>Powered by Pesapal - Africa's leading payment gateway.</p>
+                {/* Security Notice */}
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                  <div className="text-center space-y-2">
+                    <div className="flex items-center justify-center space-x-2 text-green-600">
+                      <Lock className="w-4 h-4" />
+                      <span className="text-sm font-semibold">256-bit SSL Encryption</span>
+                    </div>
+                    <p className="text-xs text-gray-600">Your payment information is encrypted and secure.</p>
+                    <p className="text-xs text-gray-500">Powered by Pesapal - Africa's leading payment gateway.</p>
+                  </div>
+                </div>
               </div>
             </form>
           </CardContent>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Shield, Headphones, Menu, X, TrendingUp, TrendingDown } from "lucide-react";
+import { Star, Shield, Headphones, Menu, X, TrendingUp, TrendingDown, CheckCircle, XCircle, ArrowRight } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/hooks/useAuth";
@@ -25,22 +25,26 @@ export default function Landing() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [, setLocation] = useLocation();
   const { user, isAuthenticated, isLoading, logout } = useAuth();
+  
+  // Payment status modal state
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState<'success' | 'failed' | null>(null);
 
   // Check for payment status in URL params
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const paymentStatus = urlParams.get('payment');
+    const urlPaymentStatus = urlParams.get('payment');
     
-    if (paymentStatus === 'success') {
-      // Show success message
-      setTimeout(() => {
-        alert('Payment completed successfully! Your transaction is being processed.');
-      }, 500);
-    } else if (paymentStatus === 'failed') {
-      // Show failure message
-      setTimeout(() => {
-        alert('Payment failed. Please try again or contact support.');
-      }, 500);
+    if (urlPaymentStatus === 'success') {
+      setPaymentStatus('success');
+      setShowPaymentModal(true);
+      // Clear URL parameters
+      window.history.replaceState({}, document.title, window.location.pathname);
+    } else if (urlPaymentStatus === 'failed') {
+      setPaymentStatus('failed');
+      setShowPaymentModal(true);
+      // Clear URL parameters
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, []);
 
@@ -2127,6 +2131,84 @@ export default function Landing() {
           </div>
         </div>
       </footer>
+
+      {/* Payment Status Modal */}
+      {showPaymentModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 animate-in fade-in duration-300">
+            <div className={`rounded-t-2xl p-6 ${paymentStatus === 'success' 
+              ? 'bg-gradient-to-r from-green-500 to-emerald-500' 
+              : 'bg-gradient-to-r from-red-500 to-pink-500'
+            }`}>
+              <div className="text-center text-white">
+                <div className="mx-auto w-16 h-16 mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                  {paymentStatus === 'success' ? (
+                    <CheckCircle className="w-8 h-8" />
+                  ) : (
+                    <XCircle className="w-8 h-8" />
+                  )}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">
+                  {paymentStatus === 'success' ? 'Payment Successful!' : 'Payment Failed'}
+                </h3>
+                <p className="text-sm opacity-90">
+                  {paymentStatus === 'success' 
+                    ? 'Your transaction has been completed successfully' 
+                    : 'There was an issue processing your payment'
+                  }
+                </p>
+              </div>
+            </div>
+            
+            <div className="p-6">
+              <div className={`rounded-lg p-4 mb-6 ${paymentStatus === 'success' 
+                ? 'bg-green-50 border border-green-200' 
+                : 'bg-red-50 border border-red-200'
+              }`}>
+                <p className={`text-sm ${paymentStatus === 'success' ? 'text-green-700' : 'text-red-700'}`}>
+                  {paymentStatus === 'success' 
+                    ? '✅ Your cryptocurrency purchase is being processed and will be transferred to your wallet shortly.' 
+                    : '❌ Please try again or contact support if the issue persists.'
+                  }
+                </p>
+              </div>
+              
+              <div className="flex gap-3">
+                <Button
+                  onClick={() => setShowPaymentModal(false)}
+                  variant="outline"
+                  className="flex-1"
+                >
+                  Close
+                </Button>
+                {paymentStatus === 'success' ? (
+                  <Button
+                    onClick={() => {
+                      setShowPaymentModal(false);
+                      setLocation('/dashboard');
+                    }}
+                    className="flex-1 bg-green-600 hover:bg-green-700"
+                  >
+                    <span>View Dashboard</span>
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => {
+                      setShowPaymentModal(false);
+                      setLocation('/checkout');
+                    }}
+                    className="flex-1 bg-blue-600 hover:bg-blue-700"
+                  >
+                    <span>Try Again</span>
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
