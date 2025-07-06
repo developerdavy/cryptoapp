@@ -70,6 +70,35 @@ export default function Trade() {
   const [amount, setAmount] = useState("134.72");
   const [receiveAmount, setReceiveAmount] = useState("0.003089");
 
+  // Fetch market data for real-time calculations
+  const { data: marketData = [] } = useQuery<any[]>({
+    queryKey: ["/api/market-data"],
+  });
+
+  // Calculate receive amount based on current price
+  const calculateReceiveAmount = (fiatAmount: string, crypto: string) => {
+    const fiatNum = parseFloat(fiatAmount || "0");
+    const cryptoPrice = parseFloat(marketData?.find((m: any) => m.symbol === crypto)?.price || "0");
+    
+    if (cryptoPrice > 0 && fiatNum > 0) {
+      return (fiatNum / cryptoPrice).toFixed(8);
+    }
+    return "0.00000000";
+  };
+
+  // Update receive amount when amount or crypto changes
+  useEffect(() => {
+    const newReceiveAmount = calculateReceiveAmount(amount, selectedCrypto);
+    setReceiveAmount(newReceiveAmount);
+  }, [amount, selectedCrypto, marketData]);
+
+  // Handle amount input change
+  const handleAmountChange = (value: string) => {
+    setAmount(value);
+    const newReceiveAmount = calculateReceiveAmount(value, selectedCrypto);
+    setReceiveAmount(newReceiveAmount);
+  };
+
   // Determine trade type and crypto from URL
   useEffect(() => {
     if (location.includes('/buy/')) {
@@ -343,7 +372,7 @@ export default function Trade() {
                   type="number"
                   placeholder="Enter amount"
                   value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
+                  onChange={(e) => handleAmountChange(e.target.value)}
                   className="w-full h-12 border-2 border-gray-200 rounded-xl text-lg font-medium"
                 />
               </div>
