@@ -342,27 +342,7 @@ export default function Trade() {
             </div>
           </div>
 
-          {/* Amount Section */}
-          <div className="mt-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-600 mb-2">Amount ({selectedCurrency})</label>
-                <Input
-                  type="number"
-                  placeholder="Enter amount"
-                  value={amount}
-                  onChange={(e) => handleAmountChange(e.target.value)}
-                  className="w-full h-12 border-2 border-gray-200 rounded-xl text-lg font-medium"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-600 mb-2">You'll receive</label>
-                <div className="h-12 bg-gray-50 border-2 border-gray-200 rounded-xl flex items-center px-3">
-                  <span className="text-lg font-medium text-gray-700">{receiveAmount} {selectedCrypto}</span>
-                </div>
-              </div>
-            </div>
-          </div>
+
 
           {/* Process Steps */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-100">
