@@ -356,12 +356,18 @@ export default function Trade() {
 
             {/* Checkout Button */}
             <div className="flex-1 min-w-0 lg:flex-none lg:min-w-[200px]">
-              <Button 
-                onClick={handleCheckout}
-                className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 sm:py-4 text-base sm:text-lg font-medium rounded-xl"
-              >
-                Checkout now
-              </Button>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-600 mb-2">&nbsp;</label>
+                  <Button 
+                    onClick={handleCheckout}
+                    className="w-full h-14 bg-purple-600 hover:bg-purple-700 text-white text-base sm:text-lg font-medium rounded-xl"
+                  >
+                    Checkout now
+                  </Button>
+                </div>
+                <div className="h-14"></div>
+              </div>
             </div>
           </div>
 
