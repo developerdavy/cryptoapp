@@ -14,7 +14,7 @@ import Wallet from "./pages/wallet";
 import Markets from "./pages/markets";
 import History from "./pages/history";
 import SignIn from "./pages/signin";
-import SignUp from "./pages/signup";
+
 import AdminPanel from "./pages/admin";
 import Checkout from "./pages/checkout";
 import StripeCheckout from "./pages/checkout-stripe";
@@ -25,7 +25,7 @@ function Router() {
       <Route path="/" component={Landing} />
 
       <Route path="/signin" component={SignIn} />
-      <Route path="/signup" component={SignUp} />
+
       <Route path="/login" component={SignIn} />
       <Route path="/checkout" component={Checkout} />
       <Route path="/checkout-stripe" component={StripeCheckout} />
