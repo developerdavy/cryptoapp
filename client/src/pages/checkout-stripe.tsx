@@ -6,7 +6,6 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, CheckCircle } from "lucide-react";
-import { useLocation } from "wouter";
 
 // Make sure to call `loadStripe` outside of a component's render to avoid
 // recreating the `Stripe` object on every render.
@@ -133,7 +132,6 @@ const CheckoutForm = ({
 };
 
 export default function StripeCheckout() {
-  const [, setLocation] = useLocation();
   const [clientSecret, setClientSecret] = useState("");
   const [paymentIntentId, setPaymentIntentId] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -183,12 +181,12 @@ export default function StripeCheckout() {
     
     // Redirect to dashboard after 3 seconds
     setTimeout(() => {
-      setLocation('/dashboard');
+      window.location.href = '/dashboard';
     }, 3000);
   };
 
   const handleBack = () => {
-    setLocation('/trade');
+    window.location.href = '/trade';
   };
 
   if (isLoading) {

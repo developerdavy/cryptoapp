@@ -154,7 +154,7 @@ export default function Trade() {
     });
     
     setTimeout(() => {
-      setLocation('/checkout-stripe');
+      window.location.href = '/checkout-stripe';
     }, 1000);
     // Add actual checkout logic here
   };
