@@ -9,10 +9,8 @@ import { ArrowLeft, CheckCircle } from "lucide-react";
 
 // Make sure to call `loadStripe` outside of a component's render to avoid
 // recreating the `Stripe` object on every render.
-if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
-  throw new Error('Missing required Stripe key: VITE_STRIPE_PUBLIC_KEY');
-}
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
+const stripePublicKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY || 'pk_live_51RMNcNBrrPDbfGQam0kV7ZCBHS0PEMLoeI8bVEPAeaxxBmTpyQKhjq9B4SJRjRf2rmOuNBIJjH9sbNShClxyOXGT00EsyvMpwb';
+const stripePromise = loadStripe(stripePublicKey);
 
 interface CheckoutFormProps {
   clientSecret: string;
