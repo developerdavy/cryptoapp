@@ -339,6 +339,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { amount, currency, cryptocurrency } = req.body;
       
+      // Validate minimum amount (Stripe requires at least 50 cents USD)
+      const minAmount = currency === 'usd' ? 0.50 : 1.00; // Higher minimum for other currencies
+      if (amount < minAmount) {
+        return res.status(400).json({
+          message: `Minimum amount is ${minAmount} ${currency.toUpperCase()}. Please enter a higher amount.`
+        });
+      }
+      
       // Create a PaymentIntent with the order amount and currency
       const paymentIntent = await stripe.paymentIntents.create({
         amount: Math.round(amount * 100), // Convert to cents
@@ -358,9 +366,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
     } catch (error: any) {
       console.error("Error creating payment intent:", error);
-      res.status(500).json({ 
-        message: "Error creating payment intent: " + error.message 
-      });
+      
+      // Handle Stripe-specific errors
+      if (error.type === 'StripeInvalidRequestError') {
+        res.status(400).json({ 
+          message: error.message || "Invalid payment request"
+        });
+      } else {
+        res.status(500).json({ 
+          message: "Error creating payment intent: " + error.message 
+        });
+      }
     }
   });
 

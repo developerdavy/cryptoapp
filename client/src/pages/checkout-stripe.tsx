@@ -136,6 +136,7 @@ export default function StripeCheckout() {
   const [paymentIntentId, setPaymentIntentId] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   // Get checkout data from URL params or localStorage
   const urlParams = new URLSearchParams(window.location.search);
@@ -159,10 +160,12 @@ export default function StripeCheckout() {
           setClientSecret(data.clientSecret);
           setPaymentIntentId(data.paymentIntentId);
         } else {
-          throw new Error("Failed to create payment intent");
+          const errorData = await response.json();
+          throw new Error(errorData.message || "Failed to create payment intent");
         }
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error creating payment intent:", error);
+        setError(error.message || "Failed to load payment. Please try again.");
       } finally {
         setIsLoading(false);
       }
@@ -216,14 +219,14 @@ export default function StripeCheckout() {
     );
   }
 
-  if (!clientSecret) {
+  if (error || !clientSecret) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <Card className="w-full max-w-md">
           <CardContent className="p-8 text-center">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Unable to load payment</h2>
             <p className="text-gray-600 mb-4">
-              There was an error setting up your payment. Please try again.
+              {error || "There was an error setting up your payment. Please try again."}
             </p>
             <Button onClick={handleBack} variant="outline">
               <ArrowLeft className="w-4 h-4 mr-2" />

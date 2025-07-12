@@ -67,7 +67,7 @@ export default function Trade() {
   const [selectedCrypto, setSelectedCrypto] = useState("BTC");
   const [selectedPayment, setSelectedPayment] = useState("card");
   const [selectedCurrency, setSelectedCurrency] = useState("CAD");
-  const [amount, setAmount] = useState("134.72");
+  const [amount, setAmount] = useState("50.00");
   const [receiveAmount, setReceiveAmount] = useState("0.003089");
 
   // Fetch market data for real-time calculations
@@ -98,6 +98,20 @@ export default function Trade() {
     const newReceiveAmount = calculateReceiveAmount(value, selectedCrypto);
     setReceiveAmount(newReceiveAmount);
   };
+
+  // Validate minimum amount based on currency
+  const getMinAmount = (currency: string) => {
+    switch (currency.toLowerCase()) {
+      case 'usd': return 0.50;
+      case 'cad': return 1.00;
+      case 'eur': return 1.00;
+      case 'gbp': return 1.00;
+      default: return 1.00;
+    }
+  };
+
+  const minAmount = getMinAmount(selectedCurrency);
+  const isAmountValid = parseFloat(amount) >= minAmount;
 
   // Determine trade type and crypto from URL
   useEffect(() => {
@@ -141,6 +155,16 @@ export default function Trade() {
       return;
     }
     
+    // Validate minimum amount
+    if (!isAmountValid) {
+      toast({
+        title: "Amount Too Small",
+        description: `Minimum amount is ${minAmount} ${selectedCurrency}. Please enter a higher amount.`,
+        variant: "destructive",
+      });
+      return;
+    }
+    
     // Store checkout data for the Stripe checkout page
     localStorage.setItem('checkout_amount', amount);
     localStorage.setItem('checkout_crypto', selectedCrypto);
@@ -156,7 +180,6 @@ export default function Trade() {
     setTimeout(() => {
       window.location.href = '/checkout-stripe';
     }, 1000);
-    // Add actual checkout logic here
   };
 
   return (
@@ -273,15 +296,23 @@ export default function Trade() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="h-14 bg-gray-50 border-2 border-gray-200 rounded-xl flex items-center px-3">
+                <div className={`h-14 bg-gray-50 border-2 rounded-xl flex items-center px-3 ${
+                  !isAmountValid && amount ? 'border-red-300' : 'border-gray-200'
+                }`}>
                   <Input
                     type="number"
                     value={amount}
                     onChange={(e) => handleAmountChange(e.target.value)}
                     className="text-right text-lg font-medium border-0 p-0 bg-transparent w-full"
                     placeholder="0.00"
+                    min={minAmount}
                   />
                 </div>
+                {!isAmountValid && amount && (
+                  <p className="text-red-500 text-xs mt-1">
+                    Minimum amount is {minAmount} {selectedCurrency}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -367,7 +398,8 @@ export default function Trade() {
                   <label className="block text-sm font-medium text-gray-600 mb-2">&nbsp;</label>
                   <Button 
                     onClick={handleCheckout}
-                    className="w-full h-14 bg-purple-600 hover:bg-purple-700 text-white text-base sm:text-lg font-medium rounded-xl"
+                    disabled={!isAmountValid || !amount}
+                    className="w-full h-14 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white text-base sm:text-lg font-medium rounded-xl"
                   >
                     Checkout now
                   </Button>
