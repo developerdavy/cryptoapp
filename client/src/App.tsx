@@ -17,6 +17,7 @@ import SignIn from "./pages/signin";
 import SignUp from "./pages/signup";
 import AdminPanel from "./pages/admin";
 import Checkout from "./pages/checkout";
+import StripeCheckout from "./pages/checkout-stripe";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/signup" component={SignUp} />
       <Route path="/login" component={SignIn} />
       <Route path="/checkout" component={Checkout} />
+      <Route path="/checkout-stripe" component={StripeCheckout} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/trade" component={Trade} />
       <Route path="/buy/:crypto" component={Trade} />

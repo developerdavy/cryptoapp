@@ -141,14 +141,20 @@ export default function Trade() {
       return;
     }
     
-    // Proceed with checkout for authenticated users
+    // Store checkout data for the Stripe checkout page
+    localStorage.setItem('checkout_amount', amount);
+    localStorage.setItem('checkout_crypto', selectedCrypto);
+    localStorage.setItem('checkout_currency', selectedCurrency);
+    localStorage.setItem('checkout_receive', receiveAmount);
+    
+    // Proceed with Stripe checkout for authenticated users
     toast({
       title: "Processing Transaction",
       description: "Redirecting to secure checkout...",
     });
     
     setTimeout(() => {
-      window.location.href = "/checkout";
+      setLocation('/checkout-stripe');
     }, 1000);
     // Add actual checkout logic here
   };

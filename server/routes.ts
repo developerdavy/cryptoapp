@@ -4,6 +4,14 @@ import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
 import { insertTransactionSchema, insertMarketDataSchema } from "@shared/schema";
 import { z } from "zod";
+import Stripe from "stripe";
+
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
+}
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: "2023-10-16",
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Setup authentication
@@ -323,6 +331,108 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         res.status(500).json({ message: "Failed to execute trade" });
       }
+    }
+  });
+
+  // Stripe payment endpoints
+  app.post("/api/create-payment-intent", async (req, res) => {
+    try {
+      const { amount, currency, cryptocurrency } = req.body;
+      
+      // Create a PaymentIntent with the order amount and currency
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: Math.round(amount * 100), // Convert to cents
+        currency: currency || 'usd',
+        automatic_payment_methods: {
+          enabled: true,
+        },
+        metadata: {
+          cryptocurrency: cryptocurrency || 'BTC',
+          originalAmount: amount.toString(),
+        },
+      });
+
+      res.json({
+        clientSecret: paymentIntent.client_secret,
+        paymentIntentId: paymentIntent.id,
+      });
+    } catch (error: any) {
+      console.error("Error creating payment intent:", error);
+      res.status(500).json({ 
+        message: "Error creating payment intent: " + error.message 
+      });
+    }
+  });
+
+  // Confirm payment and process crypto transaction
+  app.post("/api/confirm-payment", async (req, res) => {
+    try {
+      const { paymentIntentId } = req.body;
+      
+      // Retrieve the payment intent to check its status
+      const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
+      
+      if (paymentIntent.status === 'succeeded') {
+        // Extract transaction details from metadata
+        const cryptocurrency = paymentIntent.metadata.cryptocurrency;
+        const fiatAmount = parseFloat(paymentIntent.metadata.originalAmount);
+        const totalAmount = paymentIntent.amount / 100; // Convert from cents
+        
+        // Get current price for the cryptocurrency
+        const marketData = await storage.getMarketData(cryptocurrency);
+        if (!marketData) {
+          return res.status(400).json({ message: "Market data not found for cryptocurrency" });
+        }
+        
+        const price = parseFloat(marketData.price);
+        const cryptoAmount = totalAmount / price;
+        const fee = totalAmount * 0.005; // 0.5% fee
+        
+        // Create transaction record
+        const transaction = await storage.createTransaction({
+          userId: demoUserId,
+          type: 'buy',
+          cryptocurrency,
+          amount: cryptoAmount.toString(),
+          fiatAmount: totalAmount.toString(),
+          price: price.toString(),
+          fee: fee.toString(),
+          status: 'completed',
+        });
+        
+        // Update holdings
+        const existingHolding = await storage.getHolding(demoUserId, cryptocurrency);
+        const currentBalance = existingHolding ? parseFloat(existingHolding.balance) : 0;
+        const currentAvgCost = existingHolding ? parseFloat(existingHolding.averageCost) : 0;
+        
+        const newBalance = currentBalance + cryptoAmount;
+        const totalCost = (currentBalance * currentAvgCost) + (cryptoAmount * price);
+        const newAvgCost = newBalance > 0 ? totalCost / newBalance : price;
+        
+        await storage.upsertHolding({
+          userId: demoUserId,
+          cryptocurrency,
+          balance: newBalance.toString(),
+          averageCost: newAvgCost.toString(),
+        });
+        
+        res.json({ 
+          success: true, 
+          transaction,
+          cryptoAmount,
+          message: "Payment successful and cryptocurrency purchased!"
+        });
+      } else {
+        res.status(400).json({ 
+          message: "Payment was not successful",
+          status: paymentIntent.status 
+        });
+      }
+    } catch (error: any) {
+      console.error("Error confirming payment:", error);
+      res.status(500).json({ 
+        message: "Error confirming payment: " + error.message 
+      });
     }
   });
 
