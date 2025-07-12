@@ -47,7 +47,7 @@ const CheckoutForm = ({
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: window.location.origin + "/trade",
+          return_url: window.location.origin + "/dashboard",
         },
         redirect: 'if_required',
       });
@@ -187,7 +187,7 @@ export default function StripeCheckout() {
   };
 
   const handleBack = () => {
-    window.location.href = '/trade';
+    window.location.href = '/dashboard';
   };
 
   if (isLoading) {

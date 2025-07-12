@@ -103,6 +103,8 @@ CryptoX is a modern, full-stack cryptocurrency exchange platform built with a Re
 
 ```
 Changelog:
+- July 12, 2025. Fixed dashboard redirect consistency - all payment flows now redirect to the same dashboard page (/dashboard) instead of mixing /trade and /dashboard redirects
+- July 12, 2025. Successfully migrated project from Replit Agent to Replit environment with PostgreSQL database setup, Stripe payment integration, and environment variables configuration
 - June 22, 2025. Updated crypto cards to match provided design with colored backgrounds, white circular icons, smooth curve line graphs, and professional visual styling
 - June 22, 2025. Replaced generic letter icons with authentic cryptocurrency symbols (₿, Ξ, ◎, ₳, etc.) across all cards and interface elements
 - June 22, 2025. Integrated live historical chart data from CoinGecko API replacing static SVG patterns with authentic 7-day cryptocurrency price movements
